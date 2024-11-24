@@ -78,8 +78,7 @@ extra_css:
 plugins:
   - mkdocstrings
   - search
-  - social:
-      cards_layout: default
+  - social
   - blog
   - ultralytics:
       enabled: True
