@@ -28,6 +28,7 @@ theme:
     - navigation.indexes # Useful for providing overview pages
     - toc.follow
     - navigation.top
+    - navigation.expand
     - search.suggest
     - search.share
   custom_dir: overrides
