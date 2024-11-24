@@ -83,12 +83,6 @@ plugins:
   - blog
   - ultralytics:
       add_share_buttons: True
-      
-markdown_extensions:
-  - attr_list
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      add_authors: True
+      add_json_ld: True
 
-extra:
-  cname: harminder.dev
