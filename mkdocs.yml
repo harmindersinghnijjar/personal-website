@@ -78,9 +78,11 @@ extra_css:
 plugins:
   - mkdocstrings
   - search
+  - git-revision-date
   - social
   - blog
-  - ultralytics
+  - ultralytics:
+      add_share_buttons: True
       
 markdown_extensions:
   - attr_list
