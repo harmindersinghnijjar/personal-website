@@ -4,7 +4,6 @@ title: Home
 hide: 
     - feedback
     - navigation
-    - toc
 permalink: /
 ---
 
