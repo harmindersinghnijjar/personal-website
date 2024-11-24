@@ -78,7 +78,8 @@ extra_css:
 plugins:
   - mkdocstrings
   - search
-  - git-revision-date
+  - git-revision-date:
+      enabled: false
   - social
   - blog
   - ultralytics:
