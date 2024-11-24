@@ -5,6 +5,7 @@ hide:
     - feedback
     - navigation
 permalink: /
+author: Harminder Singh Nijjar
 ---
 
 Welcome to my personal documentation site, a curated collection of notes, guides, and insights that I have found valuable. It is my hope that you will find these resources equally beneficial.  
