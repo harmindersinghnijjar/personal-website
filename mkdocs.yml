@@ -75,16 +75,18 @@ extra:
 
 extra_css:
   - stylesheets/extra.css
+  
+extra_javascript:
+  - javascript/extra.js
 
 plugins:
   - mkdocstrings
   - search
+  - open-in-new-tab
   - git-revision-date:
       enabled: false
   - privacy:
-      external_assets_exclude: 
-        - giscus.app/*
-        - cdn.jsdelivr.net/npm/mathjax@3/*
+      assets: false
   - social
   - blog:
       blog_toc: true
@@ -93,4 +95,5 @@ plugins:
       add_authors: true
       add_json_ld: True
   - tags
+
 
