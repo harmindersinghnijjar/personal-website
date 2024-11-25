@@ -4,6 +4,7 @@ copyright: >
   Copyright &copy; 2024 Harminder Singh Nijjar – All rights reserved.
 theme:
   name: material
+  custom_dir: overrides
   palette:
     - scheme: default
       primary: custom
@@ -31,7 +32,6 @@ theme:
     - navigation.expand
     - search.suggest
     - search.share
-  custom_dir: overrides
 
 extra:
   consent:
