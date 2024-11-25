@@ -81,10 +81,14 @@ plugins:
   - search
   - git-revision-date:
       enabled: false
+  - privacy
   - social
-  - blog
+  - blog:
+      blog_toc: true
+      archive_date_format: MMMM yyyy
   - ultralytics:
       add_share_buttons: True
       add_authors: True
       add_json_ld: True
+  - tags
 
