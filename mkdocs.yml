@@ -81,7 +81,8 @@ plugins:
   - search
   - git-revision-date:
       enabled: true
-      authors: false
+      authors: true
+      fallback_to_build_date: true
   - privacy
   - social
   - blog:
