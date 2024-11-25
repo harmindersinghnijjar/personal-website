@@ -83,8 +83,8 @@ plugins:
       enabled: false
   - privacy:
       external_assets_exclude: 
-        - cdn.jsdelivr.net/npm/mathjax@3/* 
         - giscus.app/*
+        - cdn.jsdelivr.net/npm/mathjax@3/*
   - social
   - blog:
       blog_toc: true
