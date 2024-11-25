@@ -80,7 +80,7 @@ plugins:
   - mkdocstrings
   - search
   - git-revision-date:
-      enabled: True
+      enabled: False
   - privacy
   - social
   - blog:
