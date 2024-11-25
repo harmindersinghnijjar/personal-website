@@ -14,10 +14,10 @@ Please note that this site is a continuous work in progress, with new content re
 
 ## Projects  
 
-Each year, I will undertake a series of projects with defined deadlines. This site serves as a platform to document my progress, share insights, and reflect on the outcomes of these endeavors. If you are interested in collaborating on a project or have a project idea, please feel free to reach out on <a href="https://discord.gg/cstaDPWghP" target="_blank">Discord</a>.
+Each year, I will undertake a series of projects with defined deadlines. This site serves as a platform to document my progress, share insights, and reflect on the outcomes of these endeavors. If you are interested in collaborating on a project or have a project idea, please feel free to reach out on <a href="https://discord.gg/nuJfCWCxby" target="_blank">Discord</a>.
 
 Upon completion, projects will be archived for future reference, so be sure to explore the archive section for a record of past work.  
 
 ## Blog  
 
-The blog section features a variety of posts on topics that capture my interest. These include tutorials, guides, opinion pieces, and other content that I hope will provide value and inspiration.
+The <a href="/blog">blog</a> section features a variety of posts on topics that capture my interest. These include tutorials, guides, opinion pieces, and other content that I hope will provide value and inspiration.
