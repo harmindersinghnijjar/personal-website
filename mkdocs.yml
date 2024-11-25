@@ -80,16 +80,14 @@ plugins:
   - mkdocstrings
   - search
   - git-revision-date:
-      enabled: true
-      authors: true
-      fallback_to_build_date: true
+      enabled: false
   - privacy
   - social
   - blog:
       blog_toc: true
   - ultralytics:
       add_share_buttons: True
-      add_authors: false
+      add_authors: true
       add_json_ld: True
   - tags
 
