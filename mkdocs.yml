@@ -87,7 +87,6 @@ plugins:
   - social
   - blog:
       blog_toc: true
-      archive_date_format: MMMM yyyy
   - ultralytics:
       add_share_buttons: True
       add_authors: True
