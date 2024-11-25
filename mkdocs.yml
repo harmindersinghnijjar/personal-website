@@ -81,7 +81,10 @@ plugins:
   - search
   - git-revision-date:
       enabled: false
-  - privacy
+  - privacy:
+      external_assets_exclude: 
+        - cdn.jsdelivr.net/npm/mathjax@3/* 
+        - giscus.app/*
   - social
   - blog:
       blog_toc: true
