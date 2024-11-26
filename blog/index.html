@@ -553,15 +553,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#transferring-script-files-to-local-system-or-vps" class="md-nav__link">
-    <span class="md-ellipsis">
-      Transferring Script Files to Local System or VPS
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#my-first-blog-post" class="md-nav__link">
     <span class="md-ellipsis">
       My First Blog Post
@@ -574,6 +565,15 @@
   <a href="#using-crosshairahk-to-assist-with-aiming-on-xbox-cloud-gaming" class="md-nav__link">
     <span class="md-ellipsis">
       Using Crosshair.AHK to Assist with Aiming on Xbox Cloud Gaming
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transferring-script-files-to-local-system-or-vps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transferring Script Files to Local System or VPS
     </span>
   </a>
   
@@ -632,133 +632,6 @@
     <h2 id="my-first-digital-art-blog-post"><a class="toclink" href="2024/11/25/harminder-singh-nijjars-first-digital-art-blog-post/">My First Digital Art Blog Post</a></h2>
 <p>While sitting on the dining table drinking a <a href="https://amzn.to/499IQbh">Celsius Peach Vibe</a>, I decided to create a quick digital drawing of the can next to a container of <a href="https://amzn.to/3B13TAn">JIF peanut butter</a>. The drawing was done on my <a href="https://amzn.to/3CEDYyM">MobiScribe WAVE</a> using the stylus that came with the device. The MobiScribe WAVE is a great tool for digital art, and I enjoy using it for quick sketches and drawings.</p>
 <p><img alt="JIF + Celsius Peach Vibe" src="https://i.imgur.com/knoIoDW.jpeg"></p>
-    
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2024-11-24 00:00:00+00:00">November 24, 2024</time></li>
-        
-          <li class="md-meta__item">
-            in
-            
-              <a href="category/web-scraping/" class="md-meta__link">Web Scraping</a>, 
-              <a href="category/python/" class="md-meta__link">Python</a></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              2 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="transferring-script-files-to-local-system-or-vps"><a class="toclink" href="2024/11/24/transferring-script-files-to-local-system-or-vps/">Transferring Script Files to Local System or VPS</a></h2>
-<h3 id="transferring-script-files-to-local-system-or-vps_1"><a class="toclink" href="2024/11/24/transferring-script-files-to-local-system-or-vps/#transferring-script-files-to-local-system-or-vps_1">Transferring Script Files to Local System or VPS</a></h3>
-<p>This guide explains the process of transferring a Python script for a Facebook Marketplace Scraper and setting it up on either a local system or a VPS. This scraper helps you collect and manage data from online listings efficiently.</p>
-<h4 id="features-of-the-facebook-marketplace-scraper"><a class="toclink" href="2024/11/24/transferring-script-files-to-local-system-or-vps/#features-of-the-facebook-marketplace-scraper">Features of the Facebook Marketplace Scraper</a></h4>
-<ul>
-<li><strong>Data Storage</strong>: Uses SQLite for local storage and integration with Google Sheets for cloud-based storage.</li>
-<li><strong>Notifications</strong>: Optional Telegram Bot integration for updates.</li>
-<li><strong>Proxy Support</strong>: Includes compatibility with services like Smartproxy to manage requests.</li>
-</ul>
-<hr />
-<h3 id="local-system-setup-process-windows"><a class="toclink" href="2024/11/24/transferring-script-files-to-local-system-or-vps/#local-system-setup-process-windows">Local System Setup Process (Windows)</a></h3>
-<p>This section outlines the steps to set up the scraper on your local machine.</p>
-<h4 id="prerequisites"><a class="toclink" href="2024/11/24/transferring-script-files-to-local-system-or-vps/#prerequisites">Prerequisites</a></h4>
-<p>Before proceeding, ensure you have:</p>
-<ul>
-<li>Python 3.6 or higher installed.</li>
-<li>Access to Google Cloud with credentials for Google Sheets API.</li>
-<li>An SQLite-supported system.</li>
-<li>A Telegram bot token (optional).</li>
-<li>Dependencies listed in the <code>requirements.txt</code>.</li>
-</ul>
-<h4 id="setup-steps"><a class="toclink" href="2024/11/24/transferring-script-files-to-local-system-or-vps/#setup-steps">Setup Steps</a></h4>
-<h5 id="step-1-obtain-script-files"><a class="toclink" href="2024/11/24/transferring-script-files-to-local-system-or-vps/#step-1-obtain-script-files">Step 1: Obtain Script Files</a></h5>
-<ul>
-<li>Download the script files (typically a ZIP archive) and extract them.</li>
-<li>Ensure the following files are present:</li>
-<li><code>fb_parser.py</code>: The main script.</li>
-<li><code>requirements.txt</code>: Python dependencies.</li>
-</ul>
-<h5 id="step-2-install-dependencies"><a class="toclink" href="2024/11/24/transferring-script-files-to-local-system-or-vps/#step-2-install-dependencies">Step 2: Install Dependencies</a></h5>
-<p>Open a terminal, navigate to the script folder, and run:</p>
-<pre><code class="language-bash">pip install -r requirements.txt
-</code></pre>
-<h5 id="step-3-configure-google-sheets-api"><a class="toclink" href="2024/11/24/transferring-script-files-to-local-system-or-vps/#step-3-configure-google-sheets-api">Step 3: Configure Google Sheets API</a></h5>
-<ol>
-<li>Create a Google Cloud project and enable the Sheets API.</li>
-<li>Download the <code>credentials.json</code> file and place it in the script folder.</li>
-</ol>
-<h5 id="step-4-initialize-the-database"><a class="toclink" href="2024/11/24/transferring-script-files-to-local-system-or-vps/#step-4-initialize-the-database">Step 4: Initialize the Database</a></h5>
-<p>Run the following command to create the SQLite database:</p>
-<pre><code class="language-bash">python fb_parser.py --initdb
-</code></pre>
-<h5 id="step-5-configure-telegram-notifications-optional"><a class="toclink" href="2024/11/24/transferring-script-files-to-local-system-or-vps/#step-5-configure-telegram-notifications-optional">Step 5: Configure Telegram Notifications (Optional)</a></h5>
-<p>Edit <code>fb_parser.py</code> and add your <code>bot_token</code> and <code>bot_chat_id</code>.</p>
-<h5 id="step-6-run-the-scraper"><a class="toclink" href="2024/11/24/transferring-script-files-to-local-system-or-vps/#step-6-run-the-scraper">Step 6: Run the Scraper</a></h5>
-<p>Start the scraper with:</p>
-<pre><code class="language-bash">python fb_parser.py
-</code></pre>
-<h5 id="step-7-automation-optional"><a class="toclink" href="2024/11/24/transferring-script-files-to-local-system-or-vps/#step-7-automation-optional">Step 7: Automation (Optional)</a></h5>
-<p>Use Task Scheduler to automate script execution.</p>
-<hr />
-<h3 id="vps-setup-process"><a class="toclink" href="2024/11/24/transferring-script-files-to-local-system-or-vps/#vps-setup-process">VPS Setup Process</a></h3>
-<h4 id="vps-requirements"><a class="toclink" href="2024/11/24/transferring-script-files-to-local-system-or-vps/#vps-requirements">VPS Requirements</a></h4>
-<ul>
-<li>VPS with SSH access and Python 3.6+ installed.</li>
-<li>Linux OS (Ubuntu or CentOS preferred).</li>
-<li>Necessary script files and dependencies.</li>
-</ul>
-<h4 id="setup-steps_1"><a class="toclink" href="2024/11/24/transferring-script-files-to-local-system-or-vps/#setup-steps_1">Setup Steps</a></h4>
-<h5 id="step-1-log-in-to-vps"><a class="toclink" href="2024/11/24/transferring-script-files-to-local-system-or-vps/#step-1-log-in-to-vps">Step 1: Log in to VPS</a></h5>
-<p>Access your VPS via SSH:</p>
-<pre><code class="language-bash">ssh username@hostname
-</code></pre>
-<h5 id="step-2-transfer-script-files"><a class="toclink" href="2024/11/24/transferring-script-files-to-local-system-or-vps/#step-2-transfer-script-files">Step 2: Transfer Script Files</a></h5>
-<p>Upload files using SCP or SFTP:</p>
-<pre><code class="language-bash">scp fb_parser.py requirements.txt username@hostname:/path/to/directory
-</code></pre>
-<h5 id="step-3-install-python-and-dependencies"><a class="toclink" href="2024/11/24/transferring-script-files-to-local-system-or-vps/#step-3-install-python-and-dependencies">Step 3: Install Python and Dependencies</a></h5>
-<p>Update your system and install Python dependencies:</p>
-<pre><code class="language-bash">sudo apt update
-sudo apt install python3-pip
-pip3 install -r requirements.txt
-</code></pre>
-<h5 id="step-4-configure-credentials"><a class="toclink" href="2024/11/24/transferring-script-files-to-local-system-or-vps/#step-4-configure-credentials">Step 4: Configure Credentials</a></h5>
-<p>Follow the same steps as the local setup to configure Google Sheets and Telegram credentials.</p>
-<h5 id="step-5-run-the-scraper"><a class="toclink" href="2024/11/24/transferring-script-files-to-local-system-or-vps/#step-5-run-the-scraper">Step 5: Run the Scraper</a></h5>
-<p>Navigate to the script directory and execute:</p>
-<pre><code class="language-bash">python3 fb_parser.py
-</code></pre>
-<h5 id="step-6-automate-with-cron"><a class="toclink" href="2024/11/24/transferring-script-files-to-local-system-or-vps/#step-6-automate-with-cron">Step 6: Automate with Cron</a></h5>
-<p>Use <code>cron</code> to schedule periodic script execution:</p>
-<pre><code class="language-bash">crontab -e
-# Add the line below to run daily at midnight
-0 0 * * * python3 /path/to/fb_parser.py
-</code></pre>
-<hr />
-<h3 id="conclusion"><a class="toclink" href="2024/11/24/transferring-script-files-to-local-system-or-vps/#conclusion">Conclusion</a></h3>
-<p>By following this guide, you can effectively transfer and set up the Facebook Marketplace Scraper on your local system or VPS. This tool simplifies the process of collecting and managing online listing data.</p>
-<hr />
-<h3 id="references"><a class="toclink" href="2024/11/24/transferring-script-files-to-local-system-or-vps/#references">References</a></h3>
-<ul>
-<li><a href="https://developers.google.com/sheets/api">Google Sheets API</a></li>
-<li><a href="https://www.sqlite.org/index.html">SQLite</a></li>
-<li><a href="https://core.telegram.org/bots/api">Telegram Bot API</a></li>
-<li><a href="https://dashboard.smartproxy.com">Smartproxy</a></li>
-</ul>
     
   </div>
 </article>
@@ -847,6 +720,133 @@ tempor incididunt ut labore et dolore magna aliqua.</p>
     <div class="md-post__meta md-meta">
       <ul class="md-meta__list">
         <li class="md-meta__item">
+          <time datetime="2023-11-27 00:00:00+00:00">November 27, 2023</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="category/web-scraping/" class="md-meta__link">Web Scraping</a>, 
+              <a href="category/python/" class="md-meta__link">Python</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              2 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="transferring-script-files-to-local-system-or-vps"><a class="toclink" href="2023/11/27/transferring-script-files-to-local-system-or-vps/">Transferring Script Files to Local System or VPS</a></h2>
+<h3 id="transferring-script-files-to-local-system-or-vps_1"><a class="toclink" href="2023/11/27/transferring-script-files-to-local-system-or-vps/#transferring-script-files-to-local-system-or-vps_1">Transferring Script Files to Local System or VPS</a></h3>
+<p>This guide explains the process of transferring a Python script for a Facebook Marketplace Scraper and setting it up on either a local system or a VPS. This scraper helps you collect and manage data from online listings efficiently.</p>
+<h4 id="features-of-the-facebook-marketplace-scraper"><a class="toclink" href="2023/11/27/transferring-script-files-to-local-system-or-vps/#features-of-the-facebook-marketplace-scraper">Features of the Facebook Marketplace Scraper</a></h4>
+<ul>
+<li><strong>Data Storage</strong>: Uses SQLite for local storage and integration with Google Sheets for cloud-based storage.</li>
+<li><strong>Notifications</strong>: Optional Telegram Bot integration for updates.</li>
+<li><strong>Proxy Support</strong>: Includes compatibility with services like Smartproxy to manage requests.</li>
+</ul>
+<hr />
+<h3 id="local-system-setup-process-windows"><a class="toclink" href="2023/11/27/transferring-script-files-to-local-system-or-vps/#local-system-setup-process-windows">Local System Setup Process (Windows)</a></h3>
+<p>This section outlines the steps to set up the scraper on your local machine.</p>
+<h4 id="prerequisites"><a class="toclink" href="2023/11/27/transferring-script-files-to-local-system-or-vps/#prerequisites">Prerequisites</a></h4>
+<p>Before proceeding, ensure you have:</p>
+<ul>
+<li>Python 3.6 or higher installed.</li>
+<li>Access to Google Cloud with credentials for Google Sheets API.</li>
+<li>An SQLite-supported system.</li>
+<li>A Telegram bot token (optional).</li>
+<li>Dependencies listed in the <code>requirements.txt</code>.</li>
+</ul>
+<h4 id="setup-steps"><a class="toclink" href="2023/11/27/transferring-script-files-to-local-system-or-vps/#setup-steps">Setup Steps</a></h4>
+<h5 id="step-1-obtain-script-files"><a class="toclink" href="2023/11/27/transferring-script-files-to-local-system-or-vps/#step-1-obtain-script-files">Step 1: Obtain Script Files</a></h5>
+<ul>
+<li>Download the script files (typically a ZIP archive) and extract them.</li>
+<li>Ensure the following files are present:</li>
+<li><code>fb_parser.py</code>: The main script.</li>
+<li><code>requirements.txt</code>: Python dependencies.</li>
+</ul>
+<h5 id="step-2-install-dependencies"><a class="toclink" href="2023/11/27/transferring-script-files-to-local-system-or-vps/#step-2-install-dependencies">Step 2: Install Dependencies</a></h5>
+<p>Open a terminal, navigate to the script folder, and run:</p>
+<pre><code class="language-cmd">pip install -r requirements.txt
+</code></pre>
+<h5 id="step-3-configure-google-sheets-api"><a class="toclink" href="2023/11/27/transferring-script-files-to-local-system-or-vps/#step-3-configure-google-sheets-api">Step 3: Configure Google Sheets API</a></h5>
+<ol>
+<li>Create a Google Cloud project and enable the Sheets API.</li>
+<li>Download the <code>credentials.json</code> file and place it in the script folder.</li>
+</ol>
+<h5 id="step-4-initialize-the-database"><a class="toclink" href="2023/11/27/transferring-script-files-to-local-system-or-vps/#step-4-initialize-the-database">Step 4: Initialize the Database</a></h5>
+<p>Run the following command to create the SQLite database:</p>
+<pre><code class="language-cmd">python fb_parser.py --initdb
+</code></pre>
+<h5 id="step-5-configure-telegram-notifications-optional"><a class="toclink" href="2023/11/27/transferring-script-files-to-local-system-or-vps/#step-5-configure-telegram-notifications-optional">Step 5: Configure Telegram Notifications (Optional)</a></h5>
+<p>Edit <code>fb_parser.py</code> and add your <code>bot_token</code> and <code>bot_chat_id</code>.</p>
+<h5 id="step-6-run-the-scraper"><a class="toclink" href="2023/11/27/transferring-script-files-to-local-system-or-vps/#step-6-run-the-scraper">Step 6: Run the Scraper</a></h5>
+<p>Start the scraper with:</p>
+<pre><code class="language-cmd">python fb_parser.py
+</code></pre>
+<h5 id="step-7-automation-optional"><a class="toclink" href="2023/11/27/transferring-script-files-to-local-system-or-vps/#step-7-automation-optional">Step 7: Automation (Optional)</a></h5>
+<p>Use Task Scheduler to automate script execution.</p>
+<hr />
+<h3 id="vps-setup-process"><a class="toclink" href="2023/11/27/transferring-script-files-to-local-system-or-vps/#vps-setup-process">VPS Setup Process</a></h3>
+<h4 id="vps-requirements"><a class="toclink" href="2023/11/27/transferring-script-files-to-local-system-or-vps/#vps-requirements">VPS Requirements</a></h4>
+<ul>
+<li>VPS with SSH access and Python 3.6+ installed.</li>
+<li>Linux OS (Ubuntu or CentOS preferred).</li>
+<li>Necessary script files and dependencies.</li>
+</ul>
+<h4 id="setup-steps_1"><a class="toclink" href="2023/11/27/transferring-script-files-to-local-system-or-vps/#setup-steps_1">Setup Steps</a></h4>
+<h5 id="step-1-log-in-to-vps"><a class="toclink" href="2023/11/27/transferring-script-files-to-local-system-or-vps/#step-1-log-in-to-vps">Step 1: Log in to VPS</a></h5>
+<p>Access your VPS via SSH:</p>
+<pre><code>ssh username@hostname
+</code></pre>
+<h5 id="step-2-transfer-script-files"><a class="toclink" href="2023/11/27/transferring-script-files-to-local-system-or-vps/#step-2-transfer-script-files">Step 2: Transfer Script Files</a></h5>
+<p>Upload files using SCP or SFTP:</p>
+<pre><code class="language-cmd">scp fb_parser.py requirements.txt username@hostname:/path/to/directory
+</code></pre>
+<h5 id="step-3-install-python-and-dependencies"><a class="toclink" href="2023/11/27/transferring-script-files-to-local-system-or-vps/#step-3-install-python-and-dependencies">Step 3: Install Python and Dependencies</a></h5>
+<p>Update your system and install Python dependencies:</p>
+<pre><code class="language-cmd">sudo apt update
+sudo apt install python3-pip
+pip3 install -r requirements.txt
+</code></pre>
+<h5 id="step-4-configure-credentials"><a class="toclink" href="2023/11/27/transferring-script-files-to-local-system-or-vps/#step-4-configure-credentials">Step 4: Configure Credentials</a></h5>
+<p>Follow the same steps as the local setup to configure Google Sheets and Telegram credentials.</p>
+<h5 id="step-5-run-the-scraper"><a class="toclink" href="2023/11/27/transferring-script-files-to-local-system-or-vps/#step-5-run-the-scraper">Step 5: Run the Scraper</a></h5>
+<p>Navigate to the script directory and execute:</p>
+<pre><code class="language-cmd">python3 fb_parser.py
+</code></pre>
+<h5 id="step-6-automate-with-cron"><a class="toclink" href="2023/11/27/transferring-script-files-to-local-system-or-vps/#step-6-automate-with-cron">Step 6: Automate with Cron</a></h5>
+<p>Use <code>cron</code> to schedule periodic script execution:</p>
+<pre><code class="language-cmd">crontab -e
+# Add the line below to run daily at midnight
+0 0 * * * python3 /path/to/fb_parser.py
+</code></pre>
+<hr />
+<h3 id="conclusion"><a class="toclink" href="2023/11/27/transferring-script-files-to-local-system-or-vps/#conclusion">Conclusion</a></h3>
+<p>By following this guide, you can effectively transfer and set up the Facebook Marketplace Scraper on your local system or VPS. This tool simplifies the process of collecting and managing online listing data.</p>
+<hr />
+<h3 id="references"><a class="toclink" href="2023/11/27/transferring-script-files-to-local-system-or-vps/#references">References</a></h3>
+<ul>
+<li><a href="https://developers.google.com/sheets/api">Google Sheets API</a></li>
+<li><a href="https://www.sqlite.org/index.html">SQLite</a></li>
+<li><a href="https://core.telegram.org/bots/api">Telegram Bot API</a></li>
+<li><a href="https://dashboard.smartproxy.com">Smartproxy</a></li>
+</ul>
+    
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
           <time datetime="2023-11-21 00:00:00+00:00">November 21, 2023</time></li>
         
           <li class="md-meta__item">
@@ -879,9 +879,9 @@ tempor incididunt ut labore et dolore magna aliqua.</p>
 <li>Open the Ubuntu terminal via the Windows Start menu.</li>
 <li>Use the <code>ssh</code> command to connect to your VPS:</li>
 </ol>
-<p>```bash
-   ssh your_username@your_server_ip</p>
-<p>Replace <code>your_username</code> with your VPS username and <code>your_server_ip</code> with the server’s IP address.</p>
+<p><code>cmd
+   ssh your_username@your_server_ip</code>
+   Replace <code>your_username</code> with your VPS username and <code>your_server_ip</code> with the server’s IP address.</p>
 <ol>
 <li>Enter your VPS password when prompted. After logging in, you can manage your VPS from the Ubuntu CLI.</li>
 </ol>
@@ -890,34 +890,34 @@ tempor incididunt ut labore et dolore magna aliqua.</p>
 <p>Navigating and identifying file paths in Ubuntu is essential for transferring files. Use these commands for efficient file management:</p>
 <h4 id="1-present-working-directory-pwd"><a class="toclink" href="2023/11/21/transferring-files-between-wsl-and-windows/#1-present-working-directory-pwd">1. <strong>Present Working Directory (<code>pwd</code>)</strong></a></h4>
 <p>Displays the absolute path of the current directory:</p>
-<p><code>bash
+<p><code>cmd
    pwd</code></p>
 <h4 id="2-list-directory-contents-ls"><a class="toclink" href="2023/11/21/transferring-files-between-wsl-and-windows/#2-list-directory-contents-ls">2. <strong>List Directory Contents (<code>ls</code>)</strong></a></h4>
 <p>Shows files and directories in the current location:</p>
-<p><code>bash
+<p><code>cmd
    ls</code></p>
 <h4 id="3-find-a-file-find"><a class="toclink" href="2023/11/21/transferring-files-between-wsl-and-windows/#3-find-a-file-find">3. <strong>Find a File (<code>find</code>)</strong></a></h4>
 <p>Searches for a file in the system:</p>
-<p><code>bash
+<p><code>cmd
    find / -name example.txt</code></p>
 <h4 id="4-change-directory-cd"><a class="toclink" href="2023/11/21/transferring-files-between-wsl-and-windows/#4-change-directory-cd">4. <strong>Change Directory (<code>cd</code>)</strong></a></h4>
 <p>Navigates through directories:</p>
-<p><code>bash
+<p><code>cmd
    cd /path/to/directory</code></p>
 <h4 id="5-access-windows-files"><a class="toclink" href="2023/11/21/transferring-files-between-wsl-and-windows/#5-access-windows-files">5. <strong>Access Windows Files</strong></a></h4>
 <p>WSL allows access to Windows files via <code>/mnt</code>. For example:</p>
-<p><code>bash
+<p><code>cmd
    cd /mnt/c/Users/YourUsername/Desktop</code></p>
 <hr />
 <h3 id="file-transfer-methods-using-scp"><a class="toclink" href="2023/11/21/transferring-files-between-wsl-and-windows/#file-transfer-methods-using-scp">File Transfer Methods Using SCP</a></h3>
 <h4 id="using-scp-secure-copy"><a class="toclink" href="2023/11/21/transferring-files-between-wsl-and-windows/#using-scp-secure-copy">Using SCP (Secure Copy)</a></h4>
 <p>The <code>scp</code> command securely copies files between WSL and Windows.</p>
 <h5 id="syntax"><a class="toclink" href="2023/11/21/transferring-files-between-wsl-and-windows/#syntax">Syntax</a></h5>
-<pre><code class="language-bash">scp username@source:/path/to/source/file /path/to/destination/
+<pre><code class="language-cmd">scp username@source:/path/to/source/file /path/to/destination/
 </code></pre>
 <h5 id="example-copy-files-from-wsl-to-windows"><a class="toclink" href="2023/11/21/transferring-files-between-wsl-and-windows/#example-copy-files-from-wsl-to-windows">Example: Copy Files from WSL to Windows</a></h5>
 <p>To copy screenshots from a remote VPS to your Windows Desktop:</p>
-<pre><code class="language-bash">scp root@45.88.107.136:/root/zomro-selenium-base/screenshots/* &quot;/mnt/c/Users/Harminder Nijjar/Desktop/&quot;
+<pre><code class="language-cmd">scp root@45.88.107.136:/root/zomro-selenium-base/screenshots/* &quot;/mnt/c/Users/Harminder Nijjar/Desktop/&quot;
 </code></pre>
 <p>This command transfers all files from the VPS directory to the specified Windows Desktop folder.</p>
 <hr />

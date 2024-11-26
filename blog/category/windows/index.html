@@ -847,9 +847,9 @@
 <li>Open the Ubuntu terminal via the Windows Start menu.</li>
 <li>Use the <code>ssh</code> command to connect to your VPS:</li>
 </ol>
-<p>```bash
-   ssh your_username@your_server_ip</p>
-<p>Replace <code>your_username</code> with your VPS username and <code>your_server_ip</code> with the server’s IP address.</p>
+<p><code>cmd
+   ssh your_username@your_server_ip</code>
+   Replace <code>your_username</code> with your VPS username and <code>your_server_ip</code> with the server’s IP address.</p>
 <ol>
 <li>Enter your VPS password when prompted. After logging in, you can manage your VPS from the Ubuntu CLI.</li>
 </ol>
@@ -858,34 +858,34 @@
 <p>Navigating and identifying file paths in Ubuntu is essential for transferring files. Use these commands for efficient file management:</p>
 <h4 id="1-present-working-directory-pwd"><a class="toclink" href="../../2023/11/21/transferring-files-between-wsl-and-windows/#1-present-working-directory-pwd">1. <strong>Present Working Directory (<code>pwd</code>)</strong></a></h4>
 <p>Displays the absolute path of the current directory:</p>
-<p><code>bash
+<p><code>cmd
    pwd</code></p>
 <h4 id="2-list-directory-contents-ls"><a class="toclink" href="../../2023/11/21/transferring-files-between-wsl-and-windows/#2-list-directory-contents-ls">2. <strong>List Directory Contents (<code>ls</code>)</strong></a></h4>
 <p>Shows files and directories in the current location:</p>
-<p><code>bash
+<p><code>cmd
    ls</code></p>
 <h4 id="3-find-a-file-find"><a class="toclink" href="../../2023/11/21/transferring-files-between-wsl-and-windows/#3-find-a-file-find">3. <strong>Find a File (<code>find</code>)</strong></a></h4>
 <p>Searches for a file in the system:</p>
-<p><code>bash
+<p><code>cmd
    find / -name example.txt</code></p>
 <h4 id="4-change-directory-cd"><a class="toclink" href="../../2023/11/21/transferring-files-between-wsl-and-windows/#4-change-directory-cd">4. <strong>Change Directory (<code>cd</code>)</strong></a></h4>
 <p>Navigates through directories:</p>
-<p><code>bash
+<p><code>cmd
    cd /path/to/directory</code></p>
 <h4 id="5-access-windows-files"><a class="toclink" href="../../2023/11/21/transferring-files-between-wsl-and-windows/#5-access-windows-files">5. <strong>Access Windows Files</strong></a></h4>
 <p>WSL allows access to Windows files via <code>/mnt</code>. For example:</p>
-<p><code>bash
+<p><code>cmd
    cd /mnt/c/Users/YourUsername/Desktop</code></p>
 <hr />
 <h3 id="file-transfer-methods-using-scp"><a class="toclink" href="../../2023/11/21/transferring-files-between-wsl-and-windows/#file-transfer-methods-using-scp">File Transfer Methods Using SCP</a></h3>
 <h4 id="using-scp-secure-copy"><a class="toclink" href="../../2023/11/21/transferring-files-between-wsl-and-windows/#using-scp-secure-copy">Using SCP (Secure Copy)</a></h4>
 <p>The <code>scp</code> command securely copies files between WSL and Windows.</p>
 <h5 id="syntax"><a class="toclink" href="../../2023/11/21/transferring-files-between-wsl-and-windows/#syntax">Syntax</a></h5>
-<pre><code class="language-bash">scp username@source:/path/to/source/file /path/to/destination/
+<pre><code class="language-cmd">scp username@source:/path/to/source/file /path/to/destination/
 </code></pre>
 <h5 id="example-copy-files-from-wsl-to-windows"><a class="toclink" href="../../2023/11/21/transferring-files-between-wsl-and-windows/#example-copy-files-from-wsl-to-windows">Example: Copy Files from WSL to Windows</a></h5>
 <p>To copy screenshots from a remote VPS to your Windows Desktop:</p>
-<pre><code class="language-bash">scp root@45.88.107.136:/root/zomro-selenium-base/screenshots/* &quot;/mnt/c/Users/Harminder Nijjar/Desktop/&quot;
+<pre><code class="language-cmd">scp root@45.88.107.136:/root/zomro-selenium-base/screenshots/* &quot;/mnt/c/Users/Harminder Nijjar/Desktop/&quot;
 </code></pre>
 <p>This command transfers all files from the VPS directory to the specified Windows Desktop folder.</p>
 <hr />

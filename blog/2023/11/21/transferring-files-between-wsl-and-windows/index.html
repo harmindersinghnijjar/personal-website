@@ -8,7 +8,7 @@
 <meta content="Learn how to efficiently transfer files between WSL and Windows using secure methods like SCP, with step-by-step guidance for seamless file management." name="description"/>
 <meta content="harmindersinghnijjar" name="author"/>
 <link href="https://harminder.dev/blog/2023/11/21/transferring-files-between-wsl-and-windows/" rel="canonical">
-<link href="../../../../2024/11/24/using-crosshairahk-to-assist-with-aiming-on-xbox-cloud-gaming/" rel="next"/>
+<link href="../../27/transferring-script-files-to-local-system-or-vps/" rel="next"/>
 <link href="../../../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.5.45" name="generator"/>
 <title>Transferring Files Between WSL and Windows - Harminder Singh Nijjar</title>
@@ -34,7 +34,7 @@
 <meta content="Transferring Files Between WSL and Windows - Harminder Singh Nijjar" name="twitter:title"/>
 <meta content="Learn how to efficiently transfer files between WSL and Windows using secure methods like SCP, with step-by-step guidance for seamless file management." name="twitter:description"/>
 <meta content="https://harminder.dev/assets/images/social/blog/posts/20231121.png" name="twitter:image"/>
-<meta content="Transferring Files Between WSL and Windows" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2023/11/21/transferring-files-between-wsl-and-windows" property="og:url"/><meta content="Transferring Files Between WSL and Windows" property="og:title"/><meta content="Learn how to efficiently transfer files between WSL and Windows using secure methods like SCP, with step-by-step guidance for seamless file management." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2023/11/21/transferring-files-between-wsl-and-windows" property="twitter:url"/><meta content="Transferring Files Between WSL and Windows" property="twitter:title"/><meta content="Learn how to efficiently transfer files between WSL and Windows using secure methods like SCP, with step-by-step guidance for seamless file management." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Transferring Files Between WSL and Windows", "image": [], "datePublished": "2024-11-25 19:20:49 -0800", "dateModified": "2024-11-25 19:20:49 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to efficiently transfer files between WSL and Windows using secure methods like SCP, with step-by-step guidance for seamless file management."}</script></head>
+<meta content="Transferring Files Between WSL and Windows" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2023/11/21/transferring-files-between-wsl-and-windows" property="og:url"/><meta content="Transferring Files Between WSL and Windows" property="og:title"/><meta content="Learn how to efficiently transfer files between WSL and Windows using secure methods like SCP, with step-by-step guidance for seamless file management." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2023/11/21/transferring-files-between-wsl-and-windows" property="twitter:url"/><meta content="Transferring Files Between WSL and Windows" property="twitter:title"/><meta content="Learn how to efficiently transfer files between WSL and Windows using secure methods like SCP, with step-by-step guidance for seamless file management." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Transferring Files Between WSL and Windows", "image": [], "datePublished": "2024-11-25 19:20:49 -0800", "dateModified": "2024-11-25 19:28:22 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to efficiently transfer files between WSL and Windows using secure methods like SCP, with step-by-step guidance for seamless file management."}</script></head>
 <body data-md-color-accent="custom" data-md-color-primary="custom" data-md-color-scheme="slate" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -402,9 +402,9 @@
 <li>Open the Ubuntu terminal via the Windows Start menu.</li>
 <li>Use the <code>ssh</code> command to connect to your VPS:</li>
 </ol>
-<p>```bash
-   ssh your_username@your_server_ip</p>
-<p>Replace <code>your_username</code> with your VPS username and <code>your_server_ip</code> with the server’s IP address.</p>
+<p><code>cmd
+   ssh your_username@your_server_ip</code>
+   Replace <code>your_username</code> with your VPS username and <code>your_server_ip</code> with the server’s IP address.</p>
 <ol>
 <li>Enter your VPS password when prompted. After logging in, you can manage your VPS from the Ubuntu CLI.</li>
 </ol>
@@ -413,34 +413,34 @@
 <p>Navigating and identifying file paths in Ubuntu is essential for transferring files. Use these commands for efficient file management:</p>
 <h3 id="1-present-working-directory-pwd">1. <strong>Present Working Directory (<code>pwd</code>)</strong></h3>
 <p>Displays the absolute path of the current directory:</p>
-<p><code>bash
+<p><code>cmd
    pwd</code></p>
 <h3 id="2-list-directory-contents-ls">2. <strong>List Directory Contents (<code>ls</code>)</strong></h3>
 <p>Shows files and directories in the current location:</p>
-<p><code>bash
+<p><code>cmd
    ls</code></p>
 <h3 id="3-find-a-file-find">3. <strong>Find a File (<code>find</code>)</strong></h3>
 <p>Searches for a file in the system:</p>
-<p><code>bash
+<p><code>cmd
    find / -name example.txt</code></p>
 <h3 id="4-change-directory-cd">4. <strong>Change Directory (<code>cd</code>)</strong></h3>
 <p>Navigates through directories:</p>
-<p><code>bash
+<p><code>cmd
    cd /path/to/directory</code></p>
 <h3 id="5-access-windows-files">5. <strong>Access Windows Files</strong></h3>
 <p>WSL allows access to Windows files via <code>/mnt</code>. For example:</p>
-<p><code>bash
+<p><code>cmd
    cd /mnt/c/Users/YourUsername/Desktop</code></p>
 <hr/>
 <h2 id="file-transfer-methods-using-scp">File Transfer Methods Using SCP</h2>
 <h3 id="using-scp-secure-copy">Using SCP (Secure Copy)</h3>
 <p>The <code>scp</code> command securely copies files between WSL and Windows.</p>
 <h4 id="syntax">Syntax</h4>
-<pre><code class="language-bash">scp username@source:/path/to/source/file /path/to/destination/
+<pre><code class="language-cmd">scp username@source:/path/to/source/file /path/to/destination/
 </code></pre>
 <h4 id="example-copy-files-from-wsl-to-windows">Example: Copy Files from WSL to Windows</h4>
 <p>To copy screenshots from a remote VPS to your Windows Desktop:</p>
-<pre><code class="language-bash">scp root@45.88.107.136:/root/zomro-selenium-base/screenshots/* "/mnt/c/Users/Harminder Nijjar/Desktop/"
+<pre><code class="language-cmd">scp root@45.88.107.136:/root/zomro-selenium-base/screenshots/* "/mnt/c/Users/Harminder Nijjar/Desktop/"
 </code></pre>
 <p>This command transfers all files from the VPS directory to the specified Windows Desktop folder.</p>
 <hr/>
@@ -479,7 +479,7 @@
 </div>
 </fieldset>
 </form>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-11-25, Updated 2024-11-25<br/>Authors: <a href="https://github.com/harmindersinghnijjar">harmindersinghnijjar</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-11-25, Updated 2024-11-25<br/>Authors: <a href="https://github.com/harmindersinghnijjar">harmindersinghnijjar</a> (2)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
