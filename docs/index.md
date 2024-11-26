@@ -1,6 +1,6 @@
 ---
 comment: false
-title: Harminder Singh Nijjar
+title: Home
 hide: 
     - feedback
     - toc
