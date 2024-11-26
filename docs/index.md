@@ -1,12 +1,19 @@
 ---
 comment: false
-title: Harminder Singh Nijjar - Personal Documentation Site
+title: Harminder Singh Nijjar
 hide: 
     - feedback
-    - navigation
+    - toc
 permalink: /
 author: harmindersinghnijjar
 ---
+
+<style>
+  .md-typeset h1,
+  .md-content__button {
+    display: none;
+  }
+</style>
 
 Welcome to my personal documentation site, a curated collection of notes, guides, and insights that I have found valuable. It is my hope that you will find these resources equally beneficial.  
 

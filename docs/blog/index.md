@@ -1,6 +1,5 @@
 ---
-title: Harminder Singh Nijjar's Blog On Everything Under The Sun
-permalink: /blog
+permalink: blog/index.md
 ---
 
 # Blog

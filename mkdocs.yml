@@ -94,3 +94,9 @@ plugins:
   - tags
 
 
+# Page tree
+nav:
+  - Home: index.md
+  - Blog:
+    - blog/index.md
+  
