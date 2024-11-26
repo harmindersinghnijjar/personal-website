@@ -875,12 +875,12 @@
 <h4 id="using-scp-secure-copy"><a class="toclink" href="../../2023/11/21/transferring-files-between-wsl-and-windows/#using-scp-secure-copy">Using SCP (Secure Copy)</a></h4>
 <p>The <code>scp</code> command securely copies files between WSL and Windows.</p>
 <h5 id="syntax"><a class="toclink" href="../../2023/11/21/transferring-files-between-wsl-and-windows/#syntax">Syntax</a></h5>
-<pre><code class="language-bash">scp username@source:/path/to/source/file /path/to/destination/
-</code></pre>
+<div class="highlight"><pre><span></span><code>scp<span class="w"> </span>username@source:/path/to/source/file<span class="w"> </span>/path/to/destination/
+</code></pre></div>
 <h5 id="example-copy-files-from-wsl-to-windows"><a class="toclink" href="../../2023/11/21/transferring-files-between-wsl-and-windows/#example-copy-files-from-wsl-to-windows">Example: Copy Files from WSL to Windows</a></h5>
 <p>To copy screenshots from a remote VPS to your Windows Desktop:</p>
-<pre><code class="language-bash">scp root@45.88.107.136:/root/zomro-selenium-base/screenshots/* &quot;/mnt/c/Users/Harminder Nijjar/Desktop/&quot;
-</code></pre>
+<div class="highlight"><pre><span></span><code>scp<span class="w"> </span>root@45.88.107.136:/root/zomro-selenium-base/screenshots/*<span class="w"> </span><span class="s2">&quot;/mnt/c/Users/Harminder Nijjar/Desktop/&quot;</span>
+</code></pre></div>
 <p>This command transfers all files from the VPS directory to the specified Windows Desktop folder.</p>
 <hr />
 <h3 id="conclusion"><a class="toclink" href="../../2023/11/21/transferring-files-between-wsl-and-windows/#conclusion">Conclusion</a></h3>
