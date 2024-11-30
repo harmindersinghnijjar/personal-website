@@ -87,7 +87,6 @@ extra_css:
 plugins:
   - mkdocstrings
   - search
-  - meta
   - open-in-new-tab
   - git-revision-date:
       enabled: false
