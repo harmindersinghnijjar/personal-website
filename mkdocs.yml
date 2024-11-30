@@ -19,6 +19,9 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
   logo: assets/logo.png
+  font:
+    text: Roboto
+    code: Roboto Mono
   features:
     - navigation.instant
     - navigation.instant.progress 
@@ -84,6 +87,7 @@ extra_css:
 plugins:
   - mkdocstrings
   - search
+  - meta
   - open-in-new-tab
   - git-revision-date:
       enabled: false
