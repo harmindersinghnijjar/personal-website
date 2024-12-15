@@ -2,54 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://harminder.dev/</loc>
-         <lastmod>2024-11-30</lastmod>
+         <lastmod>2024-12-15</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/</loc>
-         <lastmod>2024-11-30</lastmod>
+         <lastmod>2024-12-15</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2023/11/21/transferring-files-between-wsl-and-windows/</loc>
-         <lastmod>2024-11-30</lastmod>
+         <lastmod>2024-12-15</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2023/11/27/transferring-script-files-to-local-system-or-vps/</loc>
-         <lastmod>2024-11-30</lastmod>
+         <lastmod>2024-12-15</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2024/11/24/my-first-blog-post/</loc>
-         <lastmod>2024-11-30</lastmod>
+         <lastmod>2024-12-15</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2024/11/24/using-crosshairahk-to-assist-with-aiming-on-xbox-cloud-gaming/</loc>
-         <lastmod>2024-11-30</lastmod>
+         <lastmod>2024-12-15</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2024/11/25/harminder-singh-nijjars-digital-art-catalog/</loc>
-         <lastmod>2024-11-30</lastmod>
+         <lastmod>2024-12-15</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2024/11/25/agentic-web-scraping-in-2024/</loc>
-         <lastmod>2024-11-30</lastmod>
+         <lastmod>2024-12-15</lastmod>
+    </url>
+    <url>
+         <loc>https://harminder.dev/blog/2024/12/15/building-an-agentic-web-scraping-pipeline-for-crypto-and-meme-coins/</loc>
+         <lastmod>2024-12-15</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/archive/2024/</loc>
-         <lastmod>2024-11-30</lastmod>
+         <lastmod>2024-12-15</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/archive/2023/</loc>
-         <lastmod>2024-11-30</lastmod>
-    </url>
-    <url>
-         <loc>https://harminder.dev/blog/category/art/</loc>
-         <lastmod>2024-11-30</lastmod>
+         <lastmod>2024-12-15</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/programming/</loc>
-         <lastmod>2024-11-30</lastmod>
+         <lastmod>2024-12-15</lastmod>
+    </url>
+    <url>
+         <loc>https://harminder.dev/blog/category/art/</loc>
+         <lastmod>2024-12-15</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/gaming/</loc>
-         <lastmod>2024-11-30</lastmod>
+         <lastmod>2024-12-15</lastmod>
     </url>
 </urlset>

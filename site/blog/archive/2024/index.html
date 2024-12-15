@@ -505,6 +505,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#building-an-agentic-web-scraping-pipeline-for-crypto-and-meme-coins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building an Agentic Web Scraping Pipeline for Crypto and Meme Coins
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#harminder-singh-nijjars-digital-art-catalog" class="md-nav__link">
     <span class="md-ellipsis">
       Harminder Singh Nijjar's Digital Art Catalog
@@ -665,6 +674,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#building-an-agentic-web-scraping-pipeline-for-crypto-and-meme-coins" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building an Agentic Web Scraping Pipeline for Crypto and Meme Coins
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#harminder-singh-nijjars-digital-art-catalog" class="md-nav__link">
     <span class="md-ellipsis">
       Harminder Singh Nijjar's Digital Art Catalog
@@ -714,6 +732,182 @@
       <header class="md-typeset">
         <h1 id="2024">2024</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2024-12-15 00:00:00+00:00">December 15, 2024</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../../category/programming/" class="md-meta__link">Programming</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              3 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="building-an-agentic-web-scraping-pipeline-for-crypto-and-meme-coins"><a class="toclink" href="../../2024/12/15/building-an-agentic-web-scraping-pipeline-for-crypto-and-meme-coins/">Building an Agentic Web Scraping Pipeline for Crypto and Meme Coins</a></h2>
+<h3 id="how-to-build-an-agentic-web-scraping-pipeline-for-crypto-and-meme-coins"><a class="toclink" href="../../2024/12/15/building-an-agentic-web-scraping-pipeline-for-crypto-and-meme-coins/#how-to-build-an-agentic-web-scraping-pipeline-for-crypto-and-meme-coins"><strong>How to Build an Agentic Web Scraping Pipeline for Crypto and Meme Coins</strong></a></h3>
+<p>Agentic web scraping revolutionizes data collection by leveraging advanced scraping tools and LLM-based reasoning to analyze websites for actionable insights. This guide demonstrates how to build a closed-loop pipeline for analyzing popular crypto and meme coin websites to enhance trading strategies.</p>
+<hr />
+<h4 id="websites-to-scrape"><a class="toclink" href="../../2024/12/15/building-an-agentic-web-scraping-pipeline-for-crypto-and-meme-coins/#websites-to-scrape"><strong>Websites to Scrape</strong></a></h4>
+<p>The following websites will serve as data inputs for the pipeline:</p>
+<ol>
+<li>
+<p><strong><a href="https://movement.market/">Movement Market</a></strong><br />
+   Facilitates buying and selling meme coins with email and credit card integration.</p>
+</li>
+<li>
+<p><strong><a href="https://raydium.io/">Raydium</a></strong><br />
+   A decentralized exchange for trading tokens and coins.</p>
+</li>
+<li>
+<p><strong><a href="https://jup.ag/">Jupiter</a></strong><br />
+   A platform for seamless token swaps.</p>
+</li>
+<li>
+<p><strong><a href="https://rugcheck.info/">Rugcheck</a></strong><br />
+   A tool for evaluating meme coins and identifying scams.</p>
+</li>
+<li>
+<p><strong><a href="https://photon-sol.tinyastro.io/">Photon Sol</a></strong><br />
+   A browser-based solution for trading low-cap coins.</p>
+</li>
+<li>
+<p><strong><a href="https://cielo.finance/">Cielo Finance</a></strong><br />
+   Offers a copy-trading platform to follow top-performing wallets.</p>
+</li>
+</ol>
+<hr />
+<h4 id="step-1-structuring-data-for-public-websites"><a class="toclink" href="../../2024/12/15/building-an-agentic-web-scraping-pipeline-for-crypto-and-meme-coins/#step-1-structuring-data-for-public-websites"><strong>Step 1: Structuring Data for Public Websites</strong></a></h4>
+<p>For effective analysis, raw HTML data from these websites must be structured into human-readable Markdown.</p>
+<h5 id="tool-firecrawl"><a class="toclink" href="../../2024/12/15/building-an-agentic-web-scraping-pipeline-for-crypto-and-meme-coins/#tool-firecrawl"><strong>Tool: Firecrawl</strong></a></h5>
+<p>Use Firecrawl to scrape and format the websites:</p>
+<p><strong>Example: Scraping Movement Market</strong>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">FIRECRAWL_API</span> <span class="o">=</span> <span class="s2">&quot;https://api.firecrawl.com/v1/scrape&quot;</span>
+<span class="n">API_KEY</span> <span class="o">=</span> <span class="s2">&quot;your_firecrawl_api_key&quot;</span>
+
+<span class="k">def</span> <span class="nf">scrape_with_firecrawl</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">API_KEY</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="n">url</span><span class="p">,</span> <span class="s2">&quot;output&quot;</span><span class="p">:</span> <span class="s2">&quot;markdown&quot;</span><span class="p">}</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">FIRECRAWL_API</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;markdown&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+<span class="n">markdown_data</span> <span class="o">=</span> <span class="n">scrape_with_firecrawl</span><span class="p">(</span><span class="s2">&quot;https://movement.market/&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">markdown_data</span><span class="p">)</span>
+</code></pre></div></p>
+<p>Repeat the process for all listed websites to create structured Markdown files.</p>
+<hr />
+<h4 id="step-2-analyze-public-data-with-reasoning-agents"><a class="toclink" href="../../2024/12/15/building-an-agentic-web-scraping-pipeline-for-crypto-and-meme-coins/#step-2-analyze-public-data-with-reasoning-agents"><strong>Step 2: Analyze Public Data with Reasoning Agents</strong></a></h4>
+<p>Once the data is structured, LLMs can be used to analyze trends, extract features, and provide actionable insights.</p>
+<h5 id="example-analyzing-data-with-openai-api"><a class="toclink" href="../../2024/12/15/building-an-agentic-web-scraping-pipeline-for-crypto-and-meme-coins/#example-analyzing-data-with-openai-api"><strong>Example: Analyzing Data with OpenAI API</strong></a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">openai</span>
+
+<span class="n">openai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s2">&quot;your_openai_api_key&quot;</span>
+
+<span class="k">def</span> <span class="nf">analyze_markdown</span><span class="p">(</span><span class="n">markdown_data</span><span class="p">):</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">Completion</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="s2">&quot;text-davinci-003&quot;</span><span class="p">,</span>
+        <span class="n">prompt</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Analyze this Markdown data to identify trading opportunities and community sentiment:</span><span class="se">\n\n</span><span class="si">{</span><span class="n">markdown_data</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">max_tokens</span><span class="o">=</span><span class="mi">1000</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">choices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="n">markdown_example</span> <span class="o">=</span> <span class="s2">&quot;# Example Markdown</span><span class="se">\n</span><span class="s2">This is an example of markdown content for analysis.&quot;</span>
+<span class="n">analysis</span> <span class="o">=</span> <span class="n">analyze_markdown</span><span class="p">(</span><span class="n">markdown_example</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">analysis</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h4 id="step-3-scraping-private-data-with-web-automation"><a class="toclink" href="../../2024/12/15/building-an-agentic-web-scraping-pipeline-for-crypto-and-meme-coins/#step-3-scraping-private-data-with-web-automation"><strong>Step 3: Scraping Private Data with Web Automation</strong></a></h4>
+<p>For websites requiring interaction (e.g., logins or dynamic content), use Python's Playwright library with AgentQL for advanced navigation and data extraction.</p>
+<h5 id="example-scraping-photon-sol-with-playwright-and-agentql"><a class="toclink" href="../../2024/12/15/building-an-agentic-web-scraping-pipeline-for-crypto-and-meme-coins/#example-scraping-photon-sol-with-playwright-and-agentql"><strong>Example: Scraping Photon Sol with Playwright and AgentQL</strong></a></h5>
+<p><strong>Install Playwright and AgentQL:</strong>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>playwright
+playwright<span class="w"> </span>install
+</code></pre></div></p>
+<p><strong>Write the Python Script:</strong>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">playwright.sync_api</span> <span class="kn">import</span> <span class="n">sync_playwright</span>
+
+<span class="k">def</span> <span class="nf">scrape_photon_sol</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">sync_playwright</span><span class="p">()</span> <span class="k">as</span> <span class="n">p</span><span class="p">:</span>
+        <span class="n">browser</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">chromium</span><span class="o">.</span><span class="n">launch</span><span class="p">(</span><span class="n">headless</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">page</span> <span class="o">=</span> <span class="n">browser</span><span class="o">.</span><span class="n">new_page</span><span class="p">()</span>
+
+        <span class="c1"># Navigate to Photon Sol</span>
+        <span class="n">page</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="s2">&quot;https://photon-sol.tinyastro.io/&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Simulate interactions if needed</span>
+        <span class="n">page</span><span class="o">.</span><span class="n">wait_for_timeout</span><span class="p">(</span><span class="mi">3000</span><span class="p">)</span>  <span class="c1"># Wait for the page to load completely</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">content</span><span class="p">()</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>  <span class="c1"># Print or save the page content</span>
+        <span class="n">browser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">scrape_photon_sol</span><span class="p">()</span>
+</code></pre></div></p>
+<p>This approach ensures data can be extracted even from dynamic websites.</p>
+<hr />
+<h4 id="step-4-automating-the-pipeline"><a class="toclink" href="../../2024/12/15/building-an-agentic-web-scraping-pipeline-for-crypto-and-meme-coins/#step-4-automating-the-pipeline"><strong>Step 4: Automating the Pipeline</strong></a></h4>
+<p>Use Python-based automation tools like Apache Airflow to schedule and run the scraping and analysis pipeline.</p>
+<h5 id="example-airflow-configuration-for-the-pipeline"><a class="toclink" href="../../2024/12/15/building-an-agentic-web-scraping-pipeline-for-crypto-and-meme-coins/#example-airflow-configuration-for-the-pipeline"><strong>Example: Airflow Configuration for the Pipeline</strong></a></h5>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">airflow</span> <span class="kn">import</span> <span class="n">DAG</span>
+<span class="kn">from</span> <span class="nn">airflow.operators.python_operator</span> <span class="kn">import</span> <span class="n">PythonOperator</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="k">def</span> <span class="nf">scrape</span><span class="p">():</span>
+    <span class="c1"># Add scraping logic for all websites here</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Scraping data...&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">analyze</span><span class="p">():</span>
+    <span class="c1"># Add analysis logic here</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Analyzing data...&quot;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">DAG</span><span class="p">(</span><span class="s1">&#39;crypto_pipeline&#39;</span><span class="p">,</span> <span class="n">start_date</span><span class="o">=</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2024</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="n">schedule_interval</span><span class="o">=</span><span class="s1">&#39;@daily&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">dag</span><span class="p">:</span>
+    <span class="n">scrape_task</span> <span class="o">=</span> <span class="n">PythonOperator</span><span class="p">(</span><span class="n">task_id</span><span class="o">=</span><span class="s1">&#39;scrape&#39;</span><span class="p">,</span> <span class="n">python_callable</span><span class="o">=</span><span class="n">scrape</span><span class="p">)</span>
+    <span class="n">analyze_task</span> <span class="o">=</span> <span class="n">PythonOperator</span><span class="p">(</span><span class="n">task_id</span><span class="o">=</span><span class="s1">&#39;analyze&#39;</span><span class="p">,</span> <span class="n">python_callable</span><span class="o">=</span><span class="n">analyze</span><span class="p">)</span>
+
+    <span class="n">scrape_task</span> <span class="o">&gt;&gt;</span> <span class="n">analyze_task</span>
+</code></pre></div>
+<hr />
+<h4 id="insights-from-websites"><a class="toclink" href="../../2024/12/15/building-an-agentic-web-scraping-pipeline-for-crypto-and-meme-coins/#insights-from-websites"><strong>Insights from Websites</strong></a></h4>
+<p>Here's what you can focus on while analyzing the scraped data:</p>
+<ol>
+<li><strong>Movement Market</strong>: Review ease of use, transaction speed, and user feedback.</li>
+<li><strong>Raydium</strong>: Analyze liquidity and trading fees for tokens.</li>
+<li><strong>Jupiter</strong>: Evaluate swap rates and platform efficiency.</li>
+<li><strong>Rugcheck</strong>: Identify red flags in meme coin projects to avoid scams.</li>
+<li><strong>Photon Sol</strong>: Assess platform usability for low-cap token trading.</li>
+<li><strong>Cielo Finance</strong>: Analyze wallet strategies and portfolio performance.</li>
+</ol>
+<hr />
+<h4 id="step-5-closing-the-loop"><a class="toclink" href="../../2024/12/15/building-an-agentic-web-scraping-pipeline-for-crypto-and-meme-coins/#step-5-closing-the-loop"><strong>Step 5: Closing the Loop</strong></a></h4>
+<p>To maintain a closed-loop pipeline, configure the workflow to automatically re-scrape websites at regular intervals and update analyses with new data. This ensures decisions are based on the latest information.</p>
+<hr />
+<h4 id="conclusion"><a class="toclink" href="../../2024/12/15/building-an-agentic-web-scraping-pipeline-for-crypto-and-meme-coins/#conclusion"><strong>Conclusion</strong></a></h4>
+<p>By integrating structured scraping, advanced analysis, and automation, this agentic pipeline enables real-time insights into the crypto and meme coin ecosystem. Use the steps outlined above to stay ahead in the volatile world of meme coins while minimizing risks and maximizing returns. 🚀</p>
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
