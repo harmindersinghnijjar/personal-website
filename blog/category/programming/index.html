@@ -413,6 +413,8 @@
       
         
       
+        
+      
     
     
       
@@ -429,7 +431,7 @@
         
   
   
-    <a href="../../archive/2024/" class="md-nav__link">
+    <a href="../../archive/2025/" class="md-nav__link">
       
   
   <span class="md-ellipsis">
@@ -604,6 +606,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#setting-up-venom-for-whatsapp-translation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Up Venom for WhatsApp Translation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#building-an-agentic-web-scraping-pipeline-for-crypto-and-meme-coins" class="md-nav__link">
     <span class="md-ellipsis">
       Building an Agentic Web Scraping Pipeline for Crypto and Meme Coins
@@ -713,6 +724,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#setting-up-venom-for-whatsapp-translation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Up Venom for WhatsApp Translation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#building-an-agentic-web-scraping-pipeline-for-crypto-and-meme-coins" class="md-nav__link">
     <span class="md-ellipsis">
       Building an Agentic Web Scraping Pipeline for Crypto and Meme Coins
@@ -762,6 +782,169 @@
       <header class="md-typeset">
         <h1 id="programming">Programming</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-01-05 00:00:00+00:00">January 5, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="./" class="md-meta__link">Programming</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              3 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="setting-up-venom-for-whatsapp-translation"><a class="toclink" href="../../2025/01/05/setting-up-venom-for-whatsapp-translation/">Setting Up Venom for WhatsApp Translation</a></h2>
+<p>Automating WhatsApp messaging can be a powerful tool for customer service, personal projects, or language translation. Using <strong>Venom</strong> and <strong>Google Translate</strong>, this guide will show you how to build a script that translates incoming Spanish messages to English and replies in Spanish.</p>
+<h3 id="why-use-venom"><a class="toclink" href="../../2025/01/05/setting-up-venom-for-whatsapp-translation/#why-use-venom">Why Use Venom?</a></h3>
+<p><a href="https://github.com/orkestral/venom">Venom</a> is a robust Node.js library that allows you to interact with WhatsApp Web. It’s perfect for creating bots, automating tasks, or building translation systems like the one we’ll create here.</p>
+<h3 id="prerequisites"><a class="toclink" href="../../2025/01/05/setting-up-venom-for-whatsapp-translation/#prerequisites">Prerequisites</a></h3>
+<p>Before diving in, ensure you have the following installed:</p>
+<ol>
+<li><strong>Node.js</strong>: Install from <a href="https://nodejs.org/">Node.js Official Website</a>.</li>
+<li><strong>npm or yarn</strong>: Installed alongside Node.js.</li>
+<li><strong>Google Translate Library</strong>: For text translation.</li>
+<li><strong>Venom</strong>: For WhatsApp automation.</li>
+</ol>
+<h4 id="install-required-packages"><a class="toclink" href="../../2025/01/05/setting-up-venom-for-whatsapp-translation/#install-required-packages">Install Required Packages</a></h4>
+<p>Run the following commands to install the required libraries:</p>
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>venom-bot<span class="w"> </span>translate-google<span class="w"> </span>crypto
+</code></pre></div>
+<h3 id="implementation"><a class="toclink" href="../../2025/01/05/setting-up-venom-for-whatsapp-translation/#implementation">Implementation</a></h3>
+<p>Here’s how to set up and use Venom to translate WhatsApp messages:</p>
+<h4 id="1-initialize-the-project"><a class="toclink" href="../../2025/01/05/setting-up-venom-for-whatsapp-translation/#1-initialize-the-project">1. Initialize the Project</a></h4>
+<p>Create a new file named <code>spanish_to_english.js</code> and start with the following boilerplate:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">venom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;venom-bot&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">translate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;translate-google&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">crypto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;crypto&#39;</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="2-set-up-your-whatsapp-contact"><a class="toclink" href="../../2025/01/05/setting-up-venom-for-whatsapp-translation/#2-set-up-your-whatsapp-contact">2. Set Up Your WhatsApp Contact</a></h4>
+<p>Replace the example WhatsApp contact ID with your own:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">TARGET_CONTACT_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;your_number@c.us&#39;</span><span class="p">;</span>
+</code></pre></div>
+<p>Find the contact ID by observing your logs while running Venom.</p>
+<h4 id="3-implement-message-processing-logic"><a class="toclink" href="../../2025/01/05/setting-up-venom-for-whatsapp-translation/#3-implement-message-processing-logic">3. Implement Message Processing Logic</a></h4>
+<p>Here’s the full script for translating messages and avoiding duplicates using a hash and boolean:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Keep track of message hashes to prevent reprocessing</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">sentMessageHashes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Set</span><span class="p">();</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">isProcessing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+
+<span class="c1">// Start Venom session</span>
+<span class="nx">venom</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">session</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;my-whatsapp-session&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">multidevice</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">client</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">start</span><span class="p">(</span><span class="nx">client</span><span class="p">))</span>
+<span class="w">  </span><span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Error starting Venom:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">));</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">start</span><span class="p">(</span><span class="nx">client</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Listening for messages with contact </span><span class="si">${</span><span class="nx">TARGET_CONTACT_ID</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Delay function to slow down processing</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">delay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">ms</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="nx">ms</span><span class="p">));</span>
+
+<span class="w">  </span><span class="c1">// Hashing function to track processed messages</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">generateHash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">messageBody</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">crypto</span><span class="p">.</span><span class="nx">createHash</span><span class="p">(</span><span class="s1">&#39;sha256&#39;</span><span class="p">).</span><span class="nx">update</span><span class="p">(</span><span class="nx">messageBody</span><span class="p">).</span><span class="nx">digest</span><span class="p">(</span><span class="s1">&#39;hex&#39;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Handle incoming messages</span>
+<span class="w">  </span><span class="nx">client</span><span class="p">.</span><span class="nx">onMessage</span><span class="p">(</span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="kr">from</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">TARGET_CONTACT_ID</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">message</span><span class="p">.</span><span class="nx">fromMe</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Received message from user:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+
+<span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Translate from Spanish to English</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">english</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">translate</span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;en&#39;</span><span class="w"> </span><span class="p">});</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`(Spanish → English): </span><span class="si">${</span><span class="nx">english</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Reply in Spanish</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`Entendido: &quot;</span><span class="si">${</span><span class="nx">english</span><span class="si">}</span><span class="sb">&quot;. ¿Hay algo más en lo que pueda ayudarte?`</span><span class="p">;</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">sendText</span><span class="p">(</span><span class="nx">TARGET_CONTACT_ID</span><span class="p">,</span><span class="w"> </span><span class="nx">response</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Replied to the user in Spanish.&#39;</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Error translating incoming message:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="c1">// Handle outgoing messages</span>
+<span class="w">  </span><span class="nx">client</span><span class="p">.</span><span class="nx">onAnyMessage</span><span class="p">(</span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">to</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">TARGET_CONTACT_ID</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">message</span><span class="p">.</span><span class="nx">fromMe</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">message</span><span class="p">.</span><span class="nx">isGroupMsg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isProcessing</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;A message is already being processed. Skipping this message.&#39;</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">messageHash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">generateHash</span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">sentMessageHashes</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">messageHash</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Skipping already handled outgoing message: Hash=</span><span class="si">${</span><span class="nx">messageHash</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="nx">isProcessing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+
+<span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Preparing to send message:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Translate to Spanish</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">spanish</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">translate</span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;es&#39;</span><span class="w"> </span><span class="p">});</span>
+
+<span class="w">        </span><span class="nx">sentMessageHashes</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">messageHash</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="nx">delay</span><span class="p">(</span><span class="mf">1000</span><span class="p">);</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`(English → Spanish): </span><span class="si">${</span><span class="nx">spanish</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">sendText</span><span class="p">(</span><span class="nx">TARGET_CONTACT_ID</span><span class="p">,</span><span class="w"> </span><span class="nx">spanish</span><span class="p">);</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Sent translated message: &quot;</span><span class="si">${</span><span class="nx">spanish</span><span class="si">}</span><span class="sb">&quot;`</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Error processing the message:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">sentMessageHashes</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="nx">messageHash</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">isProcessing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="4-replace-placeholder-values"><a class="toclink" href="../../2025/01/05/setting-up-venom-for-whatsapp-translation/#4-replace-placeholder-values">4. Replace Placeholder Values</a></h4>
+<p>Replace <code>your_number@c.us</code> in the <code>TARGET_CONTACT_ID</code> variable with the actual contact ID of the target WhatsApp user.</p>
+<h4 id="5-run-the-script"><a class="toclink" href="../../2025/01/05/setting-up-venom-for-whatsapp-translation/#5-run-the-script">5. Run the Script</a></h4>
+<p>Run the script with:</p>
+<div class="highlight"><pre><span></span><code>node<span class="w"> </span>spanish_to_english.js
+</code></pre></div>
+<p>When a message is received:
+- Incoming Spanish messages are translated to English.
+- The bot replies in Spanish.</p>
+<p>For outgoing messages:
+- The bot translates English to Spanish and sends the translated message.</p>
+<h3 id="debugging-tips"><a class="toclink" href="../../2025/01/05/setting-up-venom-for-whatsapp-translation/#debugging-tips">Debugging Tips</a></h3>
+<ol>
+<li><strong>Check Logs</strong>: Use <code>console.log</code> statements to debug message handling.</li>
+<li><strong>Verify Contact ID</strong>: Ensure <code>TARGET_CONTACT_ID</code> matches the intended WhatsApp contact.</li>
+<li><strong>Resolve Dependencies</strong>: Reinstall missing packages with <code>npm install</code>.</li>
+</ol>
+<h3 id="conclusion"><a class="toclink" href="../../2025/01/05/setting-up-venom-for-whatsapp-translation/#conclusion">Conclusion</a></h3>
+<p>This script demonstrates how to build a simple yet powerful WhatsApp bot using Venom and Google Translate. It ensures smooth, non-repetitive communication by managing a hash set of processed messages and using a boolean flag for sequential message processing. With this foundation, you can extend functionality to include more advanced translations, AI integrations, or chatbot capabilities.</p>
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
@@ -1257,7 +1440,7 @@ pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2024 Harminder Singh Nijjar – All rights reserved.
+      Copyright &copy; 2025 Harminder Singh Nijjar – All rights reserved.
 
     </div>
   

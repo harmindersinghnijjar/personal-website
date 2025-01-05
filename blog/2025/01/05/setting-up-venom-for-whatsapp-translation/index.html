@@ -5,13 +5,13 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Learn how to efficiently transfer files between WSL and Windows using secure methods like SCP, with step-by-step guidance for seamless file management." name="description"/>
+<meta content="Learn how to set up Venom for translating WhatsApp messages in real time. This tutorial includes step-by-step guidance and an example implementation." name="description"/>
 <meta content="harmindersinghnijjar" name="author"/>
-<link href="https://harminder.dev/blog/2023/11/21/transferring-files-between-wsl-and-windows/" rel="canonical">
-<link href="../../27/transferring-script-files-to-local-system-or-vps/" rel="next"/>
+<link href="https://harminder.dev/blog/2025/01/05/setting-up-venom-for-whatsapp-translation/" rel="canonical">
+<link href="../../../../2024/12/15/building-an-agentic-web-scraping-pipeline-for-crypto-and-meme-coins/" rel="prev"/>
 <link href="../../../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.5.45" name="generator"/>
-<title>Transferring Files Between WSL and Windows - Harminder Singh Nijjar</title>
+<title>Setting Up Venom for WhatsApp Translation - Harminder Singh Nijjar</title>
 <link href="../../../../../assets/stylesheets/main.0253249f.min.css" rel="stylesheet"/>
 <link href="../../../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
@@ -23,24 +23,24 @@
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-X0B1C5DM9K"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-X0B1C5DM9K",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-X0B1C5DM9K",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
 <meta content="website" property="og:type"/>
-<meta content="Transferring Files Between WSL and Windows - Harminder Singh Nijjar" property="og:title"/>
-<meta content="Learn how to efficiently transfer files between WSL and Windows using secure methods like SCP, with step-by-step guidance for seamless file management." property="og:description"/>
-<meta content="https://harminder.dev/assets/images/social/blog/posts/20231121.png" property="og:image"/>
+<meta content="Setting Up Venom for WhatsApp Translation - Harminder Singh Nijjar" property="og:title"/>
+<meta content="Learn how to set up Venom for translating WhatsApp messages in real time. This tutorial includes step-by-step guidance and an example implementation." property="og:description"/>
+<meta content="https://harminder.dev/assets/images/social/blog/posts/20250105113337.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="https://harminder.dev/blog/2023/11/21/transferring-files-between-wsl-and-windows/" property="og:url"/>
+<meta content="https://harminder.dev/blog/2025/01/05/setting-up-venom-for-whatsapp-translation/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Transferring Files Between WSL and Windows - Harminder Singh Nijjar" name="twitter:title"/>
-<meta content="Learn how to efficiently transfer files between WSL and Windows using secure methods like SCP, with step-by-step guidance for seamless file management." name="twitter:description"/>
-<meta content="https://harminder.dev/assets/images/social/blog/posts/20231121.png" name="twitter:image"/>
-<meta content="Transferring Files Between WSL and Windows" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2023/11/21/transferring-files-between-wsl-and-windows" property="og:url"/><meta content="Transferring Files Between WSL and Windows" property="og:title"/><meta content="Learn how to efficiently transfer files between WSL and Windows using secure methods like SCP, with step-by-step guidance for seamless file management." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2023/11/21/transferring-files-between-wsl-and-windows" property="twitter:url"/><meta content="Transferring Files Between WSL and Windows" property="twitter:title"/><meta content="Learn how to efficiently transfer files between WSL and Windows using secure methods like SCP, with step-by-step guidance for seamless file management." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Transferring Files Between WSL and Windows", "image": [], "datePublished": "2024-11-25 19:20:49 -0800", "dateModified": "2024-11-29 17:44:18 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to efficiently transfer files between WSL and Windows using secure methods like SCP, with step-by-step guidance for seamless file management."}</script></head>
+<meta content="Setting Up Venom for WhatsApp Translation - Harminder Singh Nijjar" name="twitter:title"/>
+<meta content="Learn how to set up Venom for translating WhatsApp messages in real time. This tutorial includes step-by-step guidance and an example implementation." name="twitter:description"/>
+<meta content="https://harminder.dev/assets/images/social/blog/posts/20250105113337.png" name="twitter:image"/>
+<meta content="Setting Up Venom for WhatsApp Translation" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/05/setting-up-venom-for-whatsapp-translation" property="og:url"/><meta content="Setting Up Venom for WhatsApp Translation" property="og:title"/><meta content="Learn how to set up Venom for translating WhatsApp messages in real time. This tutorial includes step-by-step guidance and an example implementation." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/05/setting-up-venom-for-whatsapp-translation" property="twitter:url"/><meta content="Setting Up Venom for WhatsApp Translation" property="twitter:title"/><meta content="Learn how to set up Venom for translating WhatsApp messages in real time. This tutorial includes step-by-step guidance and an example implementation." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Setting Up Venom for WhatsApp Translation", "image": [], "datePublished": "2025-01-05 11:36:09 -0800", "dateModified": "2025-01-05 11:36:09 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to set up Venom for translating WhatsApp messages in real time. This tutorial includes step-by-step guidance and an example implementation."}</script></head>
 <body data-md-color-accent="custom" data-md-color-primary="custom" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#transferring-files-between-wsl-and-windows">
+<a class="md-skip" href="#setting-up-venom-for-whatsapp-translation">
           Skip to content
         </a>
 </div>
@@ -64,7 +64,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Transferring Files Between WSL and Windows
+              Setting Up Venom for WhatsApp Translation
             
           </span>
 </div>
@@ -216,59 +216,24 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#transferring-files-between-wsl-and-windows">
+<a class="md-nav__link" href="#why-use-venom">
 <span class="md-ellipsis">
-      Transferring Files Between WSL and Windows
+      Why Use Venom?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#logging-into-zomro-vps-using-wsl-in-ubuntu-cli">
+<a class="md-nav__link" href="#prerequisites">
 <span class="md-ellipsis">
-      Logging into Zomro VPS using WSL in Ubuntu CLI
+      Prerequisites
     </span>
 </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#locating-file-paths-in-ubuntu-cli">
-<span class="md-ellipsis">
-      Locating File Paths in Ubuntu CLI
-    </span>
-</a>
-<nav aria-label="Locating File Paths in Ubuntu CLI" class="md-nav">
+<nav aria-label="Prerequisites" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#1-present-working-directory-pwd">
+<a class="md-nav__link" href="#install-required-packages">
 <span class="md-ellipsis">
-      1. Present Working Directory (pwd)
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#2-list-directory-contents-ls">
-<span class="md-ellipsis">
-      2. List Directory Contents (ls)
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#3-find-a-file-find">
-<span class="md-ellipsis">
-      3. Find a File (find)
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#4-change-directory-cd">
-<span class="md-ellipsis">
-      4. Change Directory (cd)
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#5-access-windows-files">
-<span class="md-ellipsis">
-      5. Access Windows Files
+      Install Required Packages
     </span>
 </a>
 </li>
@@ -276,40 +241,57 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#file-transfer-methods-using-scp">
+<a class="md-nav__link" href="#implementation">
 <span class="md-ellipsis">
-      File Transfer Methods Using SCP
+      Implementation
     </span>
 </a>
-<nav aria-label="File Transfer Methods Using SCP" class="md-nav">
+<nav aria-label="Implementation" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#using-scp-secure-copy">
+<a class="md-nav__link" href="#1-initialize-the-project">
 <span class="md-ellipsis">
-      Using SCP (Secure Copy)
-    </span>
-</a>
-<nav aria-label="Using SCP (Secure Copy)" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#syntax">
-<span class="md-ellipsis">
-      Syntax
+      1. Initialize the Project
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#example-copy-files-from-wsl-to-windows">
+<a class="md-nav__link" href="#2-set-up-your-whatsapp-contact">
 <span class="md-ellipsis">
-      Example: Copy Files from WSL to Windows
+      2. Set Up Your WhatsApp Contact
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-implement-message-processing-logic">
+<span class="md-ellipsis">
+      3. Implement Message Processing Logic
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-replace-placeholder-values">
+<span class="md-ellipsis">
+      4. Replace Placeholder Values
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-run-the-script">
+<span class="md-ellipsis">
+      5. Run the Script
     </span>
 </a>
 </li>
 </ul>
 </nav>
 </li>
-</ul>
-</nav>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#debugging-tips">
+<span class="md-ellipsis">
+      Debugging Tips
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#conclusion">
@@ -350,7 +332,7 @@
 <li class="md-nav__item">
 <div class="md-nav__link">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"></path></svg>
-<time class="md-ellipsis" datetime="2023-11-21 00:00:00+00:00">November 21, 2023</time>
+<time class="md-ellipsis" datetime="2025-01-05 00:00:00+00:00">January 5, 2025</time>
 </div>
 </li>
 <li class="md-nav__item">
@@ -367,7 +349,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"></path></svg>
 <span class="md-ellipsis">
                             
-                              2 min read
+                              3 min read
                             
                           </span>
 </div>
@@ -382,62 +364,145 @@
 </div>
 <article class="md-content__inner md-typeset">
 <nav class="md-tags">
-<span class="md-tag">WSL</span>
-<span class="md-tag">Windows</span>
-<span class="md-tag">Ubuntu</span>
-<span class="md-tag">Linux</span>
-<span class="md-tag">File Transfer</span>
-<span class="md-tag">SCP</span>
-<span class="md-tag">Secure Copy</span>
+<span class="md-tag">Node.js</span>
+<span class="md-tag">Venom</span>
+<span class="md-tag">WhatsApp Automation</span>
+<span class="md-tag">Translation</span>
+<span class="md-tag">JavaScript</span>
 </nav>
-<h1>Transferring Files Between WSL and Windows</h1>
-<h2 id="transferring-files-between-wsl-and-windows">Transferring Files Between WSL and Windows</h2>
-<p>This guide provides a step-by-step approach to transferring files between Windows Subsystem for Linux (WSL) and Windows using tools like SCP (Secure Copy). It includes commands for file management and efficient navigation in both environments.</p>
-<hr/>
-<h2 id="logging-into-zomro-vps-using-wsl-in-ubuntu-cli">Logging into Zomro VPS using WSL in Ubuntu CLI</h2>
-<p>To access your Zomro VPS using WSL’s Ubuntu terminal:</p>
+<h1 id="setting-up-venom-for-whatsapp-translation">Setting Up Venom for WhatsApp Translation</h1>
+<p>Automating WhatsApp messaging can be a powerful tool for customer service, personal projects, or language translation. Using <strong>Venom</strong> and <strong>Google Translate</strong>, this guide will show you how to build a script that translates incoming Spanish messages to English and replies in Spanish.</p>
+<h2 id="why-use-venom">Why Use Venom?</h2>
+<p><a href="https://github.com/orkestral/venom">Venom</a> is a robust Node.js library that allows you to interact with WhatsApp Web. It’s perfect for creating bots, automating tasks, or building translation systems like the one we’ll create here.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before diving in, ensure you have the following installed:</p>
 <ol>
-<li>Open the Ubuntu terminal via the Windows Start menu.</li>
-<li>Use the <code>ssh</code> command to connect to your VPS:</li>
+<li><strong>Node.js</strong>: Install from <a href="https://nodejs.org/">Node.js Official Website</a>.</li>
+<li><strong>npm or yarn</strong>: Installed alongside Node.js.</li>
+<li><strong>Google Translate Library</strong>: For text translation.</li>
+<li><strong>Venom</strong>: For WhatsApp automation.</li>
 </ol>
-<p><code>ssh your_username@your_server_ip</code></p>
-<p>Replace <code>your_username</code> with your VPS username and <code>your_server_ip</code> with the server’s IP address.</p>
+<h3 id="install-required-packages">Install Required Packages</h3>
+<p>Run the following commands to install the required libraries:</p>
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>venom-bot<span class="w"> </span>translate-google<span class="w"> </span>crypto
+</code></pre></div>
+<h2 id="implementation">Implementation</h2>
+<p>Here’s how to set up and use Venom to translate WhatsApp messages:</p>
+<h3 id="1-initialize-the-project">1. Initialize the Project</h3>
+<p>Create a new file named <code>spanish_to_english.js</code> and start with the following boilerplate:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">venom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">'venom-bot'</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">translate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">'translate-google'</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">crypto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">'crypto'</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="2-set-up-your-whatsapp-contact">2. Set Up Your WhatsApp Contact</h3>
+<p>Replace the example WhatsApp contact ID with your own:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">TARGET_CONTACT_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'your_number@c.us'</span><span class="p">;</span>
+</code></pre></div>
+<p>Find the contact ID by observing your logs while running Venom.</p>
+<h3 id="3-implement-message-processing-logic">3. Implement Message Processing Logic</h3>
+<p>Here’s the full script for translating messages and avoiding duplicates using a hash and boolean:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Keep track of message hashes to prevent reprocessing</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">sentMessageHashes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Set</span><span class="p">();</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">isProcessing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+
+<span class="c1">// Start Venom session</span>
+<span class="nx">venom</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">session</span><span class="o">:</span><span class="w"> </span><span class="s1">'my-whatsapp-session'</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">multidevice</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">client</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">start</span><span class="p">(</span><span class="nx">client</span><span class="p">))</span>
+<span class="w">  </span><span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">'Error starting Venom:'</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">));</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">start</span><span class="p">(</span><span class="nx">client</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Listening for messages with contact </span><span class="si">${</span><span class="nx">TARGET_CONTACT_ID</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Delay function to slow down processing</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">delay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">ms</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="nx">ms</span><span class="p">));</span>
+
+<span class="w">  </span><span class="c1">// Hashing function to track processed messages</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">generateHash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">messageBody</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">crypto</span><span class="p">.</span><span class="nx">createHash</span><span class="p">(</span><span class="s1">'sha256'</span><span class="p">).</span><span class="nx">update</span><span class="p">(</span><span class="nx">messageBody</span><span class="p">).</span><span class="nx">digest</span><span class="p">(</span><span class="s1">'hex'</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Handle incoming messages</span>
+<span class="w">  </span><span class="nx">client</span><span class="p">.</span><span class="nx">onMessage</span><span class="p">(</span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="kr">from</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">TARGET_CONTACT_ID</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">message</span><span class="p">.</span><span class="nx">fromMe</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Received message from user:'</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+
+<span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Translate from Spanish to English</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">english</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">translate</span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="s1">'en'</span><span class="w"> </span><span class="p">});</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`(Spanish → English): </span><span class="si">${</span><span class="nx">english</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Reply in Spanish</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`Entendido: "</span><span class="si">${</span><span class="nx">english</span><span class="si">}</span><span class="sb">". ¿Hay algo más en lo que pueda ayudarte?`</span><span class="p">;</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">sendText</span><span class="p">(</span><span class="nx">TARGET_CONTACT_ID</span><span class="p">,</span><span class="w"> </span><span class="nx">response</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Replied to the user in Spanish.'</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">'Error translating incoming message:'</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">});</span>
+
+<span class="w">  </span><span class="c1">// Handle outgoing messages</span>
+<span class="w">  </span><span class="nx">client</span><span class="p">.</span><span class="nx">onAnyMessage</span><span class="p">(</span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">to</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">TARGET_CONTACT_ID</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">message</span><span class="p">.</span><span class="nx">fromMe</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">message</span><span class="p">.</span><span class="nx">isGroupMsg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isProcessing</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'A message is already being processed. Skipping this message.'</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">messageHash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">generateHash</span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">sentMessageHashes</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">messageHash</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Skipping already handled outgoing message: Hash=</span><span class="si">${</span><span class="nx">messageHash</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+
+<span class="w">      </span><span class="nx">isProcessing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+
+<span class="w">      </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Preparing to send message:'</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">// Translate to Spanish</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">spanish</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">translate</span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="s1">'es'</span><span class="w"> </span><span class="p">});</span>
+
+<span class="w">        </span><span class="nx">sentMessageHashes</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">messageHash</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="nx">delay</span><span class="p">(</span><span class="mf">1000</span><span class="p">);</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`(English → Spanish): </span><span class="si">${</span><span class="nx">spanish</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">sendText</span><span class="p">(</span><span class="nx">TARGET_CONTACT_ID</span><span class="p">,</span><span class="w"> </span><span class="nx">spanish</span><span class="p">);</span>
+
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Sent translated message: "</span><span class="si">${</span><span class="nx">spanish</span><span class="si">}</span><span class="sb">"`</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">'Error processing the message:'</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">sentMessageHashes</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="nx">messageHash</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">isProcessing</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="4-replace-placeholder-values">4. Replace Placeholder Values</h3>
+<p>Replace <code>your_number@c.us</code> in the <code>TARGET_CONTACT_ID</code> variable with the actual contact ID of the target WhatsApp user.</p>
+<h3 id="5-run-the-script">5. Run the Script</h3>
+<p>Run the script with:</p>
+<div class="highlight"><pre><span></span><code>node<span class="w"> </span>spanish_to_english.js
+</code></pre></div>
+<p>When a message is received:
+- Incoming Spanish messages are translated to English.
+- The bot replies in Spanish.</p>
+<p>For outgoing messages:
+- The bot translates English to Spanish and sends the translated message.</p>
+<h2 id="debugging-tips">Debugging Tips</h2>
 <ol>
-<li>Enter your VPS password when prompted. After logging in, you can manage your VPS from the Ubuntu CLI.</li>
+<li><strong>Check Logs</strong>: Use <code>console.log</code> statements to debug message handling.</li>
+<li><strong>Verify Contact ID</strong>: Ensure <code>TARGET_CONTACT_ID</code> matches the intended WhatsApp contact.</li>
+<li><strong>Resolve Dependencies</strong>: Reinstall missing packages with <code>npm install</code>.</li>
 </ol>
-<hr/>
-<h2 id="locating-file-paths-in-ubuntu-cli">Locating File Paths in Ubuntu CLI</h2>
-<p>Navigating and identifying file paths in Ubuntu is essential for transferring files. Use these commands for efficient file management:</p>
-<h3 id="1-present-working-directory-pwd">1. <strong>Present Working Directory (<code>pwd</code>)</strong></h3>
-<p>Displays the absolute path of the current directory:</p>
-<p><code>pwd</code></p>
-<h3 id="2-list-directory-contents-ls">2. <strong>List Directory Contents (<code>ls</code>)</strong></h3>
-<p>Shows files and directories in the current location:</p>
-<p><code>ls</code></p>
-<h3 id="3-find-a-file-find">3. <strong>Find a File (<code>find</code>)</strong></h3>
-<p>Searches for a file in the system:</p>
-<p><code>find / -name example.txt</code></p>
-<h3 id="4-change-directory-cd">4. <strong>Change Directory (<code>cd</code>)</strong></h3>
-<p>Navigates through directories:</p>
-<p><code>cd /path/to/directory</code></p>
-<h3 id="5-access-windows-files">5. <strong>Access Windows Files</strong></h3>
-<p>WSL allows access to Windows files via <code>/mnt</code>. For example:</p>
-<p><code>cd /mnt/c/Users/YourUsername/Desktop</code></p>
-<hr/>
-<h2 id="file-transfer-methods-using-scp">File Transfer Methods Using SCP</h2>
-<h3 id="using-scp-secure-copy">Using SCP (Secure Copy)</h3>
-<p>The <code>scp</code> command securely copies files between WSL and Windows.</p>
-<h4 id="syntax">Syntax</h4>
-<div class="highlight"><pre><span></span><code>scp<span class="w"> </span>username@source:/path/to/source/file<span class="w"> </span>/path/to/destination/
-</code></pre></div>
-<h4 id="example-copy-files-from-wsl-to-windows">Example: Copy Files from WSL to Windows</h4>
-<p>To copy screenshots from a remote VPS to your Windows Desktop:</p>
-<div class="highlight"><pre><span></span><code>scp<span class="w"> </span>root@45.88.107.136:/root/zomro-selenium-base/screenshots/*<span class="w"> </span><span class="s2">"/mnt/c/Users/Harminder Nijjar/Desktop/"</span>
-</code></pre></div>
-<p>This command transfers all files from the VPS directory to the specified Windows Desktop folder.</p>
-<hr/>
 <h2 id="conclusion">Conclusion</h2>
-<p>Transferring files between WSL and Windows is simple and efficient using commands like <code>scp</code>. Mastering these techniques will streamline your workflow and enhance your productivity across WSL and Windows environments.</p>
+<p>This script demonstrates how to build a simple yet powerful WhatsApp bot using Venom and Google Translate. It ensures smooth, non-repetitive communication by managing a hash set of processed messages and using a boolean flag for sequential message processing. With this foundation, you can extend functionality to include more advanced translations, AI integrations, or chatbot capabilities.</p>
 <form class="md-feedback" hidden="" name="feedback">
 <fieldset>
 <legend class="md-feedback__title">
@@ -471,7 +536,7 @@
 </div>
 </fieldset>
 </form>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-11-25, Updated 2024-11-29<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (8)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-05, Updated 2025-01-05<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -482,10 +547,10 @@
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/2023/11/21/transferring-files-between-wsl-and-windows', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/2025/01/05/setting-up-venom-for-whatsapp-translation', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/2023/11/21/transferring-files-between-wsl-and-windows', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/2025/01/05/setting-up-venom-for-whatsapp-translation', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
