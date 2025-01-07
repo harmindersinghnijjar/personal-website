@@ -5,14 +5,13 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Learn how to set up Venom for translating WhatsApp messages in real time. This tutorial includes step-by-step guidance and an example implementation." name="description"/>
+<meta content="Learn how to fine-tune the GPT-4o-mini model for specific tasks using the chat-based text completion format. A step-by-step guide to prepare, format, and execute fine-tuning." name="description"/>
 <meta content="harmindersinghnijjar" name="author"/>
-<link href="https://harminder.dev/blog/2025/01/05/setting-up-venom-for-whatsapp-translation/" rel="canonical">
-<link href="../../../../2024/12/15/building-an-agentic-web-scraping-pipeline-for-crypto-and-meme-coins/" rel="prev"/>
-<link href="../../07/fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format/" rel="next"/>
+<link href="https://harminder.dev/blog/2025/01/07/fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format/" rel="canonical">
+<link href="../../05/setting-up-venom-for-whatsapp-translation/" rel="prev"/>
 <link href="../../../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.5.45" name="generator"/>
-<title>Setting Up Venom for WhatsApp Translation - Harminder Singh Nijjar</title>
+<title>Fine-Tuning GPT-4o-Mini Model in Chat Text Completion Format - Harminder Singh Nijjar</title>
 <link href="../../../../../assets/stylesheets/main.0253249f.min.css" rel="stylesheet"/>
 <link href="../../../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
@@ -24,24 +23,24 @@
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-X0B1C5DM9K"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-X0B1C5DM9K",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-X0B1C5DM9K",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
 <meta content="website" property="og:type"/>
-<meta content="Setting Up Venom for WhatsApp Translation - Harminder Singh Nijjar" property="og:title"/>
-<meta content="Learn how to set up Venom for translating WhatsApp messages in real time. This tutorial includes step-by-step guidance and an example implementation." property="og:description"/>
-<meta content="https://harminder.dev/assets/images/social/blog/posts/20250105113337.png" property="og:image"/>
+<meta content="Fine-Tuning GPT-4o-Mini Model in Chat Text Completion Format - Harminder Singh Nijjar" property="og:title"/>
+<meta content="Learn how to fine-tune the GPT-4o-mini model for specific tasks using the chat-based text completion format. A step-by-step guide to prepare, format, and execute fine-tuning." property="og:description"/>
+<meta content="https://i.imgur.com/B4BhE7D.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="https://harminder.dev/blog/2025/01/05/setting-up-venom-for-whatsapp-translation/" property="og:url"/>
+<meta content="https://harminder.dev/blog/2025/01/07/fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Setting Up Venom for WhatsApp Translation - Harminder Singh Nijjar" name="twitter:title"/>
-<meta content="Learn how to set up Venom for translating WhatsApp messages in real time. This tutorial includes step-by-step guidance and an example implementation." name="twitter:description"/>
-<meta content="https://harminder.dev/assets/images/social/blog/posts/20250105113337.png" name="twitter:image"/>
-<meta content="Setting Up Venom for WhatsApp Translation" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/05/setting-up-venom-for-whatsapp-translation" property="og:url"/><meta content="Setting Up Venom for WhatsApp Translation" property="og:title"/><meta content="Learn how to set up Venom for translating WhatsApp messages in real time. This tutorial includes step-by-step guidance and an example implementation." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/05/setting-up-venom-for-whatsapp-translation" property="twitter:url"/><meta content="Setting Up Venom for WhatsApp Translation" property="twitter:title"/><meta content="Learn how to set up Venom for translating WhatsApp messages in real time. This tutorial includes step-by-step guidance and an example implementation." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Setting Up Venom for WhatsApp Translation", "image": [], "datePublished": "2025-01-05 11:36:09 -0800", "dateModified": "2025-01-05 20:37:21 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to set up Venom for translating WhatsApp messages in real time. This tutorial includes step-by-step guidance and an example implementation."}</script></head>
+<meta content="Fine-Tuning GPT-4o-Mini Model in Chat Text Completion Format - Harminder Singh Nijjar" name="twitter:title"/>
+<meta content="Learn how to fine-tune the GPT-4o-mini model for specific tasks using the chat-based text completion format. A step-by-step guide to prepare, format, and execute fine-tuning." name="twitter:description"/>
+<meta content="https://harminder.dev/assets/images/social/blog/posts/20250107110056.png" name="twitter:image"/>
+<meta content="Fine-Tuning GPT-4o-Mini Model in Chat Text Completion Format" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/07/fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format" property="og:url"/><meta content="Fine-Tuning GPT-4o-Mini Model in Chat Text Completion Format" property="og:title"/><meta content="Learn how to fine-tune the GPT-4o-mini model for specific tasks using the chat-based text completion format. A step-by-step guide to prepare, format, and execute fine-tuning." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/07/fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format" property="twitter:url"/><meta content="Fine-Tuning GPT-4o-Mini Model in Chat Text Completion Format" property="twitter:title"/><meta content="Learn how to fine-tune the GPT-4o-mini model for specific tasks using the chat-based text completion format. A step-by-step guide to prepare, format, and execute fine-tuning." property="twitter:description"/><meta content="https://i.imgur.com/B4BhE7D.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Fine-Tuning GPT-4o-Mini Model in Chat Text Completion Format", "image": ["https://i.imgur.com/B4BhE7D.png"], "datePublished": "2025-01-07 11:07:37 -0800", "dateModified": "2025-01-07 11:07:37 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to fine-tune the GPT-4o-mini model for specific tasks using the chat-based text completion format. A step-by-step guide to prepare, format, and execute fine-tuning."}</script></head>
 <body data-md-color-accent="custom" data-md-color-primary="custom" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#setting-up-venom-for-whatsapp-translation">
+<a class="md-skip" href="#fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format">
           Skip to content
         </a>
 </div>
@@ -65,7 +64,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Setting Up Venom for WhatsApp Translation
+              Fine-Tuning GPT-4o-Mini Model in Chat Text Completion Format
             
           </span>
 </div>
@@ -217,24 +216,17 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#why-use-venom">
+<a class="md-nav__link" href="#understanding-the-chat-text-completion-format">
 <span class="md-ellipsis">
-      Why Use Venom?
+      Understanding the Chat Text Completion Format
     </span>
 </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#prerequisites">
-<span class="md-ellipsis">
-      Prerequisites
-    </span>
-</a>
-<nav aria-label="Prerequisites" class="md-nav">
+<nav aria-label="Understanding the Chat Text Completion Format" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#install-required-packages">
+<a class="md-nav__link" href="#example-of-chat-based-format">
 <span class="md-ellipsis">
-      Install Required Packages
+      Example of Chat-Based Format
     </span>
 </a>
 </li>
@@ -242,45 +234,25 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#implementation">
+<a class="md-nav__link" href="#steps-to-fine-tune-gpt-4o-mini">
 <span class="md-ellipsis">
-      Implementation
+      Steps to Fine-Tune GPT-4o-Mini
     </span>
 </a>
-<nav aria-label="Implementation" class="md-nav">
+<nav aria-label="Steps to Fine-Tune GPT-4o-Mini" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#1-initialize-the-project">
+<a class="md-nav__link" href="#step-1-collecting-and-formatting-data">
 <span class="md-ellipsis">
-      1. Initialize the Project
+      Step 1: Collecting and Formatting Data
     </span>
 </a>
-</li>
+<nav aria-label="Step 1: Collecting and Formatting Data" class="md-nav">
+<ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#2-set-up-your-whatsapp-contacts">
+<a class="md-nav__link" href="#preparing-data-for-fine-tuning">
 <span class="md-ellipsis">
-      2. Set Up Your WhatsApp Contacts
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#3-implement-the-translation-logic">
-<span class="md-ellipsis">
-      3. Implement the Translation Logic
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#4-run-the-script">
-<span class="md-ellipsis">
-      4. Run the Script
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#5-what-happens">
-<span class="md-ellipsis">
-      5. What Happens?
+      Preparing Data for Fine-Tuning
     </span>
 </a>
 </li>
@@ -288,9 +260,62 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#debugging-tips">
+<a class="md-nav__link" href="#step-2-validating-the-dataset">
 <span class="md-ellipsis">
-      Debugging Tips
+      Step 2: Validating the Dataset
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-3-fine-tuning-with-openai-api">
+<span class="md-ellipsis">
+      Step 3: Fine-Tuning with OpenAI API
+    </span>
+</a>
+<nav aria-label="Step 3: Fine-Tuning with OpenAI API" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setting-up-the-openai-cli-or-python-sdk">
+<span class="md-ellipsis">
+      Setting Up the OpenAI CLI or Python SDK
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#common-errors-and-troubleshooting">
+<span class="md-ellipsis">
+      Common Errors and Troubleshooting
+    </span>
+</a>
+<nav aria-label="Common Errors and Troubleshooting" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#invalid-training-file-format">
+<span class="md-ellipsis">
+      Invalid Training File Format
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#insufficient-examples">
+<span class="md-ellipsis">
+      Insufficient Examples
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#best-practices-for-fine-tuning">
+<span class="md-ellipsis">
+      Best Practices for Fine-Tuning
     </span>
 </a>
 </li>
@@ -333,7 +358,7 @@
 <li class="md-nav__item">
 <div class="md-nav__link">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"></path></svg>
-<time class="md-ellipsis" datetime="2025-01-05 00:00:00+00:00">January 5, 2025</time>
+<time class="md-ellipsis" datetime="2025-01-07 00:00:00+00:00">January 7, 2025</time>
 </div>
 </li>
 <li class="md-nav__item">
@@ -342,7 +367,7 @@
 <span class="md-ellipsis">
                             in
                             
-                              <a href="../../../../category/programming/">Programming</a></span>
+                              <a href="../../../../category/machine-learning/">Machine Learning</a></span>
 </div>
 </li>
 <li class="md-nav__item">
@@ -365,139 +390,91 @@
 </div>
 <article class="md-content__inner md-typeset">
 <nav class="md-tags">
-<span class="md-tag">Node.js</span>
-<span class="md-tag">Venom</span>
-<span class="md-tag">WhatsApp Automation</span>
-<span class="md-tag">Translation</span>
-<span class="md-tag">JavaScript</span>
+<span class="md-tag">GPT-4o-mini</span>
+<span class="md-tag">Fine-Tuning</span>
+<span class="md-tag">OpenAI</span>
+<span class="md-tag">Machine Learning</span>
+<span class="md-tag">AI Models</span>
 </nav>
-<h1 id="setting-up-venom-for-whatsapp-translation">Setting Up Venom for WhatsApp Translation</h1>
-<p>Automating WhatsApp messaging can be a powerful tool for customer service, personal projects, or language translation. Using <strong>Venom</strong> and <strong>Google Translate</strong>, this guide will show you how to build a script that translates incoming Spanish messages to English and replies in Spanish.</p>
-<h2 id="why-use-venom">Why Use Venom?</h2>
-<p><a href="https://github.com/orkestral/venom">Venom</a> is a robust Node.js library that allows you to interact with WhatsApp Web. It’s perfect for creating bots, automating tasks, or building translation systems like the one we’ll create here.</p>
-<h2 id="prerequisites">Prerequisites</h2>
-<p>Before diving in, ensure you have the following installed:</p>
+<h1 id="fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format">Fine-Tuning GPT-4o-Mini Model in Chat Text Completion Format</h1>
+<p>Fine-tuning a pre-trained model like GPT-4o-mini can supercharge its performance for domain-specific tasks or particular response styles. This blog explores how to fine-tune the GPT-4o-mini model using OpenAI’s chat-based text completion format.</p>
+<h2 id="understanding-the-chat-text-completion-format">Understanding the Chat Text Completion Format</h2>
+<p>Unlike standard completion tasks, chat-based models require data formatted as a conversation between roles like <code>system</code>, <code>user</code>, and <code>assistant</code>. For fine-tuning purposes, data must be in this format to ensure compatibility with the model’s structure.</p>
+<h3 id="example-of-chat-based-format">Example of Chat-Based Format</h3>
+<div class="highlight"><pre><span></span><code>{"messages": [{"role": "system", "content": "You are a helpful assistant."}, {"role": "user", "content": "What is the capital of France?"}, {"role": "assistant", "content": "The capital of France is Paris."}]}
+{"messages": [{"role": "user", "content": "Can you summarize the benefits of GPT models?"}, {"role": "assistant", "content": "GPT models are versatile and excel at tasks like natural language understanding, summarization, translation, and content generation."}]}
+</code></pre></div>
+<p>This structure ensures the model understands role-based context during interactions.</p>
+<hr/>
+<h2 id="steps-to-fine-tune-gpt-4o-mini">Steps to Fine-Tune GPT-4o-Mini</h2>
+<h3 id="step-1-collecting-and-formatting-data">Step 1: Collecting and Formatting Data</h3>
+<h4 id="preparing-data-for-fine-tuning">Preparing Data for Fine-Tuning</h4>
+<p>The dataset must be prepared in a <code>.jsonl</code> format where each line represents one chat interaction. For instance:</p>
+<div class="highlight"><pre><span></span><code>{"messages": [{"role": "system", "content": "You are a travel expert."}, {"role": "user", "content": "What are the best places to visit in Europe?"}, {"role": "assistant", "content": "Some of the best places to visit in Europe include Paris, Rome, Barcelona, and Amsterdam."}]}
+{"messages": [{"role": "system", "content": "You are a medical assistant."}, {"role": "user", "content": "What should I do for a common cold?"}, {"role": "assistant", "content": "For a common cold, you should rest, stay hydrated, and consider over-the-counter medications for symptom relief."}]}
+</code></pre></div>
+<h3 id="step-2-validating-the-dataset">Step 2: Validating the Dataset</h3>
+<p>Ensure the dataset conforms to the required structure:
+- All entries are valid JSON objects.
+- Each object contains a <code>messages</code> key with an array of message objects.
+- Each message has a <code>role</code> and <code>content</code> field.</p>
+<p>Run a Python script to validate your dataset:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">def</span> <span class="nf">validate_jsonl</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">'r'</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">'utf-8'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Dataset validation successful!"</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">json</span><span class="o">.</span><span class="n">JSONDecodeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Invalid JSONL format: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="n">validate_jsonl</span><span class="p">(</span><span class="s2">"your_dataset.jsonl"</span><span class="p">)</span>
+</code></pre></div>
+<hr/>
+<h3 id="step-3-fine-tuning-with-openai-api">Step 3: Fine-Tuning with OpenAI API</h3>
+<h4 id="setting-up-the-openai-cli-or-python-sdk">Setting Up the OpenAI CLI or Python SDK</h4>
+<p>First, install the OpenAI Python SDK:
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>openai
+</code></pre></div></p>
+<p>Use the CLI or Python script to start the fine-tuning process:</p>
+<p><strong>Using the CLI:</strong>
+<div class="highlight"><pre><span></span><code>openai<span class="w"> </span>api<span class="w"> </span>fine_tunes.create<span class="w"> </span>-t<span class="w"> </span><span class="s2">"your_dataset.jsonl"</span><span class="w"> </span>-m<span class="w"> </span><span class="s2">"gpt-4o-mini"</span>
+</code></pre></div>
+<img alt="Uploading jsonl using CLI" src="https://i.imgur.com/B4BhE7D.png"></p>
+<p><strong>Using Python:</strong>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">openai</span>
+
+<span class="n">openai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="s2">"your_openai_api_key"</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">openai</span><span class="o">.</span><span class="n">FineTune</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">training_file</span><span class="o">=</span><span class="s2">"your_dataset.jsonl"</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">"gpt-4o-mini"</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</code></pre></div></p>
+<hr/>
+<h2 id="common-errors-and-troubleshooting">Common Errors and Troubleshooting</h2>
+<h3 id="invalid-training-file-format">Invalid Training File Format</h3>
+<p>If the job fails with an error like <code>Invalid file format</code>, ensure:
+1. The dataset is in <code>.jsonl</code> format.
+2. The chat structure (<code>role</code> and <code>content</code>) is strictly followed.</p>
+<h3 id="insufficient-examples">Insufficient Examples</h3>
+<p>The model requires at least 10 examples for fine-tuning. Augment your dataset with more examples if needed.</p>
+<hr/>
+<h2 id="best-practices-for-fine-tuning">Best Practices for Fine-Tuning</h2>
 <ol>
-<li><strong>Node.js</strong>: Install from <a href="https://nodejs.org/">Node.js Official Website</a>.</li>
-<li><strong>npm or yarn</strong>: Installed alongside Node.js.</li>
-<li><strong>Google Translate Library</strong>: For text translation.</li>
-<li><strong>Venom</strong>: For WhatsApp automation.</li>
+<li><strong>Define the System Role Clearly</strong>: Provide explicit instructions for the assistant’s behavior.</li>
+<li><strong>Include Diverse User Prompts</strong>: Add a variety of questions or tasks to ensure the model generalizes well.</li>
+<li><strong>Test the Model</strong>: Evaluate its performance on unseen test prompts to gauge improvements.</li>
+<li><strong>Iterate</strong>: Refine the dataset and retrain for better results.</li>
 </ol>
-<h3 id="install-required-packages">Install Required Packages</h3>
-<p>Run the following commands to install the required libraries:</p>
-<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>venom-bot<span class="w"> </span>translate-google<span class="w"> </span>crypto
-</code></pre></div>
-<h2 id="implementation">Implementation</h2>
-<p>Here’s how to set up and use Venom to translate WhatsApp messages:</p>
-<h3 id="1-initialize-the-project">1. Initialize the Project</h3>
-<p>Create a new file named <code>whatsapp_translator.js</code> and start with the following boilerplate:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">venom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">'venom-bot'</span><span class="p">);</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">translate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">'translate-google'</span><span class="p">);</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">crypto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">'crypto'</span><span class="p">);</span>
-</code></pre></div>
-<h3 id="2-set-up-your-whatsapp-contacts">2. Set Up Your WhatsApp Contacts</h3>
-<p>Define your own WhatsApp ID (for self-messages) and the target contact:</p>
-<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">MY_CONTACT_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'12345678900@c.us'</span><span class="p">;</span><span class="w"> </span><span class="c1">// Your number</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">TARGET_CONTACT_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'01234567890@c.us'</span><span class="p">;</span><span class="w"> </span><span class="c1">// Target contact's number</span>
-</code></pre></div>
-<h3 id="3-implement-the-translation-logic">3. Implement the Translation Logic</h3>
-<p>Here’s the full script for translating messages and avoiding duplicates using a hash set:</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// Hash sets to prevent duplicate message processing</span>
-<span class="kd">const</span><span class="w"> </span><span class="nx">processedMessageHashes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Set</span><span class="p">();</span>
-
-<span class="nx">venom</span>
-<span class="w">  </span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
-<span class="w">    </span><span class="nx">session</span><span class="o">:</span><span class="w"> </span><span class="s1">'my-whatsapp-session'</span><span class="p">,</span>
-<span class="w">    </span><span class="nx">multidevice</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
-<span class="w">  </span><span class="p">})</span>
-<span class="w">  </span><span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">client</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">start</span><span class="p">(</span><span class="nx">client</span><span class="p">))</span>
-<span class="w">  </span><span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">'Error starting Venom:'</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">));</span>
-
-<span class="kd">function</span><span class="w"> </span><span class="nx">start</span><span class="p">(</span><span class="nx">client</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Listening for messages between yourself (</span><span class="si">${</span><span class="nx">MY_CONTACT_ID</span><span class="si">}</span><span class="sb">) and </span><span class="si">${</span><span class="nx">TARGET_CONTACT_ID</span><span class="si">}</span><span class="sb">.`</span><span class="p">);</span>
-
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">delay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">ms</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="nx">ms</span><span class="p">));</span>
-
-<span class="w">  </span><span class="c1">// Function to generate a hash for deduplication</span>
-<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">generateHash</span><span class="p">(</span><span class="nx">messageBody</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">crypto</span><span class="p">.</span><span class="nx">createHash</span><span class="p">(</span><span class="s1">'sha256'</span><span class="p">).</span><span class="nx">update</span><span class="p">(</span><span class="nx">messageBody</span><span class="p">).</span><span class="nx">digest</span><span class="p">(</span><span class="s1">'hex'</span><span class="p">);</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="c1">// Periodically check for new messages in the self-chat</span>
-<span class="w">  </span><span class="nx">setInterval</span><span class="p">(</span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">messages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">getAllMessagesInChat</span><span class="p">(</span><span class="nx">MY_CONTACT_ID</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
-<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">message</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">messages</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">processMessage</span><span class="p">(</span><span class="nx">client</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">,</span><span class="w"> </span><span class="nx">generateHash</span><span class="p">);</span>
-<span class="w">      </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">'Error retrieving self-chat messages:'</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="mf">2000</span><span class="p">);</span><span class="w"> </span><span class="c1">// Check every 2 seconds</span>
-
-<span class="w">  </span><span class="c1">// Handle incoming messages</span>
-<span class="w">  </span><span class="nx">client</span><span class="p">.</span><span class="nx">onMessage</span><span class="p">((</span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">processMessage</span><span class="p">(</span><span class="nx">client</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">,</span><span class="w"> </span><span class="nx">generateHash</span><span class="p">));</span>
-<span class="p">}</span>
-
-<span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">processMessage</span><span class="p">(</span><span class="nx">client</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">,</span><span class="w"> </span><span class="nx">generateHash</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">messageHash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">generateHash</span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
-
-<span class="w">  </span><span class="c1">// Skip if the message has already been processed</span>
-<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">processedMessageHashes</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">messageHash</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="p">;</span>
-<span class="w">  </span><span class="p">}</span>
-
-<span class="w">  </span><span class="c1">// Mark the message as processed</span>
-<span class="w">  </span><span class="nx">processedMessageHashes</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">messageHash</span><span class="p">);</span>
-
-<span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="kr">from</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">MY_CONTACT_ID</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">message</span><span class="p">.</span><span class="nx">to</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">MY_CONTACT_ID</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Message is from you (self-chat).'</span><span class="p">);</span>
-
-<span class="w">      </span><span class="c1">// Translate English to Spanish and send to the target contact</span>
-<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">translatedToSpanish</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">translate</span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="s1">'es'</span><span class="w"> </span><span class="p">});</span>
-<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Translated (English → Spanish): </span><span class="si">${</span><span class="nx">translatedToSpanish</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
-
-<span class="w">      </span><span class="k">await</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">sendText</span><span class="p">(</span><span class="nx">TARGET_CONTACT_ID</span><span class="p">,</span><span class="w"> </span><span class="nx">translatedToSpanish</span><span class="p">);</span>
-<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Sent translated message to </span><span class="si">${</span><span class="nx">TARGET_CONTACT_ID</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">translatedToSpanish</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="kr">from</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">TARGET_CONTACT_ID</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">message</span><span class="p">.</span><span class="nx">isGroupMsg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Message is from the target contact.'</span><span class="p">);</span>
-
-<span class="w">      </span><span class="c1">// Translate Spanish to English and send to the self-chat</span>
-<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">translatedToEnglish</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">translate</span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="s1">'en'</span><span class="w"> </span><span class="p">});</span>
-<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Translated (Spanish → English): </span><span class="si">${</span><span class="nx">translatedToEnglish</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
-
-<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`*Translation (Spanish → English):*\nOriginal: </span><span class="si">${</span><span class="nx">message</span><span class="p">.</span><span class="nx">body</span><span class="si">}</span><span class="sb">\nTranslated: </span><span class="si">${</span><span class="nx">translatedToEnglish</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
-<span class="w">      </span><span class="k">await</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">sendText</span><span class="p">(</span><span class="nx">MY_CONTACT_ID</span><span class="p">,</span><span class="w"> </span><span class="nx">response</span><span class="p">);</span>
-<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Posted translation to yourself: </span><span class="si">${</span><span class="nx">MY_CONTACT_ID</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">'Error processing message:'</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">);</span>
-<span class="w">    </span><span class="c1">// Remove the hash if processing fails</span>
-<span class="w">    </span><span class="nx">processedMessageHashes</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="nx">messageHash</span><span class="p">);</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<h3 id="4-run-the-script">4. Run the Script</h3>
-<p>Execute the script using Node.js:</p>
-<div class="highlight"><pre><span></span><code>node<span class="w"> </span>whatsapp_translator.js
-</code></pre></div>
-<h3 id="5-what-happens">5. What Happens?</h3>
-<ol>
-<li>Messages you send to yourself (in English) are translated to Spanish and sent to the target contact.</li>
-<li>Messages from the target contact (in Spanish) are translated to English and sent to your self-chat.</li>
-</ol>
-<h2 id="debugging-tips">Debugging Tips</h2>
-<ol>
-<li><strong>Verify Contact IDs</strong>:
-   Ensure <code>MY_CONTACT_ID</code> and <code>TARGET_CONTACT_ID</code> are correctly defined.</li>
-<li><strong>Check Logs</strong>:
-   Use <code>console.log</code> statements to debug the flow of messages.</li>
-<li><strong>Dependency Issues</strong>:
-   Reinstall packages with <code>npm install</code> if you encounter errors.</li>
-</ol>
+<hr/>
 <h2 id="conclusion">Conclusion</h2>
-<p>This script automates translation for WhatsApp messages, enabling seamless communication across languages. By leveraging Venom and Google Translate, you can extend this setup to support additional languages, integrate with databases, or even build advanced customer service tools. With this foundation, the possibilities are endless!</p>
+<p>Fine-tuning the GPT-4o-mini model in a chat-based text completion format unlocks its potential for specific use cases. By preparing a well-structured dataset and following best practices, you can train a model tailored to your requirements. Whether you're building a customer service bot or an educational assistant, fine-tuning offers a path to creating more specialized and effective AI solutions.</p>
+<p>Happy fine-tuning!</p>
 <form class="md-feedback" hidden="" name="feedback">
 <fieldset>
 <legend class="md-feedback__title">
@@ -531,7 +508,7 @@
 </div>
 </fieldset>
 </form>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-05, Updated 2025-01-05<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (2)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-07, Updated 2025-01-07<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -542,10 +519,10 @@
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/2025/01/05/setting-up-venom-for-whatsapp-translation', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/2025/01/07/fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/2025/01/05/setting-up-venom-for-whatsapp-translation', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/2025/01/07/fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
