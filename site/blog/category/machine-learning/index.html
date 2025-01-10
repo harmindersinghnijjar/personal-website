@@ -824,9 +824,11 @@
 <hr />
 <h3 id="common-errors-and-troubleshooting"><a class="toclink" href="../../2025/01/07/fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format/#common-errors-and-troubleshooting">Common Errors and Troubleshooting</a></h3>
 <h4 id="invalid-training-file-format"><a class="toclink" href="../../2025/01/07/fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format/#invalid-training-file-format">Invalid Training File Format</a></h4>
-<p>If the job fails with an error like <code>Invalid file format</code>, ensure:
-1. The dataset is in <code>.jsonl</code> format.
-2. The chat structure (<code>role</code> and <code>content</code>) is strictly followed.</p>
+<p>If the job fails with an error like <code>Invalid file format</code>, ensure:</p>
+<ol>
+<li>The dataset is in <code>.jsonl</code> format.</li>
+<li>The chat structure (<code>role</code> and <code>content</code>) is strictly followed.</li>
+</ol>
 <h4 id="insufficient-examples"><a class="toclink" href="../../2025/01/07/fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format/#insufficient-examples">Insufficient Examples</a></h4>
 <p>The model requires at least 10 examples for fine-tuning. Augment your dataset with more examples if needed.</p>
 <hr />
