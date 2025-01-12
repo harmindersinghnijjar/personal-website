@@ -5,14 +5,13 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Step-by-step guide to installing ROS 1 (Noetic) on a Raspberry Pi, tailored for robotic projects and applications." name="description"/>
+<meta content="Explore how AWS Lambda integrates with Blender to deliver efficient, scalable 3D rendering solutions. A game-changer for projects with high scalability and fast turnaround requirements." name="description"/>
 <meta content="harmindersinghnijjar" name="author"/>
-<link href="https://harminder.dev/blog/2024/12/15/installing-ros-1-on-raspberry-pi/" rel="canonical">
-<link href="../../../11/25/harminder-singh-nijjars-digital-art-catalog/" rel="prev"/>
-<link href="../building-an-agentic-web-scraping-pipeline-for-crypto-and-meme-coins/" rel="next"/>
+<link href="https://harminder.dev/blog/2025/01/11/aws-lambda-and-blender---revolutionizing-3d-rendering-in-the-cloud/" rel="canonical">
+<link href="../../07/fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format/" rel="prev"/>
 <link href="../../../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.5.45" name="generator"/>
-<title>Installing ROS 1 on Raspberry Pi - Harminder Singh Nijjar</title>
+<title>AWS Lambda and Blender - Revolutionizing 3D Rendering in the Cloud - Harminder Singh Nijjar</title>
 <link href="../../../../../assets/stylesheets/main.0253249f.min.css" rel="stylesheet"/>
 <link href="../../../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
@@ -24,24 +23,24 @@
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-X0B1C5DM9K"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-X0B1C5DM9K",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-X0B1C5DM9K",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
 <meta content="website" property="og:type"/>
-<meta content="Installing ROS 1 on Raspberry Pi - Harminder Singh Nijjar" property="og:title"/>
-<meta content="Step-by-step guide to installing ROS 1 (Noetic) on a Raspberry Pi, tailored for robotic projects and applications." property="og:description"/>
-<meta content="https://harminder.dev/assets/images/social/blog/posts/20241215154110.png" property="og:image"/>
+<meta content="AWS Lambda and Blender - Revolutionizing 3D Rendering in the Cloud - Harminder Singh Nijjar" property="og:title"/>
+<meta content="Explore how AWS Lambda integrates with Blender to deliver efficient, scalable 3D rendering solutions. A game-changer for projects with high scalability and fast turnaround requirements." property="og:description"/>
+<meta content="https://harminder.dev/assets/images/social/blog/posts/20250111173440.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="https://harminder.dev/blog/2024/12/15/installing-ros-1-on-raspberry-pi/" property="og:url"/>
+<meta content="https://harminder.dev/blog/2025/01/11/aws-lambda-and-blender---revolutionizing-3d-rendering-in-the-cloud/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Installing ROS 1 on Raspberry Pi - Harminder Singh Nijjar" name="twitter:title"/>
-<meta content="Step-by-step guide to installing ROS 1 (Noetic) on a Raspberry Pi, tailored for robotic projects and applications." name="twitter:description"/>
-<meta content="https://harminder.dev/assets/images/social/blog/posts/20241215154110.png" name="twitter:image"/>
-<meta content="Installing ROS 1 on Raspberry Pi" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2024/12/15/installing-ros-1-on-raspberry-pi" property="og:url"/><meta content="Installing ROS 1 on Raspberry Pi" property="og:title"/><meta content="Step-by-step guide to installing ROS 1 (Noetic) on a Raspberry Pi, tailored for robotic projects and applications." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2024/12/15/installing-ros-1-on-raspberry-pi" property="twitter:url"/><meta content="Installing ROS 1 on Raspberry Pi" property="twitter:title"/><meta content="Step-by-step guide to installing ROS 1 (Noetic) on a Raspberry Pi, tailored for robotic projects and applications." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Installing ROS 1 on Raspberry Pi", "image": [], "datePublished": "2024-12-15 15:42:37 -0800", "dateModified": "2024-12-28 12:08:05 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Step-by-step guide to installing ROS 1 (Noetic) on a Raspberry Pi, tailored for robotic projects and applications."}</script></head>
+<meta content="AWS Lambda and Blender - Revolutionizing 3D Rendering in the Cloud - Harminder Singh Nijjar" name="twitter:title"/>
+<meta content="Explore how AWS Lambda integrates with Blender to deliver efficient, scalable 3D rendering solutions. A game-changer for projects with high scalability and fast turnaround requirements." name="twitter:description"/>
+<meta content="https://harminder.dev/assets/images/social/blog/posts/20250111173440.png" name="twitter:image"/>
+<meta content="AWS Lambda and Blender - Revolutionizing 3D Rendering in the Cloud" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/11/aws-lambda-and-blender---revolutionizing-3d-rendering-in-the-cloud" property="og:url"/><meta content="AWS Lambda and Blender - Revolutionizing 3D Rendering in the Cloud" property="og:title"/><meta content="Explore how AWS Lambda integrates with Blender to deliver efficient, scalable 3D rendering solutions. A game-changer for projects with high scalability and fast turnaround requirements." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/11/aws-lambda-and-blender---revolutionizing-3d-rendering-in-the-cloud" property="twitter:url"/><meta content="AWS Lambda and Blender - Revolutionizing 3D Rendering in the Cloud" property="twitter:title"/><meta content="Explore how AWS Lambda integrates with Blender to deliver efficient, scalable 3D rendering solutions. A game-changer for projects with high scalability and fast turnaround requirements." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "AWS Lambda and Blender - Revolutionizing 3D Rendering in the Cloud", "image": [], "datePublished": "2025-01-11 17:35:49 -0800", "dateModified": "2025-01-11 17:35:49 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore how AWS Lambda integrates with Blender to deliver efficient, scalable 3D rendering solutions. A game-changer for projects with high scalability and fast turnaround requirements."}</script></head>
 <body data-md-color-accent="custom" data-md-color-primary="custom" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#installing-ros-1-on-raspberry-pi">
+<a class="md-skip" href="#aws-lambda-and-blender-revolutionizing-3d-rendering-in-the-cloud">
           Skip to content
         </a>
 </div>
@@ -65,7 +64,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Installing ROS 1 on Raspberry Pi
+              AWS Lambda and Blender - Revolutionizing 3D Rendering in the Cloud
             
           </span>
 </div>
@@ -211,86 +210,6 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#installing-ros-1-on-raspberry-pi">
-<span class="md-ellipsis">
-      Installing ROS 1 on Raspberry Pi
-    </span>
-</a>
-<nav aria-label="Installing ROS 1 on Raspberry Pi" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#prerequisites">
-<span class="md-ellipsis">
-      Prerequisites
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-1-set-up-your-raspberry-pi">
-<span class="md-ellipsis">
-      Step 1: Set Up Your Raspberry Pi
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-2-configure-ros-repositories">
-<span class="md-ellipsis">
-      Step 2: Configure ROS Repositories
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-3-install-ros-1-noetic">
-<span class="md-ellipsis">
-      Step 3: Install ROS 1 Noetic
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-4-initialize-ros-environment">
-<span class="md-ellipsis">
-      Step 4: Initialize ROS Environment
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-5-test-the-ros-installation">
-<span class="md-ellipsis">
-      Step 5: Test the ROS Installation
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-6-install-additional-ros-tools">
-<span class="md-ellipsis">
-      Step 6: Install Additional ROS Tools
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#troubleshooting">
-<span class="md-ellipsis">
-      Troubleshooting
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#conclusion">
-<span class="md-ellipsis">
-      Conclusion
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
 </nav>
 </div>
 </div>
@@ -322,7 +241,7 @@
 <li class="md-nav__item">
 <div class="md-nav__link">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"></path></svg>
-<time class="md-ellipsis" datetime="2024-12-15 00:00:00+00:00">December 15, 2024</time>
+<time class="md-ellipsis" datetime="2025-01-11 00:00:00+00:00">January 11, 2025</time>
 </div>
 </li>
 <li class="md-nav__item">
@@ -331,7 +250,9 @@
 <span class="md-ellipsis">
                             in
                             
-                              <a href="../../../../category/robotics/">Robotics</a></span>
+                              <a href="../../../../category/cloud-computing/">Cloud Computing</a>, 
+                              <a href="../../../../category/3d-rendering/">3D Rendering</a>, 
+                              <a href="../../../../category/aws-lambda/">AWS Lambda</a></span>
 </div>
 </li>
 <li class="md-nav__item">
@@ -339,7 +260,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"></path></svg>
 <span class="md-ellipsis">
                             
-                              2 min read
+                              1 min read
                             
                           </span>
 </div>
@@ -354,154 +275,15 @@
 </div>
 <article class="md-content__inner md-typeset">
 <nav class="md-tags">
-<span class="md-tag">ROS</span>
-<span class="md-tag">Raspberry Pi</span>
-<span class="md-tag">Linux</span>
-<span class="md-tag">Robotics</span>
+<span class="md-tag">AWS Lambda</span>
+<span class="md-tag">Blender</span>
+<span class="md-tag">Cloud Computing</span>
+<span class="md-tag">3D Rendering</span>
 </nav>
-<h1>Installing ROS 1 on Raspberry Pi</h1>
-<h2 id="installing-ros-1-on-raspberry-pi"><strong>Installing ROS 1 on Raspberry Pi</strong></h2>
-<p>Robot Operating System (ROS) is an open-source framework widely used for robotic applications. This guide walks you through installing ROS 1 (Noetic) on a Raspberry Pi running Ubuntu. ROS 1 Noetic is the recommended version for Raspberry Pi and supports Ubuntu 20.04.</p>
-<hr/>
-<h3 id="prerequisites"><strong>Prerequisites</strong></h3>
-<p>Before starting, ensure you have the following:</p>
-<ul>
-<li>Raspberry Pi 4 or later with at least 4GB of RAM (8GB is recommended for larger projects).</li>
-<li>Ubuntu 20.04 installed on the Raspberry Pi (Desktop or Server version).</li>
-<li>Internet connection for downloading and installing packages.</li>
-</ul>
-<hr/>
-<h3 id="step-1-set-up-your-raspberry-pi"><strong>Step 1: Set Up Your Raspberry Pi</strong></h3>
-<ol>
-<li><strong>Update and Upgrade System Packages</strong>:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
-</code></pre></div></li>
-<li><strong>Install Required Dependencies</strong>:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>curl<span class="w"> </span>gnupg2<span class="w"> </span>lsb-release
-</code></pre></div></li>
-</ol>
-<hr/>
-<h3 id="step-2-configure-ros-repositories"><strong>Step 2: Configure ROS Repositories</strong></h3>
-<ol>
-<li>
-<p><strong>Add the ROS Repository Key</strong>:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>curl<span class="w"> </span>-sSL<span class="w"> </span>https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>-
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>Add the ROS Noetic Repository</strong>:
-   <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">"deb http://packages.ros.org/ros/ubuntu </span><span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span><span class="s2"> main"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/ros-latest.list
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>Update Package List</strong>:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
-</code></pre></div></p>
-</li>
-</ol>
-<hr/>
-<h3 id="step-3-install-ros-1-noetic"><strong>Step 3: Install ROS 1 Noetic</strong></h3>
-<ol>
-<li>
-<p><strong>Install the Full ROS Desktop Version</strong>:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>ros-noetic-desktop-full
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>Verify the Installation</strong>:
-   Check the installed ROS version:
-   <div class="highlight"><pre><span></span><code>rosversion<span class="w"> </span>-d
-</code></pre></div>
-   This should return <code>noetic</code>.</p>
-</li>
-</ol>
-<hr/>
-<h3 id="step-4-initialize-ros-environment"><strong>Step 4: Initialize ROS Environment</strong></h3>
-<ol>
-<li>
-<p><strong>Set Up ROS Environment Variables</strong>:
-   <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">"source /opt/ros/noetic/setup.bash"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
-<span class="nb">source</span><span class="w"> </span>~/.bashrc
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>Install rosdep</strong>:
-   rosdep is a dependency management tool for ROS:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3-rosdep
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>Initialize rosdep</strong>:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>rosdep<span class="w"> </span>init
-rosdep<span class="w"> </span>update
-</code></pre></div></p>
-</li>
-</ol>
-<hr/>
-<h3 id="step-5-test-the-ros-installation"><strong>Step 5: Test the ROS Installation</strong></h3>
-<ol>
-<li>
-<p><strong>Run roscore</strong>:
-   Start the ROS master process:
-   <div class="highlight"><pre><span></span><code>roscore
-</code></pre></div>
-   Leave this terminal open.</p>
-</li>
-<li>
-<p><strong>Open a New Terminal and Run turtlesim</strong>:
-   Launch a simple simulation:
-   <div class="highlight"><pre><span></span><code>rosrun<span class="w"> </span>turtlesim<span class="w"> </span>turtlesim_node
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>Move the Turtle</strong>:
-   Open another terminal and control the turtle using:
-   <div class="highlight"><pre><span></span><code>rosrun<span class="w"> </span>turtlesim<span class="w"> </span>turtle_teleop_key
-</code></pre></div>
-   Use the arrow keys to move the turtle in the simulation.</p>
-</li>
-</ol>
-<hr/>
-<h3 id="step-6-install-additional-ros-tools"><strong>Step 6: Install Additional ROS Tools</strong></h3>
-<p>To enhance your ROS setup, install the following:</p>
-<ol>
-<li>
-<p><strong>catkin Tools</strong>:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3-catkin-tools
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>Common ROS Packages</strong>:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>ros-noetic-rviz<span class="w"> </span>ros-noetic-rqt<span class="w"> </span>ros-noetic-rqt-common-plugins
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>GPIO and Hardware Libraries (for Pi-specific projects)</strong>:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>wiringpi<span class="w"> </span>pigpio
-</code></pre></div></p>
-</li>
-</ol>
-<hr/>
-<h3 id="troubleshooting"><strong>Troubleshooting</strong></h3>
-<ul>
-<li>
-<p><strong>Issue</strong>: <code>rosdep</code> not initializing properly.<br/>
-<strong>Fix</strong>: Ensure network connectivity and retry:
-  <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>rosdep<span class="w"> </span>init
-rosdep<span class="w"> </span>update
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>Issue</strong>: ROS environment variables not set.<br/>
-<strong>Fix</strong>: Manually source the ROS setup file:
-  <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/opt/ros/noetic/setup.bash
-</code></pre></div></p>
-</li>
-</ul>
-<hr/>
-<h3 id="conclusion"><strong>Conclusion</strong></h3>
-<p>Your Raspberry Pi is now configured with ROS 1 Noetic, ready for robotic projects. With this setup, you can develop and deploy various ROS packages, integrate hardware, and experiment with advanced robotic systems.</p>
-<p>Happy building!</p>
+<h1 id="aws-lambda-and-blender-revolutionizing-3d-rendering-in-the-cloud">AWS Lambda and Blender: Revolutionizing 3D Rendering in the Cloud</h1>
+<p>In the ever-evolving realms of cloud computing and 3D rendering, innovative methods continually emerge to enhance efficiency in handling complex tasks. One such advancement is leveraging <strong>AWS Lambda</strong> for rendering 3D scenes—a solution tailored for projects requiring high scalability and rapid turnaround times. This technique excels in scenarios involving numerous simpler assets that must be rendered swiftly, effectively harnessing the computational prowess of cloud technology.</p>
+<p><strong>Blender</strong>, a popular open-source 3D graphics software, running on AWS Lambda, epitomizes this blend of flexibility and computational efficiency. This approach is ideal for assets that fit within Lambda's constraints, currently supporting up to 6 vCPUs and 10GB of memory. For more demanding rendering needs, options like <strong>EC2 instances</strong> or <strong>AWS Thinkbox Deadline</strong> provide enhanced computational capacity, making them suitable for complex tasks.</p>
+<p>The inspiration for this approach was drawn from a detailed implementation by <a href="https://blog.theodo.com/2021/08/blender-serverless-lambda/">Theodo</a> in 2021, showcasing how Blender can be effectively adapted for serverless architecture. This concept offers transformative potential in the 3D rendering landscape, demonstrating how cloud technologies can redefine efficiency and scalability in creative workflows.</p>
 <form class="md-feedback" hidden="" name="feedback">
 <fieldset>
 <legend class="md-feedback__title">
@@ -535,7 +317,7 @@ rosdep<span class="w"> </span>update
 </div>
 </fieldset>
 </form>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2024-12-15, Updated 2024-12-28<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (2)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-11, Updated 2025-01-11<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (1), <a href="https://github.com/harmindersinghnijjar/personal-website">not.committed.yet</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -546,16 +328,13 @@ rosdep<span class="w"> </span>update
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/2024/12/15/installing-ros-1-on-raspberry-pi', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/2025/01/11/aws-lambda-and-blender---revolutionizing-3d-rendering-in-the-cloud', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/2024/12/15/installing-ros-1-on-raspberry-pi', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/2025/01/11/aws-lambda-and-blender---revolutionizing-3d-rendering-in-the-cloud', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
-<h2 id="__comments">Comments</h2>
-<script async="" crossorigin="anonymous" data-category-id="DIC_kwDONUMZrc4Ckka7" data-emit-metadata="1" data-input-position="top" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="harmindersinghnijjar/personal-website" data-repo-id="R_kgDONUMZrQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
-</script>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
