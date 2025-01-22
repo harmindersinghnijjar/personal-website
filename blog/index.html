@@ -542,9 +542,27 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#bypassing-cloudflare-with-selenium-and-undetected-chromedriver" class="md-nav__link">
     <span class="md-ellipsis">
       Bypassing Cloudflare with Selenium and Undetected-Chromedriver
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-browser-use-with-botright" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Up Browser Use with Botright
     </span>
   </a>
   
@@ -613,24 +631,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#my-first-blog-post" class="md-nav__link">
-    <span class="md-ellipsis">
-      My First Blog Post
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-crosshairahk-to-assist-with-aiming-on-xbox-cloud-gaming" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using Crosshair.AHK to Assist with Aiming on Xbox Cloud Gaming
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -645,6 +645,159 @@
       <header class="md-typeset">
         <h1 id="blog">Blog</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-01-22 00:00:00+00:00">January 22, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="category/robotics/" class="md-meta__link">Robotics</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              2 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance"><a class="toclink" href="2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/">Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance</a></h2>
+<h3 id="setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance_1"><a class="toclink" href="2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance_1">Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance</a></h3>
+<p>This guide walks you through setting up and running a Roboclaw-based ROS node with obstacle avoidance functionality using LIDAR sensors. Follow these steps to configure and launch your robotics system efficiently.</p>
+<hr />
+<h3 id="prerequisites"><a class="toclink" href="2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#prerequisites">Prerequisites</a></h3>
+<p>Before starting, ensure the following are set up on your system:</p>
+<ol>
+<li><strong>ROS Installed</strong>: Ensure you have ROS Melodic or a compatible version installed on your system.</li>
+<li><strong>Workspace Prepared</strong>: Your ROS workspace (e.g., <code>~/armpi_pro</code>) is built and sourced.</li>
+<li><strong>Packages Installed</strong>:</li>
+<li><code>roboclaw_ros</code> for motor control.</li>
+<li><code>ldlidar_stl_ros</code> for LIDAR sensor integration.</li>
+<li><strong>Hardware Connections</strong>:</li>
+<li>Roboclaw is connected via <code>/dev/ttyACM0</code>.</li>
+<li>LIDAR sensor is operational and connected (e.g., <code>/dev/ttyUSB0</code>).</li>
+</ol>
+<hr />
+<h3 id="launching-the-required-nodes"><a class="toclink" href="2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#launching-the-required-nodes">Launching the Required Nodes</a></h3>
+<p>To operate the system, you need to launch three components in sequence:</p>
+<h4 id="1-start-the-ros-core"><a class="toclink" href="2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#1-start-the-ros-core">1. <strong>Start the ROS Core</strong></a></h4>
+<p>Open a terminal and launch the ROS core:</p>
+<div class="highlight"><pre><span></span><code>roscore
+</code></pre></div>
+<p>Keep this terminal open as it provides the foundation for all ROS nodes.</p>
+<hr />
+<h4 id="2-launch-the-roboclaw-node"><a class="toclink" href="2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#2-launch-the-roboclaw-node">2. <strong>Launch the Roboclaw Node</strong></a></h4>
+<p>In a new terminal, navigate to your workspace and launch the Roboclaw node:</p>
+<div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>roboclaw_node<span class="w"> </span>roboclaw.launch
+</code></pre></div>
+<p>This node handles motor control, publishing odometry, and subscribing to velocity commands (<code>/cmd_vel</code>).</p>
+<hr />
+<h4 id="3-launch-the-lidar-node"><a class="toclink" href="2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#3-launch-the-lidar-node">3. <strong>Launch the LIDAR Node</strong></a></h4>
+<p>In another terminal, launch the LIDAR node:</p>
+<div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>ldlidar_stl_ros<span class="w"> </span>ld19.launch
+</code></pre></div>
+<p>This node processes LIDAR data and publishes it to the <code>/scan</code> topic.</p>
+<hr />
+<h3 id="running-the-obstacle-avoidance-node"><a class="toclink" href="2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#running-the-obstacle-avoidance-node">Running the Obstacle Avoidance Node</a></h3>
+<p>Once the Roboclaw and LIDAR nodes are running, you can start the obstacle avoidance script. This script subscribes to <code>/scan</code> for LIDAR data and publishes velocity commands to <code>/cmd_vel</code>.</p>
+<ol>
+<li>
+<p>Ensure the script is located at:
+   <div class="highlight"><pre><span></span><code>~/armpi_pro/src/roboclaw_ros/roboclaw_node/scripts/obstacle_avoidance.py
+</code></pre></div></p>
+</li>
+<li>
+<p>Make the script executable:
+   <div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>~/armpi_pro/src/roboclaw_ros/roboclaw_node/scripts/obstacle_avoidance.py
+</code></pre></div></p>
+</li>
+<li>
+<p>Run the script using <code>rosrun</code>:
+   <div class="highlight"><pre><span></span><code>rosrun<span class="w"> </span>roboclaw_node<span class="w"> </span>obstacle_avoidance.py
+</code></pre></div></p>
+</li>
+</ol>
+<hr />
+<h3 id="how-it-works"><a class="toclink" href="2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#how-it-works">How It Works</a></h3>
+<ol>
+<li>
+<p><strong>LIDAR Data Processing</strong>:
+   The obstacle avoidance node processes data from <code>/scan</code>. It checks for obstacles within 6 inches (0.15 meters) in front of the robot.</p>
+</li>
+<li>
+<p><strong>Motor Commands</strong>:</p>
+</li>
+<li>If an obstacle is detected, the script sends a stop command to <code>/cmd_vel</code>.</li>
+<li>If the path is clear, the script commands the robot to move forward.</li>
+</ol>
+<hr />
+<h3 id="example-workflow"><a class="toclink" href="2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#example-workflow">Example Workflow</a></h3>
+<p>Here’s how you would set up and run the entire system step-by-step:</p>
+<ol>
+<li>
+<p>Open a terminal and start the ROS core:
+   <div class="highlight"><pre><span></span><code>roscore
+</code></pre></div></p>
+</li>
+<li>
+<p>In a second terminal, launch the Roboclaw node:
+   <div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>roboclaw_node<span class="w"> </span>roboclaw.launch
+</code></pre></div></p>
+</li>
+<li>
+<p>In a third terminal, launch the LIDAR node:
+   <div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>ldlidar_stl_ros<span class="w"> </span>ld19.launch
+</code></pre></div></p>
+</li>
+<li>
+<p>Finally, in a fourth terminal, run the obstacle avoidance script:
+   <div class="highlight"><pre><span></span><code>rosrun<span class="w"> </span>roboclaw_node<span class="w"> </span>obstacle_avoidance.py
+</code></pre></div></p>
+</li>
+</ol>
+<hr />
+<h3 id="troubleshooting"><a class="toclink" href="2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#troubleshooting">Troubleshooting</a></h3>
+<ol>
+<li>
+<p><strong>Package Not Found</strong>:
+   If you encounter errors like <code>package 'roboclaw_node' not found</code>, rebuild your workspace:
+   <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/armpi_pro
+catkin_make
+<span class="nb">source</span><span class="w"> </span>devel/setup.bash
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>LIDAR or Roboclaw Not Responding</strong>:</p>
+</li>
+<li>Verify device connections using <code>ls /dev/tty*</code> for correct port names.</li>
+<li>
+<p>Update the respective <code>.launch</code> files to reflect the correct ports.</p>
+</li>
+<li>
+<p><strong>Script Permissions</strong>:
+   Ensure all scripts are executable using:
+   <div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>~/armpi_pro/src/roboclaw_ros/roboclaw_node/scripts/*.py
+</code></pre></div></p>
+</li>
+</ol>
+<hr />
+<h3 id="conclusion"><a class="toclink" href="2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#conclusion">Conclusion</a></h3>
+<p>With this setup, your robot is capable of autonomously navigating forward and stopping when obstacles are detected. The modular structure allows for easy debugging and future enhancements, such as adding new sensors or navigation strategies.</p>
+<p>Mastering these steps ensures a reliable and robust robotic system ready for real-world applications.</p>
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
@@ -764,6 +917,137 @@
 <li><a href="https://www.example.com/captcha-bypass-guide">CAPTCHA Bypass Strategies</a></li>
 <li><a href="https://www.cloudflare.com/">Cloudflare and Bot Detection</a></li>
 </ul>
+    
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-01-15 00:00:00+00:00">January 15, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="category/programming/" class="md-meta__link">Programming</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              2 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="setting-up-browser-use-with-botright"><a class="toclink" href="2025/01/15/setting-up-browser-use-with-botright/">Setting Up Browser Use with Botright</a></h2>
+<p>Automating web browsing while remaining undetected is critical for various use cases like scraping, testing, or automation. This guide shows you how to set up <strong>Browser Use</strong> with <strong>Botright</strong>, a robust library for stealth browsing and captcha solving.</p>
+<h3 id="why-use-botright"><a class="toclink" href="2025/01/15/setting-up-browser-use-with-botright/#why-use-botright">Why Use Botright?</a></h3>
+<p><a href="https://github.com/Vinyzu/Botright">Botright</a> enhances stealth browsing by leveraging techniques like fingerprint masking and AI-driven captcha solving. It integrates seamlessly with Playwright, making it perfect for stealthy automation tasks.</p>
+<h3 id="prerequisites"><a class="toclink" href="2025/01/15/setting-up-browser-use-with-botright/#prerequisites">Prerequisites</a></h3>
+<p>Ensure the following tools and dependencies are installed:</p>
+<ol>
+<li><strong>Python 3.11 or Higher</strong>: Install from <a href="https://www.python.org/">python.org</a>.</li>
+<li><strong>pip</strong>: Included with Python.</li>
+<li><strong>Browser Use</strong>: The main framework.</li>
+<li><strong>Botright</strong>: For stealth features and advanced automation.</li>
+</ol>
+<h4 id="install-required-packages"><a class="toclink" href="2025/01/15/setting-up-browser-use-with-botright/#install-required-packages">Install Required Packages</a></h4>
+<p>Run the following commands to set up your environment:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Clone the repository</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/browser-use/browser-use
+<span class="nb">cd</span><span class="w"> </span>browser-use
+
+<span class="c1"># Install uv for environment management</span>
+pip<span class="w"> </span>install<span class="w"> </span>uv
+
+<span class="c1"># Create a virtual environment</span>
+uv<span class="w"> </span>venv<span class="w"> </span>--python<span class="w"> </span><span class="m">3</span>.11
+
+<span class="c1"># Activate the virtual environment</span>
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w"> </span><span class="c1"># For Linux/macOS</span>
+.venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate<span class="w">    </span><span class="c1"># For Windows</span>
+
+<span class="c1"># Install Browser Use with development dependencies</span>
+uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>.<span class="w"> </span>.<span class="s2">&quot;[dev]&quot;</span>
+
+<span class="c1"># Install Botright</span>
+pip<span class="w"> </span>install<span class="w"> </span>botright
+playwright<span class="w"> </span>install
+</code></pre></div>
+<h3 id="implementation"><a class="toclink" href="2025/01/15/setting-up-browser-use-with-botright/#implementation">Implementation</a></h3>
+<p>Follow these steps to integrate Botright with Browser Use:</p>
+<h4 id="1-update-mainpy"><a class="toclink" href="2025/01/15/setting-up-browser-use-with-botright/#1-update-mainpy">1. Update <code>main.py</code></a></h4>
+<p>Replace the Playwright browser initialization with Botright’s initialization. Here’s the updated <code>main.py</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">import</span> <span class="nn">botright</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Initialize Botright with enhanced stealth options</span>
+    <span class="n">botright_client</span> <span class="o">=</span> <span class="k">await</span> <span class="n">botright</span><span class="o">.</span><span class="n">Botright</span><span class="p">(</span><span class="n">headless</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="c1"># Launch a browser instance</span>
+    <span class="n">browser</span> <span class="o">=</span> <span class="k">await</span> <span class="n">botright_client</span><span class="o">.</span><span class="n">new_browser</span><span class="p">()</span>
+
+    <span class="c1"># Open a new page</span>
+    <span class="n">page</span> <span class="o">=</span> <span class="k">await</span> <span class="n">browser</span><span class="o">.</span><span class="n">new_page</span><span class="p">()</span>
+
+    <span class="c1"># Navigate to a website</span>
+    <span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="s2">&quot;https://example.com&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Perform browser actions (e.g., take a screenshot)</span>
+    <span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;screenshot.png&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Screenshot saved!&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Close the browser and Botright client</span>
+    <span class="k">await</span> <span class="n">browser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">await</span> <span class="n">botright_client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</code></pre></div>
+<h4 id="2-configure-environment-variables"><a class="toclink" href="2025/01/15/setting-up-browser-use-with-botright/#2-configure-environment-variables">2. Configure Environment Variables</a></h4>
+<p>Set up required API keys by copying the example environment file:</p>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>.env.example<span class="w"> </span>.env
+</code></pre></div>
+<p>Add the following to your <code>.env</code> file:</p>
+<div class="highlight"><pre><span></span><code>BOTRIGHT_API_KEY=your_botright_api_key
+</code></pre></div>
+<h4 id="3-run-the-script"><a class="toclink" href="2025/01/15/setting-up-browser-use-with-botright/#3-run-the-script">3. Run the Script</a></h4>
+<p>Run your updated <code>main.py</code> script:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>main.py
+</code></pre></div>
+<h4 id="4-what-happens"><a class="toclink" href="2025/01/15/setting-up-browser-use-with-botright/#4-what-happens">4. What Happens?</a></h4>
+<ol>
+<li><strong>Browser Initialization</strong>: Botright launches a Chromium-based browser instance with stealth enhancements.</li>
+<li><strong>Website Navigation</strong>: The browser navigates to the specified URL (<code>https://example.com</code>).</li>
+<li><strong>Screenshot Capture</strong>: A screenshot is taken and saved as <code>screenshot.png</code>.</li>
+</ol>
+<h3 id="debugging-tips"><a class="toclink" href="2025/01/15/setting-up-browser-use-with-botright/#debugging-tips">Debugging Tips</a></h3>
+<ol>
+<li><strong>Botright Logs</strong>:
+   Use <code>print</code> statements or Botright's built-in logging for debugging.</li>
+<li><strong>Browser Errors</strong>:
+   Verify the installed version of Playwright and Botright.</li>
+<li><strong>Environment Issues</strong>:
+   Ensure your <code>.env</code> file contains the correct API keys.</li>
+</ol>
+<h3 id="advanced-features"><a class="toclink" href="2025/01/15/setting-up-browser-use-with-botright/#advanced-features">Advanced Features</a></h3>
+<h4 id="captcha-solving"><a class="toclink" href="2025/01/15/setting-up-browser-use-with-botright/#captcha-solving">Captcha Solving</a></h4>
+<p>To solve captchas, use Botright's built-in methods. Example:</p>
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">solve_captcha</span><span class="p">()</span>
+</code></pre></div>
+<h4 id="fingerprint-masking"><a class="toclink" href="2025/01/15/setting-up-browser-use-with-botright/#fingerprint-masking">Fingerprint Masking</a></h4>
+<p>Botright automatically handles fingerprint masking. To customize this, refer to the <a href="https://botright.readthedocs.io/">Botright documentation</a>.</p>
+<h3 id="conclusion"><a class="toclink" href="2025/01/15/setting-up-browser-use-with-botright/#conclusion">Conclusion</a></h3>
+<p>By integrating Botright with Browser Use, you unlock advanced stealth browsing capabilities ideal for sensitive automation tasks. This setup provides a solid foundation for further enhancements, such as integrating AI-based analysis or multi-page navigation workflows.</p>
     
   </div>
 </article>
@@ -1547,83 +1831,6 @@ rosdep<span class="w"> </span>update
 </ul>
 <h3 id="conclusion"><a class="toclink" href="2024/11/25/agentic-web-scraping-in-2024/#conclusion">Conclusion</a></h3>
 <p>Agentic web scraping is transforming the way data is collected and analyzed, enabling developers to build systems that can understand and reason about the data they collect. By structuring data in a human-readable format like markdown and using tools like LLM Scraper Agents, Reasoning Agents, and AgentQL, developers can create efficient and reliable web scraping systems that can access both public and private data. This new approach to web scraping is revolutionizing the field of data-driven decision-making and opening up new possibilities for data analysis and insights.</p>
-    
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2024-11-24 00:00:00+00:00">November 24, 2024</time></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              1 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="my-first-blog-post"><a class="toclink" href="2024/11/24/my-first-blog-post/">My First Blog Post</a></h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua.</p>
-    
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2024-11-24 00:00:00+00:00">November 24, 2024</time></li>
-        
-          <li class="md-meta__item">
-            in
-            
-              <a href="category/gaming/" class="md-meta__link">Gaming</a></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              2 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="using-crosshairahk-to-assist-with-aiming-on-xbox-cloud-gaming"><a class="toclink" href="2024/11/24/using-crosshairahk-to-assist-with-aiming-on-xbox-cloud-gaming/">Using Crosshair.AHK to Assist with Aiming on Xbox Cloud Gaming</a></h2>
-<h3 id="using-crosshairahk-to-assist-with-aiming-on-xbox-cloud-gaming_1"><a class="toclink" href="2024/11/24/using-crosshairahk-to-assist-with-aiming-on-xbox-cloud-gaming/#using-crosshairahk-to-assist-with-aiming-on-xbox-cloud-gaming_1">Using Crosshair.AHK to Assist with Aiming on Xbox Cloud Gaming</a></h3>
-<p><img alt="Crosshair.AHK" src="https://imgur.com/hSxHXl4.png"></p>
-<p>I recently started playing games on Xbox Cloud Gaming on PC, and I noticed that the aim assist with <a href="https://github.com/EugeneSunrise/reWASD">reWASD</a> wasn't as powerful as I had initially expected. I decided to use <a href="https://github.com/harmindersinghnijjar/2020-2021-ahk-dump/blob/4dc11db4c5cd3d40db562ad3690c4d2599a27e5c/crosshair.ahk#L4">Crosshair.AHK</a> to help me aim better. Crosshair.AHK is a simple script that displays a crosshair on your screen to help you aim better in games. In this post, I will show you how to use Crosshair.AHK to assist with aiming in Fortnite on Xbox Cloud Gaming.</p>
-<h3 id="features-of-crosshairahk"><a class="toclink" href="2024/11/24/using-crosshairahk-to-assist-with-aiming-on-xbox-cloud-gaming/#features-of-crosshairahk">Features of Crosshair.AHK</a></h3>
-<p><img alt="10 different crosshair variations, customizable colors, and fullscreen support." src="https://imgur.com/8Eo2fvq.png"></p>
-<p><a href="https://github.com/harmindersinghnijjar/2020-2021-ahk-dump/blob/4dc11db4c5cd3d40db562ad3690c4d2599a27e5c/crosshair.ahk#L4">Crosshair.AHK</a> has several features that make it a great tool for improving your aim in games. Some of the key features include:</p>
-<ul>
-<li>10 different crosshair styles</li>
-<li>Customizable crosshair colors</li>
-<li>Fullscreen crosshair support</li>
-</ul>
-<h4 id="crosshair-styles"><a class="toclink" href="2024/11/24/using-crosshairahk-to-assist-with-aiming-on-xbox-cloud-gaming/#crosshair-styles">Crosshair Styles</a></h4>
-<p><a href="https://github.com/harmindersinghnijjar/2020-2021-ahk-dump/blob/4dc11db4c5cd3d40db562ad3690c4d2599a27e5c/crosshair.ahk#L4">Crosshair.AHK</a> offers 10 different crosshair styles to choose from, allowing you to find the one that works best for you. The crosshair styles range from simple dots to more complex designs, giving you plenty of options to customize your crosshair to your liking. Crosshair styles can be easily changed by pressing the <code>F10</code> key.</p>
-<h4 id="customizable-crosshair-colors"><a class="toclink" href="2024/11/24/using-crosshairahk-to-assist-with-aiming-on-xbox-cloud-gaming/#customizable-crosshair-colors">Customizable Crosshair Colors</a></h4>
-<p><a href="https://github.com/harmindersinghnijjar/2020-2021-ahk-dump/blob/4dc11db4c5cd3d40db562ad3690c4d2599a27e5c/crosshair.ahk#L4">Crosshair.AHK</a> allows you to customize the color of your crosshair to suit your preferences. You can choose from a wide range of colors to find the one that stands out the most against your game's background. Crosshair colors can be easily changed by pressing the <code>F10</code> key and using the color change widget to select the desired color.</p>
-<h4 id="fullscreen-crosshair-support"><a class="toclink" href="2024/11/24/using-crosshairahk-to-assist-with-aiming-on-xbox-cloud-gaming/#fullscreen-crosshair-support">Fullscreen Crosshair Support</a></h4>
-<p><img alt="Crosshair in fullscreen mode." src="https://i.imgur.com/drMalrp.jpeg"></p>
-<p><a href="https://github.com/harmindersinghnijjar/2020-2021-ahk-dump/blob/4dc11db4c5cd3d40db562ad3690c4d2599a27e5c/crosshair.ahk#L4">Crosshair.AHK</a> supports fullscreen mode, allowing you to use the crosshair in games that run in fullscreen. This feature is particularly useful for games that don't have built-in crosshairs or where the crosshair is difficult to see against the game's background. To enable fullscreen mode, simply press the <code>F11</code> key.</p>
     
   </div>
 </article>

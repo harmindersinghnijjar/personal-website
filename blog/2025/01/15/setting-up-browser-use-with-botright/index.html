@@ -5,14 +5,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Learn how to use Selenium with undetected-chromedriver to bypass Cloudflare challenges for robust web automation. Includes practical workflows and tips." name="description"/>
+<meta content="Learn how to set up the Browser Use development environment with Botright for stealth browser automation. This guide provides step-by-step instructions and an example implementation." name="description"/>
 <meta content="harmindersinghnijjar" name="author"/>
-<link href="https://harminder.dev/blog/2025/01/15/bypassing-cloudflare-with-selenium-and-undetected-chromedriver/" rel="canonical">
-<link href="../setting-up-browser-use-with-botright/" rel="prev"/>
-<link href="../../22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/" rel="next"/>
+<link href="https://harminder.dev/blog/2025/01/15/setting-up-browser-use-with-botright/" rel="canonical">
+<link href="../../11/aws-lambda-and-blender---revolutionizing-3d-rendering-in-the-cloud/" rel="prev"/>
+<link href="../bypassing-cloudflare-with-selenium-and-undetected-chromedriver/" rel="next"/>
 <link href="../../../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.5.45" name="generator"/>
-<title>Bypassing Cloudflare with Selenium and Undetected-Chromedriver - Harminder Singh Nijjar</title>
+<title>Setting Up Browser Use with Botright - Harminder Singh Nijjar</title>
 <link href="../../../../../assets/stylesheets/main.0253249f.min.css" rel="stylesheet"/>
 <link href="../../../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
@@ -24,24 +24,24 @@
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-X0B1C5DM9K"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-X0B1C5DM9K",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-X0B1C5DM9K",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
 <meta content="website" property="og:type"/>
-<meta content="Bypassing Cloudflare with Selenium and Undetected-Chromedriver - Harminder Singh Nijjar" property="og:title"/>
-<meta content="Learn how to use Selenium with undetected-chromedriver to bypass Cloudflare challenges for robust web automation. Includes practical workflows and tips." property="og:description"/>
-<meta content="https://harminder.dev/assets/images/social/blog/posts/20250115143012.png" property="og:image"/>
+<meta content="Setting Up Browser Use with Botright - Harminder Singh Nijjar" property="og:title"/>
+<meta content="Learn how to set up the Browser Use development environment with Botright for stealth browser automation. This guide provides step-by-step instructions and an example implementation." property="og:description"/>
+<meta content="https://harminder.dev/assets/images/social/blog/posts/20250115184140.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="https://harminder.dev/blog/2025/01/15/bypassing-cloudflare-with-selenium-and-undetected-chromedriver/" property="og:url"/>
+<meta content="https://harminder.dev/blog/2025/01/15/setting-up-browser-use-with-botright/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Bypassing Cloudflare with Selenium and Undetected-Chromedriver - Harminder Singh Nijjar" name="twitter:title"/>
-<meta content="Learn how to use Selenium with undetected-chromedriver to bypass Cloudflare challenges for robust web automation. Includes practical workflows and tips." name="twitter:description"/>
-<meta content="https://harminder.dev/assets/images/social/blog/posts/20250115143012.png" name="twitter:image"/>
-<meta content="Bypassing Cloudflare with Selenium and Undetected-Chromedriver" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/15/bypassing-cloudflare-with-selenium-and-undetected-chromedriver" property="og:url"/><meta content="Bypassing Cloudflare with Selenium and Undetected-Chromedriver" property="og:title"/><meta content="Learn how to use Selenium with undetected-chromedriver to bypass Cloudflare challenges for robust web automation. Includes practical workflows and tips." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/15/bypassing-cloudflare-with-selenium-and-undetected-chromedriver" property="twitter:url"/><meta content="Bypassing Cloudflare with Selenium and Undetected-Chromedriver" property="twitter:title"/><meta content="Learn how to use Selenium with undetected-chromedriver to bypass Cloudflare challenges for robust web automation. Includes practical workflows and tips." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Bypassing Cloudflare with Selenium and Undetected-Chromedriver", "image": [], "datePublished": "2025-01-15 14:36:04 -0800", "dateModified": "2025-01-15 16:05:32 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to use Selenium with undetected-chromedriver to bypass Cloudflare challenges for robust web automation. Includes practical workflows and tips."}</script></head>
+<meta content="Setting Up Browser Use with Botright - Harminder Singh Nijjar" name="twitter:title"/>
+<meta content="Learn how to set up the Browser Use development environment with Botright for stealth browser automation. This guide provides step-by-step instructions and an example implementation." name="twitter:description"/>
+<meta content="https://harminder.dev/assets/images/social/blog/posts/20250115184140.png" name="twitter:image"/>
+<meta content="Setting Up Browser Use with Botright" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/15/setting-up-browser-use-with-botright" property="og:url"/><meta content="Setting Up Browser Use with Botright" property="og:title"/><meta content="Learn how to set up the Browser Use development environment with Botright for stealth browser automation. This guide provides step-by-step instructions and an example implementation." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/15/setting-up-browser-use-with-botright" property="twitter:url"/><meta content="Setting Up Browser Use with Botright" property="twitter:title"/><meta content="Learn how to set up the Browser Use development environment with Botright for stealth browser automation. This guide provides step-by-step instructions and an example implementation." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Setting Up Browser Use with Botright", "image": [], "datePublished": "2025-01-22 08:17:20 -0800", "dateModified": "2025-01-22 08:17:20 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to set up the Browser Use development environment with Botright for stealth browser automation. This guide provides step-by-step instructions and an example implementation."}</script></head>
 <body data-md-color-accent="custom" data-md-color-primary="custom" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#bypassing-cloudflare-with-selenium-and-undetected-chromedriver">
+<a class="md-skip" href="#setting-up-browser-use-with-botright">
           Skip to content
         </a>
 </div>
@@ -65,7 +65,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Bypassing Cloudflare with Selenium and Undetected-Chromedriver
+              Setting Up Browser Use with Botright
             
           </span>
 </div>
@@ -217,59 +217,24 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#bypassing-cloudflare-with-selenium-and-undetected-chromedriver">
+<a class="md-nav__link" href="#why-use-botright">
 <span class="md-ellipsis">
-      Bypassing Cloudflare with Selenium and Undetected-Chromedriver
+      Why Use Botright?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#why-use-selenium-with-undetected-chromedriver">
+<a class="md-nav__link" href="#prerequisites">
 <span class="md-ellipsis">
-      Why Use Selenium with Undetected-Chromedriver?
+      Prerequisites
     </span>
 </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#detection-challenges-in-web-automation">
-<span class="md-ellipsis">
-      Detection Challenges in Web Automation
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#the-solution-selenium-and-undetected-chromedriver">
-<span class="md-ellipsis">
-      The Solution: Selenium and Undetected-Chromedriver
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#implementation-guide-setting-up-selenium-with-undetected-chromedriver">
-<span class="md-ellipsis">
-      Implementation Guide: Setting Up Selenium with Undetected-Chromedriver
-    </span>
-</a>
-<nav aria-label="Implementation Guide: Setting Up Selenium with Undetected-Chromedriver" class="md-nav">
+<nav aria-label="Prerequisites" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-1-install-required-libraries">
+<a class="md-nav__link" href="#install-required-packages">
 <span class="md-ellipsis">
-      Step 1: Install Required Libraries
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-2-initialize-the-browser-driver">
-<span class="md-ellipsis">
-      Step 2: Initialize the Browser Driver
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-3-handle-captcha-and-cloudflare-challenges">
-<span class="md-ellipsis">
-      Step 3: Handle CAPTCHA and Cloudflare Challenges
+      Install Required Packages
     </span>
 </a>
 </li>
@@ -277,31 +242,38 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#advanced-automation-workflow-with-cookies">
+<a class="md-nav__link" href="#implementation">
 <span class="md-ellipsis">
-      Advanced Automation Workflow with Cookies
+      Implementation
     </span>
 </a>
-<nav aria-label="Advanced Automation Workflow with Cookies" class="md-nav">
+<nav aria-label="Implementation" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-1-attempt-standard-automation">
+<a class="md-nav__link" href="#1-update-mainpy">
 <span class="md-ellipsis">
-      Step 1: Attempt Standard Automation
+      1. Update main.py
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-2-use-cookies-for-session-continuity">
+<a class="md-nav__link" href="#2-configure-environment-variables">
 <span class="md-ellipsis">
-      Step 2: Use Cookies for Session Continuity
+      2. Configure Environment Variables
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-3-fall-back-to-manual-assistance">
+<a class="md-nav__link" href="#3-run-the-script">
 <span class="md-ellipsis">
-      Step 3: Fall Back to Manual Assistance
+      3. Run the Script
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-what-happens">
+<span class="md-ellipsis">
+      4. What Happens?
     </span>
 </a>
 </li>
@@ -309,23 +281,41 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#proposed-workflow-for-automation">
+<a class="md-nav__link" href="#debugging-tips">
 <span class="md-ellipsis">
-      Proposed Workflow for Automation
+      Debugging Tips
     </span>
 </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#advanced-features">
+<span class="md-ellipsis">
+      Advanced Features
+    </span>
+</a>
+<nav aria-label="Advanced Features" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#captcha-solving">
+<span class="md-ellipsis">
+      Captcha Solving
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fingerprint-masking">
+<span class="md-ellipsis">
+      Fingerprint Masking
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#conclusion">
 <span class="md-ellipsis">
       Conclusion
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#references">
-<span class="md-ellipsis">
-      References
     </span>
 </a>
 </li>
@@ -393,103 +383,113 @@
 </div>
 <article class="md-content__inner md-typeset">
 <nav class="md-tags">
-<span class="md-tag">Selenium</span>
-<span class="md-tag">Undetected-Chromedriver</span>
-<span class="md-tag">Cloudflare Mitigation</span>
-<span class="md-tag">Web Automation</span>
+<span class="md-tag">Python</span>
+<span class="md-tag">Botright</span>
+<span class="md-tag">Browser Automation</span>
+<span class="md-tag">Playwright</span>
+<span class="md-tag">Stealth Browsing</span>
 </nav>
-<h1>Bypassing Cloudflare with Selenium and Undetected-Chromedriver</h1>
-<h2 id="bypassing-cloudflare-with-selenium-and-undetected-chromedriver">Bypassing Cloudflare with Selenium and Undetected-Chromedriver</h2>
-<p>By combining <strong>Selenium</strong> with <strong>undetected-chromedriver (UC)</strong>, you can overcome common automation challenges like Cloudflare's browser verification. This guide explores practical workflows and techniques to enhance your web automation projects.</p>
-<hr/>
-<h2 id="why-use-selenium-with-undetected-chromedriver">Why Use Selenium with Undetected-Chromedriver?</h2>
-<p>Cloudflare protections are designed to block bots, posing challenges for developers. By using undetected-chromedriver with Selenium, you can:</p>
-<ul>
-<li><strong>Bypass Browser Fingerprinting:</strong> UC modifies ChromeDriver to avoid detection.</li>
-<li><strong>Handle Cloudflare Challenges:</strong> Seamlessly bypass "wait while your browser is verified" messages.</li>
-<li><strong>Mitigate CAPTCHA Issues:</strong> Reduce interruptions caused by automated bot checks.</li>
-</ul>
-<hr/>
-<h2 id="detection-challenges-in-web-automation">Detection Challenges in Web Automation</h2>
-<p>Websites employ multiple strategies to detect and prevent automated interactions:</p>
-<ul>
-<li><strong>CAPTCHA Challenges:</strong> Validating user authenticity.</li>
-<li><strong>Cloudflare Browser Verification:</strong> Infinite loading screens or token-based checks.</li>
-<li><strong>Bot Detection Mechanisms:</strong> Browser fingerprinting, behavioral analytics, and cookie validation.</li>
-</ul>
-<p>These barriers often require advanced techniques to maintain automation workflows.</p>
-<hr/>
-<h2 id="the-solution-selenium-and-undetected-chromedriver">The Solution: Selenium and Undetected-Chromedriver</h2>
-<p>The undetected-chromedriver library modifies the default ChromeDriver to emulate human-like behavior and evade detection. When integrated with Selenium, it allows:</p>
+<h1 id="setting-up-browser-use-with-botright">Setting Up Browser Use with Botright</h1>
+<p>Automating web browsing while remaining undetected is critical for various use cases like scraping, testing, or automation. This guide shows you how to set up <strong>Browser Use</strong> with <strong>Botright</strong>, a robust library for stealth browsing and captcha solving.</p>
+<h2 id="why-use-botright">Why Use Botright?</h2>
+<p><a href="https://github.com/Vinyzu/Botright">Botright</a> enhances stealth browsing by leveraging techniques like fingerprint masking and AI-driven captcha solving. It integrates seamlessly with Playwright, making it perfect for stealthy automation tasks.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Ensure the following tools and dependencies are installed:</p>
 <ol>
-<li><strong>Seamless CAPTCHA Bypass:</strong> Minimize interruptions by automating responses or avoiding challenges.</li>
-<li><strong>Cloudflare Token Handling:</strong> Automatically manage verification processes.</li>
-<li><strong>Cookie Reuse for Session Preservation:</strong> Skip repetitive verifications by reusing authenticated cookies.</li>
+<li><strong>Python 3.11 or Higher</strong>: Install from <a href="https://www.python.org/">python.org</a>.</li>
+<li><strong>pip</strong>: Included with Python.</li>
+<li><strong>Browser Use</strong>: The main framework.</li>
+<li><strong>Botright</strong>: For stealth features and advanced automation.</li>
 </ol>
-<hr/>
-<h2 id="implementation-guide-setting-up-selenium-with-undetected-chromedriver">Implementation Guide: Setting Up Selenium with Undetected-Chromedriver</h2>
-<h3 id="step-1-install-required-libraries">Step 1: Install Required Libraries</h3>
-<p>Install Selenium and undetected-chromedriver:
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>selenium<span class="w"> </span>undetected-chromedriver
-</code></pre></div></p>
-<h3 id="step-2-initialize-the-browser-driver">Step 2: Initialize the Browser Driver</h3>
-<p>Set up a Selenium session with UC:
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">undetected_chromedriver</span> <span class="k">as</span> <span class="nn">uc</span>
+<h3 id="install-required-packages">Install Required Packages</h3>
+<p>Run the following commands to set up your environment:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Clone the repository</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/browser-use/browser-use
+<span class="nb">cd</span><span class="w"> </span>browser-use
 
-<span class="c1"># Initialize the driver</span>
-<span class="n">driver</span> <span class="o">=</span> <span class="n">uc</span><span class="o">.</span><span class="n">Chrome</span><span class="p">()</span>
+<span class="c1"># Install uv for environment management</span>
+pip<span class="w"> </span>install<span class="w"> </span>uv
 
-<span class="c1"># Navigate to a website</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"https://example.com"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Page Title:"</span><span class="p">,</span> <span class="n">driver</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+<span class="c1"># Create a virtual environment</span>
+uv<span class="w"> </span>venv<span class="w"> </span>--python<span class="w"> </span><span class="m">3</span>.11
 
-<span class="c1"># Quit the driver</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
-</code></pre></div></p>
-<h3 id="step-3-handle-captcha-and-cloudflare-challenges">Step 3: Handle CAPTCHA and Cloudflare Challenges</h3>
-<ul>
-<li>Use <strong>UC</strong> to bypass passive bot checks.</li>
-<li>Extract and reuse cookies to maintain session continuity:
-  <div class="highlight"><pre><span></span><code><span class="n">cookies</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">get_cookies</span><span class="p">()</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">add_cookie</span><span class="p">(</span><span class="n">cookies</span><span class="p">)</span>
-</code></pre></div></li>
-</ul>
-<hr/>
-<h2 id="advanced-automation-workflow-with-cookies">Advanced Automation Workflow with Cookies</h2>
-<h3 id="step-1-attempt-standard-automation">Step 1: Attempt Standard Automation</h3>
-<p>Use Selenium with UC to navigate and interact with the website.</p>
-<h3 id="step-2-use-cookies-for-session-continuity">Step 2: Use Cookies for Session Continuity</h3>
-<p>Manually authenticate once, extract cookies, and reuse them for automated sessions:
-<div class="highlight"><pre><span></span><code><span class="c1"># Save cookies after manual login</span>
-<span class="n">cookies</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">get_cookies</span><span class="p">()</span>
+<span class="c1"># Activate the virtual environment</span>
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w"> </span><span class="c1"># For Linux/macOS</span>
+.venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate<span class="w">    </span><span class="c1"># For Windows</span>
 
-<span class="c1"># Use cookies in future sessions</span>
-<span class="k">for</span> <span class="n">cookie</span> <span class="ow">in</span> <span class="n">cookies</span><span class="p">:</span>
-    <span class="n">driver</span><span class="o">.</span><span class="n">add_cookie</span><span class="p">(</span><span class="n">cookie</span><span class="p">)</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
-</code></pre></div></p>
-<h3 id="step-3-fall-back-to-manual-assistance">Step 3: Fall Back to Manual Assistance</h3>
-<p>Prompt users to resolve CAPTCHA or login challenges in a separate session and capture the cookies for automation.</p>
-<hr/>
-<h2 id="proposed-workflow-for-automation">Proposed Workflow for Automation</h2>
+<span class="c1"># Install Browser Use with development dependencies</span>
+uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>.<span class="w"> </span>.<span class="s2">"[dev]"</span>
+
+<span class="c1"># Install Botright</span>
+pip<span class="w"> </span>install<span class="w"> </span>botright
+playwright<span class="w"> </span>install
+</code></pre></div>
+<h2 id="implementation">Implementation</h2>
+<p>Follow these steps to integrate Botright with Browser Use:</p>
+<h3 id="1-update-mainpy">1. Update <code>main.py</code></h3>
+<p>Replace the Playwright browser initialization with Botright’s initialization. Here’s the updated <code>main.py</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">import</span> <span class="nn">botright</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Initialize Botright with enhanced stealth options</span>
+    <span class="n">botright_client</span> <span class="o">=</span> <span class="k">await</span> <span class="n">botright</span><span class="o">.</span><span class="n">Botright</span><span class="p">(</span><span class="n">headless</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="c1"># Launch a browser instance</span>
+    <span class="n">browser</span> <span class="o">=</span> <span class="k">await</span> <span class="n">botright_client</span><span class="o">.</span><span class="n">new_browser</span><span class="p">()</span>
+
+    <span class="c1"># Open a new page</span>
+    <span class="n">page</span> <span class="o">=</span> <span class="k">await</span> <span class="n">browser</span><span class="o">.</span><span class="n">new_page</span><span class="p">()</span>
+
+    <span class="c1"># Navigate to a website</span>
+    <span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="s2">"https://example.com"</span><span class="p">)</span>
+
+    <span class="c1"># Perform browser actions (e.g., take a screenshot)</span>
+    <span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">"screenshot.png"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Screenshot saved!"</span><span class="p">)</span>
+
+    <span class="c1"># Close the browser and Botright client</span>
+    <span class="k">await</span> <span class="n">browser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">await</span> <span class="n">botright_client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</code></pre></div>
+<h3 id="2-configure-environment-variables">2. Configure Environment Variables</h3>
+<p>Set up required API keys by copying the example environment file:</p>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>.env.example<span class="w"> </span>.env
+</code></pre></div>
+<p>Add the following to your <code>.env</code> file:</p>
+<div class="highlight"><pre><span></span><code>BOTRIGHT_API_KEY=your_botright_api_key
+</code></pre></div>
+<h3 id="3-run-the-script">3. Run the Script</h3>
+<p>Run your updated <code>main.py</code> script:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>main.py
+</code></pre></div>
+<h3 id="4-what-happens">4. What Happens?</h3>
 <ol>
-<li><strong>Initial Attempt:</strong> Start with Selenium and UC for automation.</li>
-<li><strong>Fallback to Cookies:</strong> Reuse cookies for continuity if CAPTCHA or Cloudflare challenges arise.</li>
-<li><strong>Manual Assistance:</strong> Open a browser session for user input, capture cookies, and resume automation.</li>
+<li><strong>Browser Initialization</strong>: Botright launches a Chromium-based browser instance with stealth enhancements.</li>
+<li><strong>Website Navigation</strong>: The browser navigates to the specified URL (<code>https://example.com</code>).</li>
+<li><strong>Screenshot Capture</strong>: A screenshot is taken and saved as <code>screenshot.png</code>.</li>
 </ol>
-<p>This iterative process ensures maximum efficiency and minimizes disruptions.</p>
-<hr/>
+<h2 id="debugging-tips">Debugging Tips</h2>
+<ol>
+<li><strong>Botright Logs</strong>:
+   Use <code>print</code> statements or Botright's built-in logging for debugging.</li>
+<li><strong>Browser Errors</strong>:
+   Verify the installed version of Playwright and Botright.</li>
+<li><strong>Environment Issues</strong>:
+   Ensure your <code>.env</code> file contains the correct API keys.</li>
+</ol>
+<h2 id="advanced-features">Advanced Features</h2>
+<h3 id="captcha-solving">Captcha Solving</h3>
+<p>To solve captchas, use Botright's built-in methods. Example:</p>
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">solve_captcha</span><span class="p">()</span>
+</code></pre></div>
+<h3 id="fingerprint-masking">Fingerprint Masking</h3>
+<p>Botright automatically handles fingerprint masking. To customize this, refer to the <a href="https://botright.readthedocs.io/">Botright documentation</a>.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>Selenium and undetected-chromedriver provide a powerful toolkit for overcoming automation barriers like CAPTCHA and Cloudflare protections. By leveraging cookies and manual fallbacks, you can create robust workflows that streamline automation processes.</p>
-<p>Ready to enhance your web automation? Start integrating Selenium with UC today and unlock new possibilities!</p>
-<hr/>
-<h2 id="references">References</h2>
-<ul>
-<li><a href="https://www.selenium.dev/documentation/">Selenium Documentation</a></li>
-<li><a href="https://github.com/ultrafunkamsterdam/undetected-chromedriver">Undetected-Chromedriver</a></li>
-<li><a href="https://www.example.com/captcha-bypass-guide">CAPTCHA Bypass Strategies</a></li>
-<li><a href="https://www.cloudflare.com/">Cloudflare and Bot Detection</a></li>
-</ul>
+<p>By integrating Botright with Browser Use, you unlock advanced stealth browsing capabilities ideal for sensitive automation tasks. This setup provides a solid foundation for further enhancements, such as integrating AI-based analysis or multi-page navigation workflows.</p>
 <form class="md-feedback" hidden="" name="feedback">
 <fieldset>
 <legend class="md-feedback__title">
@@ -523,7 +523,7 @@
 </div>
 </fieldset>
 </form>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-15, Updated 2025-01-15<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (3)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-22, Updated 2025-01-22<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -534,10 +534,10 @@
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/2025/01/15/bypassing-cloudflare-with-selenium-and-undetected-chromedriver', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/2025/01/15/setting-up-browser-use-with-botright', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/2025/01/15/bypassing-cloudflare-with-selenium-and-undetected-chromedriver', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/2025/01/15/setting-up-browser-use-with-botright', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
