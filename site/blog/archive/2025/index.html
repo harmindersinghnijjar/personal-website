@@ -1004,13 +1004,16 @@ catkin_make
 </code></pre></div>
 <p>This is required for all other nodes to communicate.</p>
 <hr />
-<h4 id="2-launch-the-lidar-node"><a class="toclink" href="../../2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover/#2-launch-the-lidar-node">2. <strong>Launch the LIDAR Node</strong></a></h4>
+<h4 id="2-launch-the-lidar-and-roboclaw-nodes"><a class="toclink" href="../../2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover/#2-launch-the-lidar-and-roboclaw-nodes">2. <strong>Launch the LIDAR and RoboClaw Nodes</strong></a></h4>
 <p>To enable LIDAR data for mapping, launch the LIDAR node in a new terminal:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Desktop/Frata/roboclaw_python_library/roboclaw_python
-roslaunch<span class="w"> </span>ldlidar_stl_ros<span class="w"> </span>ld19.launch
+<div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>ldlidar_stl_ros<span class="w"> </span>ld19.launch
 </code></pre></div>
 <p>This ensures the LIDAR sensor is active and publishing data to the <code>/scan</code> topic, which is necessary for Hector SLAM to create a map.</p>
-<hr />
+<p>In a new terminal, navigate to your workspace and launch the Roboclaw node:</p>
+<div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>roboclaw_node<span class="w"> </span>roboclaw.launch
+</code></pre></div>
+<p>This node handles motor control, publishing odometry, and subscribing to velocity commands (<code>/cmd_vel</code>).</p>
+<h3 id="-"><a class="toclink" href="../../2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover/#-">---</a></h3>
 <h4 id="3-configure-and-launch-hector-mapping"><a class="toclink" href="../../2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover/#3-configure-and-launch-hector-mapping">3. <strong>Configure and Launch Hector Mapping</strong></a></h4>
 <p>In your workspace, navigate to the Hector SLAM launch folder:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/armpi_pro/src/hector_slam/hector_slam_launch/launch
@@ -1026,7 +1029,7 @@ roslaunch<span class="w"> </span>ldlidar_stl_ros<span class="w"> </span>ld19.lau
 <span class="nt">&lt;/launch&gt;</span>
 </code></pre></div>
 <p>Run the launch file:</p>
-<div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>hector_slam_launch<span class="w"> </span>tutorial.launch
+<div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>hector_slam_launch<span class="w"> </span>mapping_with_odom.launch
 </code></pre></div>
 <hr />
 <h4 id="4-adjust-rviz-configuration"><a class="toclink" href="../../2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover/#4-adjust-rviz-configuration">4. <strong>Adjust RViz Configuration</strong></a></h4>
