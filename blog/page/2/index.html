@@ -542,6 +542,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#agentic-web-scraping-in-2024" class="md-nav__link">
+    <span class="md-ellipsis">
+      Agentic Web Scraping in 2024
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#my-first-blog-post" class="md-nav__link">
     <span class="md-ellipsis">
       My First Blog Post
@@ -591,6 +600,87 @@
       <header class="md-typeset">
         <h1 id="blog">Blog</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2024-11-25 00:00:00+00:00">November 25, 2024</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../../category/programming/" class="md-meta__link">Programming</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              4 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="agentic-web-scraping-in-2024"><a class="toclink" href="../../2024/11/25/agentic-web-scraping-in-2024/">Agentic Web Scraping in 2024</a></h2>
+<p>Web scraping best practices have evolved significantly in the past couple of years, with the rise of agentic web scraping marking a new era in data collection and analysis. In this post, we'll explore the concept of agentic web scraping, its benefits, and how it is transforming the landscape of data-driven decision-making.</p>
+<h3 id="evolution-of-web-scraping"><a class="toclink" href="../../2024/11/25/agentic-web-scraping-in-2024/#evolution-of-web-scraping">Evolution of Web Scraping</a></h3>
+<p>Typically, web scraping involved extracting data from websites by mimiking browser behaviour through HTTP requests and web automation frameworks like Selenium, Puppeteer, or Playwright. This process required developers to write specific code for each website, making it time-consuming, error-prone, and susceptible to changes in website structure. So much so that 50% to 70% of engineering resources in data aggregation teams were spent on scraping stystems early on. However, with the advent of agentic web scraping, this approach has been revolutionized. LLMs are able to make sense of any data thrown at them, allowing them to understand large amounts of raw HTML and make decisions based on it.</p>
+<p>This comes with a drawback, however. The more unstructured data you throw at an LLM, the more likely it is to make mistakes and the more tokens are consumed. This is why it's important to have as close to structured, human-readable data as possible.</p>
+<h3 id="structuring-data-for-agentic-web-scraping"><a class="toclink" href="../../2024/11/25/agentic-web-scraping-in-2024/#structuring-data-for-agentic-web-scraping">Structuring Data for Agentic Web Scraping</a></h3>
+<p>In order to be able to use LLM Scraper Agents and Reasoning Agents, we need to convert raw HTML data into a more structured format. Markdown is a great choice for this, as it is human-readable and easily parsed by LLMs. After converting scraped data into structured markdown, we can feed it into LLM Scraper Agents and Reasoning Agents to make sense of it and extract insights.</p>
+<h4 id="web-scraper-agents-for-public-data"><a class="toclink" href="../../2024/11/25/agentic-web-scraping-in-2024/#web-scraper-agents-for-public-data">Web Scraper Agents for Public Data</a></h4>
+<p>Public data is data that is freely available on the web, such as news articles, blog posts, and product descriptions. This data can be scraped and used for various purposes and does not require any special permissions such as bypassing CAPTCHAs or logging in.</p>
+<p>Some APIs that can be used to convert raw HTML data into structured markdown include:</p>
+<div class="admonition note">
+<p class="admonition-title">Firecrawl</p>
+<p><a href="https://www.firecrawl.dev/">Firecrawl</a> turns entire websites into clean, LLM-ready markdown or structured data. Scrape, crawl and extract the web with a single API </p>
+<p>Output: Good quality markdown with most hyperlinks preserved</p>
+<p>Rate limit: 1000 requests per minute</p>
+<p>Cost: $0.06 per 100 pages</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Jina</p>
+<p>Turn a website into a structured data by adding <a href="https://jina.ai/">r.jina.ai</a> in front of the URL.</p>
+<p>Output: Focuses primarily on extracting content rather than preserving hyperlinks</p>
+<p>Rate limit: 1000 requests per minute</p>
+<p>Cost: Free</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Spider Cloud</p>
+<p><a href="https://spider.cloud/">Spider</a> is a leading web crawling tool designed for speed and cost-effectiveness, supporting various data formats including LLM-ready markdown.</p>
+<p>Output: Happy medium between Firecrawl and Jina with good quality markdown</p>
+<p>Rate limit: 50000 requests per minute</p>
+<p>Cost: $0.03 per 100 pages</p>
+</div>
+<h4 id="web-scraper-agents-for-private-data"><a class="toclink" href="../../2024/11/25/agentic-web-scraping-in-2024/#web-scraper-agents-for-private-data">Web Scraper Agents for Private Data</a></h4>
+<p>As mentioned earlier, web automation frameworks like Selenium, Puppeteer, or Playwright are used to scrape private data that requires interaction to access restricted areas of a website. These tools can now be used to build agentic web scraping systems that can understand and reason about the data they collect. However, the issue with these tools is determining which UI elements to interact with to access the abovementioned restricted areas of a site. This is where AgentQL comes in.</p>
+<div class="admonition note">
+<p class="admonition-title">AgentQL</p>
+<p><a href="https://agentql.com/">AgentQL</a> allows web automation frameworks to accurately navigate websites, even when the website structure changes.</p>
+<p>Rate limit: 10 API calls per minute</p>
+<p>Cost: $0.02 per API call</p>
+</div>
+<p>Using AgentQL in conjunction with web automation frameworks enables developers to build agentic web scraping systems that can access and reason about private data, making the process more efficient and reliable.</p>
+<p><img alt="How AgentQL Works" src="https://i.imgur.com/dSDZPzJ.png"></p>
+<p>Some examples of actions we're able to perform with AgentQL along with Playwright or Selenium include:</p>
+<ul>
+<li>Save and load authenticated state</li>
+<li>Wait for a page to load</li>
+<li>Close a cookie dialog</li>
+<li>Close popup windows</li>
+<li>Compare product prices across multiple websites</li>
+</ul>
+<h3 id="conclusion"><a class="toclink" href="../../2024/11/25/agentic-web-scraping-in-2024/#conclusion">Conclusion</a></h3>
+<p>Agentic web scraping is transforming the way data is collected and analyzed, enabling developers to build systems that can understand and reason about the data they collect. By structuring data in a human-readable format like markdown and using tools like LLM Scraper Agents, Reasoning Agents, and AgentQL, developers can create efficient and reliable web scraping systems that can access both public and private data. This new approach to web scraping is revolutionizing the field of data-driven decision-making and opening up new possibilities for data analysis and insights.</p>
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">

@@ -516,6 +516,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#bypassing-cloudflare-with-selenium-and-undetected-chromedriver" class="md-nav__link">
     <span class="md-ellipsis">
       Bypassing Cloudflare with Selenium and Undetected-Chromedriver
@@ -717,6 +726,15 @@
   <a href="#setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance" class="md-nav__link">
     <span class="md-ellipsis">
       Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover
     </span>
   </a>
   
@@ -931,6 +949,148 @@ catkin_make
 <h3 id="conclusion"><a class="toclink" href="../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#conclusion">Conclusion</a></h3>
 <p>With this setup, your robot is capable of autonomously navigating forward and stopping when obstacles are detected. The modular structure allows for easy debugging and future enhancements, such as adding new sensors or navigation strategies.</p>
 <p>Mastering these steps ensures a reliable and robust robotic system ready for real-world applications.</p>
+    
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-01-22 00:00:00+00:00">January 22, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../../category/robotics/" class="md-meta__link">Robotics</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              3 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover"><a class="toclink" href="../../2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover/">Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover</a></h2>
+<h3 id="setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover_1"><a class="toclink" href="../../2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover/#setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover_1">Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover</a></h3>
+<p>This guide details the steps to configure and use Hector SLAM with a Roboclaw-based ROS 1 robot. We’ll cover LIDAR integration, transform configuration, and how to set RViz for successful mapping and navigation.</p>
+<hr />
+<h3 id="prerequisites"><a class="toclink" href="../../2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover/#prerequisites">Prerequisites</a></h3>
+<p>Ensure the following are set up on your system:</p>
+<ol>
+<li><strong>ROS Installed</strong>: ROS Melodic or a compatible version is installed.</li>
+<li><strong>Workspace Prepared</strong>: A catkin workspace (e.g., <code>~/armpi_pro</code>) is created, built, and sourced.</li>
+<li><strong>Hector SLAM Package</strong>:</li>
+<li>Installed and located in your workspace under <code>src/hector_slam</code>.</li>
+<li>Ensure <code>hector_mapping</code> and <code>hector_slam_launch</code> are available.</li>
+<li><strong>LIDAR Sensor</strong>:</li>
+<li>Configured and publishing scan data to <code>/scan</code>.</li>
+<li><strong>Roboclaw Node</strong>:</li>
+<li>Operational, publishing odometry to <code>/odom</code>.</li>
+</ol>
+<hr />
+<h3 id="steps-to-set-up-hector-slam"><a class="toclink" href="../../2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover/#steps-to-set-up-hector-slam">Steps to Set Up Hector SLAM</a></h3>
+<h4 id="1-launch-ros-core"><a class="toclink" href="../../2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover/#1-launch-ros-core">1. <strong>Launch ROS Core</strong></a></h4>
+<p>Open a terminal and start the ROS core:</p>
+<div class="highlight"><pre><span></span><code>roscore
+</code></pre></div>
+<p>This is required for all other nodes to communicate.</p>
+<hr />
+<h4 id="2-launch-the-lidar-node"><a class="toclink" href="../../2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover/#2-launch-the-lidar-node">2. <strong>Launch the LIDAR Node</strong></a></h4>
+<p>To enable LIDAR data for mapping, launch the LIDAR node in a new terminal:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Desktop/Frata/roboclaw_python_library/roboclaw_python
+roslaunch<span class="w"> </span>ldlidar_stl_ros<span class="w"> </span>ld19.launch
+</code></pre></div>
+<p>This ensures the LIDAR sensor is active and publishing data to the <code>/scan</code> topic, which is necessary for Hector SLAM to create a map.</p>
+<hr />
+<h4 id="3-configure-and-launch-hector-mapping"><a class="toclink" href="../../2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover/#3-configure-and-launch-hector-mapping">3. <strong>Configure and Launch Hector Mapping</strong></a></h4>
+<p>In your workspace, navigate to the Hector SLAM launch folder:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/armpi_pro/src/hector_slam/hector_slam_launch/launch
+</code></pre></div>
+<p>Use the <code>tutorial.launch</code> file as a base for running Hector SLAM. Modify the following parameters in the launch file to match your setup:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;launch&gt;</span>
+<span class="w">  </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">&quot;hector_mapping&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;hector_mapping&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;hector_mapping&quot;</span><span class="w"> </span><span class="na">output=</span><span class="s">&quot;screen&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;pub_map_odom_transform&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;map_frame&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;map&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;base_frame&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;base_link&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;odom_frame&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;odom&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/node&gt;</span>
+<span class="nt">&lt;/launch&gt;</span>
+</code></pre></div>
+<p>Run the launch file:</p>
+<div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>hector_slam_launch<span class="w"> </span>tutorial.launch
+</code></pre></div>
+<hr />
+<h4 id="4-adjust-rviz-configuration"><a class="toclink" href="../../2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover/#4-adjust-rviz-configuration">4. <strong>Adjust RViz Configuration</strong></a></h4>
+<p>To visualize the mapping process:</p>
+<ol>
+<li>
+<p>Start RViz:
+   <div class="highlight"><pre><span></span><code>rosrun<span class="w"> </span>rviz<span class="w"> </span>rviz
+</code></pre></div></p>
+</li>
+<li>
+<p>Set the <strong>Fixed Frame</strong> to <code>scanmatcher_frame</code>:</p>
+</li>
+<li>Navigate to <code>Global Options</code> in RViz.</li>
+<li>
+<p>Set <code>Fixed Frame</code> to <code>scanmatcher_frame</code>.</p>
+</li>
+<li>
+<p>Add relevant displays:</p>
+</li>
+<li><strong>Map</strong>: Subscribe to <code>/map</code> for live updates.</li>
+<li><strong>LaserScan</strong>: Subscribe to <code>/scan</code> to visualize LIDAR data.</li>
+<li><strong>TF</strong>: Check the frame hierarchy and transformations.</li>
+</ol>
+<hr />
+<h4 id="5-launch-the-roboclaw-node"><a class="toclink" href="../../2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover/#5-launch-the-roboclaw-node">5. <strong>Launch the Roboclaw Node</strong></a></h4>
+<p>Start the Roboclaw node to handle motor control and odometry:</p>
+<div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>roboclaw_node<span class="w"> </span>roboclaw.launch
+</code></pre></div>
+<p>This node should publish odometry data to the <code>/odom</code> topic, which Hector SLAM uses.</p>
+<hr />
+<h4 id="6-run-the-rover"><a class="toclink" href="../../2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover/#6-run-the-rover">6. <strong>Run the rover</strong></a></h4>
+<p>Now that the mapping and motor control nodes are active:</p>
+<ul>
+<li>Drive the rover manually or programmatically.</li>
+<li>Watch the map being built in RViz.</li>
+<li>Ensure the rover avoids obstacles and updates the map in real-time.</li>
+</ul>
+<hr />
+<h3 id="key-adjustments-made"><a class="toclink" href="../../2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover/#key-adjustments-made">Key Adjustments Made</a></h3>
+<p>Here’s a summary of the adjustments we made to configure Hector SLAM:</p>
+<ol>
+<li>Set <strong>Fixed Frame</strong> in RViz to <code>scanmatcher_frame</code>.</li>
+<li>Modified the Hector SLAM launch file to include:</li>
+<li><code>pub_map_odom_transform</code> set to <code>true</code>.</li>
+<li>Correct frame names (<code>map</code>, <code>odom</code>, <code>base_link</code>).</li>
+<li>Verified LIDAR publishing to <code>/scan</code> using <code>ld19.launch</code>.</li>
+<li>Ensured odometry data was published to <code>/odom</code> by the Roboclaw node.</li>
+</ol>
+<hr />
+<h3 id="troubleshooting"><a class="toclink" href="../../2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover/#troubleshooting">Troubleshooting</a></h3>
+<h4 id="error-transform-lookup-failed"><a class="toclink" href="../../2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover/#error-transform-lookup-failed">Error: Transform Lookup Failed</a></h4>
+<p>If you see errors like "Lookup would require extrapolation into the future," check the following:
+- Ensure the system clocks are synchronized using <code>ntp</code> or <code>chrony</code>.
+- Verify all topics (<code>/scan</code>, <code>/odom</code>) have valid and synchronized timestamps.</p>
+<h4 id="lidar-not-publishing"><a class="toclink" href="../../2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover/#lidar-not-publishing">LIDAR Not Publishing</a></h4>
+<p>Run:
+<div class="highlight"><pre><span></span><code>rostopic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/scan
+</code></pre></div>
+If no data appears, ensure the LIDAR launch file is correctly configured and the sensor is operational.</p>
+<hr />
+<h3 id="conclusion"><a class="toclink" href="../../2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover/#conclusion">Conclusion</a></h3>
+<p>By following these steps, you’ve successfully set up Hector SLAM on a Roboclaw-based ROS 1 rover. With LIDAR and odometry data, your rover can build a 2D map of its environment, enabling autonomous navigation and enhanced spatial awareness.</p>
+<p>Feel free to experiment with SLAM parameters and refine your rover’s capabilities for your specific use case.</p>
     
   </div>
 </article>
