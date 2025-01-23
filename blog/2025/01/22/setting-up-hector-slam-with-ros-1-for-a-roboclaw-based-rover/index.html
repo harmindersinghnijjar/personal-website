@@ -35,7 +35,7 @@
 <meta content="Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover - Harminder Singh Nijjar" name="twitter:title"/>
 <meta content="Learn how to set up and run Hector SLAM on a ROS 1 rover, including configuring the Roboclaw node and LIDAR integration for mapping and navigation." name="twitter:description"/>
 <meta content="https://harminder.dev/assets/images/social/blog/posts/20250122230516.png" name="twitter:image"/>
-<meta content="Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover" property="og:url"/><meta content="Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover" property="og:title"/><meta content="Learn how to set up and run Hector SLAM on a ROS 1 rover, including configuring the Roboclaw node and LIDAR integration for mapping and navigation." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover" property="twitter:url"/><meta content="Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover" property="twitter:title"/><meta content="Learn how to set up and run Hector SLAM on a ROS 1 rover, including configuring the Roboclaw node and LIDAR integration for mapping and navigation." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover", "image": [], "datePublished": "2025-01-22 23:09:24 -0800", "dateModified": "2025-01-22 23:09:24 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to set up and run Hector SLAM on a ROS 1 rover, including configuring the Roboclaw node and LIDAR integration for mapping and navigation."}</script></head>
+<meta content="Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover" property="og:url"/><meta content="Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover" property="og:title"/><meta content="Learn how to set up and run Hector SLAM on a ROS 1 rover, including configuring the Roboclaw node and LIDAR integration for mapping and navigation." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover" property="twitter:url"/><meta content="Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover" property="twitter:title"/><meta content="Learn how to set up and run Hector SLAM on a ROS 1 rover, including configuring the Roboclaw node and LIDAR integration for mapping and navigation." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover", "image": [], "datePublished": "2025-01-22 23:09:24 -0800", "dateModified": "2025-01-23 07:31:38 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to set up and run Hector SLAM on a ROS 1 rover, including configuring the Roboclaw node and LIDAR integration for mapping and navigation."}</script></head>
 <body data-md-color-accent="custom" data-md-color-primary="custom" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -246,12 +246,23 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#2-launch-the-lidar-node">
+<a class="md-nav__link" href="#2-launch-the-lidar-and-roboclaw-nodes">
 <span class="md-ellipsis">
-      2. Launch the LIDAR Node
+      2. Launch the LIDAR and RoboClaw Nodes
     </span>
 </a>
 </li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#-">
+<span class="md-ellipsis">
+      ---
+    </span>
+</a>
+<nav aria-label="---" class="md-nav">
+<ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#3-configure-and-launch-hector-mapping">
 <span class="md-ellipsis">
@@ -418,13 +429,16 @@
 </code></pre></div>
 <p>This is required for all other nodes to communicate.</p>
 <hr/>
-<h3 id="2-launch-the-lidar-node">2. <strong>Launch the LIDAR Node</strong></h3>
+<h3 id="2-launch-the-lidar-and-roboclaw-nodes">2. <strong>Launch the LIDAR and RoboClaw Nodes</strong></h3>
 <p>To enable LIDAR data for mapping, launch the LIDAR node in a new terminal:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Desktop/Frata/roboclaw_python_library/roboclaw_python
-roslaunch<span class="w"> </span>ldlidar_stl_ros<span class="w"> </span>ld19.launch
+<div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>ldlidar_stl_ros<span class="w"> </span>ld19.launch
 </code></pre></div>
 <p>This ensures the LIDAR sensor is active and publishing data to the <code>/scan</code> topic, which is necessary for Hector SLAM to create a map.</p>
-<hr/>
+<p>In a new terminal, navigate to your workspace and launch the Roboclaw node:</p>
+<div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>roboclaw_node<span class="w"> </span>roboclaw.launch
+</code></pre></div>
+<p>This node handles motor control, publishing odometry, and subscribing to velocity commands (<code>/cmd_vel</code>).</p>
+<h2 id="-">---</h2>
 <h3 id="3-configure-and-launch-hector-mapping">3. <strong>Configure and Launch Hector Mapping</strong></h3>
 <p>In your workspace, navigate to the Hector SLAM launch folder:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/armpi_pro/src/hector_slam/hector_slam_launch/launch
@@ -440,7 +454,7 @@ roslaunch<span class="w"> </span>ldlidar_stl_ros<span class="w"> </span>ld19.lau
 <span class="nt">&lt;/launch&gt;</span>
 </code></pre></div>
 <p>Run the launch file:</p>
-<div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>hector_slam_launch<span class="w"> </span>tutorial.launch
+<div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>hector_slam_launch<span class="w"> </span>mapping_with_odom.launch
 </code></pre></div>
 <hr/>
 <h3 id="4-adjust-rviz-configuration">4. <strong>Adjust RViz Configuration</strong></h3>
@@ -538,7 +552,7 @@ If no data appears, ensure the LIDAR launch file is correctly configured and the
 </div>
 </fieldset>
 </form>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-22, Updated 2025-01-22<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-22, Updated 2025-01-23<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (2)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
