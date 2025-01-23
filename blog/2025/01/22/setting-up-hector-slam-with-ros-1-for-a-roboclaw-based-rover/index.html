@@ -35,7 +35,7 @@
 <meta content="Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover - Harminder Singh Nijjar" name="twitter:title"/>
 <meta content="Learn how to set up and run Hector SLAM on a ROS 1 rover, including configuring the Roboclaw node and LIDAR integration for mapping and navigation." name="twitter:description"/>
 <meta content="https://harminder.dev/assets/images/social/blog/posts/20250122230516.png" name="twitter:image"/>
-<meta content="Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover" property="og:url"/><meta content="Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover" property="og:title"/><meta content="Learn how to set up and run Hector SLAM on a ROS 1 rover, including configuring the Roboclaw node and LIDAR integration for mapping and navigation." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover" property="twitter:url"/><meta content="Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover" property="twitter:title"/><meta content="Learn how to set up and run Hector SLAM on a ROS 1 rover, including configuring the Roboclaw node and LIDAR integration for mapping and navigation." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover", "image": [], "datePublished": "2025-01-22 23:09:24 -0800", "dateModified": "2025-01-23 07:31:38 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to set up and run Hector SLAM on a ROS 1 rover, including configuring the Roboclaw node and LIDAR integration for mapping and navigation."}</script></head>
+<meta content="Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover" property="og:url"/><meta content="Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover" property="og:title"/><meta content="Learn how to set up and run Hector SLAM on a ROS 1 rover, including configuring the Roboclaw node and LIDAR integration for mapping and navigation." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover" property="twitter:url"/><meta content="Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover" property="twitter:title"/><meta content="Learn how to set up and run Hector SLAM on a ROS 1 rover, including configuring the Roboclaw node and LIDAR integration for mapping and navigation." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover", "image": [], "datePublished": "2025-01-22 23:09:24 -0800", "dateModified": "2025-01-23 07:50:26 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to set up and run Hector SLAM on a ROS 1 rover, including configuring the Roboclaw node and LIDAR integration for mapping and navigation."}</script></head>
 <body data-md-color-accent="custom" data-md-color-primary="custom" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -252,17 +252,6 @@
     </span>
 </a>
 </li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#-">
-<span class="md-ellipsis">
-      ---
-    </span>
-</a>
-<nav aria-label="---" class="md-nav">
-<ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#3-configure-and-launch-hector-mapping">
 <span class="md-ellipsis">
@@ -382,7 +371,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"></path></svg>
 <span class="md-ellipsis">
                             
-                              3 min read
+                              5 min read
                             
                           </span>
 </div>
@@ -434,26 +423,32 @@
 <div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>ldlidar_stl_ros<span class="w"> </span>ld19.launch
 </code></pre></div>
 <p>This ensures the LIDAR sensor is active and publishing data to the <code>/scan</code> topic, which is necessary for Hector SLAM to create a map.</p>
-<p>In a new terminal, navigate to your workspace and launch the Roboclaw node:</p>
-<div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>roboclaw_node<span class="w"> </span>roboclaw.launch
-</code></pre></div>
-<p>This node handles motor control, publishing odometry, and subscribing to velocity commands (<code>/cmd_vel</code>).</p>
-<h2 id="-">---</h2>
+<hr/>
 <h3 id="3-configure-and-launch-hector-mapping">3. <strong>Configure and Launch Hector Mapping</strong></h3>
 <p>In your workspace, navigate to the Hector SLAM launch folder:</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/armpi_pro/src/hector_slam/hector_slam_launch/launch
 </code></pre></div>
 <p>Use the <code>tutorial.launch</code> file as a base for running Hector SLAM. Modify the following parameters in the launch file to match your setup:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;launch&gt;</span>
-<span class="w">  </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">"hector_mapping"</span><span class="w"> </span><span class="na">type=</span><span class="s">"hector_mapping"</span><span class="w"> </span><span class="na">name=</span><span class="s">"hector_mapping"</span><span class="w"> </span><span class="na">output=</span><span class="s">"screen"</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">"pub_map_odom_transform"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">"map_frame"</span><span class="w"> </span><span class="na">value=</span><span class="s">"map"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">"base_frame"</span><span class="w"> </span><span class="na">value=</span><span class="s">"base_link"</span><span class="nt">/&gt;</span>
-<span class="w">    </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">"odom_frame"</span><span class="w"> </span><span class="na">value=</span><span class="s">"odom"</span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;/node&gt;</span>
+<span class="w">    </span><span class="cm">&lt;!-- Hector Mapping Node --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">"hector_mapping"</span><span class="w"> </span><span class="na">type=</span><span class="s">"hector_mapping"</span><span class="w"> </span><span class="na">name=</span><span class="s">"hector_mapping"</span><span class="w"> </span><span class="na">output=</span><span class="s">"screen"</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">"pub_map_odom_transform"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">"map_frame"</span><span class="w"> </span><span class="na">value=</span><span class="s">"map"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">"base_frame"</span><span class="w"> </span><span class="na">value=</span><span class="s">"base_link"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">"odom_frame"</span><span class="w"> </span><span class="na">value=</span><span class="s">"odom"</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;remap</span><span class="w"> </span><span class="na">from=</span><span class="s">"scan"</span><span class="w"> </span><span class="na">to=</span><span class="s">"/scan"</span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- Your LIDAR topic --&gt;</span>
+<span class="w">        </span><span class="nt">&lt;remap</span><span class="w"> </span><span class="na">from=</span><span class="s">"odom"</span><span class="w"> </span><span class="na">to=</span><span class="s">"/odom"</span><span class="nt">/&gt;</span><span class="w">  </span><span class="cm">&lt;!-- Your odometry topic --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/node&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- Static Transform Publisher --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">"tf2_ros"</span><span class="w"> </span><span class="na">type=</span><span class="s">"static_transform_publisher"</span><span class="w"> </span><span class="na">name=</span><span class="s">"laser_to_base_link"</span>
+<span class="w">          </span><span class="na">args=</span><span class="s">"0 0 0.2 0 0 0 base_link laser_link"</span><span class="nt">/&gt;</span>
+
+<span class="w">    </span><span class="cm">&lt;!-- RViz for Visualization --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">"rviz"</span><span class="w"> </span><span class="na">type=</span><span class="s">"rviz"</span><span class="w"> </span><span class="na">name=</span><span class="s">"rviz"</span><span class="w"> </span><span class="na">args=</span><span class="s">"-d $(find hector_slam_launch)/rviz_cfg/mapping.rviz"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="nt">&lt;/launch&gt;</span>
 </code></pre></div>
-<p>Run the launch file:</p>
+<p>Run the newly created launch file above using:</p>
 <div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>hector_slam_launch<span class="w"> </span>mapping_with_odom.launch
 </code></pre></div>
 <hr/>
@@ -489,7 +484,157 @@
 <h3 id="6-run-the-rover">6. <strong>Run the rover</strong></h3>
 <p>Now that the mapping and motor control nodes are active:</p>
 <ul>
-<li>Drive the rover manually or programmatically.</li>
+<li>Drive the rover manually or programmatically using the following script:
+    <div class="highlight"><pre><span></span><code>    <span class="c1">#!/usr/bin/env python2</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">"""</span>
+<span class="sd">Example: Use Pygame to read an Xbox controller and RoboClaw on ROS Melodic (Python 2).</span>
+<span class="sd">No f-strings; uses .format().</span>
+
+<span class="sd">Make sure:</span>
+<span class="sd">  1) roscore is running (for rospy logs).</span>
+<span class="sd">  2) SDL_VIDEODRIVER=dummy is set if headless: export SDL_VIDEODRIVER=dummy</span>
+<span class="sd">  3) RoboClaw is on /dev/ttyACM0 (or change param).</span>
+<span class="sd">"""</span>
+
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">rospy</span>
+<span class="kn">import</span> <span class="nn">pygame</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c1"># For TF in Melodic (Python 2)</span>
+<span class="kn">import</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">tf.transformations</span> <span class="k">as</span> <span class="nn">tft</span>
+
+<span class="c1"># RoboClaw library (python2-compatible)</span>
+<span class="kn">from</span> <span class="nn">roboclaw</span> <span class="kn">import</span> <span class="n">Roboclaw</span>
+
+<span class="k">class</span> <span class="nc">XboxRoboclawDebugPy2</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># 1) ROS init</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">"xbox_teleop_debug_py2"</span><span class="p">,</span> <span class="n">anonymous</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">"Starting xbox_teleop_debug_py2 node..."</span><span class="p">)</span>
+
+        <span class="c1"># 2) RoboClaw Setup</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">port_name</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s2">"~port"</span><span class="p">,</span> <span class="s2">"/dev/ttyACM0"</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">baud_rate</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s2">"~baud"</span><span class="p">,</span> <span class="mi">115200</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">address</span>   <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s2">"~address"</span><span class="p">,</span> <span class="mh">0x80</span><span class="p">)</span>  <span class="c1"># decimal 128</span>
+
+        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">"Attempting to open RoboClaw on </span><span class="si">{0}</span><span class="s2"> at </span><span class="si">{1}</span><span class="s2"> baud, address=0x</span><span class="si">{2:X}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">port_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">baud_rate</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">address</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rc</span> <span class="o">=</span> <span class="n">Roboclaw</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">port_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">baud_rate</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">rc</span><span class="o">.</span><span class="n">Open</span><span class="p">():</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">logerr</span><span class="p">(</span><span class="s2">"Failed to open RoboClaw on </span><span class="si">{0}</span><span class="s2">. Exiting."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">port_name</span><span class="p">))</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">"RoboClaw opened successfully on </span><span class="si">{0}</span><span class="s2">."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">port_name</span><span class="p">))</span>
+
+        <span class="c1"># 3) Initialize Pygame</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">joystick</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+
+        <span class="n">joystick_count</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">joystick</span><span class="o">.</span><span class="n">get_count</span><span class="p">()</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">"Detected </span><span class="si">{0}</span><span class="s2"> joystick(s)."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">joystick_count</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">joystick_count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">logerr</span><span class="p">(</span><span class="s2">"No joystick detected. Exiting."</span><span class="p">)</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">joystick</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">joystick</span><span class="o">.</span><span class="n">Joystick</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">joystick</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">"Joystick: </span><span class="si">{0}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">joystick</span><span class="o">.</span><span class="n">get_name</span><span class="p">()))</span>
+
+        <span class="c1"># 4) Speed config</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">max_speed_cmd</span> <span class="o">=</span> <span class="mf">15.0</span>  <span class="c1"># if 127 is full speed, 20 is slower</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">deadzone</span> <span class="o">=</span> <span class="mf">0.1</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">"max_speed_cmd=</span><span class="si">{0}</span><span class="s2">, deadzone=</span><span class="si">{1}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_speed_cmd</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">deadzone</span><span class="p">))</span>
+
+        <span class="c1"># Rate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">loop_rate</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Rate</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>  <span class="c1"># 20 Hz</span>
+
+        <span class="c1"># On shutdown =&gt; stop motors</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">on_shutdown</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stop_motors</span><span class="p">)</span>
+
+        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">"Initialization complete. Ready to run..."</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">stop_motors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">"Stopping motors."</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rc</span><span class="o">.</span><span class="n">ForwardM1</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rc</span><span class="o">.</span><span class="n">ForwardM2</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">loop_counter</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">while</span> <span class="ow">not</span> <span class="n">rospy</span><span class="o">.</span><span class="n">is_shutdown</span><span class="p">():</span>
+            <span class="n">loop_counter</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="c1"># Just for debugging</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">logdebug</span><span class="p">(</span><span class="s2">"Main loop iteration=</span><span class="si">{0}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">loop_counter</span><span class="p">))</span>
+
+            <span class="n">pygame</span><span class="o">.</span><span class="n">event</span><span class="o">.</span><span class="n">pump</span><span class="p">()</span>
+
+            <span class="c1"># Example: left stick vertical = axis 1, right stick horizontal = axis 3</span>
+            <span class="n">forward_axis</span> <span class="o">=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">joystick</span><span class="o">.</span><span class="n">get_axis</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">turn_axis</span>    <span class="o">=</span>  <span class="bp">self</span><span class="o">.</span><span class="n">joystick</span><span class="o">.</span><span class="n">get_axis</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+            <span class="c1"># Debug prints</span>
+            <span class="n">rospy</span><span class="o">.</span><span class="n">logdebug</span><span class="p">(</span><span class="s2">"Raw axes =&gt; forward_axis=</span><span class="si">{0:.2f}</span><span class="s2">, turn_axis=</span><span class="si">{1:.2f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">forward_axis</span><span class="p">,</span> <span class="n">turn_axis</span><span class="p">))</span>
+
+            <span class="c1"># Deadzone</span>
+            <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">forward_axis</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">deadzone</span><span class="p">:</span>
+                <span class="n">forward_axis</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">turn_axis</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">deadzone</span><span class="p">:</span>
+                <span class="n">turn_axis</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+            <span class="c1"># Skid-steer mixing</span>
+            <span class="n">left_val</span>  <span class="o">=</span> <span class="n">forward_axis</span> <span class="o">-</span> <span class="n">turn_axis</span>
+            <span class="n">right_val</span> <span class="o">=</span> <span class="n">forward_axis</span> <span class="o">+</span> <span class="n">turn_axis</span>
+
+            <span class="c1"># clamp [-1..+1]</span>
+            <span class="n">left_val</span>  <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">left_val</span><span class="p">))</span>
+            <span class="n">right_val</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">right_val</span><span class="p">))</span>
+
+            <span class="c1"># Convert to RoboClaw speed</span>
+            <span class="n">left_speed</span><span class="p">,</span> <span class="n">left_dir</span>   <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_speed</span><span class="p">(</span><span class="n">left_val</span><span class="p">)</span>
+            <span class="n">right_speed</span><span class="p">,</span> <span class="n">right_dir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_speed</span><span class="p">(</span><span class="n">right_val</span><span class="p">)</span>
+
+            <span class="n">rospy</span><span class="o">.</span><span class="n">logdebug</span><span class="p">(</span><span class="s2">"Mixed =&gt; L=</span><span class="si">{0:.2f}</span><span class="s2">, R=</span><span class="si">{1:.2f}</span><span class="s2"> =&gt; speeds </span><span class="si">{2}</span><span class="s2"> (</span><span class="si">{3}</span><span class="s2">), </span><span class="si">{4}</span><span class="s2"> (</span><span class="si">{5}</span><span class="s2">)"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">left_val</span><span class="p">,</span> <span class="n">right_val</span><span class="p">,</span> <span class="n">left_speed</span><span class="p">,</span> <span class="n">left_dir</span><span class="p">,</span> <span class="n">right_speed</span><span class="p">,</span> <span class="n">right_dir</span><span class="p">))</span>
+
+            <span class="c1"># Send to motors</span>
+            <span class="k">if</span> <span class="n">left_dir</span> <span class="o">==</span> <span class="s2">"forward"</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">rc</span><span class="o">.</span><span class="n">ForwardM1</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">left_speed</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">rc</span><span class="o">.</span><span class="n">BackwardM1</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">left_speed</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">right_dir</span> <span class="o">==</span> <span class="s2">"forward"</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">rc</span><span class="o">.</span><span class="n">ForwardM2</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">right_speed</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">rc</span><span class="o">.</span><span class="n">BackwardM2</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">right_speed</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">loop_rate</span><span class="o">.</span><span class="n">sleep</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">stop_motors</span><span class="p">()</span>
+        <span class="n">pygame</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">convert_speed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Convert [-1..+1] =&gt; (0..max_speed_cmd, direction).</span>
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="n">val</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">val</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_speed_cmd</span><span class="p">),</span> <span class="s2">"forward"</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_speed_cmd</span><span class="p">),</span> <span class="s2">"backward"</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">node</span> <span class="o">=</span> <span class="n">XboxRoboclawDebugPy2</span><span class="p">()</span>
+        <span class="n">node</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+    <span class="k">except</span> <span class="n">rospy</span><span class="o">.</span><span class="n">ROSInterruptException</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">rospy</span><span class="o">.</span><span class="n">loginfo</span><span class="p">(</span><span class="s2">"Exiting python2 xbox teleop script."</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div></li>
 <li>Watch the map being built in RViz.</li>
 <li>Ensure the rover avoids obstacles and updates the map in real-time.</li>
 </ul>
@@ -552,7 +697,7 @@ If no data appears, ensure the LIDAR launch file is correctly configured and the
 </div>
 </fieldset>
 </form>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-22, Updated 2025-01-23<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (2)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-22, Updated 2025-01-23<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (3)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
