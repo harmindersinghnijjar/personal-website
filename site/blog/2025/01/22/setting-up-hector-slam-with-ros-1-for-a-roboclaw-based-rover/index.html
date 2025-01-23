@@ -5,14 +5,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Learn how to use Selenium with undetected-chromedriver to bypass Cloudflare challenges for robust web automation. Includes practical workflows and tips." name="description"/>
+<meta content="Learn how to set up and run Hector SLAM on a ROS 1 rover, including configuring the Roboclaw node and LIDAR integration for mapping and navigation." name="description"/>
 <meta content="harmindersinghnijjar" name="author"/>
-<link href="https://harminder.dev/blog/2025/01/15/bypassing-cloudflare-with-selenium-and-undetected-chromedriver/" rel="canonical">
-<link href="../setting-up-browser-use-with-botright/" rel="prev"/>
-<link href="../../22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover/" rel="next"/>
+<link href="https://harminder.dev/blog/2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover/" rel="canonical">
+<link href="../../15/bypassing-cloudflare-with-selenium-and-undetected-chromedriver/" rel="prev"/>
+<link href="../setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/" rel="next"/>
 <link href="../../../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.5.45" name="generator"/>
-<title>Bypassing Cloudflare with Selenium and Undetected-Chromedriver - Harminder Singh Nijjar</title>
+<title>Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover - Harminder Singh Nijjar</title>
 <link href="../../../../../assets/stylesheets/main.0253249f.min.css" rel="stylesheet"/>
 <link href="../../../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
@@ -24,24 +24,24 @@
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-X0B1C5DM9K"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-X0B1C5DM9K",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-X0B1C5DM9K",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
 <meta content="website" property="og:type"/>
-<meta content="Bypassing Cloudflare with Selenium and Undetected-Chromedriver - Harminder Singh Nijjar" property="og:title"/>
-<meta content="Learn how to use Selenium with undetected-chromedriver to bypass Cloudflare challenges for robust web automation. Includes practical workflows and tips." property="og:description"/>
-<meta content="https://harminder.dev/assets/images/social/blog/posts/20250115143012.png" property="og:image"/>
+<meta content="Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover - Harminder Singh Nijjar" property="og:title"/>
+<meta content="Learn how to set up and run Hector SLAM on a ROS 1 rover, including configuring the Roboclaw node and LIDAR integration for mapping and navigation." property="og:description"/>
+<meta content="https://harminder.dev/assets/images/social/blog/posts/20250122230516.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="https://harminder.dev/blog/2025/01/15/bypassing-cloudflare-with-selenium-and-undetected-chromedriver/" property="og:url"/>
+<meta content="https://harminder.dev/blog/2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Bypassing Cloudflare with Selenium and Undetected-Chromedriver - Harminder Singh Nijjar" name="twitter:title"/>
-<meta content="Learn how to use Selenium with undetected-chromedriver to bypass Cloudflare challenges for robust web automation. Includes practical workflows and tips." name="twitter:description"/>
-<meta content="https://harminder.dev/assets/images/social/blog/posts/20250115143012.png" name="twitter:image"/>
-<meta content="Bypassing Cloudflare with Selenium and Undetected-Chromedriver" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/15/bypassing-cloudflare-with-selenium-and-undetected-chromedriver" property="og:url"/><meta content="Bypassing Cloudflare with Selenium and Undetected-Chromedriver" property="og:title"/><meta content="Learn how to use Selenium with undetected-chromedriver to bypass Cloudflare challenges for robust web automation. Includes practical workflows and tips." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/15/bypassing-cloudflare-with-selenium-and-undetected-chromedriver" property="twitter:url"/><meta content="Bypassing Cloudflare with Selenium and Undetected-Chromedriver" property="twitter:title"/><meta content="Learn how to use Selenium with undetected-chromedriver to bypass Cloudflare challenges for robust web automation. Includes practical workflows and tips." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Bypassing Cloudflare with Selenium and Undetected-Chromedriver", "image": [], "datePublished": "2025-01-15 14:36:04 -0800", "dateModified": "2025-01-15 16:05:32 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to use Selenium with undetected-chromedriver to bypass Cloudflare challenges for robust web automation. Includes practical workflows and tips."}</script></head>
+<meta content="Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover - Harminder Singh Nijjar" name="twitter:title"/>
+<meta content="Learn how to set up and run Hector SLAM on a ROS 1 rover, including configuring the Roboclaw node and LIDAR integration for mapping and navigation." name="twitter:description"/>
+<meta content="https://harminder.dev/assets/images/social/blog/posts/20250122230516.png" name="twitter:image"/>
+<meta content="Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover" property="og:url"/><meta content="Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover" property="og:title"/><meta content="Learn how to set up and run Hector SLAM on a ROS 1 rover, including configuring the Roboclaw node and LIDAR integration for mapping and navigation." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover" property="twitter:url"/><meta content="Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover" property="twitter:title"/><meta content="Learn how to set up and run Hector SLAM on a ROS 1 rover, including configuring the Roboclaw node and LIDAR integration for mapping and navigation." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover", "image": [], "datePublished": "2025-01-22 23:09:24 -0800", "dateModified": "2025-01-22 23:09:24 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to set up and run Hector SLAM on a ROS 1 rover, including configuring the Roboclaw node and LIDAR integration for mapping and navigation."}</script></head>
 <body data-md-color-accent="custom" data-md-color-primary="custom" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#bypassing-cloudflare-with-selenium-and-undetected-chromedriver">
+<a class="md-skip" href="#setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover">
           Skip to content
         </a>
 </div>
@@ -65,7 +65,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Bypassing Cloudflare with Selenium and Undetected-Chromedriver
+              Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover
             
           </span>
 </div>
@@ -217,59 +217,66 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#bypassing-cloudflare-with-selenium-and-undetected-chromedriver">
+<a class="md-nav__link" href="#setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover">
 <span class="md-ellipsis">
-      Bypassing Cloudflare with Selenium and Undetected-Chromedriver
+      Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#why-use-selenium-with-undetected-chromedriver">
+<a class="md-nav__link" href="#prerequisites">
 <span class="md-ellipsis">
-      Why Use Selenium with Undetected-Chromedriver?
+      Prerequisites
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#detection-challenges-in-web-automation">
+<a class="md-nav__link" href="#steps-to-set-up-hector-slam">
 <span class="md-ellipsis">
-      Detection Challenges in Web Automation
+      Steps to Set Up Hector SLAM
     </span>
 </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#the-solution-selenium-and-undetected-chromedriver">
-<span class="md-ellipsis">
-      The Solution: Selenium and Undetected-Chromedriver
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#implementation-guide-setting-up-selenium-with-undetected-chromedriver">
-<span class="md-ellipsis">
-      Implementation Guide: Setting Up Selenium with Undetected-Chromedriver
-    </span>
-</a>
-<nav aria-label="Implementation Guide: Setting Up Selenium with Undetected-Chromedriver" class="md-nav">
+<nav aria-label="Steps to Set Up Hector SLAM" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-1-install-required-libraries">
+<a class="md-nav__link" href="#1-launch-ros-core">
 <span class="md-ellipsis">
-      Step 1: Install Required Libraries
+      1. Launch ROS Core
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-2-initialize-the-browser-driver">
+<a class="md-nav__link" href="#2-launch-the-lidar-node">
 <span class="md-ellipsis">
-      Step 2: Initialize the Browser Driver
+      2. Launch the LIDAR Node
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-3-handle-captcha-and-cloudflare-challenges">
+<a class="md-nav__link" href="#3-configure-and-launch-hector-mapping">
 <span class="md-ellipsis">
-      Step 3: Handle CAPTCHA and Cloudflare Challenges
+      3. Configure and Launch Hector Mapping
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-adjust-rviz-configuration">
+<span class="md-ellipsis">
+      4. Adjust RViz Configuration
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-launch-the-roboclaw-node">
+<span class="md-ellipsis">
+      5. Launch the Roboclaw Node
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#6-run-the-rover">
+<span class="md-ellipsis">
+      6. Run the rover
     </span>
 </a>
 </li>
@@ -277,55 +284,41 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#advanced-automation-workflow-with-cookies">
+<a class="md-nav__link" href="#key-adjustments-made">
 <span class="md-ellipsis">
-      Advanced Automation Workflow with Cookies
+      Key Adjustments Made
     </span>
 </a>
-<nav aria-label="Advanced Automation Workflow with Cookies" class="md-nav">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#troubleshooting">
+<span class="md-ellipsis">
+      Troubleshooting
+    </span>
+</a>
+<nav aria-label="Troubleshooting" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-1-attempt-standard-automation">
+<a class="md-nav__link" href="#error-transform-lookup-failed">
 <span class="md-ellipsis">
-      Step 1: Attempt Standard Automation
+      Error: Transform Lookup Failed
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-2-use-cookies-for-session-continuity">
+<a class="md-nav__link" href="#lidar-not-publishing">
 <span class="md-ellipsis">
-      Step 2: Use Cookies for Session Continuity
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-3-fall-back-to-manual-assistance">
-<span class="md-ellipsis">
-      Step 3: Fall Back to Manual Assistance
+      LIDAR Not Publishing
     </span>
 </a>
 </li>
 </ul>
 </nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#proposed-workflow-for-automation">
-<span class="md-ellipsis">
-      Proposed Workflow for Automation
-    </span>
-</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#conclusion">
 <span class="md-ellipsis">
       Conclusion
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#references">
-<span class="md-ellipsis">
-      References
     </span>
 </a>
 </li>
@@ -361,7 +354,7 @@
 <li class="md-nav__item">
 <div class="md-nav__link">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"></path></svg>
-<time class="md-ellipsis" datetime="2025-01-15 00:00:00+00:00">January 15, 2025</time>
+<time class="md-ellipsis" datetime="2025-01-22 00:00:00+00:00">January 22, 2025</time>
 </div>
 </li>
 <li class="md-nav__item">
@@ -370,7 +363,7 @@
 <span class="md-ellipsis">
                             in
                             
-                              <a href="../../../../category/programming/">Programming</a></span>
+                              <a href="../../../../category/robotics/">Robotics</a></span>
 </div>
 </li>
 <li class="md-nav__item">
@@ -378,7 +371,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"></path></svg>
 <span class="md-ellipsis">
                             
-                              2 min read
+                              3 min read
                             
                           </span>
 </div>
@@ -393,103 +386,125 @@
 </div>
 <article class="md-content__inner md-typeset">
 <nav class="md-tags">
-<span class="md-tag">Selenium</span>
-<span class="md-tag">Undetected-Chromedriver</span>
-<span class="md-tag">Cloudflare Mitigation</span>
-<span class="md-tag">Web Automation</span>
+<span class="md-tag">ROS</span>
+<span class="md-tag">Hector SLAM</span>
+<span class="md-tag">Roboclaw</span>
+<span class="md-tag">LIDAR</span>
+<span class="md-tag">Autonomous Navigation</span>
+<span class="md-tag">Ubuntu</span>
 </nav>
-<h1>Bypassing Cloudflare with Selenium and Undetected-Chromedriver</h1>
-<h2 id="bypassing-cloudflare-with-selenium-and-undetected-chromedriver">Bypassing Cloudflare with Selenium and Undetected-Chromedriver</h2>
-<p>By combining <strong>Selenium</strong> with <strong>undetected-chromedriver (UC)</strong>, you can overcome common automation challenges like Cloudflare's browser verification. This guide explores practical workflows and techniques to enhance your web automation projects.</p>
+<h1>Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover</h1>
+<h2 id="setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover">Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover</h2>
+<p>This guide details the steps to configure and use Hector SLAM with a Roboclaw-based ROS 1 robot. We’ll cover LIDAR integration, transform configuration, and how to set RViz for successful mapping and navigation.</p>
 <hr/>
-<h2 id="why-use-selenium-with-undetected-chromedriver">Why Use Selenium with Undetected-Chromedriver?</h2>
-<p>Cloudflare protections are designed to block bots, posing challenges for developers. By using undetected-chromedriver with Selenium, you can:</p>
-<ul>
-<li><strong>Bypass Browser Fingerprinting:</strong> UC modifies ChromeDriver to avoid detection.</li>
-<li><strong>Handle Cloudflare Challenges:</strong> Seamlessly bypass "wait while your browser is verified" messages.</li>
-<li><strong>Mitigate CAPTCHA Issues:</strong> Reduce interruptions caused by automated bot checks.</li>
-</ul>
-<hr/>
-<h2 id="detection-challenges-in-web-automation">Detection Challenges in Web Automation</h2>
-<p>Websites employ multiple strategies to detect and prevent automated interactions:</p>
-<ul>
-<li><strong>CAPTCHA Challenges:</strong> Validating user authenticity.</li>
-<li><strong>Cloudflare Browser Verification:</strong> Infinite loading screens or token-based checks.</li>
-<li><strong>Bot Detection Mechanisms:</strong> Browser fingerprinting, behavioral analytics, and cookie validation.</li>
-</ul>
-<p>These barriers often require advanced techniques to maintain automation workflows.</p>
-<hr/>
-<h2 id="the-solution-selenium-and-undetected-chromedriver">The Solution: Selenium and Undetected-Chromedriver</h2>
-<p>The undetected-chromedriver library modifies the default ChromeDriver to emulate human-like behavior and evade detection. When integrated with Selenium, it allows:</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Ensure the following are set up on your system:</p>
 <ol>
-<li><strong>Seamless CAPTCHA Bypass:</strong> Minimize interruptions by automating responses or avoiding challenges.</li>
-<li><strong>Cloudflare Token Handling:</strong> Automatically manage verification processes.</li>
-<li><strong>Cookie Reuse for Session Preservation:</strong> Skip repetitive verifications by reusing authenticated cookies.</li>
+<li><strong>ROS Installed</strong>: ROS Melodic or a compatible version is installed.</li>
+<li><strong>Workspace Prepared</strong>: A catkin workspace (e.g., <code>~/armpi_pro</code>) is created, built, and sourced.</li>
+<li><strong>Hector SLAM Package</strong>:</li>
+<li>Installed and located in your workspace under <code>src/hector_slam</code>.</li>
+<li>Ensure <code>hector_mapping</code> and <code>hector_slam_launch</code> are available.</li>
+<li><strong>LIDAR Sensor</strong>:</li>
+<li>Configured and publishing scan data to <code>/scan</code>.</li>
+<li><strong>Roboclaw Node</strong>:</li>
+<li>Operational, publishing odometry to <code>/odom</code>.</li>
 </ol>
 <hr/>
-<h2 id="implementation-guide-setting-up-selenium-with-undetected-chromedriver">Implementation Guide: Setting Up Selenium with Undetected-Chromedriver</h2>
-<h3 id="step-1-install-required-libraries">Step 1: Install Required Libraries</h3>
-<p>Install Selenium and undetected-chromedriver:
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>selenium<span class="w"> </span>undetected-chromedriver
+<h2 id="steps-to-set-up-hector-slam">Steps to Set Up Hector SLAM</h2>
+<h3 id="1-launch-ros-core">1. <strong>Launch ROS Core</strong></h3>
+<p>Open a terminal and start the ROS core:</p>
+<div class="highlight"><pre><span></span><code>roscore
+</code></pre></div>
+<p>This is required for all other nodes to communicate.</p>
+<hr/>
+<h3 id="2-launch-the-lidar-node">2. <strong>Launch the LIDAR Node</strong></h3>
+<p>To enable LIDAR data for mapping, launch the LIDAR node in a new terminal:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Desktop/Frata/roboclaw_python_library/roboclaw_python
+roslaunch<span class="w"> </span>ldlidar_stl_ros<span class="w"> </span>ld19.launch
+</code></pre></div>
+<p>This ensures the LIDAR sensor is active and publishing data to the <code>/scan</code> topic, which is necessary for Hector SLAM to create a map.</p>
+<hr/>
+<h3 id="3-configure-and-launch-hector-mapping">3. <strong>Configure and Launch Hector Mapping</strong></h3>
+<p>In your workspace, navigate to the Hector SLAM launch folder:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/armpi_pro/src/hector_slam/hector_slam_launch/launch
+</code></pre></div>
+<p>Use the <code>tutorial.launch</code> file as a base for running Hector SLAM. Modify the following parameters in the launch file to match your setup:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;launch&gt;</span>
+<span class="w">  </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">pkg=</span><span class="s">"hector_mapping"</span><span class="w"> </span><span class="na">type=</span><span class="s">"hector_mapping"</span><span class="w"> </span><span class="na">name=</span><span class="s">"hector_mapping"</span><span class="w"> </span><span class="na">output=</span><span class="s">"screen"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">"pub_map_odom_transform"</span><span class="w"> </span><span class="na">value=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">"map_frame"</span><span class="w"> </span><span class="na">value=</span><span class="s">"map"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">"base_frame"</span><span class="w"> </span><span class="na">value=</span><span class="s">"base_link"</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">"odom_frame"</span><span class="w"> </span><span class="na">value=</span><span class="s">"odom"</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/node&gt;</span>
+<span class="nt">&lt;/launch&gt;</span>
+</code></pre></div>
+<p>Run the launch file:</p>
+<div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>hector_slam_launch<span class="w"> </span>tutorial.launch
+</code></pre></div>
+<hr/>
+<h3 id="4-adjust-rviz-configuration">4. <strong>Adjust RViz Configuration</strong></h3>
+<p>To visualize the mapping process:</p>
+<ol>
+<li>
+<p>Start RViz:
+   <div class="highlight"><pre><span></span><code>rosrun<span class="w"> </span>rviz<span class="w"> </span>rviz
 </code></pre></div></p>
-<h3 id="step-2-initialize-the-browser-driver">Step 2: Initialize the Browser Driver</h3>
-<p>Set up a Selenium session with UC:
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">undetected_chromedriver</span> <span class="k">as</span> <span class="nn">uc</span>
-
-<span class="c1"># Initialize the driver</span>
-<span class="n">driver</span> <span class="o">=</span> <span class="n">uc</span><span class="o">.</span><span class="n">Chrome</span><span class="p">()</span>
-
-<span class="c1"># Navigate to a website</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"https://example.com"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Page Title:"</span><span class="p">,</span> <span class="n">driver</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
-
-<span class="c1"># Quit the driver</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
-</code></pre></div></p>
-<h3 id="step-3-handle-captcha-and-cloudflare-challenges">Step 3: Handle CAPTCHA and Cloudflare Challenges</h3>
+</li>
+<li>
+<p>Set the <strong>Fixed Frame</strong> to <code>scanmatcher_frame</code>:</p>
+</li>
+<li>Navigate to <code>Global Options</code> in RViz.</li>
+<li>
+<p>Set <code>Fixed Frame</code> to <code>scanmatcher_frame</code>.</p>
+</li>
+<li>
+<p>Add relevant displays:</p>
+</li>
+<li><strong>Map</strong>: Subscribe to <code>/map</code> for live updates.</li>
+<li><strong>LaserScan</strong>: Subscribe to <code>/scan</code> to visualize LIDAR data.</li>
+<li><strong>TF</strong>: Check the frame hierarchy and transformations.</li>
+</ol>
+<hr/>
+<h3 id="5-launch-the-roboclaw-node">5. <strong>Launch the Roboclaw Node</strong></h3>
+<p>Start the Roboclaw node to handle motor control and odometry:</p>
+<div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>roboclaw_node<span class="w"> </span>roboclaw.launch
+</code></pre></div>
+<p>This node should publish odometry data to the <code>/odom</code> topic, which Hector SLAM uses.</p>
+<hr/>
+<h3 id="6-run-the-rover">6. <strong>Run the rover</strong></h3>
+<p>Now that the mapping and motor control nodes are active:</p>
 <ul>
-<li>Use <strong>UC</strong> to bypass passive bot checks.</li>
-<li>Extract and reuse cookies to maintain session continuity:
-  <div class="highlight"><pre><span></span><code><span class="n">cookies</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">get_cookies</span><span class="p">()</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">add_cookie</span><span class="p">(</span><span class="n">cookies</span><span class="p">)</span>
-</code></pre></div></li>
+<li>Drive the rover manually or programmatically.</li>
+<li>Watch the map being built in RViz.</li>
+<li>Ensure the rover avoids obstacles and updates the map in real-time.</li>
 </ul>
 <hr/>
-<h2 id="advanced-automation-workflow-with-cookies">Advanced Automation Workflow with Cookies</h2>
-<h3 id="step-1-attempt-standard-automation">Step 1: Attempt Standard Automation</h3>
-<p>Use Selenium with UC to navigate and interact with the website.</p>
-<h3 id="step-2-use-cookies-for-session-continuity">Step 2: Use Cookies for Session Continuity</h3>
-<p>Manually authenticate once, extract cookies, and reuse them for automated sessions:
-<div class="highlight"><pre><span></span><code><span class="c1"># Save cookies after manual login</span>
-<span class="n">cookies</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">get_cookies</span><span class="p">()</span>
-
-<span class="c1"># Use cookies in future sessions</span>
-<span class="k">for</span> <span class="n">cookie</span> <span class="ow">in</span> <span class="n">cookies</span><span class="p">:</span>
-    <span class="n">driver</span><span class="o">.</span><span class="n">add_cookie</span><span class="p">(</span><span class="n">cookie</span><span class="p">)</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
-</code></pre></div></p>
-<h3 id="step-3-fall-back-to-manual-assistance">Step 3: Fall Back to Manual Assistance</h3>
-<p>Prompt users to resolve CAPTCHA or login challenges in a separate session and capture the cookies for automation.</p>
-<hr/>
-<h2 id="proposed-workflow-for-automation">Proposed Workflow for Automation</h2>
+<h2 id="key-adjustments-made">Key Adjustments Made</h2>
+<p>Here’s a summary of the adjustments we made to configure Hector SLAM:</p>
 <ol>
-<li><strong>Initial Attempt:</strong> Start with Selenium and UC for automation.</li>
-<li><strong>Fallback to Cookies:</strong> Reuse cookies for continuity if CAPTCHA or Cloudflare challenges arise.</li>
-<li><strong>Manual Assistance:</strong> Open a browser session for user input, capture cookies, and resume automation.</li>
+<li>Set <strong>Fixed Frame</strong> in RViz to <code>scanmatcher_frame</code>.</li>
+<li>Modified the Hector SLAM launch file to include:</li>
+<li><code>pub_map_odom_transform</code> set to <code>true</code>.</li>
+<li>Correct frame names (<code>map</code>, <code>odom</code>, <code>base_link</code>).</li>
+<li>Verified LIDAR publishing to <code>/scan</code> using <code>ld19.launch</code>.</li>
+<li>Ensured odometry data was published to <code>/odom</code> by the Roboclaw node.</li>
 </ol>
-<p>This iterative process ensures maximum efficiency and minimizes disruptions.</p>
+<hr/>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="error-transform-lookup-failed">Error: Transform Lookup Failed</h3>
+<p>If you see errors like "Lookup would require extrapolation into the future," check the following:
+- Ensure the system clocks are synchronized using <code>ntp</code> or <code>chrony</code>.
+- Verify all topics (<code>/scan</code>, <code>/odom</code>) have valid and synchronized timestamps.</p>
+<h3 id="lidar-not-publishing">LIDAR Not Publishing</h3>
+<p>Run:
+<div class="highlight"><pre><span></span><code>rostopic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/scan
+</code></pre></div>
+If no data appears, ensure the LIDAR launch file is correctly configured and the sensor is operational.</p>
 <hr/>
 <h2 id="conclusion">Conclusion</h2>
-<p>Selenium and undetected-chromedriver provide a powerful toolkit for overcoming automation barriers like CAPTCHA and Cloudflare protections. By leveraging cookies and manual fallbacks, you can create robust workflows that streamline automation processes.</p>
-<p>Ready to enhance your web automation? Start integrating Selenium with UC today and unlock new possibilities!</p>
-<hr/>
-<h2 id="references">References</h2>
-<ul>
-<li><a href="https://www.selenium.dev/documentation/">Selenium Documentation</a></li>
-<li><a href="https://github.com/ultrafunkamsterdam/undetected-chromedriver">Undetected-Chromedriver</a></li>
-<li><a href="https://www.example.com/captcha-bypass-guide">CAPTCHA Bypass Strategies</a></li>
-<li><a href="https://www.cloudflare.com/">Cloudflare and Bot Detection</a></li>
-</ul>
+<p>By following these steps, you’ve successfully set up Hector SLAM on a Roboclaw-based ROS 1 rover. With LIDAR and odometry data, your rover can build a 2D map of its environment, enabling autonomous navigation and enhanced spatial awareness.</p>
+<p>Feel free to experiment with SLAM parameters and refine your rover’s capabilities for your specific use case.</p>
 <form class="md-feedback" hidden="" name="feedback">
 <fieldset>
 <legend class="md-feedback__title">
@@ -523,7 +538,7 @@
 </div>
 </fieldset>
 </form>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-15, Updated 2025-01-15<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (3)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-22, Updated 2025-01-22<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -534,10 +549,10 @@
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/2025/01/15/bypassing-cloudflare-with-selenium-and-undetected-chromedriver', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/2025/01/15/bypassing-cloudflare-with-selenium-and-undetected-chromedriver', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/2025/01/22/setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
