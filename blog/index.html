@@ -542,6 +542,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#setting-up-and-running-lidar-node-for-autonomous-robotics-on-ros-1-and-ros-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Up and Running LIDAR Node for Autonomous Robotics on ROS 1 and ROS 2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance" class="md-nav__link">
     <span class="md-ellipsis">
       Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance
@@ -622,15 +631,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#harminder-singh-nijjars-digital-art-catalog" class="md-nav__link">
-    <span class="md-ellipsis">
-      Harminder Singh Nijjar's Digital Art Catalog
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -645,6 +645,177 @@
       <header class="md-typeset">
         <h1 id="blog">Blog</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-01-23 00:00:00+00:00">January 23, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="category/robotics/" class="md-meta__link">Robotics</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              2 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="setting-up-and-running-lidar-node-for-autonomous-robotics-on-ros-1-and-ros-2"><a class="toclink" href="2025/01/23/setting-up-and-running-lidar-node-for-autonomous-robotics-on-ros-1-and-ros-2/">Setting Up and Running LIDAR Node for Autonomous Robotics on ROS 1 and ROS 2</a></h2>
+<p>This guide walks you through the setup of <strong>ldlidar_stl_ros</strong> for a LIDAR sensor in <strong>ROS 1</strong> and the process to adapt it for <strong>ROS 2 Jazzy or Galactic</strong>. By the end of this article, you'll be able to configure, launch, and visualize LIDAR data in both environments.</p>
+<hr />
+<h3 id="prerequisites"><a class="toclink" href="2025/01/23/setting-up-and-running-lidar-node-for-autonomous-robotics-on-ros-1-and-ros-2/#prerequisites">Prerequisites</a></h3>
+<p>Before we start, ensure the following are set up:</p>
+<h4 id="ros-1-melodic-or-noetic"><a class="toclink" href="2025/01/23/setting-up-and-running-lidar-node-for-autonomous-robotics-on-ros-1-and-ros-2/#ros-1-melodic-or-noetic">ROS 1 (Melodic or Noetic):</a></h4>
+<ol>
+<li><strong>Workspace Preparation</strong>: Have your ROS workspace (e.g., <code>~/armpi_pro</code>) built and sourced.</li>
+<li><strong>Package</strong>: Install the <strong>ldlidar_stl_ros</strong> package. If not already installed, you can clone it:
+   <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/armpi_pro/src
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ldrobotSensorTeam/ldlidar_stl_ros.git
+</code></pre></div></li>
+<li><strong>Dependencies</strong>: Install any missing dependencies:
+   <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/armpi_pro
+rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>-r<span class="w"> </span>-y
+catkin_make
+<span class="nb">source</span><span class="w"> </span>devel/setup.bash
+</code></pre></div></li>
+</ol>
+<hr />
+<h4 id="ros-2-foxy-galactic-or-jazzy"><a class="toclink" href="2025/01/23/setting-up-and-running-lidar-node-for-autonomous-robotics-on-ros-1-and-ros-2/#ros-2-foxy-galactic-or-jazzy">ROS 2 (Foxy, Galactic, or Jazzy):</a></h4>
+<ol>
+<li><strong>ROS 2 Installed</strong>: Install ROS 2 and set up your workspace:
+   <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/ros2_ws/src
+<span class="nb">cd</span><span class="w"> </span>~/ros2_ws
+colcon<span class="w"> </span>build
+<span class="nb">source</span><span class="w"> </span>install/setup.bash
+</code></pre></div></li>
+<li><strong>Package Clone</strong>: Clone the <code>ldlidar_stl_ros</code> repo and switch to a ROS 2 compatible branch:
+   <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros2_ws/src
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ldrobotSensorTeam/ldlidar_stl_ros.git<span class="w"> </span>-b<span class="w"> </span>ros2
+</code></pre></div></li>
+<li><strong>Dependencies</strong>: Install dependencies for ROS 2:
+   <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros2_ws
+rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>-r<span class="w"> </span>-y
+colcon<span class="w"> </span>build
+<span class="nb">source</span><span class="w"> </span>install/setup.bash
+</code></pre></div></li>
+</ol>
+<hr />
+<h3 id="configuration"><a class="toclink" href="2025/01/23/setting-up-and-running-lidar-node-for-autonomous-robotics-on-ros-1-and-ros-2/#configuration">Configuration</a></h3>
+<h4 id="ros-1-configuration"><a class="toclink" href="2025/01/23/setting-up-and-running-lidar-node-for-autonomous-robotics-on-ros-1-and-ros-2/#ros-1-configuration">ROS 1 Configuration:</a></h4>
+<ol>
+<li>
+<p><strong>Locate the Launch File</strong>: The main launch file is typically:
+   <div class="highlight"><pre><span></span><code>~/armpi_pro/src/ldlidar_stl_ros/launch/ld19.launch
+</code></pre></div>
+   This file defines the node, device port (e.g., <code>/dev/ttyUSB0</code>), and frame settings.</p>
+</li>
+<li>
+<p><strong>Modify the Launch File</strong> (Optional): Ensure the <code>serial_port</code> matches your LIDAR connection (e.g., <code>/dev/ttyUSB0</code>):
+   <div class="highlight"><pre><span></span><code><span class="nt">&lt;launch&gt;</span>
+<span class="w">    </span><span class="nt">&lt;node</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ldlidar&quot;</span><span class="w"> </span><span class="na">pkg=</span><span class="s">&quot;ldlidar_stl_ros&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;ld19&quot;</span><span class="w"> </span><span class="na">output=</span><span class="s">&quot;screen&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;serial_port&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;/dev/ttyUSB0&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;param</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;frame_id&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;laser_frame&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/node&gt;</span>
+<span class="nt">&lt;/launch&gt;</span>
+</code></pre></div></p>
+</li>
+</ol>
+<h4 id="ros-2-configuration"><a class="toclink" href="2025/01/23/setting-up-and-running-lidar-node-for-autonomous-robotics-on-ros-1-and-ros-2/#ros-2-configuration">ROS 2 Configuration:</a></h4>
+<ol>
+<li><strong>ROS 2 Launch File</strong>: Modify or create a launch file under:
+   <div class="highlight"><pre><span></span><code>~/ros2_ws/src/ldlidar_stl_ros/launch/ld19_launch.py
+</code></pre></div></li>
+<li><strong>Example Python Launch File</strong>:
+   <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">launch</span> <span class="kn">import</span> <span class="n">LaunchDescription</span>
+<span class="kn">from</span> <span class="nn">launch_ros.actions</span> <span class="kn">import</span> <span class="n">Node</span>
+
+<span class="k">def</span> <span class="nf">generate_launch_description</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">LaunchDescription</span><span class="p">([</span>
+        <span class="n">Node</span><span class="p">(</span>
+            <span class="n">package</span><span class="o">=</span><span class="s1">&#39;ldlidar_stl_ros&#39;</span><span class="p">,</span>
+            <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;ldlidar_stl_node&#39;</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;ldlidar_stl&#39;</span><span class="p">,</span>
+            <span class="n">parameters</span><span class="o">=</span><span class="p">[{</span><span class="s1">&#39;serial_port&#39;</span><span class="p">:</span> <span class="s1">&#39;/dev/ttyUSB0&#39;</span><span class="p">,</span> <span class="s1">&#39;frame_id&#39;</span><span class="p">:</span> <span class="s1">&#39;laser_frame&#39;</span><span class="p">}],</span>
+            <span class="n">output</span><span class="o">=</span><span class="s1">&#39;screen&#39;</span>
+        <span class="p">)</span>
+    <span class="p">])</span>
+</code></pre></div></li>
+</ol>
+<hr />
+<h3 id="running-the-nodes"><a class="toclink" href="2025/01/23/setting-up-and-running-lidar-node-for-autonomous-robotics-on-ros-1-and-ros-2/#running-the-nodes">Running the Nodes</a></h3>
+<h4 id="ros-1"><a class="toclink" href="2025/01/23/setting-up-and-running-lidar-node-for-autonomous-robotics-on-ros-1-and-ros-2/#ros-1">ROS 1:</a></h4>
+<ol>
+<li><strong>Start the Core</strong>:
+   <div class="highlight"><pre><span></span><code>roscore
+</code></pre></div></li>
+<li><strong>Launch the LIDAR Node</strong>:
+   <div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>ldlidar_stl_ros<span class="w"> </span>ld19.launch
+</code></pre></div></li>
+<li><strong>View the Data in Rviz</strong>:
+   <div class="highlight"><pre><span></span><code>rosrun<span class="w"> </span>rviz<span class="w"> </span>rviz
+</code></pre></div>
+   Add a "LaserScan" display and set the topic to <code>/scan</code>.</li>
+</ol>
+<hr />
+<h4 id="ros-2"><a class="toclink" href="2025/01/23/setting-up-and-running-lidar-node-for-autonomous-robotics-on-ros-1-and-ros-2/#ros-2">ROS 2:</a></h4>
+<ol>
+<li><strong>Launch the Node</strong>:
+   <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>ldlidar_stl_ros<span class="w"> </span>ld19_launch.py
+</code></pre></div></li>
+<li><strong>View the Data in Rviz</strong>:
+   <div class="highlight"><pre><span></span><code>rviz2
+</code></pre></div>
+   Add a "LaserScan" display and set the topic to <code>/scan</code>.</li>
+</ol>
+<hr />
+<h3 id="troubleshooting"><a class="toclink" href="2025/01/23/setting-up-and-running-lidar-node-for-autonomous-robotics-on-ros-1-and-ros-2/#troubleshooting">Troubleshooting</a></h3>
+<ol>
+<li><strong>Device Not Found</strong>:</li>
+<li>Verify the LIDAR connection using:
+     <div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/dev/ttyUSB*
+</code></pre></div></li>
+<li>
+<p>Update the launch file or parameters with the correct port.</p>
+</li>
+<li>
+<p><strong>Missing Dependencies</strong>:</p>
+</li>
+<li>For ROS 1:
+     <div class="highlight"><pre><span></span><code>rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>-r<span class="w"> </span>-y
+</code></pre></div></li>
+<li>
+<p>For ROS 2:
+     <div class="highlight"><pre><span></span><code>rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>-r<span class="w"> </span>-y
+colcon<span class="w"> </span>build
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>No Data in Rviz</strong>:</p>
+</li>
+<li>Check if <code>/scan</code> is being published:
+     <div class="highlight"><pre><span></span><code>rostopic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/scan<span class="w">  </span><span class="c1"># ROS 1</span>
+ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/scan<span class="w">  </span><span class="c1"># ROS 2</span>
+</code></pre></div></li>
+</ol>
+<hr />
+<h3 id="conclusion"><a class="toclink" href="2025/01/23/setting-up-and-running-lidar-node-for-autonomous-robotics-on-ros-1-and-ros-2/#conclusion">Conclusion</a></h3>
+<p>With these steps, you can set up and run the <strong>ldlidar_stl_ros</strong> package for both ROS 1 and ROS 2. Whether you're using a legacy system or the latest ROS version, this guide ensures a smooth integration of your LIDAR sensor into your robotics project.</p>
+<hr />
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
@@ -2016,41 +2187,6 @@ rosdep<span class="w"> </span>update
 <h4 id="conclusion"><a class="toclink" href="2024/12/15/installing-ros-1-on-raspberry-pi/#conclusion"><strong>Conclusion</strong></a></h4>
 <p>Your Raspberry Pi is now configured with ROS 1 Noetic, ready for robotic projects. With this setup, you can develop and deploy various ROS packages, integrate hardware, and experiment with advanced robotic systems.</p>
 <p>Happy building!</p>
-    
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2024-11-25 00:00:00+00:00">November 25, 2024</time></li>
-        
-          <li class="md-meta__item">
-            in
-            
-              <a href="category/art/" class="md-meta__link">Art</a></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              1 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="harminder-singh-nijjars-digital-art-catalog"><a class="toclink" href="2024/11/25/harminder-singh-nijjars-digital-art-catalog/">Harminder Singh Nijjar's Digital Art Catalog</a></h2>
-<p>2024-11-25: While sitting on the dining table drinking a <a href="https://amzn.to/499IQbh">Celsius Peach Vibe</a>, I decided to create a quick digital drawing of the can next to a container of <a href="https://amzn.to/3B13TAn">JIF peanut butter</a>. The drawing was done on my <a href="https://amzn.to/3CEDYyM">MobiScribe WAVE</a> using the stylus that came with the device. The MobiScribe WAVE is a great tool for digital art, and I enjoy using it for quick sketches and drawings.
-<img alt="JIF + Celsius Peach Vibe" src="https://i.imgur.com/knoIoDW.jpeg"></p>
-<p>2024-11-26 20:17: Today I drew a quick sketch of two wolf pups howling at the moon.
-<img alt="Full Moon Pups" src="https://i.imgur.com/LfrytVl.png"></p>
     
   </div>
 </article>
