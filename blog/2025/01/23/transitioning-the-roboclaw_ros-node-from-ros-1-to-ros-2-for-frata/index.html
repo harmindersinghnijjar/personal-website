@@ -5,14 +5,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Learn how to configure and run a Roboclaw-based ROS node for your robotics project, integrating motor control and obstacle avoidance using LIDAR sensors." name="description"/>
+<meta content="A step-by-step guide to migrating the `roboclaw_ros` node from ROS 1 to ROS 2, ensuring smooth integration and operation in Frata's robotic systems." name="description"/>
 <meta content="harmindersinghnijjar" name="author"/>
-<link href="https://harminder.dev/blog/2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/" rel="canonical">
-<link href="../setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover/" rel="prev"/>
-<link href="../../23/transitioning-the-roboclaw_ros-node-from-ros-1-to-ros-2-for-frata/" rel="next"/>
+<link href="https://harminder.dev/blog/2025/01/23/transitioning-the-roboclaw_ros-node-from-ros-1-to-ros-2-for-frata/" rel="canonical">
+<link href="../../22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/" rel="prev"/>
+<link href="../setting-up-and-running-d500-lidar-kits-stl-19p-lidar-node-for-autonomous-robotics-on-ros-1-and-ros-2/" rel="next"/>
 <link href="../../../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.5.45" name="generator"/>
-<title>Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance - Harminder Singh Nijjar</title>
+<title>Transitioning the `roboclaw_ros` Node from ROS 1 to ROS 2 for Frata - Harminder Singh Nijjar</title>
 <link href="../../../../../assets/stylesheets/main.0253249f.min.css" rel="stylesheet"/>
 <link href="../../../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
@@ -24,24 +24,24 @@
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-X0B1C5DM9K"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-X0B1C5DM9K",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-X0B1C5DM9K",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
 <meta content="website" property="og:type"/>
-<meta content="Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance - Harminder Singh Nijjar" property="og:title"/>
-<meta content="Learn how to configure and run a Roboclaw-based ROS node for your robotics project, integrating motor control and obstacle avoidance using LIDAR sensors." property="og:description"/>
-<meta content="https://harminder.dev/assets/images/social/blog/posts/20250122081454.png" property="og:image"/>
+<meta content="Transitioning the `roboclaw_ros` Node from ROS 1 to ROS 2 for Frata - Harminder Singh Nijjar" property="og:title"/>
+<meta content="A step-by-step guide to migrating the `roboclaw_ros` node from ROS 1 to ROS 2, ensuring smooth integration and operation in Frata's robotic systems." property="og:description"/>
+<meta content="https://harminder.dev/assets/images/social/blog/posts/20250123120833.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="https://harminder.dev/blog/2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/" property="og:url"/>
+<meta content="https://harminder.dev/blog/2025/01/23/transitioning-the-roboclaw_ros-node-from-ros-1-to-ros-2-for-frata/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance - Harminder Singh Nijjar" name="twitter:title"/>
-<meta content="Learn how to configure and run a Roboclaw-based ROS node for your robotics project, integrating motor control and obstacle avoidance using LIDAR sensors." name="twitter:description"/>
-<meta content="https://harminder.dev/assets/images/social/blog/posts/20250122081454.png" name="twitter:image"/>
-<meta content="Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance" property="og:url"/><meta content="Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance" property="og:title"/><meta content="Learn how to configure and run a Roboclaw-based ROS node for your robotics project, integrating motor control and obstacle avoidance using LIDAR sensors." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance" property="twitter:url"/><meta content="Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance" property="twitter:title"/><meta content="Learn how to configure and run a Roboclaw-based ROS node for your robotics project, integrating motor control and obstacle avoidance using LIDAR sensors." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance", "image": [], "datePublished": "2025-01-22 08:17:20 -0800", "dateModified": "2025-01-22 08:17:20 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to configure and run a Roboclaw-based ROS node for your robotics project, integrating motor control and obstacle avoidance using LIDAR sensors."}</script></head>
+<meta content="Transitioning the `roboclaw_ros` Node from ROS 1 to ROS 2 for Frata - Harminder Singh Nijjar" name="twitter:title"/>
+<meta content="A step-by-step guide to migrating the `roboclaw_ros` node from ROS 1 to ROS 2, ensuring smooth integration and operation in Frata's robotic systems." name="twitter:description"/>
+<meta content="https://harminder.dev/assets/images/social/blog/posts/20250123120833.png" name="twitter:image"/>
+<meta content="Transitioning the `roboclaw_ros` Node from ROS 1 to ROS 2 for Frata" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/23/transitioning-the-roboclaw_ros-node-from-ros-1-to-ros-2-for-frata" property="og:url"/><meta content="Transitioning the `roboclaw_ros` Node from ROS 1 to ROS 2 for Frata" property="og:title"/><meta content="A step-by-step guide to migrating the `roboclaw_ros` node from ROS 1 to ROS 2, ensuring smooth integration and operation in Frata's robotic systems." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/23/transitioning-the-roboclaw_ros-node-from-ros-1-to-ros-2-for-frata" property="twitter:url"/><meta content="Transitioning the `roboclaw_ros` Node from ROS 1 to ROS 2 for Frata" property="twitter:title"/><meta content="A step-by-step guide to migrating the `roboclaw_ros` node from ROS 1 to ROS 2, ensuring smooth integration and operation in Frata's robotic systems." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Transitioning the `roboclaw_ros` Node from ROS 1 to ROS 2 for Frata", "image": [], "datePublished": "2025-01-23 12:09:55 -0800", "dateModified": "2025-01-23 12:13:51 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "A step-by-step guide to migrating the `roboclaw_ros` node from ROS 1 to ROS 2, ensuring smooth integration and operation in Frata's robotic systems."}</script></head>
 <body data-md-color-accent="custom" data-md-color-primary="custom" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance">
+<a class="md-skip" href="#introduction">
           Skip to content
         </a>
 </div>
@@ -65,7 +65,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance
+              Transitioning the `roboclaw_ros` Node from ROS 1 to ROS 2 for Frata
             
           </span>
 </div>
@@ -217,9 +217,9 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance">
+<a class="md-nav__link" href="#introduction">
 <span class="md-ellipsis">
-      Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance
+      Introduction
     </span>
 </a>
 </li>
@@ -231,31 +231,45 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#launching-the-required-nodes">
+<a class="md-nav__link" href="#migration-steps">
 <span class="md-ellipsis">
-      Launching the Required Nodes
+      Migration Steps
     </span>
 </a>
-<nav aria-label="Launching the Required Nodes" class="md-nav">
+<nav aria-label="Migration Steps" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#1-start-the-ros-core">
+<a class="md-nav__link" href="#1-clone-the-updated-repository">
 <span class="md-ellipsis">
-      1. Start the ROS Core
+      1. Clone the Updated Repository
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#2-launch-the-roboclaw-node">
+<a class="md-nav__link" href="#2-update-parameters-for-fratas-system">
 <span class="md-ellipsis">
-      2. Launch the Roboclaw Node
+      2. Update Parameters for Frata’s System
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#3-launch-the-lidar-node">
+<a class="md-nav__link" href="#3-update-the-launch-file">
 <span class="md-ellipsis">
-      3. Launch the LIDAR Node
+      3. Update the Launch File
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-build-the-workspace">
+<span class="md-ellipsis">
+      4. Build the Workspace
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-running-the-node">
+<span class="md-ellipsis">
+      5. Running the Node
     </span>
 </a>
 </li>
@@ -263,30 +277,23 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#running-the-obstacle-avoidance-node">
+<a class="md-nav__link" href="#testing-the-node">
 <span class="md-ellipsis">
-      Running the Obstacle Avoidance Node
+      Testing the Node
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-it-works">
+<a class="md-nav__link" href="#transitioning-to-ros-2-navigation-stack">
 <span class="md-ellipsis">
-      How It Works
+      Transitioning to ROS 2 Navigation Stack
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#example-workflow">
+<a class="md-nav__link" href="#benefits-of-migration-to-ros-2">
 <span class="md-ellipsis">
-      Example Workflow
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#troubleshooting">
-<span class="md-ellipsis">
-      Troubleshooting
+      Benefits of Migration to ROS 2
     </span>
 </a>
 </li>
@@ -329,7 +336,7 @@
 <li class="md-nav__item">
 <div class="md-nav__link">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"></path></svg>
-<time class="md-ellipsis" datetime="2025-01-22 00:00:00+00:00">January 22, 2025</time>
+<time class="md-ellipsis" datetime="2025-01-23 00:00:00+00:00">January 23, 2025</time>
 </div>
 </li>
 <li class="md-nav__item">
@@ -363,134 +370,139 @@
 <nav class="md-tags">
 <span class="md-tag">ROS</span>
 <span class="md-tag">Roboclaw</span>
-<span class="md-tag">LIDAR</span>
-<span class="md-tag">Obstacle Avoidance</span>
-<span class="md-tag">Ubuntu</span>
-<span class="md-tag">Autonomous Vehicles</span>
+<span class="md-tag">ROS 2</span>
 </nav>
-<h1>Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance</h1>
-<h2 id="setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance">Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance</h2>
-<p>This guide walks you through setting up and running a Roboclaw-based ROS node with obstacle avoidance functionality using LIDAR sensors. Follow these steps to configure and launch your robotics system efficiently.</p>
+<h1>Transitioning the `roboclaw_ros` Node from ROS 1 to ROS 2 for Frata</h1>
+<h2 id="introduction">Introduction</h2>
+<p>At Frata, we've been using the <code>roboclaw_ros</code> node in our ROS 1 system to control our skid-steer robotic platforms. With the shift to ROS 2, we're migrating this critical node to leverage ROS 2's enhanced features like DDS-based communication and better real-time performance. This guide outlines the migration process for the <code>roboclaw_ros</code> node from ROS 1 to ROS 2, including updated parameters and launch files.</p>
 <hr/>
 <h2 id="prerequisites">Prerequisites</h2>
-<p>Before starting, ensure the following are set up on your system:</p>
+<p>Before proceeding, ensure you have:</p>
 <ol>
-<li><strong>ROS Installed</strong>: Ensure you have ROS Melodic or a compatible version installed on your system.</li>
-<li><strong>Workspace Prepared</strong>: Your ROS workspace (e.g., <code>~/armpi_pro</code>) is built and sourced.</li>
-<li><strong>Packages Installed</strong>:</li>
-<li><code>roboclaw_ros</code> for motor control.</li>
-<li><code>ldlidar_stl_ros</code> for LIDAR sensor integration.</li>
-<li><strong>Hardware Connections</strong>:</li>
-<li>Roboclaw is connected via <code>/dev/ttyACM0</code>.</li>
-<li>LIDAR sensor is operational and connected (e.g., <code>/dev/ttyUSB0</code>).</li>
+<li><strong>ROS 2 Installed</strong>: ROS 2 Humble, Galactic, or Rolling distributions are supported.  </li>
+<li><strong>Workspace Prepared</strong>: A ROS 2 workspace (<code>~/frata_ws</code>) initialized and sourced.  </li>
+<li><strong>Hardware Setup</strong>:</li>
+<li>A Roboclaw motor controller connected to <code>/dev/ttyACM0</code>.  </li>
+<li>
+<p>Encoders configured for your robot’s specific dimensions.  </p>
+</li>
+<li>
+<p><strong>Dependencies Installed</strong>:</p>
+</li>
+<li><code>roboclaw_driver</code> library.  </li>
+<li>ROS 2 Python client library (<code>rclpy</code>).  </li>
+<li>Navigation and visualization tools like <code>rviz2</code>.  </li>
 </ol>
 <hr/>
-<h2 id="launching-the-required-nodes">Launching the Required Nodes</h2>
-<p>To operate the system, you need to launch three components in sequence:</p>
-<h3 id="1-start-the-ros-core">1. <strong>Start the ROS Core</strong></h3>
-<p>Open a terminal and launch the ROS core:</p>
-<div class="highlight"><pre><span></span><code>roscore
+<h2 id="migration-steps">Migration Steps</h2>
+<h3 id="1-clone-the-updated-repository">1. Clone the Updated Repository</h3>
+<p>Clone the ROS 2-compatible version of <code>roboclaw_ros</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/frata_ws/src
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/sonyccd/roboclaw_ros
 </code></pre></div>
-<p>Keep this terminal open as it provides the foundation for all ROS nodes.</p>
 <hr/>
-<h3 id="2-launch-the-roboclaw-node">2. <strong>Launch the Roboclaw Node</strong></h3>
-<p>In a new terminal, navigate to your workspace and launch the Roboclaw node:</p>
-<div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>roboclaw_node<span class="w"> </span>roboclaw.launch
+<h3 id="2-update-parameters-for-fratas-system">2. Update Parameters for Frata’s System</h3>
+<p>Navigate to the <code>config</code> folder and create a <code>roboclaw_config.yaml</code> file with the following updated parameters:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">roboclaw</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">dev</span><span class="p">:</span><span class="w"> </span><span class="s">"/dev/ttyACM0"</span>
+<span class="w">  </span><span class="nt">baud</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">115200</span>
+<span class="w">  </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">128</span><span class="w">  </span><span class="c1"># 0x80</span>
+<span class="w">  </span><span class="nt">max_speed</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.0</span>
+<span class="w">  </span><span class="nt">ticks_per_meter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4540</span>
+<span class="w">  </span><span class="nt">base_width</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.108</span>
 </code></pre></div>
-<p>This node handles motor control, publishing odometry, and subscribing to velocity commands (<code>/cmd_vel</code>).</p>
 <hr/>
-<h3 id="3-launch-the-lidar-node">3. <strong>Launch the LIDAR Node</strong></h3>
-<p>In another terminal, launch the LIDAR node:</p>
-<div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>ldlidar_stl_ros<span class="w"> </span>ld19.launch
+<h3 id="3-update-the-launch-file">3. Update the Launch File</h3>
+<p>Create a ROS 2 launch file in <code>roboclaw_ros/launch/roboclaw_node.launch.py</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">launch</span> <span class="kn">import</span> <span class="n">LaunchDescription</span>
+<span class="kn">from</span> <span class="nn">launch_ros.actions</span> <span class="kn">import</span> <span class="n">Node</span>
+
+<span class="k">def</span> <span class="nf">generate_launch_description</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">LaunchDescription</span><span class="p">([</span>
+        <span class="n">Node</span><span class="p">(</span>
+            <span class="n">package</span><span class="o">=</span><span class="s1">'roboclaw_ros'</span><span class="p">,</span>
+            <span class="n">executable</span><span class="o">=</span><span class="s1">'roboclaw_node'</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="s1">'roboclaw_node'</span><span class="p">,</span>
+            <span class="n">output</span><span class="o">=</span><span class="s1">'screen'</span><span class="p">,</span>
+            <span class="n">parameters</span><span class="o">=</span><span class="p">[</span>
+                <span class="p">{</span><span class="s1">'dev'</span><span class="p">:</span> <span class="s1">'/dev/ttyACM0'</span><span class="p">},</span>
+                <span class="p">{</span><span class="s1">'baud'</span><span class="p">:</span> <span class="mi">115200</span><span class="p">},</span>
+                <span class="p">{</span><span class="s1">'address'</span><span class="p">:</span> <span class="mi">128</span><span class="p">},</span>
+                <span class="p">{</span><span class="s1">'max_speed'</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">},</span>
+                <span class="p">{</span><span class="s1">'ticks_per_meter'</span><span class="p">:</span> <span class="mi">4540</span><span class="p">},</span>
+                <span class="p">{</span><span class="s1">'base_width'</span><span class="p">:</span> <span class="mf">0.108</span><span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+    <span class="p">])</span>
 </code></pre></div>
-<p>This node processes LIDAR data and publishes it to the <code>/scan</code> topic.</p>
 <hr/>
-<h2 id="running-the-obstacle-avoidance-node">Running the Obstacle Avoidance Node</h2>
-<p>Once the Roboclaw and LIDAR nodes are running, you can start the obstacle avoidance script. This script subscribes to <code>/scan</code> for LIDAR data and publishes velocity commands to <code>/cmd_vel</code>.</p>
+<h3 id="4-build-the-workspace">4. Build the Workspace</h3>
+<p>After configuring the parameters and launch file, build your workspace:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/frata_ws
+colcon<span class="w"> </span>build
+<span class="nb">source</span><span class="w"> </span>install/setup.bash
+</code></pre></div>
+<hr/>
+<h3 id="5-running-the-node">5. Running the Node</h3>
+<p>To start the <code>roboclaw_ros</code> node in ROS 2:</p>
 <ol>
 <li>
-<p>Ensure the script is located at:
-   <div class="highlight"><pre><span></span><code>~/armpi_pro/src/roboclaw_ros/roboclaw_node/scripts/obstacle_avoidance.py
+<p>Open a terminal and start ROS 2 core:
+   <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>roboclaw_ros<span class="w"> </span>roboclaw_node.launch.py
 </code></pre></div></p>
 </li>
 <li>
-<p>Make the script executable:
-   <div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>~/armpi_pro/src/roboclaw_ros/roboclaw_node/scripts/obstacle_avoidance.py
+<p>Check the node's health:
+   <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>topic<span class="w"> </span>list
+</code></pre></div></p>
+</li>
+</ol>
+<p>You should see topics like <code>/cmd_vel</code> and <code>/odom</code> listed.</p>
+<hr/>
+<h2 id="testing-the-node">Testing the Node</h2>
+<p>To verify that the node works as expected:</p>
+<ol>
+<li>
+<p>Publish velocity commands to <code>/cmd_vel</code>:
+   <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>/cmd_vel<span class="w"> </span>geometry_msgs/msg/Twist<span class="w"> </span><span class="s2">"{linear: {x: 0.5, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.1}}"</span>
 </code></pre></div></p>
 </li>
 <li>
-<p>Run the script using <code>rosrun</code>:
-   <div class="highlight"><pre><span></span><code>rosrun<span class="w"> </span>roboclaw_node<span class="w"> </span>obstacle_avoidance.py
+<p>Observe the robot moving and verify odometry on <code>/odom</code>:
+   <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/odom
 </code></pre></div></p>
 </li>
 </ol>
 <hr/>
-<h2 id="how-it-works">How It Works</h2>
+<h2 id="transitioning-to-ros-2-navigation-stack">Transitioning to ROS 2 Navigation Stack</h2>
+<p>If integrating with ROS 2 Navigation:</p>
 <ol>
 <li>
-<p><strong>LIDAR Data Processing</strong>:
-   The obstacle avoidance node processes data from <code>/scan</code>. It checks for obstacles within 6 inches (0.15 meters) in front of the robot.</p>
-</li>
-<li>
-<p><strong>Motor Commands</strong>:</p>
-</li>
-<li>If an obstacle is detected, the script sends a stop command to <code>/cmd_vel</code>.</li>
-<li>If the path is clear, the script commands the robot to move forward.</li>
-</ol>
-<hr/>
-<h2 id="example-workflow">Example Workflow</h2>
-<p>Here’s how you would set up and run the entire system step-by-step:</p>
-<ol>
-<li>
-<p>Open a terminal and start the ROS core:
-   <div class="highlight"><pre><span></span><code>roscore
+<p>Launch <code>slam_toolbox</code> for mapping:
+   <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>slam_toolbox<span class="w"> </span>online_async_launch.py
 </code></pre></div></p>
 </li>
 <li>
-<p>In a second terminal, launch the Roboclaw node:
-   <div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>roboclaw_node<span class="w"> </span>roboclaw.launch
+<p>Visualize the map in <code>rviz2</code>:
+   <div class="highlight"><pre><span></span><code>rviz2
 </code></pre></div></p>
 </li>
 <li>
-<p>In a third terminal, launch the LIDAR node:
-   <div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>ldlidar_stl_ros<span class="w"> </span>ld19.launch
-</code></pre></div></p>
-</li>
-<li>
-<p>Finally, in a fourth terminal, run the obstacle avoidance script:
-   <div class="highlight"><pre><span></span><code>rosrun<span class="w"> </span>roboclaw_node<span class="w"> </span>obstacle_avoidance.py
+<p>Use <code>nav2</code> for autonomous navigation:
+   <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>nav2_bringup<span class="w"> </span>navigation_launch.py
 </code></pre></div></p>
 </li>
 </ol>
 <hr/>
-<h2 id="troubleshooting">Troubleshooting</h2>
+<h2 id="benefits-of-migration-to-ros-2">Benefits of Migration to ROS 2</h2>
 <ol>
-<li>
-<p><strong>Package Not Found</strong>:
-   If you encounter errors like <code>package 'roboclaw_node' not found</code>, rebuild your workspace:
-   <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/armpi_pro
-catkin_make
-<span class="nb">source</span><span class="w"> </span>devel/setup.bash
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>LIDAR or Roboclaw Not Responding</strong>:</p>
-</li>
-<li>Verify device connections using <code>ls /dev/tty*</code> for correct port names.</li>
-<li>
-<p>Update the respective <code>.launch</code> files to reflect the correct ports.</p>
-</li>
-<li>
-<p><strong>Script Permissions</strong>:
-   Ensure all scripts are executable using:
-   <div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>~/armpi_pro/src/roboclaw_ros/roboclaw_node/scripts/*.py
-</code></pre></div></p>
-</li>
+<li><strong>Enhanced Real-Time Performance</strong>: DDS-based middleware ensures lower latency and higher reliability.</li>
+<li><strong>Scalability</strong>: Easier to integrate additional nodes and sensors.</li>
+<li><strong>Future-Proofing</strong>: Stay updated with the latest developments in the ROS ecosystem.</li>
 </ol>
 <hr/>
 <h2 id="conclusion">Conclusion</h2>
-<p>With this setup, your robot is capable of autonomously navigating forward and stopping when obstacles are detected. The modular structure allows for easy debugging and future enhancements, such as adding new sensors or navigation strategies.</p>
-<p>Mastering these steps ensures a reliable and robust robotic system ready for real-world applications.</p>
+<p>Migrating the <code>roboclaw_ros</code> node to ROS 2 positions Frata’s robotic systems for better performance and scalability. By leveraging ROS 2’s features, we ensure our systems are robust, future-ready, and capable of handling complex navigation and control tasks.</p>
 <form class="md-feedback" hidden="" name="feedback">
 <fieldset>
 <legend class="md-feedback__title">
@@ -524,7 +536,7 @@ catkin_make
 </div>
 </fieldset>
 </form>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-22, Updated 2025-01-22<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-23, Updated 2025-01-23<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (2), <a href="https://github.com/harmindersinghnijjar/personal-website">not.committed.yet</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -535,10 +547,10 @@ catkin_make
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/2025/01/23/transitioning-the-roboclaw_ros-node-from-ros-1-to-ros-2-for-frata', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/2025/01/23/transitioning-the-roboclaw_ros-node-from-ros-1-to-ros-2-for-frata', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
