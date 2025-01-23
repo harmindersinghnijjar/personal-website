@@ -5,14 +5,13 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Learn how to use Selenium with undetected-chromedriver to bypass Cloudflare challenges for robust web automation. Includes practical workflows and tips." name="description"/>
+<meta content="Learn how to configure and run a Roboclaw-based ROS node for your robotics project, integrating motor control and obstacle avoidance using LIDAR sensors." name="description"/>
 <meta content="harmindersinghnijjar" name="author"/>
-<link href="https://harminder.dev/blog/2025/01/15/bypassing-cloudflare-with-selenium-and-undetected-chromedriver/" rel="canonical">
-<link href="../setting-up-browser-use-with-botright/" rel="prev"/>
-<link href="../../22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/" rel="next"/>
+<link href="https://harminder.dev/blog/2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/" rel="canonical">
+<link href="../../15/bypassing-cloudflare-with-selenium-and-undetected-chromedriver/" rel="prev"/>
 <link href="../../../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.5.45" name="generator"/>
-<title>Bypassing Cloudflare with Selenium and Undetected-Chromedriver - Harminder Singh Nijjar</title>
+<title>Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance - Harminder Singh Nijjar</title>
 <link href="../../../../../assets/stylesheets/main.0253249f.min.css" rel="stylesheet"/>
 <link href="../../../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
@@ -24,24 +23,24 @@
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-X0B1C5DM9K"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-X0B1C5DM9K",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-X0B1C5DM9K",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
 <meta content="website" property="og:type"/>
-<meta content="Bypassing Cloudflare with Selenium and Undetected-Chromedriver - Harminder Singh Nijjar" property="og:title"/>
-<meta content="Learn how to use Selenium with undetected-chromedriver to bypass Cloudflare challenges for robust web automation. Includes practical workflows and tips." property="og:description"/>
-<meta content="https://harminder.dev/assets/images/social/blog/posts/20250115143012.png" property="og:image"/>
+<meta content="Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance - Harminder Singh Nijjar" property="og:title"/>
+<meta content="Learn how to configure and run a Roboclaw-based ROS node for your robotics project, integrating motor control and obstacle avoidance using LIDAR sensors." property="og:description"/>
+<meta content="https://harminder.dev/assets/images/social/blog/posts/20250122081454.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="https://harminder.dev/blog/2025/01/15/bypassing-cloudflare-with-selenium-and-undetected-chromedriver/" property="og:url"/>
+<meta content="https://harminder.dev/blog/2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Bypassing Cloudflare with Selenium and Undetected-Chromedriver - Harminder Singh Nijjar" name="twitter:title"/>
-<meta content="Learn how to use Selenium with undetected-chromedriver to bypass Cloudflare challenges for robust web automation. Includes practical workflows and tips." name="twitter:description"/>
-<meta content="https://harminder.dev/assets/images/social/blog/posts/20250115143012.png" name="twitter:image"/>
-<meta content="Bypassing Cloudflare with Selenium and Undetected-Chromedriver" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/15/bypassing-cloudflare-with-selenium-and-undetected-chromedriver" property="og:url"/><meta content="Bypassing Cloudflare with Selenium and Undetected-Chromedriver" property="og:title"/><meta content="Learn how to use Selenium with undetected-chromedriver to bypass Cloudflare challenges for robust web automation. Includes practical workflows and tips." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/15/bypassing-cloudflare-with-selenium-and-undetected-chromedriver" property="twitter:url"/><meta content="Bypassing Cloudflare with Selenium and Undetected-Chromedriver" property="twitter:title"/><meta content="Learn how to use Selenium with undetected-chromedriver to bypass Cloudflare challenges for robust web automation. Includes practical workflows and tips." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Bypassing Cloudflare with Selenium and Undetected-Chromedriver", "image": [], "datePublished": "2025-01-15 14:36:04 -0800", "dateModified": "2025-01-15 16:05:32 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to use Selenium with undetected-chromedriver to bypass Cloudflare challenges for robust web automation. Includes practical workflows and tips."}</script></head>
+<meta content="Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance - Harminder Singh Nijjar" name="twitter:title"/>
+<meta content="Learn how to configure and run a Roboclaw-based ROS node for your robotics project, integrating motor control and obstacle avoidance using LIDAR sensors." name="twitter:description"/>
+<meta content="https://harminder.dev/assets/images/social/blog/posts/20250122081454.png" name="twitter:image"/>
+<meta content="Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance" property="og:url"/><meta content="Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance" property="og:title"/><meta content="Learn how to configure and run a Roboclaw-based ROS node for your robotics project, integrating motor control and obstacle avoidance using LIDAR sensors." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance" property="twitter:url"/><meta content="Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance" property="twitter:title"/><meta content="Learn how to configure and run a Roboclaw-based ROS node for your robotics project, integrating motor control and obstacle avoidance using LIDAR sensors." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance", "image": [], "datePublished": "2025-01-22 08:17:20 -0800", "dateModified": "2025-01-22 08:17:20 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to configure and run a Roboclaw-based ROS node for your robotics project, integrating motor control and obstacle avoidance using LIDAR sensors."}</script></head>
 <body data-md-color-accent="custom" data-md-color-primary="custom" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#bypassing-cloudflare-with-selenium-and-undetected-chromedriver">
+<a class="md-skip" href="#setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance">
           Skip to content
         </a>
 </div>
@@ -65,7 +64,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Bypassing Cloudflare with Selenium and Undetected-Chromedriver
+              Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance
             
           </span>
 </div>
@@ -217,59 +216,45 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#bypassing-cloudflare-with-selenium-and-undetected-chromedriver">
+<a class="md-nav__link" href="#setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance">
 <span class="md-ellipsis">
-      Bypassing Cloudflare with Selenium and Undetected-Chromedriver
+      Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#why-use-selenium-with-undetected-chromedriver">
+<a class="md-nav__link" href="#prerequisites">
 <span class="md-ellipsis">
-      Why Use Selenium with Undetected-Chromedriver?
+      Prerequisites
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#detection-challenges-in-web-automation">
+<a class="md-nav__link" href="#launching-the-required-nodes">
 <span class="md-ellipsis">
-      Detection Challenges in Web Automation
+      Launching the Required Nodes
     </span>
 </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#the-solution-selenium-and-undetected-chromedriver">
-<span class="md-ellipsis">
-      The Solution: Selenium and Undetected-Chromedriver
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#implementation-guide-setting-up-selenium-with-undetected-chromedriver">
-<span class="md-ellipsis">
-      Implementation Guide: Setting Up Selenium with Undetected-Chromedriver
-    </span>
-</a>
-<nav aria-label="Implementation Guide: Setting Up Selenium with Undetected-Chromedriver" class="md-nav">
+<nav aria-label="Launching the Required Nodes" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-1-install-required-libraries">
+<a class="md-nav__link" href="#1-start-the-ros-core">
 <span class="md-ellipsis">
-      Step 1: Install Required Libraries
+      1. Start the ROS Core
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-2-initialize-the-browser-driver">
+<a class="md-nav__link" href="#2-launch-the-roboclaw-node">
 <span class="md-ellipsis">
-      Step 2: Initialize the Browser Driver
+      2. Launch the Roboclaw Node
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-3-handle-captcha-and-cloudflare-challenges">
+<a class="md-nav__link" href="#3-launch-the-lidar-node">
 <span class="md-ellipsis">
-      Step 3: Handle CAPTCHA and Cloudflare Challenges
+      3. Launch the LIDAR Node
     </span>
 </a>
 </li>
@@ -277,41 +262,30 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#advanced-automation-workflow-with-cookies">
+<a class="md-nav__link" href="#running-the-obstacle-avoidance-node">
 <span class="md-ellipsis">
-      Advanced Automation Workflow with Cookies
-    </span>
-</a>
-<nav aria-label="Advanced Automation Workflow with Cookies" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#step-1-attempt-standard-automation">
-<span class="md-ellipsis">
-      Step 1: Attempt Standard Automation
+      Running the Obstacle Avoidance Node
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-2-use-cookies-for-session-continuity">
+<a class="md-nav__link" href="#how-it-works">
 <span class="md-ellipsis">
-      Step 2: Use Cookies for Session Continuity
+      How It Works
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#step-3-fall-back-to-manual-assistance">
+<a class="md-nav__link" href="#example-workflow">
 <span class="md-ellipsis">
-      Step 3: Fall Back to Manual Assistance
+      Example Workflow
     </span>
 </a>
 </li>
-</ul>
-</nav>
-</li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#proposed-workflow-for-automation">
+<a class="md-nav__link" href="#troubleshooting">
 <span class="md-ellipsis">
-      Proposed Workflow for Automation
+      Troubleshooting
     </span>
 </a>
 </li>
@@ -319,13 +293,6 @@
 <a class="md-nav__link" href="#conclusion">
 <span class="md-ellipsis">
       Conclusion
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#references">
-<span class="md-ellipsis">
-      References
     </span>
 </a>
 </li>
@@ -361,7 +328,7 @@
 <li class="md-nav__item">
 <div class="md-nav__link">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"></path></svg>
-<time class="md-ellipsis" datetime="2025-01-15 00:00:00+00:00">January 15, 2025</time>
+<time class="md-ellipsis" datetime="2025-01-22 00:00:00+00:00">January 22, 2025</time>
 </div>
 </li>
 <li class="md-nav__item">
@@ -370,7 +337,7 @@
 <span class="md-ellipsis">
                             in
                             
-                              <a href="../../../../category/programming/">Programming</a></span>
+                              <a href="../../../../category/robotics/">Robotics</a></span>
 </div>
 </li>
 <li class="md-nav__item">
@@ -393,103 +360,136 @@
 </div>
 <article class="md-content__inner md-typeset">
 <nav class="md-tags">
-<span class="md-tag">Selenium</span>
-<span class="md-tag">Undetected-Chromedriver</span>
-<span class="md-tag">Cloudflare Mitigation</span>
-<span class="md-tag">Web Automation</span>
+<span class="md-tag">ROS</span>
+<span class="md-tag">Roboclaw</span>
+<span class="md-tag">LIDAR</span>
+<span class="md-tag">Obstacle Avoidance</span>
+<span class="md-tag">Ubuntu</span>
+<span class="md-tag">Autonomous Vehicles</span>
 </nav>
-<h1>Bypassing Cloudflare with Selenium and Undetected-Chromedriver</h1>
-<h2 id="bypassing-cloudflare-with-selenium-and-undetected-chromedriver">Bypassing Cloudflare with Selenium and Undetected-Chromedriver</h2>
-<p>By combining <strong>Selenium</strong> with <strong>undetected-chromedriver (UC)</strong>, you can overcome common automation challenges like Cloudflare's browser verification. This guide explores practical workflows and techniques to enhance your web automation projects.</p>
+<h1>Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance</h1>
+<h2 id="setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance">Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance</h2>
+<p>This guide walks you through setting up and running a Roboclaw-based ROS node with obstacle avoidance functionality using LIDAR sensors. Follow these steps to configure and launch your robotics system efficiently.</p>
 <hr/>
-<h2 id="why-use-selenium-with-undetected-chromedriver">Why Use Selenium with Undetected-Chromedriver?</h2>
-<p>Cloudflare protections are designed to block bots, posing challenges for developers. By using undetected-chromedriver with Selenium, you can:</p>
-<ul>
-<li><strong>Bypass Browser Fingerprinting:</strong> UC modifies ChromeDriver to avoid detection.</li>
-<li><strong>Handle Cloudflare Challenges:</strong> Seamlessly bypass "wait while your browser is verified" messages.</li>
-<li><strong>Mitigate CAPTCHA Issues:</strong> Reduce interruptions caused by automated bot checks.</li>
-</ul>
-<hr/>
-<h2 id="detection-challenges-in-web-automation">Detection Challenges in Web Automation</h2>
-<p>Websites employ multiple strategies to detect and prevent automated interactions:</p>
-<ul>
-<li><strong>CAPTCHA Challenges:</strong> Validating user authenticity.</li>
-<li><strong>Cloudflare Browser Verification:</strong> Infinite loading screens or token-based checks.</li>
-<li><strong>Bot Detection Mechanisms:</strong> Browser fingerprinting, behavioral analytics, and cookie validation.</li>
-</ul>
-<p>These barriers often require advanced techniques to maintain automation workflows.</p>
-<hr/>
-<h2 id="the-solution-selenium-and-undetected-chromedriver">The Solution: Selenium and Undetected-Chromedriver</h2>
-<p>The undetected-chromedriver library modifies the default ChromeDriver to emulate human-like behavior and evade detection. When integrated with Selenium, it allows:</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>Before starting, ensure the following are set up on your system:</p>
 <ol>
-<li><strong>Seamless CAPTCHA Bypass:</strong> Minimize interruptions by automating responses or avoiding challenges.</li>
-<li><strong>Cloudflare Token Handling:</strong> Automatically manage verification processes.</li>
-<li><strong>Cookie Reuse for Session Preservation:</strong> Skip repetitive verifications by reusing authenticated cookies.</li>
+<li><strong>ROS Installed</strong>: Ensure you have ROS Melodic or a compatible version installed on your system.</li>
+<li><strong>Workspace Prepared</strong>: Your ROS workspace (e.g., <code>~/armpi_pro</code>) is built and sourced.</li>
+<li><strong>Packages Installed</strong>:</li>
+<li><code>roboclaw_ros</code> for motor control.</li>
+<li><code>ldlidar_stl_ros</code> for LIDAR sensor integration.</li>
+<li><strong>Hardware Connections</strong>:</li>
+<li>Roboclaw is connected via <code>/dev/ttyACM0</code>.</li>
+<li>LIDAR sensor is operational and connected (e.g., <code>/dev/ttyUSB0</code>).</li>
 </ol>
 <hr/>
-<h2 id="implementation-guide-setting-up-selenium-with-undetected-chromedriver">Implementation Guide: Setting Up Selenium with Undetected-Chromedriver</h2>
-<h3 id="step-1-install-required-libraries">Step 1: Install Required Libraries</h3>
-<p>Install Selenium and undetected-chromedriver:
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>selenium<span class="w"> </span>undetected-chromedriver
-</code></pre></div></p>
-<h3 id="step-2-initialize-the-browser-driver">Step 2: Initialize the Browser Driver</h3>
-<p>Set up a Selenium session with UC:
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">undetected_chromedriver</span> <span class="k">as</span> <span class="nn">uc</span>
-
-<span class="c1"># Initialize the driver</span>
-<span class="n">driver</span> <span class="o">=</span> <span class="n">uc</span><span class="o">.</span><span class="n">Chrome</span><span class="p">()</span>
-
-<span class="c1"># Navigate to a website</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"https://example.com"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Page Title:"</span><span class="p">,</span> <span class="n">driver</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
-
-<span class="c1"># Quit the driver</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
-</code></pre></div></p>
-<h3 id="step-3-handle-captcha-and-cloudflare-challenges">Step 3: Handle CAPTCHA and Cloudflare Challenges</h3>
-<ul>
-<li>Use <strong>UC</strong> to bypass passive bot checks.</li>
-<li>Extract and reuse cookies to maintain session continuity:
-  <div class="highlight"><pre><span></span><code><span class="n">cookies</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">get_cookies</span><span class="p">()</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">add_cookie</span><span class="p">(</span><span class="n">cookies</span><span class="p">)</span>
-</code></pre></div></li>
-</ul>
+<h2 id="launching-the-required-nodes">Launching the Required Nodes</h2>
+<p>To operate the system, you need to launch three components in sequence:</p>
+<h3 id="1-start-the-ros-core">1. <strong>Start the ROS Core</strong></h3>
+<p>Open a terminal and launch the ROS core:</p>
+<div class="highlight"><pre><span></span><code>roscore
+</code></pre></div>
+<p>Keep this terminal open as it provides the foundation for all ROS nodes.</p>
 <hr/>
-<h2 id="advanced-automation-workflow-with-cookies">Advanced Automation Workflow with Cookies</h2>
-<h3 id="step-1-attempt-standard-automation">Step 1: Attempt Standard Automation</h3>
-<p>Use Selenium with UC to navigate and interact with the website.</p>
-<h3 id="step-2-use-cookies-for-session-continuity">Step 2: Use Cookies for Session Continuity</h3>
-<p>Manually authenticate once, extract cookies, and reuse them for automated sessions:
-<div class="highlight"><pre><span></span><code><span class="c1"># Save cookies after manual login</span>
-<span class="n">cookies</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">get_cookies</span><span class="p">()</span>
-
-<span class="c1"># Use cookies in future sessions</span>
-<span class="k">for</span> <span class="n">cookie</span> <span class="ow">in</span> <span class="n">cookies</span><span class="p">:</span>
-    <span class="n">driver</span><span class="o">.</span><span class="n">add_cookie</span><span class="p">(</span><span class="n">cookie</span><span class="p">)</span>
-<span class="n">driver</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
-</code></pre></div></p>
-<h3 id="step-3-fall-back-to-manual-assistance">Step 3: Fall Back to Manual Assistance</h3>
-<p>Prompt users to resolve CAPTCHA or login challenges in a separate session and capture the cookies for automation.</p>
+<h3 id="2-launch-the-roboclaw-node">2. <strong>Launch the Roboclaw Node</strong></h3>
+<p>In a new terminal, navigate to your workspace and launch the Roboclaw node:</p>
+<div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>roboclaw_node<span class="w"> </span>roboclaw.launch
+</code></pre></div>
+<p>This node handles motor control, publishing odometry, and subscribing to velocity commands (<code>/cmd_vel</code>).</p>
 <hr/>
-<h2 id="proposed-workflow-for-automation">Proposed Workflow for Automation</h2>
+<h3 id="3-launch-the-lidar-node">3. <strong>Launch the LIDAR Node</strong></h3>
+<p>In another terminal, launch the LIDAR node:</p>
+<div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>ldlidar_stl_ros<span class="w"> </span>ld19.launch
+</code></pre></div>
+<p>This node processes LIDAR data and publishes it to the <code>/scan</code> topic.</p>
+<hr/>
+<h2 id="running-the-obstacle-avoidance-node">Running the Obstacle Avoidance Node</h2>
+<p>Once the Roboclaw and LIDAR nodes are running, you can start the obstacle avoidance script. This script subscribes to <code>/scan</code> for LIDAR data and publishes velocity commands to <code>/cmd_vel</code>.</p>
 <ol>
-<li><strong>Initial Attempt:</strong> Start with Selenium and UC for automation.</li>
-<li><strong>Fallback to Cookies:</strong> Reuse cookies for continuity if CAPTCHA or Cloudflare challenges arise.</li>
-<li><strong>Manual Assistance:</strong> Open a browser session for user input, capture cookies, and resume automation.</li>
+<li>
+<p>Ensure the script is located at:
+   <div class="highlight"><pre><span></span><code>~/armpi_pro/src/roboclaw_ros/roboclaw_node/scripts/obstacle_avoidance.py
+</code></pre></div></p>
+</li>
+<li>
+<p>Make the script executable:
+   <div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>~/armpi_pro/src/roboclaw_ros/roboclaw_node/scripts/obstacle_avoidance.py
+</code></pre></div></p>
+</li>
+<li>
+<p>Run the script using <code>rosrun</code>:
+   <div class="highlight"><pre><span></span><code>rosrun<span class="w"> </span>roboclaw_node<span class="w"> </span>obstacle_avoidance.py
+</code></pre></div></p>
+</li>
 </ol>
-<p>This iterative process ensures maximum efficiency and minimizes disruptions.</p>
+<hr/>
+<h2 id="how-it-works">How It Works</h2>
+<ol>
+<li>
+<p><strong>LIDAR Data Processing</strong>:
+   The obstacle avoidance node processes data from <code>/scan</code>. It checks for obstacles within 6 inches (0.15 meters) in front of the robot.</p>
+</li>
+<li>
+<p><strong>Motor Commands</strong>:</p>
+</li>
+<li>If an obstacle is detected, the script sends a stop command to <code>/cmd_vel</code>.</li>
+<li>If the path is clear, the script commands the robot to move forward.</li>
+</ol>
+<hr/>
+<h2 id="example-workflow">Example Workflow</h2>
+<p>Here’s how you would set up and run the entire system step-by-step:</p>
+<ol>
+<li>
+<p>Open a terminal and start the ROS core:
+   <div class="highlight"><pre><span></span><code>roscore
+</code></pre></div></p>
+</li>
+<li>
+<p>In a second terminal, launch the Roboclaw node:
+   <div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>roboclaw_node<span class="w"> </span>roboclaw.launch
+</code></pre></div></p>
+</li>
+<li>
+<p>In a third terminal, launch the LIDAR node:
+   <div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>ldlidar_stl_ros<span class="w"> </span>ld19.launch
+</code></pre></div></p>
+</li>
+<li>
+<p>Finally, in a fourth terminal, run the obstacle avoidance script:
+   <div class="highlight"><pre><span></span><code>rosrun<span class="w"> </span>roboclaw_node<span class="w"> </span>obstacle_avoidance.py
+</code></pre></div></p>
+</li>
+</ol>
+<hr/>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ol>
+<li>
+<p><strong>Package Not Found</strong>:
+   If you encounter errors like <code>package 'roboclaw_node' not found</code>, rebuild your workspace:
+   <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/armpi_pro
+catkin_make
+<span class="nb">source</span><span class="w"> </span>devel/setup.bash
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>LIDAR or Roboclaw Not Responding</strong>:</p>
+</li>
+<li>Verify device connections using <code>ls /dev/tty*</code> for correct port names.</li>
+<li>
+<p>Update the respective <code>.launch</code> files to reflect the correct ports.</p>
+</li>
+<li>
+<p><strong>Script Permissions</strong>:
+   Ensure all scripts are executable using:
+   <div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>~/armpi_pro/src/roboclaw_ros/roboclaw_node/scripts/*.py
+</code></pre></div></p>
+</li>
+</ol>
 <hr/>
 <h2 id="conclusion">Conclusion</h2>
-<p>Selenium and undetected-chromedriver provide a powerful toolkit for overcoming automation barriers like CAPTCHA and Cloudflare protections. By leveraging cookies and manual fallbacks, you can create robust workflows that streamline automation processes.</p>
-<p>Ready to enhance your web automation? Start integrating Selenium with UC today and unlock new possibilities!</p>
-<hr/>
-<h2 id="references">References</h2>
-<ul>
-<li><a href="https://www.selenium.dev/documentation/">Selenium Documentation</a></li>
-<li><a href="https://github.com/ultrafunkamsterdam/undetected-chromedriver">Undetected-Chromedriver</a></li>
-<li><a href="https://www.example.com/captcha-bypass-guide">CAPTCHA Bypass Strategies</a></li>
-<li><a href="https://www.cloudflare.com/">Cloudflare and Bot Detection</a></li>
-</ul>
+<p>With this setup, your robot is capable of autonomously navigating forward and stopping when obstacles are detected. The modular structure allows for easy debugging and future enhancements, such as adding new sensors or navigation strategies.</p>
+<p>Mastering these steps ensures a reliable and robust robotic system ready for real-world applications.</p>
 <form class="md-feedback" hidden="" name="feedback">
 <fieldset>
 <legend class="md-feedback__title">
@@ -523,7 +523,7 @@
 </div>
 </fieldset>
 </form>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-15, Updated 2025-01-15<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (3)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-22, Updated 2025-01-22<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -534,10 +534,10 @@
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/2025/01/15/bypassing-cloudflare-with-selenium-and-undetected-chromedriver', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/2025/01/15/bypassing-cloudflare-with-selenium-and-undetected-chromedriver', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>

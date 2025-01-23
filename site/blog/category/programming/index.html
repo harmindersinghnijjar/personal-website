@@ -665,6 +665,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#setting-up-browser-use-with-botright" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Up Browser Use with Botright
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#setting-up-venom-for-whatsapp-translation" class="md-nav__link">
     <span class="md-ellipsis">
       Setting Up Venom for WhatsApp Translation
@@ -786,6 +795,15 @@
   <a href="#bypassing-cloudflare-with-selenium-and-undetected-chromedriver" class="md-nav__link">
     <span class="md-ellipsis">
       Bypassing Cloudflare with Selenium and Undetected-Chromedriver
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-browser-use-with-botright" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Up Browser Use with Botright
     </span>
   </a>
   
@@ -969,6 +987,137 @@
 <li><a href="https://www.example.com/captcha-bypass-guide">CAPTCHA Bypass Strategies</a></li>
 <li><a href="https://www.cloudflare.com/">Cloudflare and Bot Detection</a></li>
 </ul>
+    
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-01-15 00:00:00+00:00">January 15, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="./" class="md-meta__link">Programming</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              2 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="setting-up-browser-use-with-botright"><a class="toclink" href="../../2025/01/15/setting-up-browser-use-with-botright/">Setting Up Browser Use with Botright</a></h2>
+<p>Automating web browsing while remaining undetected is critical for various use cases like scraping, testing, or automation. This guide shows you how to set up <strong>Browser Use</strong> with <strong>Botright</strong>, a robust library for stealth browsing and captcha solving.</p>
+<h3 id="why-use-botright"><a class="toclink" href="../../2025/01/15/setting-up-browser-use-with-botright/#why-use-botright">Why Use Botright?</a></h3>
+<p><a href="https://github.com/Vinyzu/Botright">Botright</a> enhances stealth browsing by leveraging techniques like fingerprint masking and AI-driven captcha solving. It integrates seamlessly with Playwright, making it perfect for stealthy automation tasks.</p>
+<h3 id="prerequisites"><a class="toclink" href="../../2025/01/15/setting-up-browser-use-with-botright/#prerequisites">Prerequisites</a></h3>
+<p>Ensure the following tools and dependencies are installed:</p>
+<ol>
+<li><strong>Python 3.11 or Higher</strong>: Install from <a href="https://www.python.org/">python.org</a>.</li>
+<li><strong>pip</strong>: Included with Python.</li>
+<li><strong>Browser Use</strong>: The main framework.</li>
+<li><strong>Botright</strong>: For stealth features and advanced automation.</li>
+</ol>
+<h4 id="install-required-packages"><a class="toclink" href="../../2025/01/15/setting-up-browser-use-with-botright/#install-required-packages">Install Required Packages</a></h4>
+<p>Run the following commands to set up your environment:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Clone the repository</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/browser-use/browser-use
+<span class="nb">cd</span><span class="w"> </span>browser-use
+
+<span class="c1"># Install uv for environment management</span>
+pip<span class="w"> </span>install<span class="w"> </span>uv
+
+<span class="c1"># Create a virtual environment</span>
+uv<span class="w"> </span>venv<span class="w"> </span>--python<span class="w"> </span><span class="m">3</span>.11
+
+<span class="c1"># Activate the virtual environment</span>
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w"> </span><span class="c1"># For Linux/macOS</span>
+.venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate<span class="w">    </span><span class="c1"># For Windows</span>
+
+<span class="c1"># Install Browser Use with development dependencies</span>
+uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>.<span class="w"> </span>.<span class="s2">&quot;[dev]&quot;</span>
+
+<span class="c1"># Install Botright</span>
+pip<span class="w"> </span>install<span class="w"> </span>botright
+playwright<span class="w"> </span>install
+</code></pre></div>
+<h3 id="implementation"><a class="toclink" href="../../2025/01/15/setting-up-browser-use-with-botright/#implementation">Implementation</a></h3>
+<p>Follow these steps to integrate Botright with Browser Use:</p>
+<h4 id="1-update-mainpy"><a class="toclink" href="../../2025/01/15/setting-up-browser-use-with-botright/#1-update-mainpy">1. Update <code>main.py</code></a></h4>
+<p>Replace the Playwright browser initialization with Botright’s initialization. Here’s the updated <code>main.py</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">import</span> <span class="nn">botright</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Initialize Botright with enhanced stealth options</span>
+    <span class="n">botright_client</span> <span class="o">=</span> <span class="k">await</span> <span class="n">botright</span><span class="o">.</span><span class="n">Botright</span><span class="p">(</span><span class="n">headless</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="c1"># Launch a browser instance</span>
+    <span class="n">browser</span> <span class="o">=</span> <span class="k">await</span> <span class="n">botright_client</span><span class="o">.</span><span class="n">new_browser</span><span class="p">()</span>
+
+    <span class="c1"># Open a new page</span>
+    <span class="n">page</span> <span class="o">=</span> <span class="k">await</span> <span class="n">browser</span><span class="o">.</span><span class="n">new_page</span><span class="p">()</span>
+
+    <span class="c1"># Navigate to a website</span>
+    <span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="s2">&quot;https://example.com&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Perform browser actions (e.g., take a screenshot)</span>
+    <span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;screenshot.png&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Screenshot saved!&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Close the browser and Botright client</span>
+    <span class="k">await</span> <span class="n">browser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">await</span> <span class="n">botright_client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</code></pre></div>
+<h4 id="2-configure-environment-variables"><a class="toclink" href="../../2025/01/15/setting-up-browser-use-with-botright/#2-configure-environment-variables">2. Configure Environment Variables</a></h4>
+<p>Set up required API keys by copying the example environment file:</p>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>.env.example<span class="w"> </span>.env
+</code></pre></div>
+<p>Add the following to your <code>.env</code> file:</p>
+<div class="highlight"><pre><span></span><code>BOTRIGHT_API_KEY=your_botright_api_key
+</code></pre></div>
+<h4 id="3-run-the-script"><a class="toclink" href="../../2025/01/15/setting-up-browser-use-with-botright/#3-run-the-script">3. Run the Script</a></h4>
+<p>Run your updated <code>main.py</code> script:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>main.py
+</code></pre></div>
+<h4 id="4-what-happens"><a class="toclink" href="../../2025/01/15/setting-up-browser-use-with-botright/#4-what-happens">4. What Happens?</a></h4>
+<ol>
+<li><strong>Browser Initialization</strong>: Botright launches a Chromium-based browser instance with stealth enhancements.</li>
+<li><strong>Website Navigation</strong>: The browser navigates to the specified URL (<code>https://example.com</code>).</li>
+<li><strong>Screenshot Capture</strong>: A screenshot is taken and saved as <code>screenshot.png</code>.</li>
+</ol>
+<h3 id="debugging-tips"><a class="toclink" href="../../2025/01/15/setting-up-browser-use-with-botright/#debugging-tips">Debugging Tips</a></h3>
+<ol>
+<li><strong>Botright Logs</strong>:
+   Use <code>print</code> statements or Botright's built-in logging for debugging.</li>
+<li><strong>Browser Errors</strong>:
+   Verify the installed version of Playwright and Botright.</li>
+<li><strong>Environment Issues</strong>:
+   Ensure your <code>.env</code> file contains the correct API keys.</li>
+</ol>
+<h3 id="advanced-features"><a class="toclink" href="../../2025/01/15/setting-up-browser-use-with-botright/#advanced-features">Advanced Features</a></h3>
+<h4 id="captcha-solving"><a class="toclink" href="../../2025/01/15/setting-up-browser-use-with-botright/#captcha-solving">Captcha Solving</a></h4>
+<p>To solve captchas, use Botright's built-in methods. Example:</p>
+<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">solve_captcha</span><span class="p">()</span>
+</code></pre></div>
+<h4 id="fingerprint-masking"><a class="toclink" href="../../2025/01/15/setting-up-browser-use-with-botright/#fingerprint-masking">Fingerprint Masking</a></h4>
+<p>Botright automatically handles fingerprint masking. To customize this, refer to the <a href="https://botright.readthedocs.io/">Botright documentation</a>.</p>
+<h3 id="conclusion"><a class="toclink" href="../../2025/01/15/setting-up-browser-use-with-botright/#conclusion">Conclusion</a></h3>
+<p>By integrating Botright with Browser Use, you unlock advanced stealth browsing capabilities ideal for sensitive automation tasks. This setup provides a solid foundation for further enhancements, such as integrating AI-based analysis or multi-page navigation workflows.</p>
     
   </div>
 </article>
