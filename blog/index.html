@@ -756,10 +756,18 @@ rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span c
 <h4 id="1-communication-abnormal-error"><a class="toclink" href="2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#1-communication-abnormal-error">1. <strong>"Communication Abnormal" Error</strong></a></h4>
 <p>If you encounter this error:
    <div class="highlight"><pre><span></span><code>[ERROR] [ldlidar_publisher_ld19]: ldlidar communication is abnormal.
-</code></pre></div>
-   - <strong>Check Serial Port</strong>: Ensure the correct serial port (<code>/dev/ttyUSB0</code>) is specified in the launch file.
-   - <strong>Verify Baud Rate</strong>: Confirm that the baud rate in the launch file matches the LIDAR's configuration (default is <code>230400</code>).
-   - <strong>Reconnect the Device</strong>: Use a USB extension cable if the device isn't recognized properly.</p>
+</code></pre></div></p>
+<ul>
+<li>
+<p><strong>Check Serial Port</strong>: Ensure the correct serial port (<code>/dev/ttyUSB0</code>) is specified in the launch file.</p>
+</li>
+<li>
+<p><strong>Verify Baud Rate</strong>: Confirm that the baud rate in the launch file matches the LIDAR's configuration (default is <code>230400</code>).</p>
+</li>
+<li>
+<p><strong>Reconnect the Device</strong>: Use a USB extension cable if the device isn't recognized properly.</p>
+</li>
+</ul>
 <h4 id="2-device-not-found"><a class="toclink" href="2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#2-device-not-found">2. <strong>Device Not Found</strong></a></h4>
 <ul>
 <li>Run:

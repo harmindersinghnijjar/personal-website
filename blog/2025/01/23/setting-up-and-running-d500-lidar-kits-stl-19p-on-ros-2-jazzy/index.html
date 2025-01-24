@@ -34,7 +34,7 @@
 <meta content="Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy - Harminder Singh Nijjar" name="twitter:title"/>
 <meta content="Learn how to set up and run the D500 LiDAR Kit's STL-19P sensor on ROS 2 Jazzy, including installation, configuration, and troubleshooting common errors." name="twitter:description"/>
 <meta content="https://harminder.dev/assets/images/social/blog/posts/20250123120010.png" name="twitter:image"/>
-<meta content="Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy" property="og:url"/><meta content="Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy" property="og:title"/><meta content="Learn how to set up and run the D500 LiDAR Kit's STL-19P sensor on ROS 2 Jazzy, including installation, configuration, and troubleshooting common errors." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy" property="twitter:url"/><meta content="Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy" property="twitter:title"/><meta content="Learn how to set up and run the D500 LiDAR Kit's STL-19P sensor on ROS 2 Jazzy, including installation, configuration, and troubleshooting common errors." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy", "image": [], "datePublished": "2025-01-23 12:04:08 -0800", "dateModified": "2025-01-24 07:39:44 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to set up and run the D500 LiDAR Kit's STL-19P sensor on ROS 2 Jazzy, including installation, configuration, and troubleshooting common errors."}</script></head>
+<meta content="Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy" property="og:url"/><meta content="Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy" property="og:title"/><meta content="Learn how to set up and run the D500 LiDAR Kit's STL-19P sensor on ROS 2 Jazzy, including installation, configuration, and troubleshooting common errors." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy" property="twitter:url"/><meta content="Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy" property="twitter:title"/><meta content="Learn how to set up and run the D500 LiDAR Kit's STL-19P sensor on ROS 2 Jazzy, including installation, configuration, and troubleshooting common errors." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy", "image": [], "datePublished": "2025-01-23 12:04:08 -0800", "dateModified": "2025-01-24 07:56:03 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to set up and run the D500 LiDAR Kit's STL-19P sensor on ROS 2 Jazzy, including installation, configuration, and troubleshooting common errors."}</script></head>
 <body data-md-color-accent="custom" data-md-color-primary="custom" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -442,10 +442,18 @@ rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span c
 <h3 id="1-communication-abnormal-error">1. <strong>"Communication Abnormal" Error</strong></h3>
 <p>If you encounter this error:
    <div class="highlight"><pre><span></span><code>[ERROR] [ldlidar_publisher_ld19]: ldlidar communication is abnormal.
-</code></pre></div>
-   - <strong>Check Serial Port</strong>: Ensure the correct serial port (<code>/dev/ttyUSB0</code>) is specified in the launch file.
-   - <strong>Verify Baud Rate</strong>: Confirm that the baud rate in the launch file matches the LIDAR's configuration (default is <code>230400</code>).
-   - <strong>Reconnect the Device</strong>: Use a USB extension cable if the device isn't recognized properly.</p>
+</code></pre></div></p>
+<ul>
+<li>
+<p><strong>Check Serial Port</strong>: Ensure the correct serial port (<code>/dev/ttyUSB0</code>) is specified in the launch file.</p>
+</li>
+<li>
+<p><strong>Verify Baud Rate</strong>: Confirm that the baud rate in the launch file matches the LIDAR's configuration (default is <code>230400</code>).</p>
+</li>
+<li>
+<p><strong>Reconnect the Device</strong>: Use a USB extension cable if the device isn't recognized properly.</p>
+</li>
+</ul>
 <h3 id="2-device-not-found">2. <strong>Device Not Found</strong></h3>
 <ul>
 <li>Run:
@@ -513,7 +521,7 @@ ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</
 </div>
 </fieldset>
 </form>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-23, Updated 2025-01-24<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (4)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-23, Updated 2025-01-24<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (5)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
