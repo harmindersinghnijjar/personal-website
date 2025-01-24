@@ -5,13 +5,13 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Learn how to set up and run the LDLiDAR LD19 sensor on ROS 2 Jazzy, including installation, configuration, and troubleshooting common errors." name="description"/>
+<meta content="Learn how to set up and run the D500 LiDAR Kit's STL-19P sensor on ROS 2 Jazzy, including installation, configuration, and troubleshooting common errors." name="description"/>
 <meta content="harmindersinghnijjar" name="author"/>
-<link href="https://harminder.dev/blog/2025/01/23/setting-up-and-running-ldlidar-ld19-on-ros-2-jazzy/" rel="canonical">
+<link href="https://harminder.dev/blog/2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/" rel="canonical">
 <link href="../transitioning-the-roboclaw_ros-node-from-ros-1-to-ros-2-for-frata/" rel="prev"/>
 <link href="../../../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.5.45" name="generator"/>
-<title>Setting Up and Running LDLiDAR LD19 on ROS 2 Jazzy - Harminder Singh Nijjar</title>
+<title>Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy - Harminder Singh Nijjar</title>
 <link href="../../../../../assets/stylesheets/main.0253249f.min.css" rel="stylesheet"/>
 <link href="../../../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
@@ -23,18 +23,18 @@
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-X0B1C5DM9K"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-X0B1C5DM9K",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-X0B1C5DM9K",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
 <meta content="website" property="og:type"/>
-<meta content="Setting Up and Running LDLiDAR LD19 on ROS 2 Jazzy - Harminder Singh Nijjar" property="og:title"/>
-<meta content="Learn how to set up and run the LDLiDAR LD19 sensor on ROS 2 Jazzy, including installation, configuration, and troubleshooting common errors." property="og:description"/>
+<meta content="Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy - Harminder Singh Nijjar" property="og:title"/>
+<meta content="Learn how to set up and run the D500 LiDAR Kit's STL-19P sensor on ROS 2 Jazzy, including installation, configuration, and troubleshooting common errors." property="og:description"/>
 <meta content="https://harminder.dev/assets/images/social/blog/posts/20250123120010.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="https://harminder.dev/blog/2025/01/23/setting-up-and-running-ldlidar-ld19-on-ros-2-jazzy/" property="og:url"/>
+<meta content="https://harminder.dev/blog/2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Setting Up and Running LDLiDAR LD19 on ROS 2 Jazzy - Harminder Singh Nijjar" name="twitter:title"/>
-<meta content="Learn how to set up and run the LDLiDAR LD19 sensor on ROS 2 Jazzy, including installation, configuration, and troubleshooting common errors." name="twitter:description"/>
+<meta content="Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy - Harminder Singh Nijjar" name="twitter:title"/>
+<meta content="Learn how to set up and run the D500 LiDAR Kit's STL-19P sensor on ROS 2 Jazzy, including installation, configuration, and troubleshooting common errors." name="twitter:description"/>
 <meta content="https://harminder.dev/assets/images/social/blog/posts/20250123120010.png" name="twitter:image"/>
-<meta content="Setting Up and Running LDLiDAR LD19 on ROS 2 Jazzy" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/23/setting-up-and-running-ldlidar-ld19-on-ros-2-jazzy" property="og:url"/><meta content="Setting Up and Running LDLiDAR LD19 on ROS 2 Jazzy" property="og:title"/><meta content="Learn how to set up and run the LDLiDAR LD19 sensor on ROS 2 Jazzy, including installation, configuration, and troubleshooting common errors." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/23/setting-up-and-running-ldlidar-ld19-on-ros-2-jazzy" property="twitter:url"/><meta content="Setting Up and Running LDLiDAR LD19 on ROS 2 Jazzy" property="twitter:title"/><meta content="Learn how to set up and run the LDLiDAR LD19 sensor on ROS 2 Jazzy, including installation, configuration, and troubleshooting common errors." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Setting Up and Running LDLiDAR LD19 on ROS 2 Jazzy", "image": [], "datePublished": "2025-01-23 12:04:08 -0800", "dateModified": "2025-01-23 21:32:02 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to set up and run the LDLiDAR LD19 sensor on ROS 2 Jazzy, including installation, configuration, and troubleshooting common errors."}</script></head>
+<meta content="Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy" property="og:url"/><meta content="Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy" property="og:title"/><meta content="Learn how to set up and run the D500 LiDAR Kit's STL-19P sensor on ROS 2 Jazzy, including installation, configuration, and troubleshooting common errors." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy" property="twitter:url"/><meta content="Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy" property="twitter:title"/><meta content="Learn how to set up and run the D500 LiDAR Kit's STL-19P sensor on ROS 2 Jazzy, including installation, configuration, and troubleshooting common errors." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy", "image": [], "datePublished": "2025-01-23 12:04:08 -0800", "dateModified": "2025-01-24 07:39:44 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to set up and run the D500 LiDAR Kit's STL-19P sensor on ROS 2 Jazzy, including installation, configuration, and troubleshooting common errors."}</script></head>
 <body data-md-color-accent="custom" data-md-color-primary="custom" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -64,7 +64,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Setting Up and Running LDLiDAR LD19 on ROS 2 Jazzy
+              Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy
             
           </span>
 </div>
@@ -358,8 +358,8 @@
 <span class="md-tag">Autonomous Vehicles</span>
 <span class="md-tag">Ubuntu</span>
 </nav>
-<h1>Setting Up and Running LDLiDAR LD19 on ROS 2 Jazzy</h1>
-<p>This guide walks you through setting up the <strong>LDLiDAR LD19</strong> sensor for <strong>ROS 2 Jazzy</strong>, using the <strong>ldrobotSensorTeam/ldlidar_ros2</strong> repository. By the end of this article, you'll be able to configure, launch, and visualize LIDAR data in ROS 2.</p>
+<h1>Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy</h1>
+<p>This guide walks you through setting up the D500 LiDAR Kit's <strong>STL-19P</strong> sensor for <strong>ROS 2 Jazzy</strong>, using the <strong>ldrobotSensorTeam/ldlidar_ros2</strong> repository. By the end of this article, you'll be able to configure, launch, and visualize LIDAR data in ROS 2.</p>
 <hr/>
 <h2 id="prerequisites">Prerequisites</h2>
 <p>Before proceeding, ensure you have the following set up:</p>
@@ -477,7 +477,7 @@ ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</
 </code></pre></div></p>
 <hr/>
 <h2 id="conclusion">Conclusion</h2>
-<p>With this guide, you can successfully set up and run the LDLiDAR LD19 on ROS 2 Jazzy. If you encounter the <strong>"communication abnormal"</strong> or other errors, refer to the troubleshooting section to resolve them quickly. This setup enables seamless LIDAR integration for your autonomous robotics projects.</p>
+<p>With this guide, you can successfully set up and run the D500 LiDAR Kit's STL-19P  on ROS 2 Jazzy. If you encounter the <strong>"communication abnormal"</strong> or other errors, refer to the troubleshooting section to resolve them quickly. This setup enables seamless LIDAR integration for your autonomous robotics projects.</p>
 <p>For more information, visit the <a href="https://github.com/ldrobotSensorTeam/ldlidar_ros2">ldrobotSensorTeam GitHub repository</a>.</p>
 <hr/>
 <form class="md-feedback" hidden="" name="feedback">
@@ -513,7 +513,7 @@ ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</
 </div>
 </fieldset>
 </form>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-23, Updated 2025-01-23<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (3)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-23, Updated 2025-01-24<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (4)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -524,10 +524,10 @@ ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/2025/01/23/setting-up-and-running-ldlidar-ld19-on-ros-2-jazzy', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/2025/01/23/setting-up-and-running-ldlidar-ld19-on-ros-2-jazzy', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>

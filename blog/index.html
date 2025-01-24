@@ -542,9 +542,9 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#setting-up-and-running-ldlidar-ld19-on-ros-2-jazzy" class="md-nav__link">
+  <a href="#setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy" class="md-nav__link">
     <span class="md-ellipsis">
-      Setting Up and Running LDLiDAR LD19 on ROS 2 Jazzy
+      Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy
     </span>
   </a>
   
@@ -672,10 +672,10 @@
     </div>
   </header>
   <div class="md-post__content md-typeset">
-    <h2 id="setting-up-and-running-ldlidar-ld19-on-ros-2-jazzy"><a class="toclink" href="2025/01/23/setting-up-and-running-ldlidar-ld19-on-ros-2-jazzy/">Setting Up and Running LDLiDAR LD19 on ROS 2 Jazzy</a></h2>
-<p>This guide walks you through setting up the <strong>LDLiDAR LD19</strong> sensor for <strong>ROS 2 Jazzy</strong>, using the <strong>ldrobotSensorTeam/ldlidar_ros2</strong> repository. By the end of this article, you'll be able to configure, launch, and visualize LIDAR data in ROS 2.</p>
+    <h2 id="setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy"><a class="toclink" href="2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/">Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy</a></h2>
+<p>This guide walks you through setting up the D500 LiDAR Kit's <strong>STL-19P</strong> sensor for <strong>ROS 2 Jazzy</strong>, using the <strong>ldrobotSensorTeam/ldlidar_ros2</strong> repository. By the end of this article, you'll be able to configure, launch, and visualize LIDAR data in ROS 2.</p>
 <hr />
-<h3 id="prerequisites"><a class="toclink" href="2025/01/23/setting-up-and-running-ldlidar-ld19-on-ros-2-jazzy/#prerequisites">Prerequisites</a></h3>
+<h3 id="prerequisites"><a class="toclink" href="2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#prerequisites">Prerequisites</a></h3>
 <p>Before proceeding, ensure you have the following set up:</p>
 <ol>
 <li>
@@ -693,7 +693,7 @@ colcon<span class="w"> </span>build
 </li>
 </ol>
 <hr />
-<h3 id="cloning-and-building-the-ldlidar-package"><a class="toclink" href="2025/01/23/setting-up-and-running-ldlidar-ld19-on-ros-2-jazzy/#cloning-and-building-the-ldlidar-package">Cloning and Building the LDLiDAR Package</a></h3>
+<h3 id="cloning-and-building-the-ldlidar-package"><a class="toclink" href="2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#cloning-and-building-the-ldlidar-package">Cloning and Building the LDLiDAR Package</a></h3>
 <ol>
 <li>
 <p><strong>Clone the Repository</strong>:
@@ -723,7 +723,7 @@ rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span c
 </li>
 </ol>
 <hr />
-<h3 id="running-the-ldlidar-node"><a class="toclink" href="2025/01/23/setting-up-and-running-ldlidar-ld19-on-ros-2-jazzy/#running-the-ldlidar-node">Running the LDLiDAR Node</a></h3>
+<h3 id="running-the-ldlidar-node"><a class="toclink" href="2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#running-the-ldlidar-node">Running the LDLiDAR Node</a></h3>
 <ol>
 <li><strong>Connect the LIDAR to a USB Port</strong>:</li>
 <li>
@@ -752,35 +752,35 @@ rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span c
 <li>Add a "LaserScan" display and set the topic to <code>/scan</code>.</li>
 </ol>
 <hr />
-<h3 id="troubleshooting-common-errors"><a class="toclink" href="2025/01/23/setting-up-and-running-ldlidar-ld19-on-ros-2-jazzy/#troubleshooting-common-errors">Troubleshooting Common Errors</a></h3>
-<h4 id="1-communication-abnormal-error"><a class="toclink" href="2025/01/23/setting-up-and-running-ldlidar-ld19-on-ros-2-jazzy/#1-communication-abnormal-error">1. <strong>"Communication Abnormal" Error</strong></a></h4>
+<h3 id="troubleshooting-common-errors"><a class="toclink" href="2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#troubleshooting-common-errors">Troubleshooting Common Errors</a></h3>
+<h4 id="1-communication-abnormal-error"><a class="toclink" href="2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#1-communication-abnormal-error">1. <strong>"Communication Abnormal" Error</strong></a></h4>
 <p>If you encounter this error:
    <div class="highlight"><pre><span></span><code>[ERROR] [ldlidar_publisher_ld19]: ldlidar communication is abnormal.
 </code></pre></div>
    - <strong>Check Serial Port</strong>: Ensure the correct serial port (<code>/dev/ttyUSB0</code>) is specified in the launch file.
    - <strong>Verify Baud Rate</strong>: Confirm that the baud rate in the launch file matches the LIDAR's configuration (default is <code>230400</code>).
    - <strong>Reconnect the Device</strong>: Use a USB extension cable if the device isn't recognized properly.</p>
-<h4 id="2-device-not-found"><a class="toclink" href="2025/01/23/setting-up-and-running-ldlidar-ld19-on-ros-2-jazzy/#2-device-not-found">2. <strong>Device Not Found</strong></a></h4>
+<h4 id="2-device-not-found"><a class="toclink" href="2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#2-device-not-found">2. <strong>Device Not Found</strong></a></h4>
 <ul>
 <li>Run:
      <div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/dev/ttyUSB*
 </code></pre></div></li>
 <li>If no device appears, ensure the LIDAR is securely connected and powered.</li>
 </ul>
-<h4 id="3-no-data-in-rviz2"><a class="toclink" href="2025/01/23/setting-up-and-running-ldlidar-ld19-on-ros-2-jazzy/#3-no-data-in-rviz2">3. <strong>No Data in Rviz2</strong></a></h4>
+<h4 id="3-no-data-in-rviz2"><a class="toclink" href="2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#3-no-data-in-rviz2">3. <strong>No Data in Rviz2</strong></a></h4>
 <ul>
 <li>Verify the <code>/scan</code> topic is being published:
      <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>topic<span class="w"> </span>list
 ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/scan
 </code></pre></div></li>
 </ul>
-<h4 id="4-failed-init_port-fastrtps_port7000-error"><a class="toclink" href="2025/01/23/setting-up-and-running-ldlidar-ld19-on-ros-2-jazzy/#4-failed-init_port-fastrtps_port7000-error">4. <strong>"Failed init_port fastrtps_port7000" Error</strong></a></h4>
+<h4 id="4-failed-init_port-fastrtps_port7000-error"><a class="toclink" href="2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#4-failed-init_port-fastrtps_port7000-error">4. <strong>"Failed init_port fastrtps_port7000" Error</strong></a></h4>
 <p>This is a common shared memory transport error in ROS 2.
    - <strong>Solution</strong>: Add the following to your <code>.bashrc</code> to disable shared memory transport:
      <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">RMW_IMPLEMENTATION</span><span class="o">=</span>rmw_cyclonedds_cpp
 </code></pre></div></p>
 <hr />
-<h3 id="example-launch-output"><a class="toclink" href="2025/01/23/setting-up-and-running-ldlidar-ld19-on-ros-2-jazzy/#example-launch-output">Example Launch Output</a></h3>
+<h3 id="example-launch-output"><a class="toclink" href="2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#example-launch-output">Example Launch Output</a></h3>
 <p>Once everything is set up correctly, you should see the following output:
 <div class="highlight"><pre><span></span><code>[INFO] [ldlidar_publisher_ld19]: LDLiDAR SDK Pack Version is:3.3.1
 [INFO] [ldlidar_publisher_ld19]: ROS2 param input:
@@ -790,8 +790,8 @@ ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</
 [INFO] [ldlidar_publisher_ld19]: start normal, pub lidar data
 </code></pre></div></p>
 <hr />
-<h3 id="conclusion"><a class="toclink" href="2025/01/23/setting-up-and-running-ldlidar-ld19-on-ros-2-jazzy/#conclusion">Conclusion</a></h3>
-<p>With this guide, you can successfully set up and run the LDLiDAR LD19 on ROS 2 Jazzy. If you encounter the <strong>"communication abnormal"</strong> or other errors, refer to the troubleshooting section to resolve them quickly. This setup enables seamless LIDAR integration for your autonomous robotics projects.</p>
+<h3 id="conclusion"><a class="toclink" href="2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#conclusion">Conclusion</a></h3>
+<p>With this guide, you can successfully set up and run the D500 LiDAR Kit's STL-19P  on ROS 2 Jazzy. If you encounter the <strong>"communication abnormal"</strong> or other errors, refer to the troubleshooting section to resolve them quickly. This setup enables seamless LIDAR integration for your autonomous robotics projects.</p>
 <p>For more information, visit the <a href="https://github.com/ldrobotSensorTeam/ldlidar_ros2">ldrobotSensorTeam GitHub repository</a>.</p>
 <hr />
     
