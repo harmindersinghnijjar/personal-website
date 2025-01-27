@@ -5,14 +5,13 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Learn how to set up and run the D500 LiDAR Kit's STL-19P sensor on ROS 2 Jazzy, including installation, configuration, and troubleshooting common errors." name="description"/>
+<meta content="A comprehensive guide to efficiently managing Docker containers and ROS nodes for Roboclaw integration, including tips for saving containers, opening new terminals, and debugging common issues." name="description"/>
 <meta content="harmindersinghnijjar" name="author"/>
-<link href="https://harminder.dev/blog/2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/" rel="canonical">
-<link href="../setting-up-the-roboclaw_ros-node-with-ros-noetic-in-docker/" rel="prev"/>
-<link href="../../26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows/" rel="next"/>
+<link href="https://harminder.dev/blog/2025/01/26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows/" rel="canonical">
+<link href="../../23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/" rel="prev"/>
 <link href="../../../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.5.45" name="generator"/>
-<title>Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy - Harminder Singh Nijjar</title>
+<title>Mastering Docker and ROS for Roboclaw With Key Tips and Workflows - Harminder Singh Nijjar</title>
 <link href="../../../../../assets/stylesheets/main.0253249f.min.css" rel="stylesheet"/>
 <link href="../../../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
@@ -24,24 +23,24 @@
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-X0B1C5DM9K"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-X0B1C5DM9K",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-X0B1C5DM9K",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
 <meta content="website" property="og:type"/>
-<meta content="Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy - Harminder Singh Nijjar" property="og:title"/>
-<meta content="Learn how to set up and run the D500 LiDAR Kit's STL-19P sensor on ROS 2 Jazzy, including installation, configuration, and troubleshooting common errors." property="og:description"/>
-<meta content="https://harminder.dev/assets/images/social/blog/posts/20250123120010.png" property="og:image"/>
+<meta content="Mastering Docker and ROS for Roboclaw With Key Tips and Workflows - Harminder Singh Nijjar" property="og:title"/>
+<meta content="A comprehensive guide to efficiently managing Docker containers and ROS nodes for Roboclaw integration, including tips for saving containers, opening new terminals, and debugging common issues." property="og:description"/>
+<meta content="https://harminder.dev/assets/images/social/blog/posts/20250126175516.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="https://harminder.dev/blog/2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/" property="og:url"/>
+<meta content="https://harminder.dev/blog/2025/01/26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy - Harminder Singh Nijjar" name="twitter:title"/>
-<meta content="Learn how to set up and run the D500 LiDAR Kit's STL-19P sensor on ROS 2 Jazzy, including installation, configuration, and troubleshooting common errors." name="twitter:description"/>
-<meta content="https://harminder.dev/assets/images/social/blog/posts/20250123120010.png" name="twitter:image"/>
-<meta content="Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy" property="og:url"/><meta content="Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy" property="og:title"/><meta content="Learn how to set up and run the D500 LiDAR Kit's STL-19P sensor on ROS 2 Jazzy, including installation, configuration, and troubleshooting common errors." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy" property="twitter:url"/><meta content="Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy" property="twitter:title"/><meta content="Learn how to set up and run the D500 LiDAR Kit's STL-19P sensor on ROS 2 Jazzy, including installation, configuration, and troubleshooting common errors." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy", "image": [], "datePublished": "2025-01-23 12:04:08 -0800", "dateModified": "2025-01-24 07:56:03 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to set up and run the D500 LiDAR Kit's STL-19P sensor on ROS 2 Jazzy, including installation, configuration, and troubleshooting common errors."}</script></head>
+<meta content="Mastering Docker and ROS for Roboclaw With Key Tips and Workflows - Harminder Singh Nijjar" name="twitter:title"/>
+<meta content="A comprehensive guide to efficiently managing Docker containers and ROS nodes for Roboclaw integration, including tips for saving containers, opening new terminals, and debugging common issues." name="twitter:description"/>
+<meta content="https://harminder.dev/assets/images/social/blog/posts/20250126175516.png" name="twitter:image"/>
+<meta content="Mastering Docker and ROS for Roboclaw With Key Tips and Workflows" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows" property="og:url"/><meta content="Mastering Docker and ROS for Roboclaw With Key Tips and Workflows" property="og:title"/><meta content="A comprehensive guide to efficiently managing Docker containers and ROS nodes for Roboclaw integration, including tips for saving containers, opening new terminals, and debugging common issues." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows" property="twitter:url"/><meta content="Mastering Docker and ROS for Roboclaw With Key Tips and Workflows" property="twitter:title"/><meta content="A comprehensive guide to efficiently managing Docker containers and ROS nodes for Roboclaw integration, including tips for saving containers, opening new terminals, and debugging common issues." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Mastering Docker and ROS for Roboclaw With Key Tips and Workflows", "image": [], "datePublished": "2025-01-26 18:10:26 -0800", "dateModified": "2025-01-26 18:10:26 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "A comprehensive guide to efficiently managing Docker containers and ROS nodes for Roboclaw integration, including tips for saving containers, opening new terminals, and debugging common issues."}</script></head>
 <body data-md-color-accent="custom" data-md-color-primary="custom" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#prerequisites">
+<a class="md-skip" href="#introduction">
           Skip to content
         </a>
 </div>
@@ -65,7 +64,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy
+              Mastering Docker and ROS for Roboclaw With Key Tips and Workflows
             
           </span>
 </div>
@@ -217,59 +216,38 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#prerequisites">
+<a class="md-nav__link" href="#introduction">
 <span class="md-ellipsis">
-      Prerequisites
+      Introduction
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#cloning-and-building-the-ldlidar-package">
+<a class="md-nav__link" href="#key-topics-covered">
 <span class="md-ellipsis">
-      Cloning and Building the LDLiDAR Package
+      Key Topics Covered
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#running-the-ldlidar-node">
+<a class="md-nav__link" href="#1-saving-docker-containers">
 <span class="md-ellipsis">
-      Running the LDLiDAR Node
+      1. Saving Docker Containers
     </span>
 </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#troubleshooting-common-errors">
-<span class="md-ellipsis">
-      Troubleshooting Common Errors
-    </span>
-</a>
-<nav aria-label="Troubleshooting Common Errors" class="md-nav">
+<nav aria-label="1. Saving Docker Containers" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#1-communication-abnormal-error">
+<a class="md-nav__link" href="#steps-to-save-a-container-as-an-image">
 <span class="md-ellipsis">
-      1. "Communication Abnormal" Error
+      Steps to Save a Container as an Image:
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#2-device-not-found">
+<a class="md-nav__link" href="#why-save-containers">
 <span class="md-ellipsis">
-      2. Device Not Found
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#3-no-data-in-rviz2">
-<span class="md-ellipsis">
-      3. No Data in Rviz2
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#4-failed-init_port-fastrtps_port7000-error">
-<span class="md-ellipsis">
-      4. "Failed init_port fastrtps_port7000" Error
+      Why Save Containers?
     </span>
 </a>
 </li>
@@ -277,9 +255,109 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#example-launch-output">
+<a class="md-nav__link" href="#2-opening-a-new-terminal-in-an-existing-container">
 <span class="md-ellipsis">
-      Example Launch Output
+      2. Opening a New Terminal in an Existing Container
+    </span>
+</a>
+<nav aria-label="2. Opening a New Terminal in an Existing Container" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#steps-to-open-a-new-terminal">
+<span class="md-ellipsis">
+      Steps to Open a New Terminal:
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-use-this">
+<span class="md-ellipsis">
+      Why Use This?
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-running-docker-containers-with-bluetooth-and-port-access">
+<span class="md-ellipsis">
+      3. Running Docker Containers with Bluetooth and Port Access
+    </span>
+</a>
+<nav aria-label="3. Running Docker Containers with Bluetooth and Port Access" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#steps-to-run-a-container-with-bluetooth">
+<span class="md-ellipsis">
+      Steps to Run a Container with Bluetooth:
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-use-these-flags">
+<span class="md-ellipsis">
+      Why Use These Flags?
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-proper-ros-workspace-setup-in-docker">
+<span class="md-ellipsis">
+      4. Proper ROS Workspace Setup in Docker
+    </span>
+</a>
+<nav aria-label="4. Proper ROS Workspace Setup in Docker" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#steps-to-initialize-and-persist-a-workspace">
+<span class="md-ellipsis">
+      Steps to Initialize and Persist a Workspace:
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-mount-the-workspace">
+<span class="md-ellipsis">
+      Why Mount the Workspace?
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-running-ros-nodes-and-debugging">
+<span class="md-ellipsis">
+      5. Running ROS Nodes and Debugging
+    </span>
+</a>
+<nav aria-label="5. Running ROS Nodes and Debugging" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#starting-roscore-in-the-same-container">
+<span class="md-ellipsis">
+      Starting roscore in the Same Container
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#running-a-ros-node">
+<span class="md-ellipsis">
+      Running a ROS Node
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#6-debugging-common-issues">
+<span class="md-ellipsis">
+      6. Debugging Common Issues
     </span>
 </a>
 </li>
@@ -322,7 +400,7 @@
 <li class="md-nav__item">
 <div class="md-nav__link">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"></path></svg>
-<time class="md-ellipsis" datetime="2025-01-23 00:00:00+00:00">January 23, 2025</time>
+<time class="md-ellipsis" datetime="2025-01-26 00:00:00+00:00">January 26, 2025</time>
 </div>
 </li>
 <li class="md-nav__item">
@@ -354,141 +432,176 @@
 </div>
 <article class="md-content__inner md-typeset">
 <nav class="md-tags">
-<span class="md-tag">ROS 2</span>
-<span class="md-tag">LIDAR</span>
-<span class="md-tag">Autonomous Vehicles</span>
-<span class="md-tag">Ubuntu</span>
+<span class="md-tag">ROS</span>
+<span class="md-tag">Docker</span>
+<span class="md-tag">Roboclaw</span>
+<span class="md-tag">ROS Noetic</span>
+<span class="md-tag">ROS Jazzy</span>
 </nav>
-<h1>Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy</h1>
-<p>This guide walks you through setting up the D500 LiDAR Kit's <strong>STL-19P</strong> sensor for <strong>ROS 2 Jazzy</strong>, using the <strong>ldrobotSensorTeam/ldlidar_ros2</strong> repository. By the end of this article, you'll be able to configure, launch, and visualize LIDAR data in ROS 2.</p>
+<h1>Mastering Docker and ROS for Roboclaw With Key Tips and Workflows</h1>
+<h3 id="introduction">Introduction</h3>
+<p>When working on robotics projects with Docker and ROS, managing your containers and ensuring proper configurations can get challenging. This blog consolidates the most critical reminders and steps to help streamline your workflow. We'll focus on managing Docker containers, integrating Bluetooth, opening required ports, and running your ROS nodes smoothly.</p>
 <hr/>
-<h2 id="prerequisites">Prerequisites</h2>
-<p>Before proceeding, ensure you have the following set up:</p>
+<h3 id="key-topics-covered">Key Topics Covered</h3>
 <ol>
-<li>
-<p><strong>ROS 2 Jazzy Installed</strong>:
-   Follow the <a href="https://docs.ros.org/en/jazzy/Installation.html">official instructions</a> to install ROS 2 Jazzy.</p>
-</li>
-<li>
-<p><strong>Set Up Your ROS 2 Workspace</strong>:
-   Create a workspace if you don't already have one:
-   <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/Desktop/frata_workspace/src
-<span class="nb">cd</span><span class="w"> </span>~/Desktop/frata_workspace
-colcon<span class="w"> </span>build
-<span class="nb">source</span><span class="w"> </span>install/setup.bash
-</code></pre></div></p>
-</li>
+<li>Saving Docker containers for future use.</li>
+<li>Opening a new terminal in an existing container.</li>
+<li>Running Docker containers with Bluetooth and port access.</li>
+<li>Proper workspace setup for ROS in Docker.</li>
+<li>Debugging common issues during ROS and Docker integration.</li>
 </ol>
 <hr/>
-<h2 id="cloning-and-building-the-ldlidar-package">Cloning and Building the LDLiDAR Package</h2>
+<h3 id="1-saving-docker-containers">1. Saving Docker Containers</h3>
+<p>One of the most important tasks is saving a Docker container after installing dependencies or configuring it for ROS.</p>
+<h4 id="steps-to-save-a-container-as-an-image">Steps to Save a Container as an Image:</h4>
 <ol>
-<li>
-<p><strong>Clone the Repository</strong>:
-   <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Desktop/frata_workspace/src
-git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ldrobotSensorTeam/ldlidar_ros2.git
+<li>Stop the container:
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>stop<span class="w"> </span>&lt;container_name&gt;
+</code></pre></div></li>
+<li>Commit the container as a new image:
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>commit<span class="w"> </span>&lt;container_id&gt;<span class="w"> </span>&lt;new_image_name&gt;
+</code></pre></div></li>
+<li>Verify the new image:
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>images
+</code></pre></div></li>
+</ol>
+<p>Example:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>commit<span class="w"> </span>d3aee02fa93e<span class="w"> </span>ros_noetic_saved
 </code></pre></div></p>
+<h4 id="why-save-containers">Why Save Containers?</h4>
+<ul>
+<li>It ensures you don’t lose your work if the container is stopped or deleted.</li>
+<li>You can easily spin up new containers with the same setup.</li>
+</ul>
+<hr/>
+<h3 id="2-opening-a-new-terminal-in-an-existing-container">2. Opening a New Terminal in an Existing Container</h3>
+<p>When running a long-term ROS process, you may need to open another terminal in the same container for additional commands.</p>
+<h4 id="steps-to-open-a-new-terminal">Steps to Open a New Terminal:</h4>
+<ol>
+<li>List all running containers:
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>ps
+</code></pre></div></li>
+<li>Attach a new shell to the container:
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;container_name&gt;<span class="w"> </span>/bin/bash
+</code></pre></div></li>
+</ol>
+<p>Example:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>ros_noetic_saved<span class="w"> </span>bash
+</code></pre></div></p>
+<h4 id="why-use-this">Why Use This?</h4>
+<ul>
+<li>It lets you manage multiple ROS nodes or debug processes within the same environment.</li>
+</ul>
+<hr/>
+<h3 id="3-running-docker-containers-with-bluetooth-and-port-access">3. Running Docker Containers with Bluetooth and Port Access</h3>
+<p>For integrating an Xbox controller or other Bluetooth devices, Docker must allow Bluetooth and open specific ports.</p>
+<h4 id="steps-to-run-a-container-with-bluetooth">Steps to Run a Container with Bluetooth:</h4>
+<ol>
+<li>Stop any conflicting containers:
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>stop<span class="w"> </span>&lt;container_name&gt;
+sudo<span class="w"> </span>docker<span class="w"> </span>rm<span class="w"> </span>&lt;container_name&gt;
+</code></pre></div></li>
+<li>Run the container with Bluetooth and ports open:
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>&lt;new_container_name&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--net<span class="o">=</span>host<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--privileged<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--device<span class="o">=</span>/dev/input/js0:/dev/input/js0<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--device<span class="o">=</span>/dev/input/event0:/dev/input/event0<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-v<span class="w"> </span>/var/run/dbus:/var/run/dbus<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-v<span class="w"> </span>/tmp/.X11-unix:/tmp/.X11-unix<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>&lt;saved_image_name&gt;
+</code></pre></div></li>
+</ol>
+<p>Example:
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>ros_noetic_bluetooth<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--net<span class="o">=</span>host<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--privileged<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--device<span class="o">=</span>/dev/input/js0:/dev/input/js0<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--device<span class="o">=</span>/dev/input/event0:/dev/input/event0<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-v<span class="w"> </span>/var/run/dbus:/var/run/dbus<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-v<span class="w"> </span>/tmp/.X11-unix:/tmp/.X11-unix<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>ros_noetic_saved
+</code></pre></div></p>
+<h4 id="why-use-these-flags">Why Use These Flags?</h4>
+<ul>
+<li><code>--net=host</code>: Ensures seamless communication over the network.</li>
+<li><code>--privileged</code>: Grants the container full access to host devices.</li>
+<li><code>--device</code>: Links specific devices (e.g., Xbox controller or other peripherals).</li>
+<li><code>-v</code>: Mounts necessary host directories.</li>
+</ul>
+<hr/>
+<h3 id="4-proper-ros-workspace-setup-in-docker">4. Proper ROS Workspace Setup in Docker</h3>
+<h4 id="steps-to-initialize-and-persist-a-workspace">Steps to Initialize and Persist a Workspace:</h4>
+<ol>
+<li>Create a workspace on the host machine:
+   <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/ros_noetic_ws/src
+</code></pre></div></li>
+<li>Mount it in the container:
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>&lt;container_name&gt;<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-v<span class="w"> </span>~/ros_noetic_ws:/root/ros_noetic_ws<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>&lt;base_image&gt;
+</code></pre></div></li>
+<li>Inside the container, initialize the workspace:
+   <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/root/ros_noetic_ws
+catkin_make
+</code></pre></div></li>
+</ol>
+<h4 id="why-mount-the-workspace">Why Mount the Workspace?</h4>
+<ul>
+<li>It allows you to edit files outside the container while ensuring changes reflect inside the container.</li>
+</ul>
+<hr/>
+<h3 id="5-running-ros-nodes-and-debugging">5. Running ROS Nodes and Debugging</h3>
+<h4 id="starting-roscore-in-the-same-container">Starting <code>roscore</code> in the Same Container</h4>
+<ol>
+<li>Open a new terminal in the container:
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;container_name&gt;<span class="w"> </span>/bin/bash
+</code></pre></div></li>
+<li>Start <code>roscore</code>:
+   <div class="highlight"><pre><span></span><code>roscore
+</code></pre></div></li>
+</ol>
+<h4 id="running-a-ros-node">Running a ROS Node</h4>
+<ol>
+<li>Source the workspace:
+   <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/ros_noetic_ws/devel/setup.bash
+</code></pre></div></li>
+<li>Run the node:
+   <div class="highlight"><pre><span></span><code>rosrun<span class="w"> </span>&lt;package_name&gt;<span class="w"> </span>&lt;node_name&gt;
+</code></pre></div></li>
+</ol>
+<p>Example:
+<div class="highlight"><pre><span></span><code>rosrun<span class="w"> </span>roboclaw_node<span class="w"> </span>xbox_teleop_odom.py
+</code></pre></div></p>
+<hr/>
+<h3 id="6-debugging-common-issues">6. Debugging Common Issues</h3>
+<ol>
+<li>Master Not Found (<code>roscore</code> Issue):</li>
+<li>
+<p>Ensure <code>roscore</code> is running in the same container.</p>
 </li>
 <li>
-<p><strong>Install Dependencies</strong>:
-   Use <code>rosdep</code> to install any missing dependencies:
-   <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Desktop/frata_workspace
-rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>-r<span class="w"> </span>-y
-</code></pre></div></p>
+<p>Device Not Found:</p>
+</li>
+<li>Verify the device mapping:
+     <div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/dev/input/js0
+</code></pre></div></li>
+<li>
+<p>Check permissions or add the correct <code>--device</code> flag when running the container.</p>
 </li>
 <li>
-<p><strong>Build the Workspace</strong>:
-   Compile the package:
-   <div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="o">=</span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
-</code></pre></div></p>
+<p>ROS Package Path Issues:</p>
 </li>
-<li>
-<p><strong>Source the Workspace</strong>:
-   Add the following to your <code>~/.bashrc</code> and source it:
-   <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">"source ~/Desktop/frata_workspace/install/local_setup.bash"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
-<span class="nb">source</span><span class="w"> </span>~/.bashrc
-</code></pre></div></p>
-</li>
+<li>Set the <code>ROS_PACKAGE_PATH</code>:
+     <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">ROS_PACKAGE_PATH</span><span class="o">=</span>/root/ros_noetic_ws/src:<span class="nv">$ROS_PACKAGE_PATH</span>
+</code></pre></div></li>
 </ol>
 <hr/>
-<h2 id="running-the-ldlidar-node">Running the LDLiDAR Node</h2>
-<ol>
-<li><strong>Connect the LIDAR to a USB Port</strong>:</li>
-<li>
-<p>Ensure the LIDAR is connected to your machine. If the device isn't detected, try using a USB extension cable.</p>
-</li>
-<li>
-<p><strong>Identify the Serial Port</strong>:
-   Check for the device's serial port:
-   <div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/dev/ttyUSB*
-</code></pre></div>
-   Example output: <code>/dev/ttyUSB0</code>.</p>
-</li>
-<li>
-<p><strong>Launch the Node</strong>:
-   Start the LDLiDAR node with the appropriate launch file:
-   <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>ldlidar_ros2<span class="w"> </span>ld19.launch.py
-</code></pre></div>
-   If required, modify the <code>port_name</code> in the <code>ld19.launch.py</code> file to match your detected port (e.g., <code>/dev/ttyUSB0</code>).</p>
-</li>
-<li>
-<p><strong>View LIDAR Data</strong>:</p>
-</li>
-<li>Open Rviz2 to visualize the LIDAR data:
-     <div class="highlight"><pre><span></span><code>rviz2
-</code></pre></div></li>
-<li>Add a "LaserScan" display and set the topic to <code>/scan</code>.</li>
-</ol>
+<h3 id="conclusion">Conclusion</h3>
+<p>This blog compiles essential Docker and ROS techniques, ensuring efficient development with <code>roboclaw_ros</code>. Following these practices guarantees a smoother workflow, better debugging, and robust integration of peripherals like Xbox controllers.</p>
+<p>For robotics enthusiasts, mastering these steps empowers you to focus on innovation without being hindered by setup challenges.</p>
 <hr/>
-<h2 id="troubleshooting-common-errors">Troubleshooting Common Errors</h2>
-<h3 id="1-communication-abnormal-error">1. <strong>"Communication Abnormal" Error</strong></h3>
-<p>If you encounter this error:
-   <div class="highlight"><pre><span></span><code>[ERROR] [ldlidar_publisher_ld19]: ldlidar communication is abnormal.
-</code></pre></div></p>
-<ul>
-<li>
-<p><strong>Check Serial Port</strong>: Ensure the correct serial port (<code>/dev/ttyUSB0</code>) is specified in the launch file.</p>
-</li>
-<li>
-<p><strong>Verify Baud Rate</strong>: Confirm that the baud rate in the launch file matches the LIDAR's configuration (default is <code>230400</code>).</p>
-</li>
-<li>
-<p><strong>Reconnect the Device</strong>: Use a USB extension cable if the device isn't recognized properly.</p>
-</li>
-</ul>
-<h3 id="2-device-not-found">2. <strong>Device Not Found</strong></h3>
-<ul>
-<li>Run:
-     <div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/dev/ttyUSB*
-</code></pre></div></li>
-<li>If no device appears, ensure the LIDAR is securely connected and powered.</li>
-</ul>
-<h3 id="3-no-data-in-rviz2">3. <strong>No Data in Rviz2</strong></h3>
-<ul>
-<li>Verify the <code>/scan</code> topic is being published:
-     <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>topic<span class="w"> </span>list
-ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/scan
-</code></pre></div></li>
-</ul>
-<h3 id="4-failed-init_port-fastrtps_port7000-error">4. <strong>"Failed init_port fastrtps_port7000" Error</strong></h3>
-<p>This is a common shared memory transport error in ROS 2.
-   - <strong>Solution</strong>: Add the following to your <code>.bashrc</code> to disable shared memory transport:
-     <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">RMW_IMPLEMENTATION</span><span class="o">=</span>rmw_cyclonedds_cpp
-</code></pre></div></p>
-<hr/>
-<h2 id="example-launch-output">Example Launch Output</h2>
-<p>Once everything is set up correctly, you should see the following output:
-<div class="highlight"><pre><span></span><code>[INFO] [ldlidar_publisher_ld19]: LDLiDAR SDK Pack Version is:3.3.1
-[INFO] [ldlidar_publisher_ld19]: ROS2 param input:
-[INFO] [ldlidar_publisher_ld19]: ldlidar serial connect is success
-[INFO] [ldlidar_publisher_ld19]: ldlidar communication is normal.
-[INFO] [ldlidar_publisher_ld19]: ldlidar driver start is success.
-[INFO] [ldlidar_publisher_ld19]: start normal, pub lidar data
-</code></pre></div></p>
-<hr/>
-<h2 id="conclusion">Conclusion</h2>
-<p>With this guide, you can successfully set up and run the D500 LiDAR Kit's STL-19P  on ROS 2 Jazzy. If you encounter the <strong>"communication abnormal"</strong> or other errors, refer to the troubleshooting section to resolve them quickly. This setup enables seamless LIDAR integration for your autonomous robotics projects.</p>
-<p>For more information, visit the <a href="https://github.com/ldrobotSensorTeam/ldlidar_ros2">ldrobotSensorTeam GitHub repository</a>.</p>
-<hr/>
+<p><strong>Happy Robotics!</strong> 🚀</p>
 <form class="md-feedback" hidden="" name="feedback">
 <fieldset>
 <legend class="md-feedback__title">
@@ -522,7 +635,7 @@ ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</
 </div>
 </fieldset>
 </form>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-23, Updated 2025-01-24<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (5)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-26, Updated 2025-01-26<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -533,10 +646,10 @@ ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/2025/01/26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/2025/01/26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
