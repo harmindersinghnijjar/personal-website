@@ -897,16 +897,18 @@
 <p><strong>Why Save Containers?</strong>
 - Prevents loss of your setup if the container is stopped or deleted.
 - Allows easy re-creation of environments.</p>
-<p><strong>Steps:</strong>
-1. Stop the container:
+<p><strong>Steps:</strong></p>
+<ol>
+<li>Stop the container:
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>stop<span class="w"> </span>&lt;container_name&gt;
-</code></pre></div>
-2. Commit the container as an image:
+</code></pre></div></li>
+<li>Commit the container as an image:
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>commit<span class="w"> </span>&lt;container_id&gt;<span class="w"> </span>&lt;new_image_name&gt;
-</code></pre></div>
-3. Verify the image:
+</code></pre></div></li>
+<li>Verify the image:
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>images
-</code></pre></div></p>
+</code></pre></div></li>
+</ol>
 <p><strong>Example:</strong>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>commit<span class="w"> </span>96a9ad78d1e6<span class="w"> </span>ros_noetic_with_rviz
 </code></pre></div></p>
@@ -914,13 +916,15 @@
 <h3 id="2-opening-a-new-terminal-in-a-running-container"><a class="toclink" href="../../2025/01/26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows/#2-opening-a-new-terminal-in-a-running-container">2. Opening a New Terminal in a Running Container</a></h3>
 <p><strong>Why Do This?</strong>
 - Manage multiple ROS nodes or debug processes.</p>
-<p><strong>Steps:</strong>
-1. List running containers:
+<p><strong>Steps:</strong></p>
+<ol>
+<li>List running containers:
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>ps
-</code></pre></div>
-2. Attach a terminal to the container:
+</code></pre></div></li>
+<li>Attach a terminal to the container:
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;container_name&gt;<span class="w"> </span>/bin/bash
-</code></pre></div></p>
+</code></pre></div></li>
+</ol>
 <p><strong>Example:</strong>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>ros_rviz_container<span class="w"> </span>/bin/bash
 </code></pre></div></p>
@@ -943,17 +947,19 @@
 </code></pre></div></p>
 <hr />
 <h3 id="4-setting-up-a-ros-workspace-in-docker"><a class="toclink" href="../../2025/01/26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows/#4-setting-up-a-ros-workspace-in-docker">4. Setting Up a ROS Workspace in Docker</a></h3>
-<p><strong>Steps:</strong>
-1. Mount the workspace:
+<p><strong>Steps:</strong></p>
+<ol>
+<li>Mount the workspace:
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>&lt;container_name&gt;<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-v<span class="w"> </span>~/ros_noetic_ws:/root/ros_noetic_ws<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>&lt;base_image&gt;
-</code></pre></div>
-2. Inside the container:
+</code></pre></div></li>
+<li>Inside the container:
    <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros_noetic_ws
 catkin_make
 <span class="nb">source</span><span class="w"> </span>devel/setup.bash
-</code></pre></div></p>
+</code></pre></div></li>
+</ol>
 <hr />
 <h3 id="5-running-ros-nodes-and-debugging"><a class="toclink" href="../../2025/01/26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows/#5-running-ros-nodes-and-debugging">5. Running ROS Nodes and Debugging</a></h3>
 <h4 id="starting-roscore"><a class="toclink" href="../../2025/01/26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows/#starting-roscore">Starting roscore:</a></h4>

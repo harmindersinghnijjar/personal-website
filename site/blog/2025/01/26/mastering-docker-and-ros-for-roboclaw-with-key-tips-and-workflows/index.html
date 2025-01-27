@@ -34,7 +34,7 @@
 <meta content="Mastering Docker and ROS for Roboclaw With Key Tips and Workflows - Harminder Singh Nijjar" name="twitter:title"/>
 <meta content="A comprehensive guide to efficiently managing Docker containers and ROS nodes for Roboclaw integration, including tips for saving containers, opening new terminals, and debugging common issues." name="twitter:description"/>
 <meta content="https://harminder.dev/assets/images/social/blog/posts/20250126175516.png" name="twitter:image"/>
-<meta content="Mastering Docker and ROS for Roboclaw With Key Tips and Workflows" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows" property="og:url"/><meta content="Mastering Docker and ROS for Roboclaw With Key Tips and Workflows" property="og:title"/><meta content="A comprehensive guide to efficiently managing Docker containers and ROS nodes for Roboclaw integration, including tips for saving containers, opening new terminals, and debugging common issues." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows" property="twitter:url"/><meta content="Mastering Docker and ROS for Roboclaw With Key Tips and Workflows" property="twitter:title"/><meta content="A comprehensive guide to efficiently managing Docker containers and ROS nodes for Roboclaw integration, including tips for saving containers, opening new terminals, and debugging common issues." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Mastering Docker and ROS for Roboclaw With Key Tips and Workflows", "image": [], "datePublished": "2025-01-26 18:10:26 -0800", "dateModified": "2025-01-26 21:05:07 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "A comprehensive guide to efficiently managing Docker containers and ROS nodes for Roboclaw integration, including tips for saving containers, opening new terminals, and debugging common issues."}</script></head>
+<meta content="Mastering Docker and ROS for Roboclaw With Key Tips and Workflows" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows" property="og:url"/><meta content="Mastering Docker and ROS for Roboclaw With Key Tips and Workflows" property="og:title"/><meta content="A comprehensive guide to efficiently managing Docker containers and ROS nodes for Roboclaw integration, including tips for saving containers, opening new terminals, and debugging common issues." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows" property="twitter:url"/><meta content="Mastering Docker and ROS for Roboclaw With Key Tips and Workflows" property="twitter:title"/><meta content="A comprehensive guide to efficiently managing Docker containers and ROS nodes for Roboclaw integration, including tips for saving containers, opening new terminals, and debugging common issues." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Mastering Docker and ROS for Roboclaw With Key Tips and Workflows", "image": [], "datePublished": "2025-01-26 18:10:26 -0800", "dateModified": "2025-01-26 21:07:32 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "A comprehensive guide to efficiently managing Docker containers and ROS nodes for Roboclaw integration, including tips for saving containers, opening new terminals, and debugging common issues."}</script></head>
 <body data-md-color-accent="custom" data-md-color-primary="custom" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -408,16 +408,18 @@
 <p><strong>Why Save Containers?</strong>
 - Prevents loss of your setup if the container is stopped or deleted.
 - Allows easy re-creation of environments.</p>
-<p><strong>Steps:</strong>
-1. Stop the container:
+<p><strong>Steps:</strong></p>
+<ol>
+<li>Stop the container:
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>stop<span class="w"> </span>&lt;container_name&gt;
-</code></pre></div>
-2. Commit the container as an image:
+</code></pre></div></li>
+<li>Commit the container as an image:
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>commit<span class="w"> </span>&lt;container_id&gt;<span class="w"> </span>&lt;new_image_name&gt;
-</code></pre></div>
-3. Verify the image:
+</code></pre></div></li>
+<li>Verify the image:
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>images
-</code></pre></div></p>
+</code></pre></div></li>
+</ol>
 <p><strong>Example:</strong>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>commit<span class="w"> </span>96a9ad78d1e6<span class="w"> </span>ros_noetic_with_rviz
 </code></pre></div></p>
@@ -425,13 +427,15 @@
 <h2 id="2-opening-a-new-terminal-in-a-running-container">2. Opening a New Terminal in a Running Container</h2>
 <p><strong>Why Do This?</strong>
 - Manage multiple ROS nodes or debug processes.</p>
-<p><strong>Steps:</strong>
-1. List running containers:
+<p><strong>Steps:</strong></p>
+<ol>
+<li>List running containers:
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>ps
-</code></pre></div>
-2. Attach a terminal to the container:
+</code></pre></div></li>
+<li>Attach a terminal to the container:
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;container_name&gt;<span class="w"> </span>/bin/bash
-</code></pre></div></p>
+</code></pre></div></li>
+</ol>
 <p><strong>Example:</strong>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>ros_rviz_container<span class="w"> </span>/bin/bash
 </code></pre></div></p>
@@ -454,17 +458,19 @@
 </code></pre></div></p>
 <hr/>
 <h2 id="4-setting-up-a-ros-workspace-in-docker">4. Setting Up a ROS Workspace in Docker</h2>
-<p><strong>Steps:</strong>
-1. Mount the workspace:
+<p><strong>Steps:</strong></p>
+<ol>
+<li>Mount the workspace:
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>&lt;container_name&gt;<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-v<span class="w"> </span>~/ros_noetic_ws:/root/ros_noetic_ws<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>&lt;base_image&gt;
-</code></pre></div>
-2. Inside the container:
+</code></pre></div></li>
+<li>Inside the container:
    <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros_noetic_ws
 catkin_make
 <span class="nb">source</span><span class="w"> </span>devel/setup.bash
-</code></pre></div></p>
+</code></pre></div></li>
+</ol>
 <hr/>
 <h2 id="5-running-ros-nodes-and-debugging">5. Running ROS Nodes and Debugging</h2>
 <h3 id="starting-roscore">Starting roscore:</h3>
@@ -542,7 +548,7 @@ catkin_make
 </div>
 </fieldset>
 </form>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-26, Updated 2025-01-26<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (2)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-26, Updated 2025-01-26<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (3)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
