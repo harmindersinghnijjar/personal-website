@@ -5,14 +5,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="A step-by-step guide to migrating the `roboclaw_ros` node from ROS 1 to ROS 2, ensuring smooth integration and operation in Frata's robotic systems." name="description"/>
+<meta content="A step-by-step guide to setting up the `roboclaw_ros` node in ROS Noetic using Docker, ensuring smooth integration and operation for robotic systems." name="description"/>
 <meta content="harmindersinghnijjar" name="author"/>
-<link href="https://harminder.dev/blog/2025/01/23/transitioning-the-roboclaw_ros-node-from-ros-1-to-ros-2-for-frata/" rel="canonical">
+<link href="https://harminder.dev/blog/2025/01/23/setting-up-the-roboclaw_ros-node-with-ros-noetic-in-docker/" rel="canonical">
 <link href="../../22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/" rel="prev"/>
 <link href="../setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/" rel="next"/>
 <link href="../../../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.5.45" name="generator"/>
-<title>Transitioning the `roboclaw_ros` Node from ROS 1 to ROS 2 for Frata - Harminder Singh Nijjar</title>
+<title>Setting Up the `roboclaw_ros` Node with ROS Noetic in Docker - Harminder Singh Nijjar</title>
 <link href="../../../../../assets/stylesheets/main.0253249f.min.css" rel="stylesheet"/>
 <link href="../../../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
@@ -24,18 +24,18 @@
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-X0B1C5DM9K"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-X0B1C5DM9K",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-X0B1C5DM9K",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
 <meta content="website" property="og:type"/>
-<meta content="Transitioning the `roboclaw_ros` Node from ROS 1 to ROS 2 for Frata - Harminder Singh Nijjar" property="og:title"/>
-<meta content="A step-by-step guide to migrating the `roboclaw_ros` node from ROS 1 to ROS 2, ensuring smooth integration and operation in Frata's robotic systems." property="og:description"/>
+<meta content="Setting Up the `roboclaw_ros` Node with ROS Noetic in Docker - Harminder Singh Nijjar" property="og:title"/>
+<meta content="A step-by-step guide to setting up the `roboclaw_ros` node in ROS Noetic using Docker, ensuring smooth integration and operation for robotic systems." property="og:description"/>
 <meta content="https://harminder.dev/assets/images/social/blog/posts/20250123120833.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="https://harminder.dev/blog/2025/01/23/transitioning-the-roboclaw_ros-node-from-ros-1-to-ros-2-for-frata/" property="og:url"/>
+<meta content="https://harminder.dev/blog/2025/01/23/setting-up-the-roboclaw_ros-node-with-ros-noetic-in-docker/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Transitioning the `roboclaw_ros` Node from ROS 1 to ROS 2 for Frata - Harminder Singh Nijjar" name="twitter:title"/>
-<meta content="A step-by-step guide to migrating the `roboclaw_ros` node from ROS 1 to ROS 2, ensuring smooth integration and operation in Frata's robotic systems." name="twitter:description"/>
+<meta content="Setting Up the `roboclaw_ros` Node with ROS Noetic in Docker - Harminder Singh Nijjar" name="twitter:title"/>
+<meta content="A step-by-step guide to setting up the `roboclaw_ros` node in ROS Noetic using Docker, ensuring smooth integration and operation for robotic systems." name="twitter:description"/>
 <meta content="https://harminder.dev/assets/images/social/blog/posts/20250123120833.png" name="twitter:image"/>
-<meta content="Transitioning the `roboclaw_ros` Node from ROS 1 to ROS 2 for Frata" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/23/transitioning-the-roboclaw_ros-node-from-ros-1-to-ros-2-for-frata" property="og:url"/><meta content="Transitioning the `roboclaw_ros` Node from ROS 1 to ROS 2 for Frata" property="og:title"/><meta content="A step-by-step guide to migrating the `roboclaw_ros` node from ROS 1 to ROS 2, ensuring smooth integration and operation in Frata's robotic systems." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/23/transitioning-the-roboclaw_ros-node-from-ros-1-to-ros-2-for-frata" property="twitter:url"/><meta content="Transitioning the `roboclaw_ros` Node from ROS 1 to ROS 2 for Frata" property="twitter:title"/><meta content="A step-by-step guide to migrating the `roboclaw_ros` node from ROS 1 to ROS 2, ensuring smooth integration and operation in Frata's robotic systems." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Transitioning the `roboclaw_ros` Node from ROS 1 to ROS 2 for Frata", "image": [], "datePublished": "2025-01-23 12:09:55 -0800", "dateModified": "2025-01-23 12:15:45 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "A step-by-step guide to migrating the `roboclaw_ros` node from ROS 1 to ROS 2, ensuring smooth integration and operation in Frata's robotic systems."}</script></head>
+<meta content="Setting Up the `roboclaw_ros` Node with ROS Noetic in Docker" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/23/setting-up-the-roboclaw_ros-node-with-ros-noetic-in-docker" property="og:url"/><meta content="Setting Up the `roboclaw_ros` Node with ROS Noetic in Docker" property="og:title"/><meta content="A step-by-step guide to setting up the `roboclaw_ros` node in ROS Noetic using Docker, ensuring smooth integration and operation for robotic systems." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/23/setting-up-the-roboclaw_ros-node-with-ros-noetic-in-docker" property="twitter:url"/><meta content="Setting Up the `roboclaw_ros` Node with ROS Noetic in Docker" property="twitter:title"/><meta content="A step-by-step guide to setting up the `roboclaw_ros` node in ROS Noetic using Docker, ensuring smooth integration and operation for robotic systems." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Setting Up the `roboclaw_ros` Node with ROS Noetic in Docker", "image": [], "datePublished": "2025-01-23 12:09:55 -0800", "dateModified": "2025-01-26 12:09:19 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "A step-by-step guide to setting up the `roboclaw_ros` node in ROS Noetic using Docker, ensuring smooth integration and operation for robotic systems."}</script></head>
 <body data-md-color-accent="custom" data-md-color-primary="custom" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -65,7 +65,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Transitioning the `roboclaw_ros` Node from ROS 1 to ROS 2 for Frata
+              Setting Up the `roboclaw_ros` Node with ROS Noetic in Docker
             
           </span>
 </div>
@@ -231,45 +231,77 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#migration-steps">
+<a class="md-nav__link" href="#setup-steps">
 <span class="md-ellipsis">
-      Migration Steps
+      Setup Steps
     </span>
 </a>
-<nav aria-label="Migration Steps" class="md-nav">
+<nav aria-label="Setup Steps" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#1-clone-the-updated-repository">
+<a class="md-nav__link" href="#1-pull-the-base-docker-image">
 <span class="md-ellipsis">
-      1. Clone the Updated Repository
+      1. Pull the Base Docker Image
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#2-update-parameters-for-fratas-system">
+<a class="md-nav__link" href="#2-run-a-container-and-install-ros-noetic-components">
 <span class="md-ellipsis">
-      2. Update Parameters for Frata’s System
+      2. Run a Container and Install ROS Noetic Components
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#3-update-the-launch-file">
+<a class="md-nav__link" href="#3-create-and-mount-a-workspace">
 <span class="md-ellipsis">
-      3. Update the Launch File
+      3. Create and Mount a Workspace
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#4-build-the-workspace">
+<a class="md-nav__link" href="#4-clone-the-roboclaw_ros-repository">
 <span class="md-ellipsis">
-      4. Build the Workspace
+      4. Clone the roboclaw_ros Repository
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#5-running-the-node">
+<a class="md-nav__link" href="#5-build-the-workspace">
 <span class="md-ellipsis">
-      5. Running the Node
+      5. Build the Workspace
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#6-save-the-docker-image">
+<span class="md-ellipsis">
+      6. Save the Docker Image
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#running-the-roboclaw_ros-node">
+<span class="md-ellipsis">
+      Running the roboclaw_ros Node
+    </span>
+</a>
+<nav aria-label="Running the roboclaw_ros Node" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-start-the-container">
+<span class="md-ellipsis">
+      1. Start the Container
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-launch-the-node">
+<span class="md-ellipsis">
+      2. Launch the Node
     </span>
 </a>
 </li>
@@ -284,16 +316,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#transitioning-to-ros-2-navigation-stack">
+<a class="md-nav__link" href="#viewing-docker-folder-structure">
 <span class="md-ellipsis">
-      Transitioning to ROS 2 Navigation Stack
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#benefits-of-migration-to-ros-2">
-<span class="md-ellipsis">
-      Benefits of Migration to ROS 2
+      Viewing Docker Folder Structure
     </span>
 </a>
 </li>
@@ -369,140 +394,107 @@
 <article class="md-content__inner md-typeset">
 <nav class="md-tags">
 <span class="md-tag">ROS</span>
+<span class="md-tag">Docker</span>
 <span class="md-tag">Roboclaw</span>
-<span class="md-tag">ROS 2</span>
+<span class="md-tag">ROS Noetic</span>
 </nav>
-<h1>Transitioning the `roboclaw_ros` Node from ROS 1 to ROS 2 for Frata</h1>
+<h1>Setting Up the `roboclaw_ros` Node with ROS Noetic in Docker</h1>
 <h2 id="introduction">Introduction</h2>
-<p>At Frata, we've been using the <code>roboclaw_ros</code> node in our ROS 1 system to control our skid-steer robotic platforms. With the shift to ROS 2, we're migrating this critical node to leverage ROS 2's enhanced features like DDS-based communication and better real-time performance. This guide outlines the migration process for the <code>roboclaw_ros</code> node from ROS 1 to ROS 2, including updated parameters and launch files.</p>
+<p>In this guide, we’ll walk through setting up the <code>roboclaw_ros</code> node in ROS Noetic using Docker. This approach ensures a clean, consistent environment for development and deployment while leveraging Docker's flexibility. We'll cover everything from creating the Docker image to running the node with the correct configurations.</p>
 <hr/>
 <h2 id="prerequisites">Prerequisites</h2>
 <p>Before proceeding, ensure you have:</p>
 <ol>
-<li><strong>ROS 2 Installed</strong>: ROS 2 Humble, Galactic, or Rolling distributions are supported.  </li>
-<li><strong>Workspace Prepared</strong>: A ROS 2 workspace (<code>~/frata_ws</code>) initialized and sourced.  </li>
+<li><strong>Docker Installed</strong>: Docker must be installed and operational on your system.  </li>
 <li><strong>Hardware Setup</strong>:</li>
 <li>A Roboclaw motor controller connected to <code>/dev/ttyACM0</code>.  </li>
-<li>
-<p>Encoders configured for your robot’s specific dimensions.  </p>
-</li>
-<li>
-<p><strong>Dependencies Installed</strong>:</p>
-</li>
-<li><code>roboclaw_driver</code> library.  </li>
-<li>ROS 2 Python client library (<code>rclpy</code>).  </li>
-<li>Navigation and visualization tools like <code>rviz2</code>.  </li>
+<li>Encoders configured for your robot’s specific dimensions.  </li>
+<li><strong>Dependencies Installed</strong>:</li>
+<li>The <code>roboclaw_driver</code> library for ROS.  </li>
+<li>Python libraries like <code>pyserial</code> for communication.  </li>
 </ol>
 <hr/>
-<h2 id="migration-steps">Migration Steps</h2>
-<h3 id="1-clone-the-updated-repository">1. Clone the Updated Repository</h3>
-<p>Clone the ROS 2-compatible version of <code>roboclaw_ros</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/frata_ws/src
-git<span class="w"> </span>clone<span class="w"> </span>https://github.com/sonyccd/roboclaw_ros
+<h2 id="setup-steps">Setup Steps</h2>
+<h3 id="1-pull-the-base-docker-image">1. Pull the Base Docker Image</h3>
+<p>Start by pulling the base Docker image for ROS Noetic:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>arm64v8/ros:noetic-ros-base
 </code></pre></div>
 <hr/>
-<h3 id="2-update-parameters-for-fratas-system">2. Update Parameters for Frata’s System</h3>
-<p>Navigate to the <code>config</code> folder and create a <code>roboclaw_config.yaml</code> file with the following updated parameters:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">roboclaw</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">dev</span><span class="p">:</span><span class="w"> </span><span class="s">"/dev/ttyACM0"</span>
-<span class="w">  </span><span class="nt">baud</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">115200</span>
-<span class="w">  </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">128</span><span class="w">  </span><span class="c1"># 0x80</span>
-<span class="w">  </span><span class="nt">max_speed</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.0</span>
-<span class="w">  </span><span class="nt">ticks_per_meter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4540</span>
-<span class="w">  </span><span class="nt">base_width</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.108</span>
+<h3 id="2-run-a-container-and-install-ros-noetic-components">2. Run a Container and Install ROS Noetic Components</h3>
+<p>Launch a container from the base image:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>ros_noetic_container<span class="w"> </span>--rm<span class="w"> </span>arm64v8/ros:noetic-ros-base
+</code></pre></div>
+<p>Inside the container, update and install required packages:</p>
+<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>update
+apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>ros-noetic-rosbridge-server<span class="w"> </span>ros-noetic-tf<span class="w"> </span>python3-serial<span class="w"> </span>python3-pip
+pip3<span class="w"> </span>install<span class="w"> </span>diagnostic-updater
 </code></pre></div>
 <hr/>
-<h3 id="3-update-the-launch-file">3. Update the Launch File</h3>
-<p>Create a ROS 2 launch file in <code>roboclaw_ros/launch/roboclaw_node.launch.py</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">launch</span> <span class="kn">import</span> <span class="n">LaunchDescription</span>
-<span class="kn">from</span> <span class="nn">launch_ros.actions</span> <span class="kn">import</span> <span class="n">Node</span>
-
-<span class="k">def</span> <span class="nf">generate_launch_description</span><span class="p">():</span>
-    <span class="k">return</span> <span class="n">LaunchDescription</span><span class="p">([</span>
-        <span class="n">Node</span><span class="p">(</span>
-            <span class="n">package</span><span class="o">=</span><span class="s1">'roboclaw_ros'</span><span class="p">,</span>
-            <span class="n">executable</span><span class="o">=</span><span class="s1">'roboclaw_node'</span><span class="p">,</span>
-            <span class="n">name</span><span class="o">=</span><span class="s1">'roboclaw_node'</span><span class="p">,</span>
-            <span class="n">output</span><span class="o">=</span><span class="s1">'screen'</span><span class="p">,</span>
-            <span class="n">parameters</span><span class="o">=</span><span class="p">[</span>
-                <span class="p">{</span><span class="s1">'dev'</span><span class="p">:</span> <span class="s1">'/dev/ttyACM0'</span><span class="p">},</span>
-                <span class="p">{</span><span class="s1">'baud'</span><span class="p">:</span> <span class="mi">115200</span><span class="p">},</span>
-                <span class="p">{</span><span class="s1">'address'</span><span class="p">:</span> <span class="mi">128</span><span class="p">},</span>
-                <span class="p">{</span><span class="s1">'max_speed'</span><span class="p">:</span> <span class="mf">2.0</span><span class="p">},</span>
-                <span class="p">{</span><span class="s1">'ticks_per_meter'</span><span class="p">:</span> <span class="mi">4540</span><span class="p">},</span>
-                <span class="p">{</span><span class="s1">'base_width'</span><span class="p">:</span> <span class="mf">0.108</span><span class="p">}</span>
-            <span class="p">]</span>
-        <span class="p">)</span>
-    <span class="p">])</span>
+<h3 id="3-create-and-mount-a-workspace">3. Create and Mount a Workspace</h3>
+<p>To persist your workspace across sessions, create a workspace on your host machine and mount it in the container:</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/ros_noetic_ws/src
+sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>ros_noetic_container<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>~/ros_noetic_ws:/root/ros_noetic_ws<span class="w"> </span>arm64v8/ros:noetic-ros-base
+</code></pre></div>
+<p>Inside the container, initialize the workspace:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/root/ros_noetic_ws
+catkin_make
 </code></pre></div>
 <hr/>
-<h3 id="4-build-the-workspace">4. Build the Workspace</h3>
-<p>After configuring the parameters and launch file, build your workspace:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/frata_ws
-colcon<span class="w"> </span>build
-<span class="nb">source</span><span class="w"> </span>install/setup.bash
+<h3 id="4-clone-the-roboclaw_ros-repository">4. Clone the <code>roboclaw_ros</code> Repository</h3>
+<p>Clone the repository into the workspace:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/root/ros_noetic_ws/src
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/DoanNguyenTrong/roboclaw_ros.git
 </code></pre></div>
 <hr/>
-<h3 id="5-running-the-node">5. Running the Node</h3>
-<p>To start the <code>roboclaw_ros</code> node in ROS 2:</p>
-<ol>
-<li>
-<p>Open a terminal and start ROS 2 core:
-   <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>roboclaw_ros<span class="w"> </span>roboclaw_node.launch.py
-</code></pre></div></p>
-</li>
-<li>
-<p>Check the node's health:
-   <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>topic<span class="w"> </span>list
-</code></pre></div></p>
-</li>
-</ol>
-<p>You should see topics like <code>/cmd_vel</code> and <code>/odom</code> listed.</p>
+<h3 id="5-build-the-workspace">5. Build the Workspace</h3>
+<p>Return to the root of the workspace and build it:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/root/ros_noetic_ws
+catkin_make
+<span class="nb">source</span><span class="w"> </span>devel/setup.bash
+</code></pre></div>
+<hr/>
+<h3 id="6-save-the-docker-image">6. Save the Docker Image</h3>
+<p>To save your container for future use, commit it as a new image:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>commit<span class="w"> </span>ros_noetic_container<span class="w"> </span>ros_noetic_saved
+</code></pre></div>
+<p>Run this saved image with automatic restart enabled:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>ros_noetic_container<span class="w"> </span>--restart<span class="w"> </span>always<span class="w"> </span>ros_noetic_saved
+</code></pre></div>
+<hr/>
+<h2 id="running-the-roboclaw_ros-node">Running the <code>roboclaw_ros</code> Node</h2>
+<p>To run the <code>roboclaw_ros</code> node, use the following steps:</p>
+<h3 id="1-start-the-container">1. Start the Container</h3>
+<p>Start the container with the saved image:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>start<span class="w"> </span>-ai<span class="w"> </span>ros_noetic_container
+</code></pre></div>
+<h3 id="2-launch-the-node">2. Launch the Node</h3>
+<p>Inside the container, run the launch file:</p>
+<div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>roboclaw_node<span class="w"> </span>roboclaw.launch
+</code></pre></div>
 <hr/>
 <h2 id="testing-the-node">Testing the Node</h2>
-<p>To verify that the node works as expected:</p>
+<p>To verify the node's functionality:</p>
 <ol>
-<li>
-<p>Publish velocity commands to <code>/cmd_vel</code>:
-   <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>/cmd_vel<span class="w"> </span>geometry_msgs/msg/Twist<span class="w"> </span><span class="s2">"{linear: {x: 0.5, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.1}}"</span>
-</code></pre></div></p>
-</li>
-<li>
-<p>Observe the robot moving and verify odometry on <code>/odom</code>:
-   <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/odom
-</code></pre></div></p>
-</li>
+<li><strong>Publish Commands to <code>/cmd_vel</code>:</strong></li>
 </ol>
+<div class="highlight"><pre><span></span><code>rostopic<span class="w"> </span>pub<span class="w"> </span>/cmd_vel<span class="w"> </span>geometry_msgs/Twist<span class="w"> </span><span class="s1">'{linear: {x: 0.5}, angular: {z: 0.1}}'</span>
+</code></pre></div>
+<ol>
+<li><strong>Monitor Output:</strong></li>
+</ol>
+<p>Check odometry data on <code>/odom</code>:</p>
+<div class="highlight"><pre><span></span><code>rostopic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/odom
+</code></pre></div>
 <hr/>
-<h2 id="transitioning-to-ros-2-navigation-stack">Transitioning to ROS 2 Navigation Stack</h2>
-<p>If integrating with ROS 2 Navigation:</p>
-<ol>
-<li>
-<p>Launch <code>slam_toolbox</code> for mapping:
-   <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>slam_toolbox<span class="w"> </span>online_async_launch.py
-</code></pre></div></p>
-</li>
-<li>
-<p>Visualize the map in <code>rviz2</code>:
-   <div class="highlight"><pre><span></span><code>rviz2
-</code></pre></div></p>
-</li>
-<li>
-<p>Use <code>nav2</code> for autonomous navigation:
-   <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>nav2_bringup<span class="w"> </span>navigation_launch.py
-</code></pre></div></p>
-</li>
-</ol>
-<hr/>
-<h2 id="benefits-of-migration-to-ros-2">Benefits of Migration to ROS 2</h2>
-<ol>
-<li><strong>Enhanced Real-Time Performance</strong>: DDS-based middleware ensures lower latency and higher reliability.</li>
-<li><strong>Scalability</strong>: Easier to integrate additional nodes and sensors.</li>
-<li><strong>Future-Proofing</strong>: Stay updated with the latest developments in the ROS ecosystem.</li>
-</ol>
+<h2 id="viewing-docker-folder-structure">Viewing Docker Folder Structure</h2>
+<p>To view the folder structure inside the container, use:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>ros_noetic_container<span class="w"> </span>bash
+<span class="nb">cd</span><span class="w"> </span>/root/ros_noetic_ws
+tree
+</code></pre></div>
 <hr/>
 <h2 id="conclusion">Conclusion</h2>
-<p>Migrating the <code>roboclaw_ros</code> node to ROS 2 positions Frata’s robotic systems for better performance and scalability. By leveraging ROS 2’s features, we ensure our systems are robust, future-ready, and capable of handling complex navigation and control tasks.</p>
+<p>This guide provides a straightforward approach to setting up and running the <code>roboclaw_ros</code> node in a ROS Noetic Docker environment. Docker ensures consistency and portability, making it an ideal choice for robotics development. By following these steps, you can integrate Roboclaw into your robotic system efficiently.</p>
 <form class="md-feedback" hidden="" name="feedback">
 <fieldset>
 <legend class="md-feedback__title">
@@ -536,7 +528,7 @@ colcon<span class="w"> </span>build
 </div>
 </fieldset>
 </form>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-23, Updated 2025-01-23<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (3)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-23, Updated 2025-01-26<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (4)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -547,10 +539,10 @@ colcon<span class="w"> </span>build
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/2025/01/23/transitioning-the-roboclaw_ros-node-from-ros-1-to-ros-2-for-frata', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/2025/01/23/setting-up-the-roboclaw_ros-node-with-ros-noetic-in-docker', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/2025/01/23/transitioning-the-roboclaw_ros-node-from-ros-1-to-ros-2-for-frata', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/2025/01/23/setting-up-the-roboclaw_ros-node-with-ros-noetic-in-docker', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
