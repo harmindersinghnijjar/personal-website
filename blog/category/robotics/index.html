@@ -891,9 +891,11 @@
 </ul>
 <hr />
 <h3 id="1-saving-docker-containers"><a class="toclink" href="../../2025/01/26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows/#1-saving-docker-containers">1. Saving Docker Containers</a></h3>
-<p><strong>Why Save Containers?</strong>
-- Prevents loss of your setup if the container is stopped or deleted.
-- Allows easy re-creation of environments.</p>
+<p><strong>Why Save Containers?</strong></p>
+<ul>
+<li>Prevents loss of your setup if the container is stopped or deleted.</li>
+<li>Allows easy re-creation of environments.</li>
+</ul>
 <p><strong>Steps:</strong></p>
 <ol>
 <li>Stop the container:
@@ -911,8 +913,10 @@
 </code></pre></div></p>
 <hr />
 <h3 id="2-opening-a-new-terminal-in-a-running-container"><a class="toclink" href="../../2025/01/26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows/#2-opening-a-new-terminal-in-a-running-container">2. Opening a New Terminal in a Running Container</a></h3>
-<p><strong>Why Do This?</strong>
-- Manage multiple ROS nodes or debug processes.</p>
+<p><strong>Why Do This?</strong></p>
+<ul>
+<li>Manage multiple ROS nodes or debug processes.</li>
+</ul>
 <p><strong>Steps:</strong></p>
 <ol>
 <li>List running containers:
@@ -927,11 +931,13 @@
 </code></pre></div></p>
 <hr />
 <h3 id="3-running-containers-with-bluetooth-and-port-access"><a class="toclink" href="../../2025/01/26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows/#3-running-containers-with-bluetooth-and-port-access">3. Running Containers with Bluetooth and Port Access</a></h3>
-<p><strong>Why Use These Flags?</strong>
-- <code>--net=host</code>: Enables seamless network communication.
-- <code>--privileged</code>: Grants full access to host devices.
-- <code>--device</code>: Connects peripherals like an Xbox controller.
-- <code>-v</code>: Mounts necessary directories for GUI and Bluetooth.</p>
+<p><strong>Why Use These Flags?</strong></p>
+<ul>
+<li><code>--net=host</code>: Enables seamless network communication.</li>
+<li><code>--privileged</code>: Grants full access to host devices.</li>
+<li><code>--device</code>: Connects peripherals like an Xbox controller.</li>
+<li><code>-v</code>: Mounts necessary directories for GUI and Bluetooth.</li>
+</ul>
 <p><strong>Command Example:</strong>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>ros_noetic_bluetooth<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--net<span class="o">=</span>host<span class="w"> </span><span class="se">\</span>
@@ -1000,7 +1006,6 @@ catkin_make
 <p>By following these practices, you can efficiently develop robotics applications using Docker and ROS. This workflow allows for robust integration of peripherals, such as Xbox controllers, and ensures smooth communication between ROS nodes. </p>
 <p>Stay innovative and focus on building your robotics vision without being bogged down by setup hurdles!</p>
 <p><strong>Happy Robotics! 🚀</strong></p>
-<hr />
     
   </div>
 </article>
