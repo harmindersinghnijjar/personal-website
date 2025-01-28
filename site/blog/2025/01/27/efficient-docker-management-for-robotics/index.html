@@ -5,14 +5,13 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="A comprehensive guide to efficiently managing Docker containers and ROS nodes for Roboclaw integration, including tips for saving containers, opening new terminals, and debugging common issues." name="description"/>
+<meta content="A concise yet comprehensive guide to managing Docker containers for robotics projects, emphasizing image saving, cleanup, GUI integration, and robust ROS workflows for quick prototyping." name="description"/>
 <meta content="harmindersinghnijjar" name="author"/>
-<link href="https://harminder.dev/blog/2025/01/26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows/" rel="canonical">
-<link href="../../23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/" rel="prev"/>
-<link href="../../27/efficient-docker-management-for-robotics/" rel="next"/>
+<link href="https://harminder.dev/blog/2025/01/27/efficient-docker-management-for-robotics/" rel="canonical">
+<link href="../../26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows/" rel="prev"/>
 <link href="../../../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.5.45" name="generator"/>
-<title>Mastering Docker and ROS for Roboclaw With Key Tips and Workflows - Harminder Singh Nijjar</title>
+<title>Efficient Docker Management for Robotics - Harminder Singh Nijjar</title>
 <link href="../../../../../assets/stylesheets/main.0253249f.min.css" rel="stylesheet"/>
 <link href="../../../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
@@ -24,18 +23,18 @@
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-X0B1C5DM9K"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-X0B1C5DM9K",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-X0B1C5DM9K",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
 <meta content="website" property="og:type"/>
-<meta content="Mastering Docker and ROS for Roboclaw With Key Tips and Workflows - Harminder Singh Nijjar" property="og:title"/>
-<meta content="A comprehensive guide to efficiently managing Docker containers and ROS nodes for Roboclaw integration, including tips for saving containers, opening new terminals, and debugging common issues." property="og:description"/>
-<meta content="https://harminder.dev/assets/images/social/blog/posts/20250126175516.png" property="og:image"/>
+<meta content="Efficient Docker Management for Robotics - Harminder Singh Nijjar" property="og:title"/>
+<meta content="A concise yet comprehensive guide to managing Docker containers for robotics projects, emphasizing image saving, cleanup, GUI integration, and robust ROS workflows for quick prototyping." property="og:description"/>
+<meta content="https://harminder.dev/assets/images/social/blog/posts/20250127175226.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="https://harminder.dev/blog/2025/01/26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows/" property="og:url"/>
+<meta content="https://harminder.dev/blog/2025/01/27/efficient-docker-management-for-robotics/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Mastering Docker and ROS for Roboclaw With Key Tips and Workflows - Harminder Singh Nijjar" name="twitter:title"/>
-<meta content="A comprehensive guide to efficiently managing Docker containers and ROS nodes for Roboclaw integration, including tips for saving containers, opening new terminals, and debugging common issues." name="twitter:description"/>
-<meta content="https://harminder.dev/assets/images/social/blog/posts/20250126175516.png" name="twitter:image"/>
-<meta content="Mastering Docker and ROS for Roboclaw With Key Tips and Workflows" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows" property="og:url"/><meta content="Mastering Docker and ROS for Roboclaw With Key Tips and Workflows" property="og:title"/><meta content="A comprehensive guide to efficiently managing Docker containers and ROS nodes for Roboclaw integration, including tips for saving containers, opening new terminals, and debugging common issues." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows" property="twitter:url"/><meta content="Mastering Docker and ROS for Roboclaw With Key Tips and Workflows" property="twitter:title"/><meta content="A comprehensive guide to efficiently managing Docker containers and ROS nodes for Roboclaw integration, including tips for saving containers, opening new terminals, and debugging common issues." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Mastering Docker and ROS for Roboclaw With Key Tips and Workflows", "image": [], "datePublished": "2025-01-26 18:10:26 -0800", "dateModified": "2025-01-26 21:10:01 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "A comprehensive guide to efficiently managing Docker containers and ROS nodes for Roboclaw integration, including tips for saving containers, opening new terminals, and debugging common issues."}</script></head>
+<meta content="Efficient Docker Management for Robotics - Harminder Singh Nijjar" name="twitter:title"/>
+<meta content="A concise yet comprehensive guide to managing Docker containers for robotics projects, emphasizing image saving, cleanup, GUI integration, and robust ROS workflows for quick prototyping." name="twitter:description"/>
+<meta content="https://harminder.dev/assets/images/social/blog/posts/20250127175226.png" name="twitter:image"/>
+<meta content="Efficient Docker Management for Robotics" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/27/efficient-docker-management-for-robotics" property="og:url"/><meta content="Efficient Docker Management for Robotics" property="og:title"/><meta content="A concise yet comprehensive guide to managing Docker containers for robotics projects, emphasizing image saving, cleanup, GUI integration, and robust ROS workflows for quick prototyping." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/27/efficient-docker-management-for-robotics" property="twitter:url"/><meta content="Efficient Docker Management for Robotics" property="twitter:title"/><meta content="A concise yet comprehensive guide to managing Docker containers for robotics projects, emphasizing image saving, cleanup, GUI integration, and robust ROS workflows for quick prototyping." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Efficient Docker Management for Robotics", "image": [], "datePublished": "2025-01-27 17:54:09 -0800", "dateModified": "2025-01-27 17:54:09 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "A concise yet comprehensive guide to managing Docker containers for robotics projects, emphasizing image saving, cleanup, GUI integration, and robust ROS workflows for quick prototyping."}</script></head>
 <body data-md-color-accent="custom" data-md-color-primary="custom" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -65,7 +64,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Mastering Docker and ROS for Roboclaw With Key Tips and Workflows
+              Efficient Docker Management for Robotics
             
           </span>
 </div>
@@ -231,23 +230,23 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#1-saving-docker-containers">
+<a class="md-nav__link" href="#1-saving-docker-containers-as-images">
 <span class="md-ellipsis">
-      1. Saving Docker Containers
+      1. Saving Docker Containers as Images
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#2-opening-a-new-terminal-in-a-running-container">
+<a class="md-nav__link" href="#2-removing-unused-images-and-containers">
 <span class="md-ellipsis">
-      2. Opening a New Terminal in a Running Container
+      2. Removing Unused Images and Containers
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#3-running-containers-with-bluetooth-and-port-access">
+<a class="md-nav__link" href="#3-running-containers-with-gui-and-peripheral-support">
 <span class="md-ellipsis">
-      3. Running Containers with Bluetooth and Port Access
+      3. Running Containers with GUI and Peripheral Support
     </span>
 </a>
 </li>
@@ -274,9 +273,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#running-a-ros-node">
+<a class="md-nav__link" href="#running-ros-nodes">
 <span class="md-ellipsis">
-      Running a ROS Node:
+      Running ROS Nodes:
     </span>
 </a>
 </li>
@@ -292,23 +291,23 @@
 <nav aria-label="6. Debugging Common Issues" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#problem-master-not-found">
+<a class="md-nav__link" href="#issue-master-not-found">
 <span class="md-ellipsis">
-      Problem: "Master Not Found"
+      Issue: "Master Not Found"
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#problem-device-not-found">
+<a class="md-nav__link" href="#issue-device-not-found">
 <span class="md-ellipsis">
-      Problem: Device Not Found
+      Issue: "Device Not Found"
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#problem-missing-ros_package_path">
+<a class="md-nav__link" href="#issue-ros_package_path-missing">
 <span class="md-ellipsis">
-      Problem: Missing ROS_PACKAGE_PATH
+      Issue: "ROS_PACKAGE_PATH Missing"
     </span>
 </a>
 </li>
@@ -354,7 +353,7 @@
 <li class="md-nav__item">
 <div class="md-nav__link">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"></path></svg>
-<time class="md-ellipsis" datetime="2025-01-26 00:00:00+00:00">January 26, 2025</time>
+<time class="md-ellipsis" datetime="2025-01-27 00:00:00+00:00">January 27, 2025</time>
 </div>
 </li>
 <li class="md-nav__item">
@@ -386,141 +385,179 @@
 </div>
 <article class="md-content__inner md-typeset">
 <nav class="md-tags">
-<span class="md-tag">ROS</span>
 <span class="md-tag">Docker</span>
-<span class="md-tag">Roboclaw</span>
+<span class="md-tag">ROS</span>
+<span class="md-tag">Robotics</span>
+<span class="md-tag">Quick Prototyping</span>
 <span class="md-tag">ROS Noetic</span>
-<span class="md-tag">ROS Jazzy</span>
+<span class="md-tag">Docker Management</span>
 </nav>
-<h1>Mastering Docker and ROS for Roboclaw With Key Tips and Workflows</h1>
+<h1>Efficient Docker Management for Robotics</h1>
 <h2 id="introduction">Introduction</h2>
-<p>Integrating Docker and ROS for robotics projects, especially with RoboClaw motor controllers, can seem daunting. This post streamlines critical steps, from saving Docker images to running ROS nodes with Xbox controller support, ensuring a smooth and efficient workflow.</p>
+<p>Docker is an essential tool for robotics development, offering quick prototyping, environment isolation, and streamlined deployment. However, managing containers effectively—especially with ROS (Robot Operating System)—can be complex. This guide highlights best practices for saving Docker images, removing unused resources, enabling GUI and Bluetooth in containers, and ensuring seamless ROS integration for robotics projects.</p>
 <hr/>
 <h2 id="key-topics-covered">Key Topics Covered</h2>
 <ul>
-<li>Saving Docker containers for future use</li>
-<li>Opening new terminals in containers</li>
-<li>Running containers with Bluetooth and port access</li>
-<li>Setting up and using a ROS workspace in Docker</li>
-<li>Debugging common integration issues</li>
+<li>Saving and tagging Docker images for reproducibility  </li>
+<li>Cleaning up unused images and resources  </li>
+<li>Running Docker containers with GUI and peripheral support  </li>
+<li>Setting up ROS workspaces inside containers  </li>
+<li>Debugging common integration issues  </li>
 </ul>
 <hr/>
-<h2 id="1-saving-docker-containers">1. Saving Docker Containers</h2>
-<p><strong>Why Save Containers?</strong></p>
+<h2 id="1-saving-docker-containers-as-images">1. Saving Docker Containers as Images</h2>
+<p><strong>Why Save Docker Containers?</strong></p>
 <ul>
-<li>Prevents loss of your setup if the container is stopped or deleted.</li>
-<li>Allows easy re-creation of environments.</li>
+<li>Preserve your work after container modifications.  </li>
+<li>Quickly replicate development environments for prototyping or deployment.  </li>
 </ul>
-<p><strong>Steps:</strong></p>
+<p><strong>Steps to Save an Image:</strong></p>
 <ol>
-<li>Stop the container:
+<li>
+<p>Stop the container:
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>stop<span class="w"> </span>&lt;container_name&gt;
-</code></pre></div></li>
-<li>Commit the container as an image:
+</code></pre></div></p>
+</li>
+<li>
+<p>Commit the container to an image:
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>commit<span class="w"> </span>&lt;container_id&gt;<span class="w"> </span>&lt;new_image_name&gt;
-</code></pre></div></li>
-<li>Verify the image:
+</code></pre></div></p>
+</li>
+<li>
+<p>Verify the saved image:
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>images
-</code></pre></div></li>
+</code></pre></div></p>
+</li>
 </ol>
 <p><strong>Example:</strong>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>commit<span class="w"> </span>96a9ad78d1e6<span class="w"> </span>ros_noetic_with_rviz
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>commit<span class="w"> </span>96a9ad78d1e6<span class="w"> </span>roboclaw_v02
 </code></pre></div></p>
 <hr/>
-<h2 id="2-opening-a-new-terminal-in-a-running-container">2. Opening a New Terminal in a Running Container</h2>
-<p><strong>Why Do This?</strong></p>
+<h2 id="2-removing-unused-images-and-containers">2. Removing Unused Images and Containers</h2>
+<p><strong>Why Clean Up?</strong></p>
 <ul>
-<li>Manage multiple ROS nodes or debug processes.</li>
+<li>Free up disk space.  </li>
+<li>Reduce clutter from unused or dangling images.  </li>
 </ul>
-<p><strong>Steps:</strong></p>
+<p><strong>Commands:</strong></p>
 <ol>
-<li>List running containers:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>ps
-</code></pre></div></li>
-<li>Attach a terminal to the container:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;container_name&gt;<span class="w"> </span>/bin/bash
-</code></pre></div></li>
-</ol>
-<p><strong>Example:</strong>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>ros_rviz_container<span class="w"> </span>/bin/bash
+<li>
+<p>List dangling images:
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>images<span class="w"> </span>-f<span class="w"> </span><span class="nv">dangling</span><span class="o">=</span><span class="nb">true</span>
 </code></pre></div></p>
+</li>
+<li>
+<p>Remove dangling images:
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>image<span class="w"> </span>prune<span class="w"> </span>-f
+</code></pre></div></p>
+</li>
+<li>
+<p>Remove specific images:
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>rmi<span class="w"> </span>&lt;image_id&gt;
+</code></pre></div></p>
+</li>
+<li>
+<p>Remove stopped containers:
+   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>container<span class="w"> </span>prune
+</code></pre></div></p>
+</li>
+</ol>
 <hr/>
-<h2 id="3-running-containers-with-bluetooth-and-port-access">3. Running Containers with Bluetooth and Port Access</h2>
-<p><strong>Why Use These Flags?</strong></p>
-<ul>
-<li><code>--net=host</code>: Enables seamless network communication.</li>
-<li><code>--privileged</code>: Grants full access to host devices.</li>
-<li><code>--device</code>: Connects peripherals like an Xbox controller.</li>
-<li><code>-v</code>: Mounts necessary directories for GUI and Bluetooth.</li>
-</ul>
+<h2 id="3-running-containers-with-gui-and-peripheral-support">3. Running Containers with GUI and Peripheral Support</h2>
+<p><strong>Why Enable GUI and Peripherals?</strong></p>
+<p>Robotics projects often require visualization tools like RViz and peripheral support for devices such as Xbox controllers or Bluetooth sensors. Docker flags ensure seamless integration.</p>
 <p><strong>Command Example:</strong>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>ros_noetic_bluetooth<span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>roboclaw_v02<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--net<span class="o">=</span>host<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--privileged<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--device<span class="o">=</span>/dev/input/js0:/dev/input/js0<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--device<span class="o">=</span>/dev/input/event0:/dev/input/event0<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-v<span class="w"> </span>/var/run/dbus:/var/run/dbus<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-v<span class="w"> </span>/tmp/.X11-unix:/tmp/.X11-unix<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>ros_noetic_with_rviz
+<span class="w">    </span>-e<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>roboclaw_v02
 </code></pre></div></p>
+<p><strong>Explanation of Flags:</strong></p>
+<ul>
+<li><code>--net=host</code>: Enables network communication between container and host.  </li>
+<li><code>--privileged</code>: Grants access to host devices (e.g., Bluetooth).  </li>
+<li><code>--device</code>: Maps input devices for peripherals like controllers.  </li>
+<li><code>-v</code>: Mounts directories for GUI and device access.  </li>
+</ul>
 <hr/>
 <h2 id="4-setting-up-a-ros-workspace-in-docker">4. Setting Up a ROS Workspace in Docker</h2>
+<p><strong>Why Use a Mounted Workspace?</strong></p>
+<ul>
+<li>Edit code on the host machine while executing it inside the container.  </li>
+<li>Persist changes across container restarts.  </li>
+</ul>
 <p><strong>Steps:</strong></p>
 <ol>
-<li>Mount the workspace:
+<li>
+<p>Run the container with a mounted workspace:
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>&lt;container_name&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-v<span class="w"> </span>~/ros_noetic_ws:/root/ros_noetic_ws<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-v<span class="w"> </span>~/ros_ws:/root/ros_ws<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>&lt;base_image&gt;
-</code></pre></div></li>
-<li>Inside the container:
-   <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros_noetic_ws
+</code></pre></div></p>
+</li>
+<li>
+<p>Inside the container, initialize the ROS workspace:
+   <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros_ws
 catkin_make
 <span class="nb">source</span><span class="w"> </span>devel/setup.bash
-</code></pre></div></li>
+</code></pre></div></p>
+</li>
 </ol>
 <hr/>
 <h2 id="5-running-ros-nodes-and-debugging">5. Running ROS Nodes and Debugging</h2>
-<h3 id="starting-roscore">Starting roscore:</h3>
+<h3 id="starting-roscore">Starting <code>roscore</code>:</h3>
 <ol>
-<li>Attach a terminal to the container:
+<li>
+<p>Attach to the container:
    <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;container_name&gt;<span class="w"> </span>/bin/bash
-</code></pre></div></li>
-<li>Run roscore:
+</code></pre></div></p>
+</li>
+<li>
+<p>Start <code>roscore</code>:
    <div class="highlight"><pre><span></span><code>roscore
-</code></pre></div></li>
+</code></pre></div></p>
+</li>
 </ol>
-<h3 id="running-a-ros-node">Running a ROS Node:</h3>
+<h3 id="running-ros-nodes">Running ROS Nodes:</h3>
 <ol>
-<li>Source the workspace:
-   <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/ros_noetic_ws/devel/setup.bash
-</code></pre></div></li>
-<li>Run the node:
+<li>
+<p>Source the workspace:
+   <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/ros_ws/devel/setup.bash
+</code></pre></div></p>
+</li>
+<li>
+<p>Run the node:
    <div class="highlight"><pre><span></span><code>rosrun<span class="w"> </span>roboclaw_node<span class="w"> </span>xbox_teleop_odom.py
-</code></pre></div></li>
+</code></pre></div></p>
+</li>
 </ol>
 <hr/>
 <h2 id="6-debugging-common-issues">6. Debugging Common Issues</h2>
-<h3 id="problem-master-not-found">Problem: "Master Not Found"</h3>
+<h3 id="issue-master-not-found">Issue: "Master Not Found"</h3>
 <ul>
-<li>Ensure roscore is running in the same container.</li>
+<li>Ensure <code>roscore</code> is running in the same container.</li>
 </ul>
-<h3 id="problem-device-not-found">Problem: Device Not Found</h3>
+<h3 id="issue-device-not-found">Issue: "Device Not Found"</h3>
 <ul>
-<li>Check device mapping:
+<li>Verify input device mapping:
    <div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/dev/input/js0
 </code></pre></div></li>
 </ul>
-<h3 id="problem-missing-ros_package_path">Problem: Missing ROS_PACKAGE_PATH</h3>
+<h3 id="issue-ros_package_path-missing">Issue: "ROS_PACKAGE_PATH Missing"</h3>
 <ul>
-<li>Add the workspace to <code>ROS_PACKAGE_PATH</code>:
-   <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">ROS_PACKAGE_PATH</span><span class="o">=</span>/root/ros_noetic_ws/src:<span class="nv">$ROS_PACKAGE_PATH</span>
+<li>Set the workspace path:
+   <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">ROS_PACKAGE_PATH</span><span class="o">=</span>/root/ros_ws/src:<span class="nv">$ROS_PACKAGE_PATH</span>
 </code></pre></div></li>
 </ul>
 <hr/>
 <h2 id="conclusion">Conclusion</h2>
-<p>By following these practices, you can efficiently develop robotics applications using Docker and ROS. This workflow allows for robust integration of peripherals, such as Xbox controllers, and ensures smooth communication between ROS nodes. </p>
-<p>Stay innovative and focus on building your robotics vision without being bogged down by setup hurdles!</p>
-<p><strong>Happy Robotics! 🚀</strong></p>
+<p>By mastering these Docker and ROS workflows, you can create efficient and portable robotics development environments. Whether it’s saving images, enabling peripherals, or debugging nodes, these practices ensure a robust foundation for prototyping and deployment.  </p>
+<p><strong>Stay innovative, and build the future of robotics with confidence! 🚀</strong></p>
 <form class="md-feedback" hidden="" name="feedback">
 <fieldset>
 <legend class="md-feedback__title">
@@ -554,7 +591,7 @@ catkin_make
 </div>
 </fieldset>
 </form>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-26, Updated 2025-01-26<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (4)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-27, Updated 2025-01-27<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -565,10 +602,10 @@ catkin_make
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/2025/01/26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/2025/01/27/efficient-docker-management-for-robotics', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/2025/01/26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/2025/01/27/efficient-docker-management-for-robotics', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>

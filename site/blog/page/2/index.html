@@ -542,6 +542,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#setting-up-venom-for-whatsapp-translation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Up Venom for WhatsApp Translation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#building-an-agentic-web-scraping-pipeline-for-crypto-and-meme-coins" class="md-nav__link">
     <span class="md-ellipsis">
       Building an Agentic Web Scraping Pipeline for Crypto and Meme Coins
@@ -627,6 +636,163 @@
       <header class="md-typeset">
         <h1 id="blog">Blog</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-01-05 00:00:00+00:00">January 5, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../../category/programming/" class="md-meta__link">Programming</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              3 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="setting-up-venom-for-whatsapp-translation"><a class="toclink" href="../../2025/01/05/setting-up-venom-for-whatsapp-translation/">Setting Up Venom for WhatsApp Translation</a></h2>
+<p>Automating WhatsApp messaging can be a powerful tool for customer service, personal projects, or language translation. Using <strong>Venom</strong> and <strong>Google Translate</strong>, this guide will show you how to build a script that translates incoming Spanish messages to English and replies in Spanish.</p>
+<h3 id="why-use-venom"><a class="toclink" href="../../2025/01/05/setting-up-venom-for-whatsapp-translation/#why-use-venom">Why Use Venom?</a></h3>
+<p><a href="https://github.com/orkestral/venom">Venom</a> is a robust Node.js library that allows you to interact with WhatsApp Web. It’s perfect for creating bots, automating tasks, or building translation systems like the one we’ll create here.</p>
+<h3 id="prerequisites"><a class="toclink" href="../../2025/01/05/setting-up-venom-for-whatsapp-translation/#prerequisites">Prerequisites</a></h3>
+<p>Before diving in, ensure you have the following installed:</p>
+<ol>
+<li><strong>Node.js</strong>: Install from <a href="https://nodejs.org/">Node.js Official Website</a>.</li>
+<li><strong>npm or yarn</strong>: Installed alongside Node.js.</li>
+<li><strong>Google Translate Library</strong>: For text translation.</li>
+<li><strong>Venom</strong>: For WhatsApp automation.</li>
+</ol>
+<h4 id="install-required-packages"><a class="toclink" href="../../2025/01/05/setting-up-venom-for-whatsapp-translation/#install-required-packages">Install Required Packages</a></h4>
+<p>Run the following commands to install the required libraries:</p>
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>venom-bot<span class="w"> </span>translate-google<span class="w"> </span>crypto
+</code></pre></div>
+<h3 id="implementation"><a class="toclink" href="../../2025/01/05/setting-up-venom-for-whatsapp-translation/#implementation">Implementation</a></h3>
+<p>Here’s how to set up and use Venom to translate WhatsApp messages:</p>
+<h4 id="1-initialize-the-project"><a class="toclink" href="../../2025/01/05/setting-up-venom-for-whatsapp-translation/#1-initialize-the-project">1. Initialize the Project</a></h4>
+<p>Create a new file named <code>whatsapp_translator.js</code> and start with the following boilerplate:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">venom</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;venom-bot&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">translate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;translate-google&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">crypto</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;crypto&#39;</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="2-set-up-your-whatsapp-contacts"><a class="toclink" href="../../2025/01/05/setting-up-venom-for-whatsapp-translation/#2-set-up-your-whatsapp-contacts">2. Set Up Your WhatsApp Contacts</a></h4>
+<p>Define your own WhatsApp ID (for self-messages) and the target contact:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">MY_CONTACT_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;12345678900@c.us&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Your number</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">TARGET_CONTACT_ID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;01234567890@c.us&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Target contact&#39;s number</span>
+</code></pre></div>
+<h4 id="3-implement-the-translation-logic"><a class="toclink" href="../../2025/01/05/setting-up-venom-for-whatsapp-translation/#3-implement-the-translation-logic">3. Implement the Translation Logic</a></h4>
+<p>Here’s the full script for translating messages and avoiding duplicates using a hash set:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Hash sets to prevent duplicate message processing</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">processedMessageHashes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Set</span><span class="p">();</span>
+
+<span class="nx">venom</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">create</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">session</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;my-whatsapp-session&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">multidevice</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="w">  </span><span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">client</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">start</span><span class="p">(</span><span class="nx">client</span><span class="p">))</span>
+<span class="w">  </span><span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Error starting Venom:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">));</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">start</span><span class="p">(</span><span class="nx">client</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Listening for messages between yourself (</span><span class="si">${</span><span class="nx">MY_CONTACT_ID</span><span class="si">}</span><span class="sb">) and </span><span class="si">${</span><span class="nx">TARGET_CONTACT_ID</span><span class="si">}</span><span class="sb">.`</span><span class="p">);</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">delay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">ms</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="nx">ms</span><span class="p">));</span>
+
+<span class="w">  </span><span class="c1">// Function to generate a hash for deduplication</span>
+<span class="w">  </span><span class="kd">function</span><span class="w"> </span><span class="nx">generateHash</span><span class="p">(</span><span class="nx">messageBody</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">crypto</span><span class="p">.</span><span class="nx">createHash</span><span class="p">(</span><span class="s1">&#39;sha256&#39;</span><span class="p">).</span><span class="nx">update</span><span class="p">(</span><span class="nx">messageBody</span><span class="p">).</span><span class="nx">digest</span><span class="p">(</span><span class="s1">&#39;hex&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Periodically check for new messages in the self-chat</span>
+<span class="w">  </span><span class="nx">setInterval</span><span class="p">(</span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">messages</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">getAllMessagesInChat</span><span class="p">(</span><span class="nx">MY_CONTACT_ID</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="kc">true</span><span class="p">);</span>
+<span class="w">      </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">message</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">messages</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">processMessage</span><span class="p">(</span><span class="nx">client</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">,</span><span class="w"> </span><span class="nx">generateHash</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Error retrieving self-chat messages:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="mf">2000</span><span class="p">);</span><span class="w"> </span><span class="c1">// Check every 2 seconds</span>
+
+<span class="w">  </span><span class="c1">// Handle incoming messages</span>
+<span class="w">  </span><span class="nx">client</span><span class="p">.</span><span class="nx">onMessage</span><span class="p">((</span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">processMessage</span><span class="p">(</span><span class="nx">client</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">,</span><span class="w"> </span><span class="nx">generateHash</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">processMessage</span><span class="p">(</span><span class="nx">client</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">,</span><span class="w"> </span><span class="nx">generateHash</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">messageHash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">generateHash</span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Skip if the message has already been processed</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">processedMessageHashes</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">messageHash</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Mark the message as processed</span>
+<span class="w">  </span><span class="nx">processedMessageHashes</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">messageHash</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="kr">from</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">MY_CONTACT_ID</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">message</span><span class="p">.</span><span class="nx">to</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">MY_CONTACT_ID</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Message is from you (self-chat).&#39;</span><span class="p">);</span>
+
+<span class="w">      </span><span class="c1">// Translate English to Spanish and send to the target contact</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">translatedToSpanish</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">translate</span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;es&#39;</span><span class="w"> </span><span class="p">});</span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Translated (English → Spanish): </span><span class="si">${</span><span class="nx">translatedToSpanish</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+
+<span class="w">      </span><span class="k">await</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">sendText</span><span class="p">(</span><span class="nx">TARGET_CONTACT_ID</span><span class="p">,</span><span class="w"> </span><span class="nx">translatedToSpanish</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Sent translated message to </span><span class="si">${</span><span class="nx">TARGET_CONTACT_ID</span><span class="si">}</span><span class="sb">: </span><span class="si">${</span><span class="nx">translatedToSpanish</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="kr">from</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">TARGET_CONTACT_ID</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="nx">message</span><span class="p">.</span><span class="nx">isGroupMsg</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Message is from the target contact.&#39;</span><span class="p">);</span>
+
+<span class="w">      </span><span class="c1">// Translate Spanish to English and send to the self-chat</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">translatedToEnglish</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">translate</span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">body</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">to</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;en&#39;</span><span class="w"> </span><span class="p">});</span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Translated (Spanish → English): </span><span class="si">${</span><span class="nx">translatedToEnglish</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`*Translation (Spanish → English):*\nOriginal: </span><span class="si">${</span><span class="nx">message</span><span class="p">.</span><span class="nx">body</span><span class="si">}</span><span class="sb">\nTranslated: </span><span class="si">${</span><span class="nx">translatedToEnglish</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+<span class="w">      </span><span class="k">await</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">sendText</span><span class="p">(</span><span class="nx">MY_CONTACT_ID</span><span class="p">,</span><span class="w"> </span><span class="nx">response</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Posted translation to yourself: </span><span class="si">${</span><span class="nx">MY_CONTACT_ID</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Error processing message:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">);</span>
+<span class="w">    </span><span class="c1">// Remove the hash if processing fails</span>
+<span class="w">    </span><span class="nx">processedMessageHashes</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="nx">messageHash</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="4-run-the-script"><a class="toclink" href="../../2025/01/05/setting-up-venom-for-whatsapp-translation/#4-run-the-script">4. Run the Script</a></h4>
+<p>Execute the script using Node.js:</p>
+<div class="highlight"><pre><span></span><code>node<span class="w"> </span>whatsapp_translator.js
+</code></pre></div>
+<h4 id="5-what-happens"><a class="toclink" href="../../2025/01/05/setting-up-venom-for-whatsapp-translation/#5-what-happens">5. What Happens?</a></h4>
+<ol>
+<li>Messages you send to yourself (in English) are translated to Spanish and sent to the target contact.</li>
+<li>Messages from the target contact (in Spanish) are translated to English and sent to your self-chat.</li>
+</ol>
+<h3 id="debugging-tips"><a class="toclink" href="../../2025/01/05/setting-up-venom-for-whatsapp-translation/#debugging-tips">Debugging Tips</a></h3>
+<ol>
+<li><strong>Verify Contact IDs</strong>:
+   Ensure <code>MY_CONTACT_ID</code> and <code>TARGET_CONTACT_ID</code> are correctly defined.</li>
+<li><strong>Check Logs</strong>:
+   Use <code>console.log</code> statements to debug the flow of messages.</li>
+<li><strong>Dependency Issues</strong>:
+   Reinstall packages with <code>npm install</code> if you encounter errors.</li>
+</ol>
+<h3 id="conclusion"><a class="toclink" href="../../2025/01/05/setting-up-venom-for-whatsapp-translation/#conclusion">Conclusion</a></h3>
+<p>This script automates translation for WhatsApp messages, enabling seamless communication across languages. By leveraging Venom and Google Translate, you can extend this setup to support additional languages, integrate with databases, or even build advanced customer service tools. With this foundation, the possibilities are endless!</p>
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
