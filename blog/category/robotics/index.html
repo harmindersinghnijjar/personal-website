@@ -1153,14 +1153,15 @@ catkin_make
 <li><code>-v</code>: Mounts necessary directories for GUI and Bluetooth.</li>
 </ul>
 <p><strong>Command Example:</strong>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>ros_noetic_bluetooth<span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>roboclaw_v02<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--net<span class="o">=</span>host<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--privileged<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--device<span class="o">=</span>/dev/input/js0:/dev/input/js0<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--device<span class="o">=</span>/dev/input/event0:/dev/input/event0<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-v<span class="w"> </span>/var/run/dbus:/var/run/dbus<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-v<span class="w"> </span>/tmp/.X11-unix:/tmp/.X11-unix<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>ros_noetic_with_rviz
+<span class="w">    </span>-e<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>roboclaw_v02
 </code></pre></div></p>
 <hr />
 <h3 id="4-setting-up-a-ros-workspace-in-docker"><a class="toclink" href="../../2025/01/26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows/#4-setting-up-a-ros-workspace-in-docker">4. Setting Up a ROS Workspace in Docker</a></h3>
