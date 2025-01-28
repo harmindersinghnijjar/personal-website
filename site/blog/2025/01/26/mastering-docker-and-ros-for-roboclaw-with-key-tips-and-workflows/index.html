@@ -34,7 +34,7 @@
 <meta content="Mastering Docker and ROS for Roboclaw With Key Tips and Workflows - Harminder Singh Nijjar" name="twitter:title"/>
 <meta content="A comprehensive guide to efficiently managing Docker containers and ROS nodes for Roboclaw integration, including tips for saving containers, opening new terminals, and debugging common issues." name="twitter:description"/>
 <meta content="https://harminder.dev/assets/images/social/blog/posts/20250126175516.png" name="twitter:image"/>
-<meta content="Mastering Docker and ROS for Roboclaw With Key Tips and Workflows" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows" property="og:url"/><meta content="Mastering Docker and ROS for Roboclaw With Key Tips and Workflows" property="og:title"/><meta content="A comprehensive guide to efficiently managing Docker containers and ROS nodes for Roboclaw integration, including tips for saving containers, opening new terminals, and debugging common issues." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows" property="twitter:url"/><meta content="Mastering Docker and ROS for Roboclaw With Key Tips and Workflows" property="twitter:title"/><meta content="A comprehensive guide to efficiently managing Docker containers and ROS nodes for Roboclaw integration, including tips for saving containers, opening new terminals, and debugging common issues." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Mastering Docker and ROS for Roboclaw With Key Tips and Workflows", "image": [], "datePublished": "2025-01-26 18:10:26 -0800", "dateModified": "2025-01-26 21:07:32 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "A comprehensive guide to efficiently managing Docker containers and ROS nodes for Roboclaw integration, including tips for saving containers, opening new terminals, and debugging common issues."}</script></head>
+<meta content="Mastering Docker and ROS for Roboclaw With Key Tips and Workflows" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows" property="og:url"/><meta content="Mastering Docker and ROS for Roboclaw With Key Tips and Workflows" property="og:title"/><meta content="A comprehensive guide to efficiently managing Docker containers and ROS nodes for Roboclaw integration, including tips for saving containers, opening new terminals, and debugging common issues." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows" property="twitter:url"/><meta content="Mastering Docker and ROS for Roboclaw With Key Tips and Workflows" property="twitter:title"/><meta content="A comprehensive guide to efficiently managing Docker containers and ROS nodes for Roboclaw integration, including tips for saving containers, opening new terminals, and debugging common issues." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Mastering Docker and ROS for Roboclaw With Key Tips and Workflows", "image": [], "datePublished": "2025-01-26 18:10:26 -0800", "dateModified": "2025-01-26 21:10:01 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "A comprehensive guide to efficiently managing Docker containers and ROS nodes for Roboclaw integration, including tips for saving containers, opening new terminals, and debugging common issues."}</script></head>
 <body data-md-color-accent="custom" data-md-color-primary="custom" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -405,9 +405,11 @@
 </ul>
 <hr/>
 <h2 id="1-saving-docker-containers">1. Saving Docker Containers</h2>
-<p><strong>Why Save Containers?</strong>
-- Prevents loss of your setup if the container is stopped or deleted.
-- Allows easy re-creation of environments.</p>
+<p><strong>Why Save Containers?</strong></p>
+<ul>
+<li>Prevents loss of your setup if the container is stopped or deleted.</li>
+<li>Allows easy re-creation of environments.</li>
+</ul>
 <p><strong>Steps:</strong></p>
 <ol>
 <li>Stop the container:
@@ -425,8 +427,10 @@
 </code></pre></div></p>
 <hr/>
 <h2 id="2-opening-a-new-terminal-in-a-running-container">2. Opening a New Terminal in a Running Container</h2>
-<p><strong>Why Do This?</strong>
-- Manage multiple ROS nodes or debug processes.</p>
+<p><strong>Why Do This?</strong></p>
+<ul>
+<li>Manage multiple ROS nodes or debug processes.</li>
+</ul>
 <p><strong>Steps:</strong></p>
 <ol>
 <li>List running containers:
@@ -441,11 +445,13 @@
 </code></pre></div></p>
 <hr/>
 <h2 id="3-running-containers-with-bluetooth-and-port-access">3. Running Containers with Bluetooth and Port Access</h2>
-<p><strong>Why Use These Flags?</strong>
-- <code>--net=host</code>: Enables seamless network communication.
-- <code>--privileged</code>: Grants full access to host devices.
-- <code>--device</code>: Connects peripherals like an Xbox controller.
-- <code>-v</code>: Mounts necessary directories for GUI and Bluetooth.</p>
+<p><strong>Why Use These Flags?</strong></p>
+<ul>
+<li><code>--net=host</code>: Enables seamless network communication.</li>
+<li><code>--privileged</code>: Grants full access to host devices.</li>
+<li><code>--device</code>: Connects peripherals like an Xbox controller.</li>
+<li><code>-v</code>: Mounts necessary directories for GUI and Bluetooth.</li>
+</ul>
 <p><strong>Command Example:</strong>
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>ros_noetic_bluetooth<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>--net<span class="o">=</span>host<span class="w"> </span><span class="se">\</span>
@@ -514,7 +520,6 @@ catkin_make
 <p>By following these practices, you can efficiently develop robotics applications using Docker and ROS. This workflow allows for robust integration of peripherals, such as Xbox controllers, and ensures smooth communication between ROS nodes. </p>
 <p>Stay innovative and focus on building your robotics vision without being bogged down by setup hurdles!</p>
 <p><strong>Happy Robotics! 🚀</strong></p>
-<hr/>
 <form class="md-feedback" hidden="" name="feedback">
 <fieldset>
 <legend class="md-feedback__title">
@@ -548,7 +553,7 @@ catkin_make
 </div>
 </fieldset>
 </form>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-26, Updated 2025-01-26<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (3)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-26, Updated 2025-01-26<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (4)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
