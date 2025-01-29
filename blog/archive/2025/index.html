@@ -507,6 +507,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running ROS 1 Noetic and ROS 2 Foxy From Source on Ubuntu 20.04
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#efficient-docker-management-for-robotics" class="md-nav__link">
     <span class="md-ellipsis">
       Efficient Docker Management for Robotics
@@ -582,15 +591,6 @@
   <a href="#aws-lambda-and-blender-revolutionizing-3d-rendering-in-the-cloud" class="md-nav__link">
     <span class="md-ellipsis">
       AWS Lambda and Blender: Revolutionizing 3D Rendering in the Cloud
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#fine-tuning-gpt-4o-mini-a-comprehensive-guide" class="md-nav__link">
-    <span class="md-ellipsis">
-      Fine-Tuning GPT-4o-mini: A Comprehensive Guide
     </span>
   </a>
   
@@ -750,6 +750,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running ROS 1 Noetic and ROS 2 Foxy From Source on Ubuntu 20.04
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#efficient-docker-management-for-robotics" class="md-nav__link">
     <span class="md-ellipsis">
       Efficient Docker Management for Robotics
@@ -830,15 +839,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#fine-tuning-gpt-4o-mini-a-comprehensive-guide" class="md-nav__link">
-    <span class="md-ellipsis">
-      Fine-Tuning GPT-4o-mini: A Comprehensive Guide
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -853,6 +853,157 @@
       <header class="md-typeset">
         <h1 id="2025">2025</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-01-29 00:00:00+00:00">January 29, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../../category/robotics/" class="md-meta__link">Robotics</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              3 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/">Running ROS 1 Noetic and ROS 2 Foxy From Source on Ubuntu 20.04</a></h2>
+<h3 id="introduction"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#introduction">Introduction</a></h3>
+<p>Running both ROS 1 (Noetic) and ROS 2 (Foxy) on the same system can be challenging due to differences in dependencies, environment variables, and communication mechanisms. However, Ubuntu 20.04 remains the best option for managing both distributions, as Noetic is the last ROS 1 release and Foxy is a long-term support (LTS) release of ROS 2.</p>
+<p>This guide will walk you through the process of installing, sourcing, and managing both ROS versions from source while minimizing conflicts.</p>
+<hr />
+<h3 id="key-topics-covered"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#key-topics-covered">Key Topics Covered</a></h3>
+<ul>
+<li>Installing ROS 1 Noetic from source  </li>
+<li>Installing ROS 2 Foxy from source  </li>
+<li>Managing environment variables to switch between Noetic and Foxy  </li>
+<li>Running a ROS 1-ROS 2 bridge for interoperability  </li>
+</ul>
+<hr />
+<h3 id="1-installing-ros-1-noetic-from-source"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#1-installing-ros-1-noetic-from-source">1. Installing ROS 1 Noetic From Source</a></h3>
+<p>Since Ubuntu 20.04 is the preferred OS for ROS Noetic, you can follow these steps to build it from source.</p>
+<h4 id="step-1-install-dependencies"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-1-install-dependencies"><strong>Step 1: Install Dependencies</strong></a></h4>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3-rosdep<span class="w"> </span>python3-rosinstall-generator<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>python3-vcstool<span class="w"> </span>build-essential
+</code></pre></div>
+<p>Initialize <code>rosdep</code>:<br />
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>rosdep<span class="w"> </span>init
+rosdep<span class="w"> </span>update
+</code></pre></div></p>
+<h4 id="step-2-create-a-workspace-and-clone-ros-1"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-2-create-a-workspace-and-clone-ros-1"><strong>Step 2: Create a Workspace and Clone ROS 1</strong></a></h4>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/ros1_noetic/src
+<span class="nb">cd</span><span class="w"> </span>~/ros1_noetic
+rosinstall_generator<span class="w"> </span>desktop<span class="w"> </span>--rosdistro<span class="w"> </span>noetic<span class="w"> </span>--deps<span class="w"> </span>--tar<span class="w"> </span>&gt;<span class="w"> </span>noetic.rosinstall
+vcs<span class="w"> </span>import<span class="w"> </span>--input<span class="w"> </span>noetic.rosinstall<span class="w"> </span>src
+rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>-r<span class="w"> </span>-y
+</code></pre></div>
+<h4 id="step-3-build-ros-1"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-3-build-ros-1"><strong>Step 3: Build ROS 1</strong></a></h4>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros1_noetic
+colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
+</code></pre></div>
+<h4 id="step-4-source-ros-1"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-4-source-ros-1"><strong>Step 4: Source ROS 1</strong></a></h4>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;source ~/ros1_noetic/install/setup.bash&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div>
+<p>Verify installation:<br />
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$ROS_DISTRO</span><span class="w">  </span><span class="c1"># Should output &#39;noetic&#39;</span>
+</code></pre></div></p>
+<hr />
+<h3 id="2-installing-ros-2-foxy-from-source"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#2-installing-ros-2-foxy-from-source">2. Installing ROS 2 Foxy From Source</a></h3>
+<p>Since Noetic and Foxy have different architectures, we will install ROS 2 Foxy in a separate workspace.</p>
+<h4 id="step-1-install-dependencies_1"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-1-install-dependencies_1"><strong>Step 1: Install Dependencies</strong></a></h4>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3-colcon-common-extensions<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>python3-vcstool<span class="w"> </span>git<span class="w"> </span>wget
+</code></pre></div>
+<h4 id="step-2-create-a-workspace-and-clone-ros-2"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-2-create-a-workspace-and-clone-ros-2"><strong>Step 2: Create a Workspace and Clone ROS 2</strong></a></h4>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/ros2_foxy/src
+<span class="nb">cd</span><span class="w"> </span>~/ros2_foxy
+vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos
+rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>-r<span class="w"> </span>-y
+</code></pre></div>
+<h4 id="step-3-build-ros-2"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-3-build-ros-2"><strong>Step 3: Build ROS 2</strong></a></h4>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros2_foxy
+colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
+</code></pre></div>
+<h4 id="step-4-source-ros-2"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-4-source-ros-2"><strong>Step 4: Source ROS 2</strong></a></h4>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;source ~/ros2_foxy/install/setup.bash&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div>
+<p>Verify installation:<br />
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$ROS_DISTRO</span><span class="w">  </span><span class="c1"># Should output &#39;foxy&#39;</span>
+</code></pre></div></p>
+<hr />
+<h3 id="3-managing-ros-1-and-ros-2-environments"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#3-managing-ros-1-and-ros-2-environments">3. Managing ROS 1 and ROS 2 Environments</a></h3>
+<p>By default, sourcing both ROS 1 and ROS 2 together will cause conflicts. To manage this, create separate aliases:</p>
+<h4 id="option-1-use-aliases-to-switch-between-ros-versions"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#option-1-use-aliases-to-switch-between-ros-versions"><strong>Option 1: Use Aliases to Switch Between ROS Versions</strong></a></h4>
+<p>Add these lines to your <code>~/.bashrc</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">source_ros1</span><span class="o">=</span><span class="s2">&quot;source ~/ros1_noetic/install/setup.bash&quot;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">source_ros2</span><span class="o">=</span><span class="s2">&quot;source ~/ros2_foxy/install/setup.bash&quot;</span>
+</code></pre></div>
+<p>Now, you can quickly switch between them:</p>
+<div class="highlight"><pre><span></span><code>source_ros1<span class="w">  </span><span class="c1"># Switch to ROS Noetic</span>
+source_ros2<span class="w">  </span><span class="c1"># Switch to ROS 2 Foxy</span>
+</code></pre></div>
+<h4 id="option-2-use-separate-terminals"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#option-2-use-separate-terminals"><strong>Option 2: Use Separate Terminals</strong></a></h4>
+<p>For seamless operation, open two terminals:</p>
+<ul>
+<li>
+<p><strong>Terminal 1 (ROS 1 Noetic)</strong><br />
+  <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/ros1_noetic/install/setup.bash
+roscore
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Terminal 2 (ROS 2 Foxy)</strong><br />
+  <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/ros2_foxy/install/setup.bash
+ros2<span class="w"> </span>run<span class="w"> </span>demo_nodes_cpp<span class="w"> </span>talker
+</code></pre></div></p>
+</li>
+</ul>
+<hr />
+<h3 id="4-running-the-ros-1-ros-2-bridge"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#4-running-the-ros-1-ros-2-bridge">4. Running the ROS 1-ROS 2 Bridge</a></h3>
+<p>To communicate between ROS 1 and ROS 2, use <code>ros1_bridge</code>.  </p>
+<h4 id="step-1-install-ros1_bridge"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-1-install-ros1_bridge"><strong>Step 1: Install ros1_bridge</strong></a></h4>
+<div class="highlight"><pre><span></span><code>source_ros1
+source_ros2
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>ros-foxy-ros1-bridge
+</code></pre></div>
+<h4 id="step-2-run-the-bridge"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-2-run-the-bridge"><strong>Step 2: Run the Bridge</strong></a></h4>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>ros1_bridge<span class="w"> </span>dynamic_bridge
+</code></pre></div>
+<p>Now, any topic published in ROS 1 will be available in ROS 2, and vice versa.</p>
+<hr />
+<h3 id="5-debugging-common-issues"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#5-debugging-common-issues">5. Debugging Common Issues</a></h3>
+<h4 id="problem-ros-1-and-ros-2-variables-overlapping"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#problem-ros-1-and-ros-2-variables-overlapping"><strong>Problem: ROS 1 and ROS 2 Variables Overlapping</strong></a></h4>
+<p><strong>Solution:</strong> Always source only one ROS version at a time or use separate terminals.</p>
+<h4 id="problem-colcon-build-fails"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#problem-colcon-build-fails"><strong>Problem: colcon Build Fails</strong></a></h4>
+<p><strong>Solution:</strong> Ensure all dependencies are installed using <code>rosdep update &amp;&amp; rosdep install --from-paths src --ignore-src -r -y</code>.</p>
+<h4 id="problem-ros-1-ros-2-bridge-fails-to-start"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#problem-ros-1-ros-2-bridge-fails-to-start"><strong>Problem: ROS 1-ROS 2 Bridge Fails to Start</strong></a></h4>
+<p><strong>Solution:</strong><br />
+- Ensure both <code>source_ros1</code> and <code>source_ros2</code> are sourced.<br />
+- Try restarting the bridge with <code>ros2 run ros1_bridge dynamic_bridge</code>.</p>
+<hr />
+<h3 id="conclusion"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#conclusion">Conclusion</a></h3>
+<p>By following this guide, you can successfully install, source, and run both ROS 1 Noetic and ROS 2 Foxy on Ubuntu 20.04 without conflicts. Using environment management strategies such as aliases and separate terminals ensures smooth switching between versions.  </p>
+<p>The addition of <code>ros1_bridge</code> further enables seamless communication, making hybrid ROS 1/2 projects possible.  </p>
+<p><strong>Happy Coding! 🚀</strong></p>
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
@@ -2255,112 +2406,6 @@ playwright<span class="w"> </span>install
 <p>The inspiration for this approach was drawn from a detailed implementation by <a href="https://blog.theodo.com/2021/08/blender-serverless-lambda/">Theodo</a> in 2021, showcasing how Blender can be effectively adapted for serverless architecture. This concept offers transformative potential in the 3D rendering landscape, demonstrating how cloud technologies can redefine efficiency and scalability in creative workflows.</p>
 <h3 id="conclusion"><a class="toclink" href="../../2025/01/11/aws-lambda-and-blender---revolutionizing-3d-rendering-in-the-cloud/#conclusion">Conclusion</a></h3>
 <p>The fusion of AWS Lambda and Blender represents a paradigm shift in 3D rendering, offering a potent solution for projects requiring rapid, scalable rendering capabilities. By leveraging the computational prowess of AWS Lambda and the versatility of Blender, developers can unlock new possibilities in the 3D rendering domain, revolutionizing creative workflows and enhancing efficiency.</p>
-    
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2025-01-07 00:00:00+00:00">January 7, 2025</time></li>
-        
-          <li class="md-meta__item">
-            in
-            
-              <a href="../../category/machine-learning/" class="md-meta__link">Machine Learning</a></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              2 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="fine-tuning-gpt-4o-mini-a-comprehensive-guide"><a class="toclink" href="../../2025/01/07/fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format/">Fine-Tuning GPT-4o-mini: A Comprehensive Guide</a></h2>
-<p>Fine-tuning GPT-4o-mini allows you to create a customized AI model tailored to specific needs, such as generating content or answering domain-specific questions. This guide will walk you through preparing your data and executing the fine-tuning process.</p>
-<hr />
-<h3 id="step-1-prepare-your-dataset"><a class="toclink" href="../../2025/01/07/fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format/#step-1-prepare-your-dataset">Step 1: Prepare Your Dataset</a></h3>
-<h4 id="dataset-format"><a class="toclink" href="../../2025/01/07/fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format/#dataset-format">Dataset Format</a></h4>
-<p>Fine-tuning requires a <code>.jsonl</code> dataset where each line is a structured chat interaction. For example:</p>
-<div class="highlight"><pre><span></span><code>{&quot;messages&quot;: [{&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;You are a helpful assistant.&quot;}, {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;What is the capital of France?&quot;}, {&quot;role&quot;: &quot;assistant&quot;, &quot;content&quot;: &quot;The capital of France is Paris.&quot;}]}
-{&quot;messages&quot;: [{&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;You are a travel expert.&quot;}, {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;What are the best places to visit in Europe?&quot;}, {&quot;role&quot;: &quot;assistant&quot;, &quot;content&quot;: &quot;Some of the best places to visit in Europe include Paris, Rome, Barcelona, and Amsterdam.&quot;}]}
-</code></pre></div>
-<h4 id="automate-dataset-preparation"><a class="toclink" href="../../2025/01/07/fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format/#automate-dataset-preparation">Automate Dataset Preparation</a></h4>
-<p>Use the <strong>Text to JSONL Converter</strong> available at <a href="https://fine-tune-4o-mini.streamlit.app/">Streamlit</a> to convert <code>.txt</code> files into <code>.jsonl</code> format. Ensure you have at least 10 samples.</p>
-<hr />
-<h3 id="step-2-fine-tune-gpt-4o-mini"><a class="toclink" href="../../2025/01/07/fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format/#step-2-fine-tune-gpt-4o-mini">Step 2: Fine-Tune GPT-4o-mini</a></h3>
-<h4 id="required-code-for-fine-tuning"><a class="toclink" href="../../2025/01/07/fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format/#required-code-for-fine-tuning">Required Code for Fine-Tuning</a></h4>
-<p>Save your <code>stories.jsonl</code> file and run the following Python script to initiate fine-tuning:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
-<span class="kn">import</span> <span class="nn">openai</span>
-<span class="kn">import</span> <span class="nn">os</span>
-
-<span class="c1"># Initialize OpenAI client and set API key</span>
-<span class="n">openai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">)</span>
-<span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">()</span>
-
-<span class="c1"># Step 1: Upload the training file</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-    <span class="n">file</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;stories.jsonl&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">),</span>  <span class="c1"># Replace with the correct path to your JSONL file</span>
-    <span class="n">purpose</span><span class="o">=</span><span class="s2">&quot;fine-tune&quot;</span>
-<span class="p">)</span>
-
-<span class="c1"># Extract the file ID from the response object</span>
-<span class="n">training_file_id</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">id</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File uploaded successfully. File ID: </span><span class="si">{</span><span class="n">training_file_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="c1"># Step 2: Create a fine-tuning job</span>
-<span class="n">fine_tune_response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">fine_tuning</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-    <span class="n">training_file</span><span class="o">=</span><span class="n">training_file_id</span><span class="p">,</span>
-    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini-2024-07-18&quot;</span>  <span class="c1"># Replace with the desired base model</span>
-<span class="p">)</span>
-
-<span class="c1"># Output the fine-tuning job details</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fine-tuning job created successfully:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">fine_tune_response</span><span class="p">)</span>
-</code></pre></div>
-<hr />
-<h4 id="explanation-of-the-code"><a class="toclink" href="../../2025/01/07/fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format/#explanation-of-the-code">Explanation of the Code</a></h4>
-<ol>
-<li><strong>Initialize OpenAI Client</strong>:</li>
-<li>
-<p>The script imports the <code>openai</code> library and initializes the API using your key stored in the <code>OPENAI_API_KEY</code> environment variable.</p>
-</li>
-<li>
-<p><strong>Upload Training File</strong>:</p>
-</li>
-<li>
-<p>The script uploads your <code>stories.jsonl</code> file to OpenAI's servers for processing.</p>
-</li>
-<li>
-<p><strong>Create Fine-Tuning Job</strong>:</p>
-</li>
-<li>
-<p>The uploaded file is referenced to create a fine-tuning job for the <code>gpt-4o-mini-2024-07-18</code> model. Replace this with the desired base model as needed.</p>
-</li>
-<li>
-<p><strong>Monitor Job Details</strong>:</p>
-</li>
-<li>The script outputs the details of the fine-tuning job, including its status and other metadata.</li>
-</ol>
-<hr />
-<h3 id="best-practices-for-fine-tuning"><a class="toclink" href="../../2025/01/07/fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format/#best-practices-for-fine-tuning">Best Practices for Fine-Tuning</a></h3>
-<ol>
-<li><strong>Quality Dataset</strong>: Ensure the dataset is diverse and adheres to the required structure.</li>
-<li><strong>System Role Definition</strong>: Use clear instructions in the <code>system</code> role to guide the model’s behavior.</li>
-<li><strong>Testing and Iteration</strong>: Evaluate the fine-tuned model and refine the dataset if necessary.</li>
-</ol>
-<hr />
-<p>By using this step-by-step guide and the provided Python script, you can fine-tune the GPT-4o-mini model for your unique use case effectively. Happy fine-tuning!</p>
     
   </div>
 </article>

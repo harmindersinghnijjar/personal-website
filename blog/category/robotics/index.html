@@ -679,6 +679,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running ROS 1 Noetic and ROS 2 Foxy From Source on Ubuntu 20.04
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#efficient-docker-management-for-robotics" class="md-nav__link">
     <span class="md-ellipsis">
       Efficient Docker Management for Robotics
@@ -792,6 +801,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running ROS 1 Noetic and ROS 2 Foxy From Source on Ubuntu 20.04
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#efficient-docker-management-for-robotics" class="md-nav__link">
     <span class="md-ellipsis">
       Efficient Docker Management for Robotics
@@ -868,6 +886,157 @@
       <header class="md-typeset">
         <h1 id="robotics">Robotics</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-01-29 00:00:00+00:00">January 29, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="./" class="md-meta__link">Robotics</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              3 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/">Running ROS 1 Noetic and ROS 2 Foxy From Source on Ubuntu 20.04</a></h2>
+<h3 id="introduction"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#introduction">Introduction</a></h3>
+<p>Running both ROS 1 (Noetic) and ROS 2 (Foxy) on the same system can be challenging due to differences in dependencies, environment variables, and communication mechanisms. However, Ubuntu 20.04 remains the best option for managing both distributions, as Noetic is the last ROS 1 release and Foxy is a long-term support (LTS) release of ROS 2.</p>
+<p>This guide will walk you through the process of installing, sourcing, and managing both ROS versions from source while minimizing conflicts.</p>
+<hr />
+<h3 id="key-topics-covered"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#key-topics-covered">Key Topics Covered</a></h3>
+<ul>
+<li>Installing ROS 1 Noetic from source  </li>
+<li>Installing ROS 2 Foxy from source  </li>
+<li>Managing environment variables to switch between Noetic and Foxy  </li>
+<li>Running a ROS 1-ROS 2 bridge for interoperability  </li>
+</ul>
+<hr />
+<h3 id="1-installing-ros-1-noetic-from-source"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#1-installing-ros-1-noetic-from-source">1. Installing ROS 1 Noetic From Source</a></h3>
+<p>Since Ubuntu 20.04 is the preferred OS for ROS Noetic, you can follow these steps to build it from source.</p>
+<h4 id="step-1-install-dependencies"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-1-install-dependencies"><strong>Step 1: Install Dependencies</strong></a></h4>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3-rosdep<span class="w"> </span>python3-rosinstall-generator<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>python3-vcstool<span class="w"> </span>build-essential
+</code></pre></div>
+<p>Initialize <code>rosdep</code>:<br />
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>rosdep<span class="w"> </span>init
+rosdep<span class="w"> </span>update
+</code></pre></div></p>
+<h4 id="step-2-create-a-workspace-and-clone-ros-1"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-2-create-a-workspace-and-clone-ros-1"><strong>Step 2: Create a Workspace and Clone ROS 1</strong></a></h4>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/ros1_noetic/src
+<span class="nb">cd</span><span class="w"> </span>~/ros1_noetic
+rosinstall_generator<span class="w"> </span>desktop<span class="w"> </span>--rosdistro<span class="w"> </span>noetic<span class="w"> </span>--deps<span class="w"> </span>--tar<span class="w"> </span>&gt;<span class="w"> </span>noetic.rosinstall
+vcs<span class="w"> </span>import<span class="w"> </span>--input<span class="w"> </span>noetic.rosinstall<span class="w"> </span>src
+rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>-r<span class="w"> </span>-y
+</code></pre></div>
+<h4 id="step-3-build-ros-1"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-3-build-ros-1"><strong>Step 3: Build ROS 1</strong></a></h4>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros1_noetic
+colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
+</code></pre></div>
+<h4 id="step-4-source-ros-1"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-4-source-ros-1"><strong>Step 4: Source ROS 1</strong></a></h4>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;source ~/ros1_noetic/install/setup.bash&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div>
+<p>Verify installation:<br />
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$ROS_DISTRO</span><span class="w">  </span><span class="c1"># Should output &#39;noetic&#39;</span>
+</code></pre></div></p>
+<hr />
+<h3 id="2-installing-ros-2-foxy-from-source"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#2-installing-ros-2-foxy-from-source">2. Installing ROS 2 Foxy From Source</a></h3>
+<p>Since Noetic and Foxy have different architectures, we will install ROS 2 Foxy in a separate workspace.</p>
+<h4 id="step-1-install-dependencies_1"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-1-install-dependencies_1"><strong>Step 1: Install Dependencies</strong></a></h4>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3-colcon-common-extensions<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>python3-vcstool<span class="w"> </span>git<span class="w"> </span>wget
+</code></pre></div>
+<h4 id="step-2-create-a-workspace-and-clone-ros-2"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-2-create-a-workspace-and-clone-ros-2"><strong>Step 2: Create a Workspace and Clone ROS 2</strong></a></h4>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/ros2_foxy/src
+<span class="nb">cd</span><span class="w"> </span>~/ros2_foxy
+vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos
+rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>-r<span class="w"> </span>-y
+</code></pre></div>
+<h4 id="step-3-build-ros-2"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-3-build-ros-2"><strong>Step 3: Build ROS 2</strong></a></h4>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros2_foxy
+colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
+</code></pre></div>
+<h4 id="step-4-source-ros-2"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-4-source-ros-2"><strong>Step 4: Source ROS 2</strong></a></h4>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;source ~/ros2_foxy/install/setup.bash&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div>
+<p>Verify installation:<br />
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$ROS_DISTRO</span><span class="w">  </span><span class="c1"># Should output &#39;foxy&#39;</span>
+</code></pre></div></p>
+<hr />
+<h3 id="3-managing-ros-1-and-ros-2-environments"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#3-managing-ros-1-and-ros-2-environments">3. Managing ROS 1 and ROS 2 Environments</a></h3>
+<p>By default, sourcing both ROS 1 and ROS 2 together will cause conflicts. To manage this, create separate aliases:</p>
+<h4 id="option-1-use-aliases-to-switch-between-ros-versions"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#option-1-use-aliases-to-switch-between-ros-versions"><strong>Option 1: Use Aliases to Switch Between ROS Versions</strong></a></h4>
+<p>Add these lines to your <code>~/.bashrc</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">source_ros1</span><span class="o">=</span><span class="s2">&quot;source ~/ros1_noetic/install/setup.bash&quot;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">source_ros2</span><span class="o">=</span><span class="s2">&quot;source ~/ros2_foxy/install/setup.bash&quot;</span>
+</code></pre></div>
+<p>Now, you can quickly switch between them:</p>
+<div class="highlight"><pre><span></span><code>source_ros1<span class="w">  </span><span class="c1"># Switch to ROS Noetic</span>
+source_ros2<span class="w">  </span><span class="c1"># Switch to ROS 2 Foxy</span>
+</code></pre></div>
+<h4 id="option-2-use-separate-terminals"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#option-2-use-separate-terminals"><strong>Option 2: Use Separate Terminals</strong></a></h4>
+<p>For seamless operation, open two terminals:</p>
+<ul>
+<li>
+<p><strong>Terminal 1 (ROS 1 Noetic)</strong><br />
+  <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/ros1_noetic/install/setup.bash
+roscore
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Terminal 2 (ROS 2 Foxy)</strong><br />
+  <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/ros2_foxy/install/setup.bash
+ros2<span class="w"> </span>run<span class="w"> </span>demo_nodes_cpp<span class="w"> </span>talker
+</code></pre></div></p>
+</li>
+</ul>
+<hr />
+<h3 id="4-running-the-ros-1-ros-2-bridge"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#4-running-the-ros-1-ros-2-bridge">4. Running the ROS 1-ROS 2 Bridge</a></h3>
+<p>To communicate between ROS 1 and ROS 2, use <code>ros1_bridge</code>.  </p>
+<h4 id="step-1-install-ros1_bridge"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-1-install-ros1_bridge"><strong>Step 1: Install ros1_bridge</strong></a></h4>
+<div class="highlight"><pre><span></span><code>source_ros1
+source_ros2
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>ros-foxy-ros1-bridge
+</code></pre></div>
+<h4 id="step-2-run-the-bridge"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-2-run-the-bridge"><strong>Step 2: Run the Bridge</strong></a></h4>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>ros1_bridge<span class="w"> </span>dynamic_bridge
+</code></pre></div>
+<p>Now, any topic published in ROS 1 will be available in ROS 2, and vice versa.</p>
+<hr />
+<h3 id="5-debugging-common-issues"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#5-debugging-common-issues">5. Debugging Common Issues</a></h3>
+<h4 id="problem-ros-1-and-ros-2-variables-overlapping"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#problem-ros-1-and-ros-2-variables-overlapping"><strong>Problem: ROS 1 and ROS 2 Variables Overlapping</strong></a></h4>
+<p><strong>Solution:</strong> Always source only one ROS version at a time or use separate terminals.</p>
+<h4 id="problem-colcon-build-fails"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#problem-colcon-build-fails"><strong>Problem: colcon Build Fails</strong></a></h4>
+<p><strong>Solution:</strong> Ensure all dependencies are installed using <code>rosdep update &amp;&amp; rosdep install --from-paths src --ignore-src -r -y</code>.</p>
+<h4 id="problem-ros-1-ros-2-bridge-fails-to-start"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#problem-ros-1-ros-2-bridge-fails-to-start"><strong>Problem: ROS 1-ROS 2 Bridge Fails to Start</strong></a></h4>
+<p><strong>Solution:</strong><br />
+- Ensure both <code>source_ros1</code> and <code>source_ros2</code> are sourced.<br />
+- Try restarting the bridge with <code>ros2 run ros1_bridge dynamic_bridge</code>.</p>
+<hr />
+<h3 id="conclusion"><a class="toclink" href="../../2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#conclusion">Conclusion</a></h3>
+<p>By following this guide, you can successfully install, source, and run both ROS 1 Noetic and ROS 2 Foxy on Ubuntu 20.04 without conflicts. Using environment management strategies such as aliases and separate terminals ensures smooth switching between versions.  </p>
+<p>The addition of <code>ros1_bridge</code> further enables seamless communication, making hybrid ROS 1/2 projects possible.  </p>
+<p><strong>Happy Coding! 🚀</strong></p>
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
