@@ -542,6 +542,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#fine-tuning-gpt-4o-mini-a-comprehensive-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fine-Tuning GPT-4o-mini: A Comprehensive Guide
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#setting-up-venom-for-whatsapp-translation" class="md-nav__link">
     <span class="md-ellipsis">
       Setting Up Venom for WhatsApp Translation
@@ -636,6 +645,112 @@
       <header class="md-typeset">
         <h1 id="blog">Blog</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-01-07 00:00:00+00:00">January 7, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../../category/machine-learning/" class="md-meta__link">Machine Learning</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              2 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="fine-tuning-gpt-4o-mini-a-comprehensive-guide"><a class="toclink" href="../../2025/01/07/fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format/">Fine-Tuning GPT-4o-mini: A Comprehensive Guide</a></h2>
+<p>Fine-tuning GPT-4o-mini allows you to create a customized AI model tailored to specific needs, such as generating content or answering domain-specific questions. This guide will walk you through preparing your data and executing the fine-tuning process.</p>
+<hr />
+<h3 id="step-1-prepare-your-dataset"><a class="toclink" href="../../2025/01/07/fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format/#step-1-prepare-your-dataset">Step 1: Prepare Your Dataset</a></h3>
+<h4 id="dataset-format"><a class="toclink" href="../../2025/01/07/fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format/#dataset-format">Dataset Format</a></h4>
+<p>Fine-tuning requires a <code>.jsonl</code> dataset where each line is a structured chat interaction. For example:</p>
+<div class="highlight"><pre><span></span><code>{&quot;messages&quot;: [{&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;You are a helpful assistant.&quot;}, {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;What is the capital of France?&quot;}, {&quot;role&quot;: &quot;assistant&quot;, &quot;content&quot;: &quot;The capital of France is Paris.&quot;}]}
+{&quot;messages&quot;: [{&quot;role&quot;: &quot;system&quot;, &quot;content&quot;: &quot;You are a travel expert.&quot;}, {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;What are the best places to visit in Europe?&quot;}, {&quot;role&quot;: &quot;assistant&quot;, &quot;content&quot;: &quot;Some of the best places to visit in Europe include Paris, Rome, Barcelona, and Amsterdam.&quot;}]}
+</code></pre></div>
+<h4 id="automate-dataset-preparation"><a class="toclink" href="../../2025/01/07/fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format/#automate-dataset-preparation">Automate Dataset Preparation</a></h4>
+<p>Use the <strong>Text to JSONL Converter</strong> available at <a href="https://fine-tune-4o-mini.streamlit.app/">Streamlit</a> to convert <code>.txt</code> files into <code>.jsonl</code> format. Ensure you have at least 10 samples.</p>
+<hr />
+<h3 id="step-2-fine-tune-gpt-4o-mini"><a class="toclink" href="../../2025/01/07/fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format/#step-2-fine-tune-gpt-4o-mini">Step 2: Fine-Tune GPT-4o-mini</a></h3>
+<h4 id="required-code-for-fine-tuning"><a class="toclink" href="../../2025/01/07/fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format/#required-code-for-fine-tuning">Required Code for Fine-Tuning</a></h4>
+<p>Save your <code>stories.jsonl</code> file and run the following Python script to initiate fine-tuning:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">openai</span> <span class="kn">import</span> <span class="n">OpenAI</span>
+<span class="kn">import</span> <span class="nn">openai</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># Initialize OpenAI client and set API key</span>
+<span class="n">openai</span><span class="o">.</span><span class="n">api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">)</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">OpenAI</span><span class="p">()</span>
+
+<span class="c1"># Step 1: Upload the training file</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">file</span><span class="o">=</span><span class="nb">open</span><span class="p">(</span><span class="s2">&quot;stories.jsonl&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">),</span>  <span class="c1"># Replace with the correct path to your JSONL file</span>
+    <span class="n">purpose</span><span class="o">=</span><span class="s2">&quot;fine-tune&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Extract the file ID from the response object</span>
+<span class="n">training_file_id</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">id</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File uploaded successfully. File ID: </span><span class="si">{</span><span class="n">training_file_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Step 2: Create a fine-tuning job</span>
+<span class="n">fine_tune_response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">fine_tuning</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">training_file</span><span class="o">=</span><span class="n">training_file_id</span><span class="p">,</span>
+    <span class="n">model</span><span class="o">=</span><span class="s2">&quot;gpt-4o-mini-2024-07-18&quot;</span>  <span class="c1"># Replace with the desired base model</span>
+<span class="p">)</span>
+
+<span class="c1"># Output the fine-tuning job details</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fine-tuning job created successfully:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fine_tune_response</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h4 id="explanation-of-the-code"><a class="toclink" href="../../2025/01/07/fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format/#explanation-of-the-code">Explanation of the Code</a></h4>
+<ol>
+<li><strong>Initialize OpenAI Client</strong>:</li>
+<li>
+<p>The script imports the <code>openai</code> library and initializes the API using your key stored in the <code>OPENAI_API_KEY</code> environment variable.</p>
+</li>
+<li>
+<p><strong>Upload Training File</strong>:</p>
+</li>
+<li>
+<p>The script uploads your <code>stories.jsonl</code> file to OpenAI's servers for processing.</p>
+</li>
+<li>
+<p><strong>Create Fine-Tuning Job</strong>:</p>
+</li>
+<li>
+<p>The uploaded file is referenced to create a fine-tuning job for the <code>gpt-4o-mini-2024-07-18</code> model. Replace this with the desired base model as needed.</p>
+</li>
+<li>
+<p><strong>Monitor Job Details</strong>:</p>
+</li>
+<li>The script outputs the details of the fine-tuning job, including its status and other metadata.</li>
+</ol>
+<hr />
+<h3 id="best-practices-for-fine-tuning"><a class="toclink" href="../../2025/01/07/fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format/#best-practices-for-fine-tuning">Best Practices for Fine-Tuning</a></h3>
+<ol>
+<li><strong>Quality Dataset</strong>: Ensure the dataset is diverse and adheres to the required structure.</li>
+<li><strong>System Role Definition</strong>: Use clear instructions in the <code>system</code> role to guide the model’s behavior.</li>
+<li><strong>Testing and Iteration</strong>: Evaluate the fine-tuned model and refine the dataset if necessary.</li>
+</ol>
+<hr />
+<p>By using this step-by-step guide and the provided Python script, you can fine-tune the GPT-4o-mini model for your unique use case effectively. Happy fine-tuning!</p>
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">

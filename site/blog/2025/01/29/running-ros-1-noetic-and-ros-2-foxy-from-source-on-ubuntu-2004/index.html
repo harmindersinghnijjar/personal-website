@@ -5,14 +5,13 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="A concise yet comprehensive guide to managing Docker containers for robotics projects, emphasizing image saving, cleanup, GUI integration, and robust ROS workflows for quick prototyping." name="description"/>
+<meta content="A step-by-step guide to setting up and running both ROS 1 Noetic and ROS 2 Foxy from source on Ubuntu 20.04, ensuring compatibility for hybrid ROS projects." name="description"/>
 <meta content="harmindersinghnijjar" name="author"/>
-<link href="https://harminder.dev/blog/2025/01/27/efficient-docker-management-for-robotics/" rel="canonical">
-<link href="../../26/mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows/" rel="prev"/>
-<link href="../../29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/" rel="next"/>
+<link href="https://harminder.dev/blog/2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/" rel="canonical">
+<link href="../../27/efficient-docker-management-for-robotics/" rel="prev"/>
 <link href="../../../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.5.45" name="generator"/>
-<title>Efficient Docker Management for Robotics - Harminder Singh Nijjar</title>
+<title>Running ROS 1 Noetic and ROS 2 Foxy From Source on Ubuntu 20.04 - Harminder Singh Nijjar</title>
 <link href="../../../../../assets/stylesheets/main.0253249f.min.css" rel="stylesheet"/>
 <link href="../../../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
@@ -24,18 +23,18 @@
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-X0B1C5DM9K"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-X0B1C5DM9K",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-X0B1C5DM9K",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
 <meta content="website" property="og:type"/>
-<meta content="Efficient Docker Management for Robotics - Harminder Singh Nijjar" property="og:title"/>
-<meta content="A concise yet comprehensive guide to managing Docker containers for robotics projects, emphasizing image saving, cleanup, GUI integration, and robust ROS workflows for quick prototyping." property="og:description"/>
-<meta content="https://harminder.dev/assets/images/social/blog/posts/20250127175226.png" property="og:image"/>
+<meta content="Running ROS 1 Noetic and ROS 2 Foxy From Source on Ubuntu 20.04 - Harminder Singh Nijjar" property="og:title"/>
+<meta content="A step-by-step guide to setting up and running both ROS 1 Noetic and ROS 2 Foxy from source on Ubuntu 20.04, ensuring compatibility for hybrid ROS projects." property="og:description"/>
+<meta content="https://harminder.dev/assets/images/social/blog/posts/20250129084949.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="https://harminder.dev/blog/2025/01/27/efficient-docker-management-for-robotics/" property="og:url"/>
+<meta content="https://harminder.dev/blog/2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Efficient Docker Management for Robotics - Harminder Singh Nijjar" name="twitter:title"/>
-<meta content="A concise yet comprehensive guide to managing Docker containers for robotics projects, emphasizing image saving, cleanup, GUI integration, and robust ROS workflows for quick prototyping." name="twitter:description"/>
-<meta content="https://harminder.dev/assets/images/social/blog/posts/20250127175226.png" name="twitter:image"/>
-<meta content="Efficient Docker Management for Robotics" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/27/efficient-docker-management-for-robotics" property="og:url"/><meta content="Efficient Docker Management for Robotics" property="og:title"/><meta content="A concise yet comprehensive guide to managing Docker containers for robotics projects, emphasizing image saving, cleanup, GUI integration, and robust ROS workflows for quick prototyping." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/27/efficient-docker-management-for-robotics" property="twitter:url"/><meta content="Efficient Docker Management for Robotics" property="twitter:title"/><meta content="A concise yet comprehensive guide to managing Docker containers for robotics projects, emphasizing image saving, cleanup, GUI integration, and robust ROS workflows for quick prototyping." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Efficient Docker Management for Robotics", "image": [], "datePublished": "2025-01-27 17:54:09 -0800", "dateModified": "2025-01-27 17:54:09 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "A concise yet comprehensive guide to managing Docker containers for robotics projects, emphasizing image saving, cleanup, GUI integration, and robust ROS workflows for quick prototyping."}</script></head>
+<meta content="Running ROS 1 Noetic and ROS 2 Foxy From Source on Ubuntu 20.04 - Harminder Singh Nijjar" name="twitter:title"/>
+<meta content="A step-by-step guide to setting up and running both ROS 1 Noetic and ROS 2 Foxy from source on Ubuntu 20.04, ensuring compatibility for hybrid ROS projects." name="twitter:description"/>
+<meta content="https://harminder.dev/assets/images/social/blog/posts/20250129084949.png" name="twitter:image"/>
+<meta content="Running ROS 1 Noetic and ROS 2 Foxy From Source on Ubuntu 20.04" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004" property="og:url"/><meta content="Running ROS 1 Noetic and ROS 2 Foxy From Source on Ubuntu 20.04" property="og:title"/><meta content="A step-by-step guide to setting up and running both ROS 1 Noetic and ROS 2 Foxy from source on Ubuntu 20.04, ensuring compatibility for hybrid ROS projects." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004" property="twitter:url"/><meta content="Running ROS 1 Noetic and ROS 2 Foxy From Source on Ubuntu 20.04" property="twitter:title"/><meta content="A step-by-step guide to setting up and running both ROS 1 Noetic and ROS 2 Foxy from source on Ubuntu 20.04, ensuring compatibility for hybrid ROS projects." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Running ROS 1 Noetic and ROS 2 Foxy From Source on Ubuntu 20.04", "image": [], "datePublished": "2025-01-29 08:51:07 -0800", "dateModified": "2025-01-29 08:51:07 -0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "A step-by-step guide to setting up and running both ROS 1 Noetic and ROS 2 Foxy from source on Ubuntu 20.04, ensuring compatibility for hybrid ROS projects."}</script></head>
 <body data-md-color-accent="custom" data-md-color-primary="custom" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -65,7 +64,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Efficient Docker Management for Robotics
+              Running ROS 1 Noetic and ROS 2 Foxy From Source on Ubuntu 20.04
             
           </span>
 </div>
@@ -231,52 +230,38 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#1-saving-docker-containers-as-images">
+<a class="md-nav__link" href="#1-installing-ros-1-noetic-from-source">
 <span class="md-ellipsis">
-      1. Saving Docker Containers as Images
+      1. Installing ROS 1 Noetic From Source
     </span>
 </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#2-removing-unused-images-and-containers">
-<span class="md-ellipsis">
-      2. Removing Unused Images and Containers
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#3-running-containers-with-gui-and-peripheral-support">
-<span class="md-ellipsis">
-      3. Running Containers with GUI and Peripheral Support
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#4-setting-up-a-ros-workspace-in-docker">
-<span class="md-ellipsis">
-      4. Setting Up a ROS Workspace in Docker
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#5-running-ros-nodes-and-debugging">
-<span class="md-ellipsis">
-      5. Running ROS Nodes and Debugging
-    </span>
-</a>
-<nav aria-label="5. Running ROS Nodes and Debugging" class="md-nav">
+<nav aria-label="1. Installing ROS 1 Noetic From Source" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#starting-roscore">
+<a class="md-nav__link" href="#step-1-install-dependencies">
 <span class="md-ellipsis">
-      Starting roscore:
+      Step 1: Install Dependencies
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#running-ros-nodes">
+<a class="md-nav__link" href="#step-2-create-a-workspace-and-clone-ros-1">
 <span class="md-ellipsis">
-      Running ROS Nodes:
+      Step 2: Create a Workspace and Clone ROS 1
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-3-build-ros-1">
+<span class="md-ellipsis">
+      Step 3: Build ROS 1
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-4-source-ros-1">
+<span class="md-ellipsis">
+      Step 4: Source ROS 1
     </span>
 </a>
 </li>
@@ -284,31 +269,120 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#6-debugging-common-issues">
+<a class="md-nav__link" href="#2-installing-ros-2-foxy-from-source">
 <span class="md-ellipsis">
-      6. Debugging Common Issues
+      2. Installing ROS 2 Foxy From Source
     </span>
 </a>
-<nav aria-label="6. Debugging Common Issues" class="md-nav">
+<nav aria-label="2. Installing ROS 2 Foxy From Source" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#issue-master-not-found">
+<a class="md-nav__link" href="#step-1-install-dependencies_1">
 <span class="md-ellipsis">
-      Issue: "Master Not Found"
+      Step 1: Install Dependencies
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#issue-device-not-found">
+<a class="md-nav__link" href="#step-2-create-a-workspace-and-clone-ros-2">
 <span class="md-ellipsis">
-      Issue: "Device Not Found"
+      Step 2: Create a Workspace and Clone ROS 2
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#issue-ros_package_path-missing">
+<a class="md-nav__link" href="#step-3-build-ros-2">
 <span class="md-ellipsis">
-      Issue: "ROS_PACKAGE_PATH Missing"
+      Step 3: Build ROS 2
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-4-source-ros-2">
+<span class="md-ellipsis">
+      Step 4: Source ROS 2
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-managing-ros-1-and-ros-2-environments">
+<span class="md-ellipsis">
+      3. Managing ROS 1 and ROS 2 Environments
+    </span>
+</a>
+<nav aria-label="3. Managing ROS 1 and ROS 2 Environments" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#option-1-use-aliases-to-switch-between-ros-versions">
+<span class="md-ellipsis">
+      Option 1: Use Aliases to Switch Between ROS Versions
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#option-2-use-separate-terminals">
+<span class="md-ellipsis">
+      Option 2: Use Separate Terminals
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-running-the-ros-1-ros-2-bridge">
+<span class="md-ellipsis">
+      4. Running the ROS 1-ROS 2 Bridge
+    </span>
+</a>
+<nav aria-label="4. Running the ROS 1-ROS 2 Bridge" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-1-install-ros1_bridge">
+<span class="md-ellipsis">
+      Step 1: Install ros1_bridge
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-2-run-the-bridge">
+<span class="md-ellipsis">
+      Step 2: Run the Bridge
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-debugging-common-issues">
+<span class="md-ellipsis">
+      5. Debugging Common Issues
+    </span>
+</a>
+<nav aria-label="5. Debugging Common Issues" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#problem-ros-1-and-ros-2-variables-overlapping">
+<span class="md-ellipsis">
+      Problem: ROS 1 and ROS 2 Variables Overlapping
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#problem-colcon-build-fails">
+<span class="md-ellipsis">
+      Problem: colcon Build Fails
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#problem-ros-1-ros-2-bridge-fails-to-start">
+<span class="md-ellipsis">
+      Problem: ROS 1-ROS 2 Bridge Fails to Start
     </span>
 </a>
 </li>
@@ -354,7 +428,7 @@
 <li class="md-nav__item">
 <div class="md-nav__link">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"></path></svg>
-<time class="md-ellipsis" datetime="2025-01-27 00:00:00+00:00">January 27, 2025</time>
+<time class="md-ellipsis" datetime="2025-01-29 00:00:00+00:00">January 29, 2025</time>
 </div>
 </li>
 <li class="md-nav__item">
@@ -371,7 +445,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"></path></svg>
 <span class="md-ellipsis">
                             
-                              2 min read
+                              3 min read
                             
                           </span>
 </div>
@@ -386,179 +460,132 @@
 </div>
 <article class="md-content__inner md-typeset">
 <nav class="md-tags">
-<span class="md-tag">Docker</span>
 <span class="md-tag">ROS</span>
-<span class="md-tag">Robotics</span>
-<span class="md-tag">Quick Prototyping</span>
 <span class="md-tag">ROS Noetic</span>
-<span class="md-tag">Docker Management</span>
+<span class="md-tag">ROS Foxy</span>
+<span class="md-tag">Ubuntu 20.04</span>
 </nav>
-<h1>Efficient Docker Management for Robotics</h1>
+<h1>Running ROS 1 Noetic and ROS 2 Foxy From Source on Ubuntu 20.04</h1>
 <h2 id="introduction">Introduction</h2>
-<p>Docker is an essential tool for robotics development, offering quick prototyping, environment isolation, and streamlined deployment. However, managing containers effectively—especially with ROS (Robot Operating System)—can be complex. This guide highlights best practices for saving Docker images, removing unused resources, enabling GUI and Bluetooth in containers, and ensuring seamless ROS integration for robotics projects.</p>
+<p>Running both ROS 1 (Noetic) and ROS 2 (Foxy) on the same system can be challenging due to differences in dependencies, environment variables, and communication mechanisms. However, Ubuntu 20.04 remains the best option for managing both distributions, as Noetic is the last ROS 1 release and Foxy is a long-term support (LTS) release of ROS 2.</p>
+<p>This guide will walk you through the process of installing, sourcing, and managing both ROS versions from source while minimizing conflicts.</p>
 <hr/>
 <h2 id="key-topics-covered">Key Topics Covered</h2>
 <ul>
-<li>Saving and tagging Docker images for reproducibility  </li>
-<li>Cleaning up unused images and resources  </li>
-<li>Running Docker containers with GUI and peripheral support  </li>
-<li>Setting up ROS workspaces inside containers  </li>
-<li>Debugging common integration issues  </li>
+<li>Installing ROS 1 Noetic from source  </li>
+<li>Installing ROS 2 Foxy from source  </li>
+<li>Managing environment variables to switch between Noetic and Foxy  </li>
+<li>Running a ROS 1-ROS 2 bridge for interoperability  </li>
 </ul>
 <hr/>
-<h2 id="1-saving-docker-containers-as-images">1. Saving Docker Containers as Images</h2>
-<p><strong>Why Save Docker Containers?</strong></p>
-<ul>
-<li>Preserve your work after container modifications.  </li>
-<li>Quickly replicate development environments for prototyping or deployment.  </li>
-</ul>
-<p><strong>Steps to Save an Image:</strong></p>
-<ol>
-<li>
-<p>Stop the container:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>stop<span class="w"> </span>&lt;container_name&gt;
+<h2 id="1-installing-ros-1-noetic-from-source">1. Installing ROS 1 Noetic From Source</h2>
+<p>Since Ubuntu 20.04 is the preferred OS for ROS Noetic, you can follow these steps to build it from source.</p>
+<h3 id="step-1-install-dependencies"><strong>Step 1: Install Dependencies</strong></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3-rosdep<span class="w"> </span>python3-rosinstall-generator<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>python3-vcstool<span class="w"> </span>build-essential
+</code></pre></div>
+<p>Initialize <code>rosdep</code>:<br/>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>rosdep<span class="w"> </span>init
+rosdep<span class="w"> </span>update
 </code></pre></div></p>
-</li>
-<li>
-<p>Commit the container to an image:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>commit<span class="w"> </span>&lt;container_id&gt;<span class="w"> </span>&lt;new_image_name&gt;
-</code></pre></div></p>
-</li>
-<li>
-<p>Verify the saved image:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>images
-</code></pre></div></p>
-</li>
-</ol>
-<p><strong>Example:</strong>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>commit<span class="w"> </span>96a9ad78d1e6<span class="w"> </span>roboclaw_v02
+<h3 id="step-2-create-a-workspace-and-clone-ros-1"><strong>Step 2: Create a Workspace and Clone ROS 1</strong></h3>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/ros1_noetic/src
+<span class="nb">cd</span><span class="w"> </span>~/ros1_noetic
+rosinstall_generator<span class="w"> </span>desktop<span class="w"> </span>--rosdistro<span class="w"> </span>noetic<span class="w"> </span>--deps<span class="w"> </span>--tar<span class="w"> </span>&gt;<span class="w"> </span>noetic.rosinstall
+vcs<span class="w"> </span>import<span class="w"> </span>--input<span class="w"> </span>noetic.rosinstall<span class="w"> </span>src
+rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>-r<span class="w"> </span>-y
+</code></pre></div>
+<h3 id="step-3-build-ros-1"><strong>Step 3: Build ROS 1</strong></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros1_noetic
+colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
+</code></pre></div>
+<h3 id="step-4-source-ros-1"><strong>Step 4: Source ROS 1</strong></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">'source ~/ros1_noetic/install/setup.bash'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div>
+<p>Verify installation:<br/>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$ROS_DISTRO</span><span class="w">  </span><span class="c1"># Should output 'noetic'</span>
 </code></pre></div></p>
 <hr/>
-<h2 id="2-removing-unused-images-and-containers">2. Removing Unused Images and Containers</h2>
-<p><strong>Why Clean Up?</strong></p>
-<ul>
-<li>Free up disk space.  </li>
-<li>Reduce clutter from unused or dangling images.  </li>
-</ul>
-<p><strong>Commands:</strong></p>
-<ol>
-<li>
-<p>List dangling images:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>images<span class="w"> </span>-f<span class="w"> </span><span class="nv">dangling</span><span class="o">=</span><span class="nb">true</span>
+<h2 id="2-installing-ros-2-foxy-from-source">2. Installing ROS 2 Foxy From Source</h2>
+<p>Since Noetic and Foxy have different architectures, we will install ROS 2 Foxy in a separate workspace.</p>
+<h3 id="step-1-install-dependencies_1"><strong>Step 1: Install Dependencies</strong></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3-colcon-common-extensions<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>python3-vcstool<span class="w"> </span>git<span class="w"> </span>wget
+</code></pre></div>
+<h3 id="step-2-create-a-workspace-and-clone-ros-2"><strong>Step 2: Create a Workspace and Clone ROS 2</strong></h3>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/ros2_foxy/src
+<span class="nb">cd</span><span class="w"> </span>~/ros2_foxy
+vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos
+rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>-r<span class="w"> </span>-y
+</code></pre></div>
+<h3 id="step-3-build-ros-2"><strong>Step 3: Build ROS 2</strong></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros2_foxy
+colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
+</code></pre></div>
+<h3 id="step-4-source-ros-2"><strong>Step 4: Source ROS 2</strong></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">'source ~/ros2_foxy/install/setup.bash'</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div>
+<p>Verify installation:<br/>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$ROS_DISTRO</span><span class="w">  </span><span class="c1"># Should output 'foxy'</span>
 </code></pre></div></p>
-</li>
-<li>
-<p>Remove dangling images:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>image<span class="w"> </span>prune<span class="w"> </span>-f
-</code></pre></div></p>
-</li>
-<li>
-<p>Remove specific images:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>rmi<span class="w"> </span>&lt;image_id&gt;
-</code></pre></div></p>
-</li>
-<li>
-<p>Remove stopped containers:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>container<span class="w"> </span>prune
-</code></pre></div></p>
-</li>
-</ol>
 <hr/>
-<h2 id="3-running-containers-with-gui-and-peripheral-support">3. Running Containers with GUI and Peripheral Support</h2>
-<p><strong>Why Enable GUI and Peripherals?</strong></p>
-<p>Robotics projects often require visualization tools like RViz and peripheral support for devices such as Xbox controllers or Bluetooth sensors. Docker flags ensure seamless integration.</p>
-<p><strong>Command Example:</strong>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>roboclaw_v02<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--net<span class="o">=</span>host<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--privileged<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--device<span class="o">=</span>/dev/input/js0:/dev/input/js0<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--device<span class="o">=</span>/dev/input/event0:/dev/input/event0<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-v<span class="w"> </span>/var/run/dbus:/var/run/dbus<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-v<span class="w"> </span>/tmp/.X11-unix:/tmp/.X11-unix<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-e<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span><span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>roboclaw_v02
-</code></pre></div></p>
-<p><strong>Explanation of Flags:</strong></p>
+<h2 id="3-managing-ros-1-and-ros-2-environments">3. Managing ROS 1 and ROS 2 Environments</h2>
+<p>By default, sourcing both ROS 1 and ROS 2 together will cause conflicts. To manage this, create separate aliases:</p>
+<h3 id="option-1-use-aliases-to-switch-between-ros-versions"><strong>Option 1: Use Aliases to Switch Between ROS Versions</strong></h3>
+<p>Add these lines to your <code>~/.bashrc</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">source_ros1</span><span class="o">=</span><span class="s2">"source ~/ros1_noetic/install/setup.bash"</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">source_ros2</span><span class="o">=</span><span class="s2">"source ~/ros2_foxy/install/setup.bash"</span>
+</code></pre></div>
+<p>Now, you can quickly switch between them:</p>
+<div class="highlight"><pre><span></span><code>source_ros1<span class="w">  </span><span class="c1"># Switch to ROS Noetic</span>
+source_ros2<span class="w">  </span><span class="c1"># Switch to ROS 2 Foxy</span>
+</code></pre></div>
+<h3 id="option-2-use-separate-terminals"><strong>Option 2: Use Separate Terminals</strong></h3>
+<p>For seamless operation, open two terminals:</p>
 <ul>
-<li><code>--net=host</code>: Enables network communication between container and host.  </li>
-<li><code>--privileged</code>: Grants access to host devices (e.g., Bluetooth).  </li>
-<li><code>--device</code>: Maps input devices for peripherals like controllers.  </li>
-<li><code>-v</code>: Mounts directories for GUI and device access.  </li>
+<li>
+<p><strong>Terminal 1 (ROS 1 Noetic)</strong><br/>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/ros1_noetic/install/setup.bash
+roscore
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Terminal 2 (ROS 2 Foxy)</strong><br/>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/ros2_foxy/install/setup.bash
+ros2<span class="w"> </span>run<span class="w"> </span>demo_nodes_cpp<span class="w"> </span>talker
+</code></pre></div></p>
+</li>
 </ul>
 <hr/>
-<h2 id="4-setting-up-a-ros-workspace-in-docker">4. Setting Up a ROS Workspace in Docker</h2>
-<p><strong>Why Use a Mounted Workspace?</strong></p>
-<ul>
-<li>Edit code on the host machine while executing it inside the container.  </li>
-<li>Persist changes across container restarts.  </li>
-</ul>
-<p><strong>Steps:</strong></p>
-<ol>
-<li>
-<p>Run the container with a mounted workspace:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>&lt;container_name&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-v<span class="w"> </span>~/ros_ws:/root/ros_ws<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>&lt;base_image&gt;
-</code></pre></div></p>
-</li>
-<li>
-<p>Inside the container, initialize the ROS workspace:
-   <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros_ws
-catkin_make
-<span class="nb">source</span><span class="w"> </span>devel/setup.bash
-</code></pre></div></p>
-</li>
-</ol>
+<h2 id="4-running-the-ros-1-ros-2-bridge">4. Running the ROS 1-ROS 2 Bridge</h2>
+<p>To communicate between ROS 1 and ROS 2, use <code>ros1_bridge</code>.  </p>
+<h3 id="step-1-install-ros1_bridge"><strong>Step 1: Install ros1_bridge</strong></h3>
+<div class="highlight"><pre><span></span><code>source_ros1
+source_ros2
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>ros-foxy-ros1-bridge
+</code></pre></div>
+<h3 id="step-2-run-the-bridge"><strong>Step 2: Run the Bridge</strong></h3>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>ros1_bridge<span class="w"> </span>dynamic_bridge
+</code></pre></div>
+<p>Now, any topic published in ROS 1 will be available in ROS 2, and vice versa.</p>
 <hr/>
-<h2 id="5-running-ros-nodes-and-debugging">5. Running ROS Nodes and Debugging</h2>
-<h3 id="starting-roscore">Starting <code>roscore</code>:</h3>
-<ol>
-<li>
-<p>Attach to the container:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;container_name&gt;<span class="w"> </span>/bin/bash
-</code></pre></div></p>
-</li>
-<li>
-<p>Start <code>roscore</code>:
-   <div class="highlight"><pre><span></span><code>roscore
-</code></pre></div></p>
-</li>
-</ol>
-<h3 id="running-ros-nodes">Running ROS Nodes:</h3>
-<ol>
-<li>
-<p>Source the workspace:
-   <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/ros_ws/devel/setup.bash
-</code></pre></div></p>
-</li>
-<li>
-<p>Run the node:
-   <div class="highlight"><pre><span></span><code>rosrun<span class="w"> </span>roboclaw_node<span class="w"> </span>xbox_teleop_odom.py
-</code></pre></div></p>
-</li>
-</ol>
-<hr/>
-<h2 id="6-debugging-common-issues">6. Debugging Common Issues</h2>
-<h3 id="issue-master-not-found">Issue: "Master Not Found"</h3>
-<ul>
-<li>Ensure <code>roscore</code> is running in the same container.</li>
-</ul>
-<h3 id="issue-device-not-found">Issue: "Device Not Found"</h3>
-<ul>
-<li>Verify input device mapping:
-   <div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/dev/input/js0
-</code></pre></div></li>
-</ul>
-<h3 id="issue-ros_package_path-missing">Issue: "ROS_PACKAGE_PATH Missing"</h3>
-<ul>
-<li>Set the workspace path:
-   <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">ROS_PACKAGE_PATH</span><span class="o">=</span>/root/ros_ws/src:<span class="nv">$ROS_PACKAGE_PATH</span>
-</code></pre></div></li>
-</ul>
+<h2 id="5-debugging-common-issues">5. Debugging Common Issues</h2>
+<h3 id="problem-ros-1-and-ros-2-variables-overlapping"><strong>Problem: ROS 1 and ROS 2 Variables Overlapping</strong></h3>
+<p><strong>Solution:</strong> Always source only one ROS version at a time or use separate terminals.</p>
+<h3 id="problem-colcon-build-fails"><strong>Problem: colcon Build Fails</strong></h3>
+<p><strong>Solution:</strong> Ensure all dependencies are installed using <code>rosdep update &amp;&amp; rosdep install --from-paths src --ignore-src -r -y</code>.</p>
+<h3 id="problem-ros-1-ros-2-bridge-fails-to-start"><strong>Problem: ROS 1-ROS 2 Bridge Fails to Start</strong></h3>
+<p><strong>Solution:</strong><br/>
+- Ensure both <code>source_ros1</code> and <code>source_ros2</code> are sourced.<br/>
+- Try restarting the bridge with <code>ros2 run ros1_bridge dynamic_bridge</code>.</p>
 <hr/>
 <h2 id="conclusion">Conclusion</h2>
-<p>By mastering these Docker and ROS workflows, you can create efficient and portable robotics development environments. Whether it’s saving images, enabling peripherals, or debugging nodes, these practices ensure a robust foundation for prototyping and deployment.  </p>
-<p><strong>Stay innovative, and build the future of robotics with confidence! 🚀</strong></p>
+<p>By following this guide, you can successfully install, source, and run both ROS 1 Noetic and ROS 2 Foxy on Ubuntu 20.04 without conflicts. Using environment management strategies such as aliases and separate terminals ensures smooth switching between versions.  </p>
+<p>The addition of <code>ros1_bridge</code> further enables seamless communication, making hybrid ROS 1/2 projects possible.  </p>
+<p><strong>Happy Coding! 🚀</strong></p>
 <form class="md-feedback" hidden="" name="feedback">
 <fieldset>
 <legend class="md-feedback__title">
@@ -592,7 +619,7 @@ catkin_make
 </div>
 </fieldset>
 </form>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-27, Updated 2025-01-27<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-01-29, Updated 2025-01-29<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -603,10 +630,10 @@ catkin_make
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/2025/01/27/efficient-docker-management-for-robotics', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/2025/01/27/efficient-docker-management-for-robotics', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/2025/01/29/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>
