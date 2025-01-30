@@ -507,6 +507,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sending Commands from ROS 2 to RoboClaw in ROS 1 with a ROS Bridge
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004" class="md-nav__link">
     <span class="md-ellipsis">
       Running ROS 1 Noetic and ROS 2 Foxy From Source on Ubuntu 20.04
@@ -582,15 +591,6 @@
   <a href="#setting-up-browser-use-with-botright" class="md-nav__link">
     <span class="md-ellipsis">
       Setting Up Browser Use with Botright
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#aws-lambda-and-blender-revolutionizing-3d-rendering-in-the-cloud" class="md-nav__link">
-    <span class="md-ellipsis">
-      AWS Lambda and Blender: Revolutionizing 3D Rendering in the Cloud
     </span>
   </a>
   
@@ -750,6 +750,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sending Commands from ROS 2 to RoboClaw in ROS 1 with a ROS Bridge
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004" class="md-nav__link">
     <span class="md-ellipsis">
       Running ROS 1 Noetic and ROS 2 Foxy From Source on Ubuntu 20.04
@@ -830,15 +839,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#aws-lambda-and-blender-revolutionizing-3d-rendering-in-the-cloud" class="md-nav__link">
-    <span class="md-ellipsis">
-      AWS Lambda and Blender: Revolutionizing 3D Rendering in the Cloud
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -853,6 +853,102 @@
       <header class="md-typeset">
         <h1 id="2025">2025</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-01-30 00:00:00+00:00">January 30, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../../category/robotics/" class="md-meta__link">Robotics</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              2 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge"><a class="toclink" href="../../2025/01/30/sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge/">Sending Commands from ROS 2 to RoboClaw in ROS 1 with a ROS Bridge</a></h2>
+<h3 id="introduction"><a class="toclink" href="../../2025/01/30/sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge/#introduction"><strong>Introduction</strong></a></h3>
+<p>With ROS 1 Noetic and ROS 2 Foxy running on the same system, it’s possible to bridge topics between them. This allows controlling a <strong>RoboClaw motor controller</strong> (running on ROS 1) using <strong>ROS 2 commands</strong>. This guide walks you through setting up the <strong>ros1_bridge</strong> and sending commands to the RoboClaw-controlled robot from ROS 2.</p>
+<hr />
+<h3 id="key-topics-covered"><a class="toclink" href="../../2025/01/30/sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge/#key-topics-covered"><strong>Key Topics Covered</strong></a></h3>
+<ul>
+<li>Running the RoboClaw node in ROS 1  </li>
+<li>Setting up the ROS 1-ROS 2 bridge  </li>
+<li>Sending velocity commands from ROS 2  </li>
+<li>Debugging issues  </li>
+</ul>
+<hr />
+<h3 id="1-launching-the-roboclaw-node-in-ros-1"><a class="toclink" href="../../2025/01/30/sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge/#1-launching-the-roboclaw-node-in-ros-1"><strong>1. Launching the RoboClaw Node in ROS 1</strong></a></h3>
+<p>Make sure ROS 1 Noetic is <strong>sourced</strong> and start the RoboClaw node:  </p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/opt/ros/noetic/setup.bash
+roslaunch<span class="w"> </span>roboclaw_node<span class="w"> </span>roboclaw.launch
+</code></pre></div>
+<p>Check if the <strong>/cmd_vel</strong> topic is available in ROS 1:  </p>
+<div class="highlight"><pre><span></span><code>rostopic<span class="w"> </span>list
+</code></pre></div>
+<p>You should see <code>/cmd_vel</code> in the list.</p>
+<p>To verify if the node is working, try publishing a command directly from ROS 1:  </p>
+<div class="highlight"><pre><span></span><code>rostopic<span class="w"> </span>pub<span class="w"> </span>/cmd_vel<span class="w"> </span>geometry_msgs/Twist<span class="w"> </span><span class="s1">&#39;{linear: {x: 0.5}, angular: {z: 0.1}}&#39;</span>
+</code></pre></div>
+<p>If the robot moves, the RoboClaw node is working correctly.</p>
+<hr />
+<h3 id="2-setting-up-the-ros-1-ros-2-bridge"><a class="toclink" href="../../2025/01/30/sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge/#2-setting-up-the-ros-1-ros-2-bridge"><strong>2. Setting Up the ROS 1-ROS 2 Bridge</strong></a></h3>
+<p>Since ROS 1 and ROS 2 use different communication protocols, we need to bridge them.</p>
+<h4 id="step-1-install-the-bridge"><a class="toclink" href="../../2025/01/30/sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge/#step-1-install-the-bridge"><strong>Step 1: Install the Bridge</strong></a></h4>
+<p>Ensure both ROS 1 and ROS 2 are sourced:  </p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/opt/ros/noetic/setup.bash
+<span class="nb">source</span><span class="w"> </span>/opt/ros/foxy/setup.bash
+</code></pre></div>
+<p>Install <code>ros1_bridge</code>:  </p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-foxy-ros1-bridge
+</code></pre></div>
+<h4 id="step-2-run-the-bridge"><a class="toclink" href="../../2025/01/30/sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge/#step-2-run-the-bridge"><strong>Step 2: Run the Bridge</strong></a></h4>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>ros1_bridge<span class="w"> </span>dynamic_bridge
+</code></pre></div>
+<p>This will automatically bridge compatible topics between ROS 1 and ROS 2.</p>
+<hr />
+<h3 id="3-sending-commands-from-ros-2-to-roboclaw"><a class="toclink" href="../../2025/01/30/sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge/#3-sending-commands-from-ros-2-to-roboclaw"><strong>3. Sending Commands from ROS 2 to RoboClaw</strong></a></h3>
+<p>Now that the bridge is running, switch to a new terminal and <strong>source ROS 2</strong>:  </p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/opt/ros/foxy/setup.bash
+</code></pre></div>
+<p>Check if the <strong>/cmd_vel</strong> topic is being bridged in ROS 2:  </p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>topic<span class="w"> </span>list
+</code></pre></div>
+<p>If <code>/cmd_vel</code> appears, you can <strong>publish a movement command from ROS 2</strong>:</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>/cmd_vel<span class="w"> </span>geometry_msgs/msg/Twist<span class="w"> </span><span class="s2">&quot;{linear: {x: 0.5}, angular: {z: 0.1}}&quot;</span>
+</code></pre></div>
+<p>This should <strong>move the robot</strong> as if the command came from ROS 1.</p>
+<hr />
+<h3 id="4-debugging-common-issues"><a class="toclink" href="../../2025/01/30/sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge/#4-debugging-common-issues"><strong>4. Debugging Common Issues</strong></a></h3>
+<h4 id="issue-1-ros-1-and-ros-2-variables-overlapping"><a class="toclink" href="../../2025/01/30/sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge/#issue-1-ros-1-and-ros-2-variables-overlapping"><strong>Issue 1: ROS 1 and ROS 2 Variables Overlapping</strong></a></h4>
+<p><strong>Solution:</strong> Open separate terminals for ROS 1 and ROS 2, and source them separately.</p>
+<h4 id="issue-2-the-bridge-doesnt-forward-cmd_vel"><a class="toclink" href="../../2025/01/30/sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge/#issue-2-the-bridge-doesnt-forward-cmd_vel"><strong>Issue 2: The Bridge Doesn’t Forward /cmd_vel</strong></a></h4>
+<p><strong>Solution:</strong> Restart the bridge and verify that both ROS versions are sourced properly.</p>
+<h4 id="issue-3-roboclaw-doesnt-respond-to-commands"><a class="toclink" href="../../2025/01/30/sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge/#issue-3-roboclaw-doesnt-respond-to-commands"><strong>Issue 3: RoboClaw Doesn’t Respond to Commands</strong></a></h4>
+<p><strong>Solution:</strong> Ensure the RoboClaw node is running, and check <code>/cmd_vel</code> in ROS 1 using:</p>
+<div class="highlight"><pre><span></span><code>rostopic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/cmd_vel
+</code></pre></div>
+<hr />
+<h3 id="conclusion"><a class="toclink" href="../../2025/01/30/sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge/#conclusion"><strong>Conclusion</strong></a></h3>
+<p>By following this guide, you can successfully <strong>control your RoboClaw-powered robot from ROS 2</strong> while it runs on <strong>ROS 1 Noetic</strong>. The <strong>ros1_bridge</strong> ensures seamless communication, allowing hybrid ROS applications.  </p>
+<p>With this setup, you can integrate <strong>ROS 2-based navigation stacks</strong> with older ROS 1 hardware.</p>
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
@@ -2351,61 +2447,6 @@ playwright<span class="w"> </span>install
 <p>Botright automatically handles fingerprint masking. To customize this, refer to the <a href="https://botright.readthedocs.io/">Botright documentation</a>.</p>
 <h3 id="conclusion"><a class="toclink" href="../../2025/01/15/setting-up-browser-use-with-botright/#conclusion">Conclusion</a></h3>
 <p>By integrating Botright with Browser Use, you unlock advanced stealth browsing capabilities ideal for sensitive automation tasks. This setup provides a solid foundation for further enhancements, such as integrating AI-based analysis or multi-page navigation workflows.</p>
-    
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2025-01-11 00:00:00+00:00">January 11, 2025</time></li>
-        
-          <li class="md-meta__item">
-            in
-            
-              <a href="../../category/cloud-computing/" class="md-meta__link">Cloud Computing</a></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              2 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="aws-lambda-and-blender-revolutionizing-3d-rendering-in-the-cloud"><a class="toclink" href="../../2025/01/11/aws-lambda-and-blender---revolutionizing-3d-rendering-in-the-cloud/">AWS Lambda and Blender: Revolutionizing 3D Rendering in the Cloud</a></h2>
-<p>One idea that has been on my ideological backburner for several years now is the concept of using AWS Lambda for rendering a three-dimensional STL or other Blender-compatible file for GitHub contributions. Since the inception of this idea, I've significantly refined my understanding of 3D printing and Python scripting, which has allowed me to develop a more robust and scalable solution.</p>
-<h3 id="the-concept"><a class="toclink" href="../../2025/01/11/aws-lambda-and-blender---revolutionizing-3d-rendering-in-the-cloud/#the-concept">The Concept</a></h3>
-<p>The core concept revolves around leveraging <a href="https://aws.amazon.com/">AWS Lambda</a> for rendering 3D scenes—a solution tailored for projects requiring high scalability and rapid turnaround times. This technique excels in scenarios involving numerous simpler assets that must be rendered swiftly, effectively harnessing the computational prowess of cloud technology.</p>
-<h3 id="the-implementation"><a class="toclink" href="../../2025/01/11/aws-lambda-and-blender---revolutionizing-3d-rendering-in-the-cloud/#the-implementation">The Implementation</a></h3>
-<p>The integration of <a href="https://www.blender.org/">Blender</a>, a popular open-source 3D graphics software, running on AWS Lambda, epitomizes this blend of flexibility and computational efficiency. This approach is ideal for assets that fit within Lambda's constraints, currently supporting up to 6 vCPUs and 10GB of memory. For more demanding rendering needs, options like <strong>EC2 instances</strong> or <strong>AWS Thinkbox Deadline</strong> provide enhanced computational capacity, making them suitable for complex tasks.</p>
-<h3 id="the-workflow"><a class="toclink" href="../../2025/01/11/aws-lambda-and-blender---revolutionizing-3d-rendering-in-the-cloud/#the-workflow">The Workflow</a></h3>
-<p>The workflow for this implementation is straightforward:</p>
-<ol>
-<li><strong>Upload the Blender file to an S3 bucket</strong>: Begin by uploading the Blender file to an S3 bucket, ensuring it is accessible to the Lambda function.</li>
-<li><strong>Invoke the Lambda function</strong>: Trigger the Lambda function to render the 3D scene using Blender.</li>
-<li><strong>Retrieve the rendered image</strong>: Once the rendering is complete, retrieve the rendered image from the S3 bucket.</li>
-</ol>
-<h3 id="the-benefits"><a class="toclink" href="../../2025/01/11/aws-lambda-and-blender---revolutionizing-3d-rendering-in-the-cloud/#the-benefits">The Benefits</a></h3>
-<p>The benefits of this approach are manifold:</p>
-<ul>
-<li><strong>Scalability</strong>: AWS Lambda's scalability ensures that rendering tasks can be efficiently distributed across multiple instances, enhancing performance.</li>
-<li><strong>Cost-Effectiveness</strong>: Pay only for the compute time consumed, making it a cost-effective solution for rendering tasks.</li>
-<li><strong>Flexibility</strong>: The ability to scale up or down based on project requirements offers unparalleled flexibility.</li>
-<li><strong>Efficiency</strong>: The seamless integration of Blender with AWS Lambda streamlines the rendering process, enhancing efficiency.</li>
-</ul>
-<h3 id="credits"><a class="toclink" href="../../2025/01/11/aws-lambda-and-blender---revolutionizing-3d-rendering-in-the-cloud/#credits">Credits</a></h3>
-<p>The inspiration for this approach was drawn from a detailed implementation by <a href="https://blog.theodo.com/2021/08/blender-serverless-lambda/">Theodo</a> in 2021, showcasing how Blender can be effectively adapted for serverless architecture. This concept offers transformative potential in the 3D rendering landscape, demonstrating how cloud technologies can redefine efficiency and scalability in creative workflows.</p>
-<h3 id="conclusion"><a class="toclink" href="../../2025/01/11/aws-lambda-and-blender---revolutionizing-3d-rendering-in-the-cloud/#conclusion">Conclusion</a></h3>
-<p>The fusion of AWS Lambda and Blender represents a paradigm shift in 3D rendering, offering a potent solution for projects requiring rapid, scalable rendering capabilities. By leveraging the computational prowess of AWS Lambda and the versatility of Blender, developers can unlock new possibilities in the 3D rendering domain, revolutionizing creative workflows and enhancing efficiency.</p>
     
   </div>
 </article>
