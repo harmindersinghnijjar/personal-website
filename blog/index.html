@@ -759,7 +759,7 @@ roslaunch<span class="w"> </span>roboclaw_node<span class="w"> </span>roboclaw.l
           
           <li class="md-meta__item">
             
-              4 min read
+              2 min read
             
           </li>
         
@@ -769,16 +769,25 @@ roslaunch<span class="w"> </span>roboclaw_node<span class="w"> </span>roboclaw.l
   </header>
   <div class="md-post__content md-typeset">
     <h2 id="automating-the-ros-1-ros-2-bridge-for-roboclaw"><a class="toclink" href="2025/01/30/automating-the-ros-1-ros-2-bridge-for-roboclaw/">Automating the ROS 1-ROS 2 Bridge for RoboClaw</a></h2>
-<p>Below is a <strong>Python script</strong> that automates the setup of the ROS 1-ROS 2 bridge every time you need it. The script ensures that:</p>
-<ul>
-<li><strong>ROS 1 Noetic and ROS 2 Foxy</strong> are properly sourced.</li>
-<li>The <strong>ros1_bridge</strong> is installed and launched.</li>
-<li>It verifies the bridge and the <code>/cmd_vel</code> topic.</li>
-<li>You can control the RoboClaw motor controller from ROS 2.</li>
-</ul>
+<h3 id="introduction"><a class="toclink" href="2025/01/30/automating-the-ros-1-ros-2-bridge-for-roboclaw/#introduction"><strong>Introduction</strong></a></h3>
+<p>Setting up the <strong>ROS 1-ROS 2 bridge</strong> manually every time can be frustrating. This guide provides a <strong>Python script</strong> that automates the process, making it easier to run your <strong>RoboClaw motor controller</strong> in ROS 1 while sending commands from ROS 2.</p>
 <hr />
-<h4 id="python-script-setup_ros_bridgepy"><a class="toclink" href="2025/01/30/automating-the-ros-1-ros-2-bridge-for-roboclaw/#python-script-setup_ros_bridgepy"><strong>Python Script (<code>setup_ros_bridge.py</code>)</strong></a></h4>
-<h3 id="import-os-import-subprocess-import-time-def-run_commandcommand-runs-a-shell-command-and-returns-the-output-try-output-subprocessruncommand-shelltrue-checktrue-texttrue-capture_outputtrue-return-outputstdoutstrip-except-subprocesscalledprocesserror-as-e-printferror-e-return-none-def-source_rosversion-sources-the-correct-ros-environment-if-version-ros1-ossystemsource-optrosnoeticsetupbash-elif-version-ros2-ossystemsource-optrosfoxysetupbash-else-printinvalid-ros-version-specified-def-check_ros_version-checks-if-ros-1-and-ros-2-are-installed-ros1_check-run_commandrosversion-d-ros2_check-run_commandros2-version-if-noetic-in-strros1_check-print-ros-1-noetic-detected-else-printx-ros-1-noetic-not-found-if-ros2_check-printf-ros-2-detected-version-ros2_check-else-printx-ros-2-not-found-def-start_roscore-starts-roscore-if-not-already-running-output-run_commandpgrep-x-roscore-if-output-print-roscore-is-already-running-else-print-starting-roscore-ossystemroscore-timesleep3-def-start_roboclaw_node-launches-the-roboclaw-node-print-launching-roboclaw-node-ossystemroslaunch-roboclaw_node-roboclawlaunch-timesleep3-def-start_ros1_bridge-starts-the-ros-1-ros-2-bridge-print-launching-ros-1-ros-2-bridge-ossystemros2-run-ros1_bridge-dynamic_bridge-timesleep3-def-check_cmd_vel_topic-checks-if-cmd_vel-is-available-in-both-ros-1-and-ros-2-ros1_topics-run_commandrostopic-list-ros2_topics-run_commandros2-topic-list-if-cmd_vel-in-strros1_topics-print-cmd_vel-is-available-in-ros-1-else-printx-cmd_vel-not-found-in-ros-1-if-cmd_vel-in-strros2_topics-print-cmd_vel-is-available-in-ros-2-else-printx-cmd_vel-not-found-in-ros-2-def-send_velocity_command-sends-a-test-velocity-command-from-ros-2-print-sending-velocity-command-from-ros-2-ossystemros2-topic-pub-cmd_vel-geometry_msgsmsgtwist-linear-x-05-angular-z-01-if-__name__-__main__-printn-setting-up-ros-1-ros-2-bridge-for-roboclaw-check_ros_version-source_rosros1-start_roscore-start_roboclaw_node-source_rosros2-start_ros1_bridge-check_cmd_vel_topic-send_velocity_command-printn-setup-complete-you-can-now-control-roboclaw-from-ros-2"><a class="toclink" href="2025/01/30/automating-the-ros-1-ros-2-bridge-for-roboclaw/#import-os-import-subprocess-import-time-def-run_commandcommand-runs-a-shell-command-and-returns-the-output-try-output-subprocessruncommand-shelltrue-checktrue-texttrue-capture_outputtrue-return-outputstdoutstrip-except-subprocesscalledprocesserror-as-e-printferror-e-return-none-def-source_rosversion-sources-the-correct-ros-environment-if-version-ros1-ossystemsource-optrosnoeticsetupbash-elif-version-ros2-ossystemsource-optrosfoxysetupbash-else-printinvalid-ros-version-specified-def-check_ros_version-checks-if-ros-1-and-ros-2-are-installed-ros1_check-run_commandrosversion-d-ros2_check-run_commandros2-version-if-noetic-in-strros1_check-print-ros-1-noetic-detected-else-printx-ros-1-noetic-not-found-if-ros2_check-printf-ros-2-detected-version-ros2_check-else-printx-ros-2-not-found-def-start_roscore-starts-roscore-if-not-already-running-output-run_commandpgrep-x-roscore-if-output-print-roscore-is-already-running-else-print-starting-roscore-ossystemroscore-timesleep3-def-start_roboclaw_node-launches-the-roboclaw-node-print-launching-roboclaw-node-ossystemroslaunch-roboclaw_node-roboclawlaunch-timesleep3-def-start_ros1_bridge-starts-the-ros-1-ros-2-bridge-print-launching-ros-1-ros-2-bridge-ossystemros2-run-ros1_bridge-dynamic_bridge-timesleep3-def-check_cmd_vel_topic-checks-if-cmd_vel-is-available-in-both-ros-1-and-ros-2-ros1_topics-run_commandrostopic-list-ros2_topics-run_commandros2-topic-list-if-cmd_vel-in-strros1_topics-print-cmd_vel-is-available-in-ros-1-else-printx-cmd_vel-not-found-in-ros-1-if-cmd_vel-in-strros2_topics-print-cmd_vel-is-available-in-ros-2-else-printx-cmd_vel-not-found-in-ros-2-def-send_velocity_command-sends-a-test-velocity-command-from-ros-2-print-sending-velocity-command-from-ros-2-ossystemros2-topic-pub-cmd_vel-geometry_msgsmsgtwist-linear-x-05-angular-z-01-if-__name__-__main__-printn-setting-up-ros-1-ros-2-bridge-for-roboclaw-check_ros_version-source_rosros1-start_roscore-start_roboclaw_node-source_rosros2-start_ros1_bridge-check_cmd_vel_topic-send_velocity_command-printn-setup-complete-you-can-now-control-roboclaw-from-ros-2"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<h3 id="why-use-a-bridge"><a class="toclink" href="2025/01/30/automating-the-ros-1-ros-2-bridge-for-roboclaw/#why-use-a-bridge"><strong>Why Use a Bridge?</strong></a></h3>
+<p>Since ROS 1 Noetic and ROS 2 Foxy use different middleware, we need the <strong>ros1_bridge</strong> to communicate between them. With this setup, you can <strong>control RoboClaw from ROS 2</strong> while it runs on <strong>ROS 1</strong>.</p>
+<hr />
+<h3 id="steps-automated-by-the-script"><a class="toclink" href="2025/01/30/automating-the-ros-1-ros-2-bridge-for-roboclaw/#steps-automated-by-the-script"><strong>Steps Automated by the Script</strong></a></h3>
+<ol>
+<li><strong>Detect ROS 1 and ROS 2 installations</strong>  </li>
+<li><strong>Start roscore (if not running)</strong>  </li>
+<li><strong>Launch the RoboClaw node in ROS 1</strong>  </li>
+<li><strong>Start the ROS 1-ROS 2 bridge</strong>  </li>
+<li><strong>Verify if <code>/cmd_vel</code> is bridged between ROS versions</strong>  </li>
+<li><strong>Send a velocity command from ROS 2</strong>  </li>
+</ol>
+<hr />
+<h3 id="the-python-script"><a class="toclink" href="2025/01/30/automating-the-ros-1-ros-2-bridge-for-roboclaw/#the-python-script"><strong>The Python Script</strong></a></h3>
+<p>Here is the script that automates the process:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">subprocess</span>
 <span class="kn">import</span> <span class="nn">time</span>
 
@@ -852,11 +861,6 @@ roslaunch<span class="w"> </span>roboclaw_node<span class="w"> </span>roboclaw.l
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[X] /cmd_vel not found in ROS 2&quot;</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">send_velocity_command</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Sends a test velocity command from ROS 2 &quot;&quot;&quot;</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[✔] Sending velocity command from ROS 2...&quot;</span><span class="p">)</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;ros2 topic pub /cmd_vel geometry_msgs/msg/Twist </span><span class="se">\&quot;</span><span class="s2">{linear: </span><span class="si">{x: 0.5}</span><span class="s2">, angular: </span><span class="si">{z: 0.1}</span><span class="s2">}</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span>
-
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">[✔] Setting up ROS 1-ROS 2 Bridge for RoboClaw...&quot;</span><span class="p">)</span>
     <span class="n">check_ros_version</span><span class="p">()</span>
@@ -869,154 +873,8 @@ roslaunch<span class="w"> </span>roboclaw_node<span class="w"> </span>roboclaw.l
     <span class="n">start_ros1_bridge</span><span class="p">()</span>
 
     <span class="n">check_cmd_vel_topic</span><span class="p">()</span>
-    <span class="n">send_velocity_command</span><span class="p">()</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">[✔] Setup complete! You can now control RoboClaw from ROS 2.&quot;</span><span class="p">)</span>
-</code></pre></div></a></h3>
-<h4 id="how-to-use-the-script"><a class="toclink" href="2025/01/30/automating-the-ros-1-ros-2-bridge-for-roboclaw/#how-to-use-the-script"><strong>How to Use the Script</strong></a></h4>
-<ol>
-<li><strong>Save the script</strong> as <code>setup_ros_bridge.py</code></li>
-<li><strong>Make it executable</strong>:
-   <div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>setup_ros_bridge.py
-</code></pre></div></li>
-<li><strong>Run the script</strong>:
-   <div class="highlight"><pre><span></span><code>python3<span class="w"> </span>setup_ros_bridge.py
-</code></pre></div></li>
-</ol>
-<hr />
-<h4 id="blog-post-using-the-script"><a class="toclink" href="2025/01/30/automating-the-ros-1-ros-2-bridge-for-roboclaw/#blog-post-using-the-script"><strong>Blog Post Using the Script</strong></a></h4>
-<div class="highlight"><pre><span></span><code>---
-comments: true  
-date: 2025-01-30  
-updated: 2025-01-30  
-title: Automating the ROS 1-ROS 2 Bridge for RoboClaw  
-description: A Python script to set up the ROS 1-ROS 2 bridge automatically for controlling a RoboClaw motor controller using ROS 2 commands.  
-categories:  
-<span class="k">-</span><span class="w"> </span>Robotics  
-tags:  
-<span class="k">-</span><span class="w"> </span>ROS  
-<span class="k">-</span><span class="w"> </span>ROS Noetic  
-<span class="k">-</span><span class="w"> </span>ROS Foxy  
-<span class="k">-</span><span class="w"> </span>Ubuntu 20.04  
-<span class="gu">author: harmindersinghnijjar  </span>
-<span class="gu">---</span>
-
-<span class="gu">## **Introduction**  </span>
-
-Setting up the <span class="gs">**ROS 1-ROS 2 bridge**</span> manually every time can be frustrating. This guide provides a <span class="gs">**Python script**</span> that automates the process, making it easier to run your <span class="gs">**RoboClaw motor controller**</span> in ROS 1 while sending commands from ROS 2.
-
----
-
-<span class="gu">## **Why Use a Bridge?**  </span>
-
-Since ROS 1 Noetic and ROS 2 Foxy use different middleware, we need the <span class="gs">**ros1_bridge**</span> to communicate between them. With this setup, you can <span class="gs">**control RoboClaw from ROS 2**</span> while it runs on <span class="gs">**ROS 1**</span>.
-
----
-
-<span class="gu">## **Steps Automated by the Script**  </span>
-
-<span class="k">1.</span> <span class="gs">**Detect ROS 1 and ROS 2 installations**</span>  
-<span class="k">2.</span> <span class="gs">**Start roscore (if not running)**</span>  
-<span class="k">3.</span> <span class="gs">**Launch the RoboClaw node in ROS 1**</span>  
-<span class="k">4.</span> <span class="gs">**Start the ROS 1-ROS 2 bridge**</span>  
-<span class="k">5.</span> <span class="gs">**Verify if `/cmd_vel` is bridged between ROS versions**</span>  
-<span class="k">6.</span> <span class="gs">**Send a velocity command from ROS 2**</span>  
-
----
-
-<span class="gu">## **The Python Script**  </span>
-
-Here is the script that automates the process:
-
-```python
-import os
-import subprocess
-import time
-
-def run_command(command):
-    &quot;&quot;&quot; Runs a shell command and returns the output &quot;&quot;&quot;
-    try:
-        output = subprocess.run(command, shell=True, check=True, text=True, capture_output=True)
-        return output.stdout.strip()
-    except subprocess.CalledProcessError as e:
-        print(f&quot;Error: {e}&quot;)
-        return None
-
-def source_ros(version):
-    &quot;&quot;&quot; Sources the correct ROS environment &quot;&quot;&quot;
-    if version == &quot;ros1&quot;:
-        os.system(&quot;source /opt/ros/noetic/setup.bash&quot;)
-    elif version == &quot;ros2&quot;:
-        os.system(&quot;source /opt/ros/foxy/setup.bash&quot;)
-    else:
-        print(&quot;Invalid ROS version specified&quot;)
-
-def check_ros_version():
-    &quot;&quot;&quot; Checks if ROS 1 and ROS 2 are installed &quot;&quot;&quot;
-    ros1_check = run_command(&quot;rosversion -d&quot;)
-    ros2_check = run_command(&quot;ros2 --version&quot;)
-
-    if &quot;noetic&quot; in str(ros1_check):
-        print(&quot;[✔] ROS 1 Noetic detected&quot;)
-    else:
-        print(&quot;[X] ROS 1 Noetic not found!&quot;)
-
-    if ros2_check:
-        print(f&quot;[✔] ROS 2 detected (Version: {ros2_check})&quot;)
-    else:
-        print(&quot;[X] ROS 2 not found!&quot;)
-
-def start_roscore():
-    &quot;&quot;&quot; Starts roscore if not already running &quot;&quot;&quot;
-    output = run_command(&quot;pgrep -x roscore&quot;)
-    if output:
-        print(&quot;[✔] roscore is already running&quot;)
-    else:
-        print(&quot;[✔] Starting roscore...&quot;)
-        os.system(&quot;roscore &amp;&quot;)
-        time.sleep(3)
-
-def start_roboclaw_node():
-    &quot;&quot;&quot; Launches the RoboClaw node &quot;&quot;&quot;
-    print(&quot;[✔] Launching RoboClaw node...&quot;)
-    os.system(&quot;roslaunch roboclaw_node roboclaw.launch &amp;&quot;)
-    time.sleep(3)
-
-def start_ros1_bridge():
-    &quot;&quot;&quot; Starts the ROS 1-ROS 2 bridge &quot;&quot;&quot;
-    print(&quot;[✔] Launching ROS 1-ROS 2 bridge...&quot;)
-    os.system(&quot;ros2 run ros1_bridge dynamic_bridge &amp;&quot;)
-    time.sleep(3)
-
-def check_cmd_vel_topic():
-    &quot;&quot;&quot; Checks if /cmd_vel is available in both ROS 1 and ROS 2 &quot;&quot;&quot;
-    ros1_topics = run_command(&quot;rostopic list&quot;)
-    ros2_topics = run_command(&quot;ros2 topic list&quot;)
-
-    if &quot;/cmd_vel&quot; in str(ros1_topics):
-        print(&quot;[✔] /cmd_vel is available in ROS 1&quot;)
-    else:
-        print(&quot;[X] /cmd_vel not found in ROS 1&quot;)
-
-    if &quot;/cmd_vel&quot; in str(ros2_topics):
-        print(&quot;[✔] /cmd_vel is available in ROS 2&quot;)
-    else:
-        print(&quot;[X] /cmd_vel not found in ROS 2&quot;)
-
-if <span class="gs">__name__</span> == &quot;<span class="gs">__main__</span>&quot;:
-    print(&quot;\n[✔] Setting up ROS 1-ROS 2 Bridge for RoboClaw...&quot;)
-    check_ros_version()
-
-    source_ros(&quot;ros1&quot;)
-    start_roscore()
-    start_roboclaw_node()
-
-    source_ros(&quot;ros2&quot;)
-    start_ros1_bridge()
-
-    check_cmd_vel_topic()
-
-    print(&quot;\n[✔] Setup complete! You can now control RoboClaw from ROS 2.&quot;)
 </code></pre></div>
 <hr />
 <h3 id="conclusion"><a class="toclink" href="2025/01/30/automating-the-ros-1-ros-2-bridge-for-roboclaw/#conclusion"><strong>Conclusion</strong></a></h3>
