@@ -679,6 +679,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sending Commands from ROS 2 to RoboClaw in ROS 1 with a ROS Bridge
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004" class="md-nav__link">
     <span class="md-ellipsis">
       Running ROS 1 Noetic and ROS 2 Foxy From Source on Ubuntu 20.04
@@ -801,6 +810,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sending Commands from ROS 2 to RoboClaw in ROS 1 with a ROS Bridge
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004" class="md-nav__link">
     <span class="md-ellipsis">
       Running ROS 1 Noetic and ROS 2 Foxy From Source on Ubuntu 20.04
@@ -886,6 +904,102 @@
       <header class="md-typeset">
         <h1 id="robotics">Robotics</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-01-30 00:00:00+00:00">January 30, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="./" class="md-meta__link">Robotics</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              2 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge"><a class="toclink" href="../../2025/01/30/sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge/">Sending Commands from ROS 2 to RoboClaw in ROS 1 with a ROS Bridge</a></h2>
+<h3 id="introduction"><a class="toclink" href="../../2025/01/30/sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge/#introduction"><strong>Introduction</strong></a></h3>
+<p>With ROS 1 Noetic and ROS 2 Foxy running on the same system, it’s possible to bridge topics between them. This allows controlling a <strong>RoboClaw motor controller</strong> (running on ROS 1) using <strong>ROS 2 commands</strong>. This guide walks you through setting up the <strong>ros1_bridge</strong> and sending commands to the RoboClaw-controlled robot from ROS 2.</p>
+<hr />
+<h3 id="key-topics-covered"><a class="toclink" href="../../2025/01/30/sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge/#key-topics-covered"><strong>Key Topics Covered</strong></a></h3>
+<ul>
+<li>Running the RoboClaw node in ROS 1  </li>
+<li>Setting up the ROS 1-ROS 2 bridge  </li>
+<li>Sending velocity commands from ROS 2  </li>
+<li>Debugging issues  </li>
+</ul>
+<hr />
+<h3 id="1-launching-the-roboclaw-node-in-ros-1"><a class="toclink" href="../../2025/01/30/sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge/#1-launching-the-roboclaw-node-in-ros-1"><strong>1. Launching the RoboClaw Node in ROS 1</strong></a></h3>
+<p>Make sure ROS 1 Noetic is <strong>sourced</strong> and start the RoboClaw node:  </p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/opt/ros/noetic/setup.bash
+roslaunch<span class="w"> </span>roboclaw_node<span class="w"> </span>roboclaw.launch
+</code></pre></div>
+<p>Check if the <strong>/cmd_vel</strong> topic is available in ROS 1:  </p>
+<div class="highlight"><pre><span></span><code>rostopic<span class="w"> </span>list
+</code></pre></div>
+<p>You should see <code>/cmd_vel</code> in the list.</p>
+<p>To verify if the node is working, try publishing a command directly from ROS 1:  </p>
+<div class="highlight"><pre><span></span><code>rostopic<span class="w"> </span>pub<span class="w"> </span>/cmd_vel<span class="w"> </span>geometry_msgs/Twist<span class="w"> </span><span class="s1">&#39;{linear: {x: 0.5}, angular: {z: 0.1}}&#39;</span>
+</code></pre></div>
+<p>If the robot moves, the RoboClaw node is working correctly.</p>
+<hr />
+<h3 id="2-setting-up-the-ros-1-ros-2-bridge"><a class="toclink" href="../../2025/01/30/sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge/#2-setting-up-the-ros-1-ros-2-bridge"><strong>2. Setting Up the ROS 1-ROS 2 Bridge</strong></a></h3>
+<p>Since ROS 1 and ROS 2 use different communication protocols, we need to bridge them.</p>
+<h4 id="step-1-install-the-bridge"><a class="toclink" href="../../2025/01/30/sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge/#step-1-install-the-bridge"><strong>Step 1: Install the Bridge</strong></a></h4>
+<p>Ensure both ROS 1 and ROS 2 are sourced:  </p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/opt/ros/noetic/setup.bash
+<span class="nb">source</span><span class="w"> </span>/opt/ros/foxy/setup.bash
+</code></pre></div>
+<p>Install <code>ros1_bridge</code>:  </p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-foxy-ros1-bridge
+</code></pre></div>
+<h4 id="step-2-run-the-bridge"><a class="toclink" href="../../2025/01/30/sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge/#step-2-run-the-bridge"><strong>Step 2: Run the Bridge</strong></a></h4>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>ros1_bridge<span class="w"> </span>dynamic_bridge
+</code></pre></div>
+<p>This will automatically bridge compatible topics between ROS 1 and ROS 2.</p>
+<hr />
+<h3 id="3-sending-commands-from-ros-2-to-roboclaw"><a class="toclink" href="../../2025/01/30/sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge/#3-sending-commands-from-ros-2-to-roboclaw"><strong>3. Sending Commands from ROS 2 to RoboClaw</strong></a></h3>
+<p>Now that the bridge is running, switch to a new terminal and <strong>source ROS 2</strong>:  </p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/opt/ros/foxy/setup.bash
+</code></pre></div>
+<p>Check if the <strong>/cmd_vel</strong> topic is being bridged in ROS 2:  </p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>topic<span class="w"> </span>list
+</code></pre></div>
+<p>If <code>/cmd_vel</code> appears, you can <strong>publish a movement command from ROS 2</strong>:</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>/cmd_vel<span class="w"> </span>geometry_msgs/msg/Twist<span class="w"> </span><span class="s2">&quot;{linear: {x: 0.5}, angular: {z: 0.1}}&quot;</span>
+</code></pre></div>
+<p>This should <strong>move the robot</strong> as if the command came from ROS 1.</p>
+<hr />
+<h3 id="4-debugging-common-issues"><a class="toclink" href="../../2025/01/30/sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge/#4-debugging-common-issues"><strong>4. Debugging Common Issues</strong></a></h3>
+<h4 id="issue-1-ros-1-and-ros-2-variables-overlapping"><a class="toclink" href="../../2025/01/30/sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge/#issue-1-ros-1-and-ros-2-variables-overlapping"><strong>Issue 1: ROS 1 and ROS 2 Variables Overlapping</strong></a></h4>
+<p><strong>Solution:</strong> Open separate terminals for ROS 1 and ROS 2, and source them separately.</p>
+<h4 id="issue-2-the-bridge-doesnt-forward-cmd_vel"><a class="toclink" href="../../2025/01/30/sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge/#issue-2-the-bridge-doesnt-forward-cmd_vel"><strong>Issue 2: The Bridge Doesn’t Forward /cmd_vel</strong></a></h4>
+<p><strong>Solution:</strong> Restart the bridge and verify that both ROS versions are sourced properly.</p>
+<h4 id="issue-3-roboclaw-doesnt-respond-to-commands"><a class="toclink" href="../../2025/01/30/sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge/#issue-3-roboclaw-doesnt-respond-to-commands"><strong>Issue 3: RoboClaw Doesn’t Respond to Commands</strong></a></h4>
+<p><strong>Solution:</strong> Ensure the RoboClaw node is running, and check <code>/cmd_vel</code> in ROS 1 using:</p>
+<div class="highlight"><pre><span></span><code>rostopic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/cmd_vel
+</code></pre></div>
+<hr />
+<h3 id="conclusion"><a class="toclink" href="../../2025/01/30/sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge/#conclusion"><strong>Conclusion</strong></a></h3>
+<p>By following this guide, you can successfully <strong>control your RoboClaw-powered robot from ROS 2</strong> while it runs on <strong>ROS 1 Noetic</strong>. The <strong>ros1_bridge</strong> ensures seamless communication, allowing hybrid ROS applications.  </p>
+<p>With this setup, you can integrate <strong>ROS 2-based navigation stacks</strong> with older ROS 1 hardware.</p>
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
