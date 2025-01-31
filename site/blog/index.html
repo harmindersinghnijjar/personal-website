@@ -551,6 +551,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#automating-the-ros-1-ros-2-bridge-for-roboclaw" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automating the ROS 1-ROS 2 Bridge for RoboClaw
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004" class="md-nav__link">
     <span class="md-ellipsis">
       Running ROS 1 Noetic and ROS 2 Foxy From Source on Ubuntu 20.04
@@ -617,15 +626,6 @@
   <a href="#bypassing-cloudflare-with-selenium-and-undetected-chromedriver" class="md-nav__link">
     <span class="md-ellipsis">
       Bypassing Cloudflare with Selenium and Undetected-Chromedriver
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setting-up-browser-use-with-botright" class="md-nav__link">
-    <span class="md-ellipsis">
-      Setting Up Browser Use with Botright
     </span>
   </a>
   
@@ -738,6 +738,292 @@ roslaunch<span class="w"> </span>roboclaw_node<span class="w"> </span>roboclaw.l
 <h3 id="conclusion"><a class="toclink" href="2025/01/30/sending-commands-from-ros-2-to-roboclaw-in-ros-1-with-a-ros-bridge/#conclusion"><strong>Conclusion</strong></a></h3>
 <p>By following this guide, you can successfully <strong>control your RoboClaw-powered robot from ROS 2</strong> while it runs on <strong>ROS 1 Noetic</strong>. The <strong>ros1_bridge</strong> ensures seamless communication, allowing hybrid ROS applications.  </p>
 <p>With this setup, you can integrate <strong>ROS 2-based navigation stacks</strong> with older ROS 1 hardware.</p>
+    
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-01-30 00:00:00+00:00">January 30, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="category/robotics/" class="md-meta__link">Robotics</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              4 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="automating-the-ros-1-ros-2-bridge-for-roboclaw"><a class="toclink" href="2025/01/30/automating-the-ros-1-ros-2-bridge-for-roboclaw/">Automating the ROS 1-ROS 2 Bridge for RoboClaw</a></h2>
+<p>Below is a <strong>Python script</strong> that automates the setup of the ROS 1-ROS 2 bridge every time you need it. The script ensures that:</p>
+<ul>
+<li><strong>ROS 1 Noetic and ROS 2 Foxy</strong> are properly sourced.</li>
+<li>The <strong>ros1_bridge</strong> is installed and launched.</li>
+<li>It verifies the bridge and the <code>/cmd_vel</code> topic.</li>
+<li>You can control the RoboClaw motor controller from ROS 2.</li>
+</ul>
+<hr />
+<h4 id="python-script-setup_ros_bridgepy"><a class="toclink" href="2025/01/30/automating-the-ros-1-ros-2-bridge-for-roboclaw/#python-script-setup_ros_bridgepy"><strong>Python Script (<code>setup_ros_bridge.py</code>)</strong></a></h4>
+<h3 id="import-os-import-subprocess-import-time-def-run_commandcommand-runs-a-shell-command-and-returns-the-output-try-output-subprocessruncommand-shelltrue-checktrue-texttrue-capture_outputtrue-return-outputstdoutstrip-except-subprocesscalledprocesserror-as-e-printferror-e-return-none-def-source_rosversion-sources-the-correct-ros-environment-if-version-ros1-ossystemsource-optrosnoeticsetupbash-elif-version-ros2-ossystemsource-optrosfoxysetupbash-else-printinvalid-ros-version-specified-def-check_ros_version-checks-if-ros-1-and-ros-2-are-installed-ros1_check-run_commandrosversion-d-ros2_check-run_commandros2-version-if-noetic-in-strros1_check-print-ros-1-noetic-detected-else-printx-ros-1-noetic-not-found-if-ros2_check-printf-ros-2-detected-version-ros2_check-else-printx-ros-2-not-found-def-start_roscore-starts-roscore-if-not-already-running-output-run_commandpgrep-x-roscore-if-output-print-roscore-is-already-running-else-print-starting-roscore-ossystemroscore-timesleep3-def-start_roboclaw_node-launches-the-roboclaw-node-print-launching-roboclaw-node-ossystemroslaunch-roboclaw_node-roboclawlaunch-timesleep3-def-start_ros1_bridge-starts-the-ros-1-ros-2-bridge-print-launching-ros-1-ros-2-bridge-ossystemros2-run-ros1_bridge-dynamic_bridge-timesleep3-def-check_cmd_vel_topic-checks-if-cmd_vel-is-available-in-both-ros-1-and-ros-2-ros1_topics-run_commandrostopic-list-ros2_topics-run_commandros2-topic-list-if-cmd_vel-in-strros1_topics-print-cmd_vel-is-available-in-ros-1-else-printx-cmd_vel-not-found-in-ros-1-if-cmd_vel-in-strros2_topics-print-cmd_vel-is-available-in-ros-2-else-printx-cmd_vel-not-found-in-ros-2-def-send_velocity_command-sends-a-test-velocity-command-from-ros-2-print-sending-velocity-command-from-ros-2-ossystemros2-topic-pub-cmd_vel-geometry_msgsmsgtwist-linear-x-05-angular-z-01-if-__name__-__main__-printn-setting-up-ros-1-ros-2-bridge-for-roboclaw-check_ros_version-source_rosros1-start_roscore-start_roboclaw_node-source_rosros2-start_ros1_bridge-check_cmd_vel_topic-send_velocity_command-printn-setup-complete-you-can-now-control-roboclaw-from-ros-2"><a class="toclink" href="2025/01/30/automating-the-ros-1-ros-2-bridge-for-roboclaw/#import-os-import-subprocess-import-time-def-run_commandcommand-runs-a-shell-command-and-returns-the-output-try-output-subprocessruncommand-shelltrue-checktrue-texttrue-capture_outputtrue-return-outputstdoutstrip-except-subprocesscalledprocesserror-as-e-printferror-e-return-none-def-source_rosversion-sources-the-correct-ros-environment-if-version-ros1-ossystemsource-optrosnoeticsetupbash-elif-version-ros2-ossystemsource-optrosfoxysetupbash-else-printinvalid-ros-version-specified-def-check_ros_version-checks-if-ros-1-and-ros-2-are-installed-ros1_check-run_commandrosversion-d-ros2_check-run_commandros2-version-if-noetic-in-strros1_check-print-ros-1-noetic-detected-else-printx-ros-1-noetic-not-found-if-ros2_check-printf-ros-2-detected-version-ros2_check-else-printx-ros-2-not-found-def-start_roscore-starts-roscore-if-not-already-running-output-run_commandpgrep-x-roscore-if-output-print-roscore-is-already-running-else-print-starting-roscore-ossystemroscore-timesleep3-def-start_roboclaw_node-launches-the-roboclaw-node-print-launching-roboclaw-node-ossystemroslaunch-roboclaw_node-roboclawlaunch-timesleep3-def-start_ros1_bridge-starts-the-ros-1-ros-2-bridge-print-launching-ros-1-ros-2-bridge-ossystemros2-run-ros1_bridge-dynamic_bridge-timesleep3-def-check_cmd_vel_topic-checks-if-cmd_vel-is-available-in-both-ros-1-and-ros-2-ros1_topics-run_commandrostopic-list-ros2_topics-run_commandros2-topic-list-if-cmd_vel-in-strros1_topics-print-cmd_vel-is-available-in-ros-1-else-printx-cmd_vel-not-found-in-ros-1-if-cmd_vel-in-strros2_topics-print-cmd_vel-is-available-in-ros-2-else-printx-cmd_vel-not-found-in-ros-2-def-send_velocity_command-sends-a-test-velocity-command-from-ros-2-print-sending-velocity-command-from-ros-2-ossystemros2-topic-pub-cmd_vel-geometry_msgsmsgtwist-linear-x-05-angular-z-01-if-__name__-__main__-printn-setting-up-ros-1-ros-2-bridge-for-roboclaw-check_ros_version-source_rosros1-start_roscore-start_roboclaw_node-source_rosros2-start_ros1_bridge-check_cmd_vel_topic-send_velocity_command-printn-setup-complete-you-can-now-control-roboclaw-from-ros-2"><div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">run_command</span><span class="p">(</span><span class="n">command</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Runs a shell command and returns the output &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">output</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+<span class="k">def</span> <span class="nf">source_ros</span><span class="p">(</span><span class="n">version</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Sources the correct ROS environment &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">version</span> <span class="o">==</span> <span class="s2">&quot;ros1&quot;</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;source /opt/ros/noetic/setup.bash&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">version</span> <span class="o">==</span> <span class="s2">&quot;ros2&quot;</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;source /opt/ros/foxy/setup.bash&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid ROS version specified&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">check_ros_version</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Checks if ROS 1 and ROS 2 are installed &quot;&quot;&quot;</span>
+    <span class="n">ros1_check</span> <span class="o">=</span> <span class="n">run_command</span><span class="p">(</span><span class="s2">&quot;rosversion -d&quot;</span><span class="p">)</span>
+    <span class="n">ros2_check</span> <span class="o">=</span> <span class="n">run_command</span><span class="p">(</span><span class="s2">&quot;ros2 --version&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="s2">&quot;noetic&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">ros1_check</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[✔] ROS 1 Noetic detected&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[X] ROS 1 Noetic not found!&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">ros2_check</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[✔] ROS 2 detected (Version: </span><span class="si">{</span><span class="n">ros2_check</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[X] ROS 2 not found!&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">start_roscore</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Starts roscore if not already running &quot;&quot;&quot;</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">run_command</span><span class="p">(</span><span class="s2">&quot;pgrep -x roscore&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">output</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[✔] roscore is already running&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[✔] Starting roscore...&quot;</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;roscore &amp;&quot;</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">start_roboclaw_node</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Launches the RoboClaw node &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[✔] Launching RoboClaw node...&quot;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;roslaunch roboclaw_node roboclaw.launch &amp;&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">start_ros1_bridge</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Starts the ROS 1-ROS 2 bridge &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[✔] Launching ROS 1-ROS 2 bridge...&quot;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;ros2 run ros1_bridge dynamic_bridge &amp;&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">check_cmd_vel_topic</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Checks if /cmd_vel is available in both ROS 1 and ROS 2 &quot;&quot;&quot;</span>
+    <span class="n">ros1_topics</span> <span class="o">=</span> <span class="n">run_command</span><span class="p">(</span><span class="s2">&quot;rostopic list&quot;</span><span class="p">)</span>
+    <span class="n">ros2_topics</span> <span class="o">=</span> <span class="n">run_command</span><span class="p">(</span><span class="s2">&quot;ros2 topic list&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="s2">&quot;/cmd_vel&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">ros1_topics</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[✔] /cmd_vel is available in ROS 1&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[X] /cmd_vel not found in ROS 1&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="s2">&quot;/cmd_vel&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">ros2_topics</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[✔] /cmd_vel is available in ROS 2&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[X] /cmd_vel not found in ROS 2&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">send_velocity_command</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Sends a test velocity command from ROS 2 &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[✔] Sending velocity command from ROS 2...&quot;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;ros2 topic pub /cmd_vel geometry_msgs/msg/Twist </span><span class="se">\&quot;</span><span class="s2">{linear: </span><span class="si">{x: 0.5}</span><span class="s2">, angular: </span><span class="si">{z: 0.1}</span><span class="s2">}</span><span class="se">\&quot;</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">[✔] Setting up ROS 1-ROS 2 Bridge for RoboClaw...&quot;</span><span class="p">)</span>
+    <span class="n">check_ros_version</span><span class="p">()</span>
+
+    <span class="n">source_ros</span><span class="p">(</span><span class="s2">&quot;ros1&quot;</span><span class="p">)</span>
+    <span class="n">start_roscore</span><span class="p">()</span>
+    <span class="n">start_roboclaw_node</span><span class="p">()</span>
+
+    <span class="n">source_ros</span><span class="p">(</span><span class="s2">&quot;ros2&quot;</span><span class="p">)</span>
+    <span class="n">start_ros1_bridge</span><span class="p">()</span>
+
+    <span class="n">check_cmd_vel_topic</span><span class="p">()</span>
+    <span class="n">send_velocity_command</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">[✔] Setup complete! You can now control RoboClaw from ROS 2.&quot;</span><span class="p">)</span>
+</code></pre></div></a></h3>
+<h4 id="how-to-use-the-script"><a class="toclink" href="2025/01/30/automating-the-ros-1-ros-2-bridge-for-roboclaw/#how-to-use-the-script"><strong>How to Use the Script</strong></a></h4>
+<ol>
+<li><strong>Save the script</strong> as <code>setup_ros_bridge.py</code></li>
+<li><strong>Make it executable</strong>:
+   <div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>setup_ros_bridge.py
+</code></pre></div></li>
+<li><strong>Run the script</strong>:
+   <div class="highlight"><pre><span></span><code>python3<span class="w"> </span>setup_ros_bridge.py
+</code></pre></div></li>
+</ol>
+<hr />
+<h4 id="blog-post-using-the-script"><a class="toclink" href="2025/01/30/automating-the-ros-1-ros-2-bridge-for-roboclaw/#blog-post-using-the-script"><strong>Blog Post Using the Script</strong></a></h4>
+<div class="highlight"><pre><span></span><code>---
+comments: true  
+date: 2025-01-30  
+updated: 2025-01-30  
+title: Automating the ROS 1-ROS 2 Bridge for RoboClaw  
+description: A Python script to set up the ROS 1-ROS 2 bridge automatically for controlling a RoboClaw motor controller using ROS 2 commands.  
+categories:  
+<span class="k">-</span><span class="w"> </span>Robotics  
+tags:  
+<span class="k">-</span><span class="w"> </span>ROS  
+<span class="k">-</span><span class="w"> </span>ROS Noetic  
+<span class="k">-</span><span class="w"> </span>ROS Foxy  
+<span class="k">-</span><span class="w"> </span>Ubuntu 20.04  
+<span class="gu">author: harmindersinghnijjar  </span>
+<span class="gu">---</span>
+
+<span class="gu">## **Introduction**  </span>
+
+Setting up the <span class="gs">**ROS 1-ROS 2 bridge**</span> manually every time can be frustrating. This guide provides a <span class="gs">**Python script**</span> that automates the process, making it easier to run your <span class="gs">**RoboClaw motor controller**</span> in ROS 1 while sending commands from ROS 2.
+
+---
+
+<span class="gu">## **Why Use a Bridge?**  </span>
+
+Since ROS 1 Noetic and ROS 2 Foxy use different middleware, we need the <span class="gs">**ros1_bridge**</span> to communicate between them. With this setup, you can <span class="gs">**control RoboClaw from ROS 2**</span> while it runs on <span class="gs">**ROS 1**</span>.
+
+---
+
+<span class="gu">## **Steps Automated by the Script**  </span>
+
+<span class="k">1.</span> <span class="gs">**Detect ROS 1 and ROS 2 installations**</span>  
+<span class="k">2.</span> <span class="gs">**Start roscore (if not running)**</span>  
+<span class="k">3.</span> <span class="gs">**Launch the RoboClaw node in ROS 1**</span>  
+<span class="k">4.</span> <span class="gs">**Start the ROS 1-ROS 2 bridge**</span>  
+<span class="k">5.</span> <span class="gs">**Verify if `/cmd_vel` is bridged between ROS versions**</span>  
+<span class="k">6.</span> <span class="gs">**Send a velocity command from ROS 2**</span>  
+
+---
+
+<span class="gu">## **The Python Script**  </span>
+
+Here is the script that automates the process:
+
+```python
+import os
+import subprocess
+import time
+
+def run_command(command):
+    &quot;&quot;&quot; Runs a shell command and returns the output &quot;&quot;&quot;
+    try:
+        output = subprocess.run(command, shell=True, check=True, text=True, capture_output=True)
+        return output.stdout.strip()
+    except subprocess.CalledProcessError as e:
+        print(f&quot;Error: {e}&quot;)
+        return None
+
+def source_ros(version):
+    &quot;&quot;&quot; Sources the correct ROS environment &quot;&quot;&quot;
+    if version == &quot;ros1&quot;:
+        os.system(&quot;source /opt/ros/noetic/setup.bash&quot;)
+    elif version == &quot;ros2&quot;:
+        os.system(&quot;source /opt/ros/foxy/setup.bash&quot;)
+    else:
+        print(&quot;Invalid ROS version specified&quot;)
+
+def check_ros_version():
+    &quot;&quot;&quot; Checks if ROS 1 and ROS 2 are installed &quot;&quot;&quot;
+    ros1_check = run_command(&quot;rosversion -d&quot;)
+    ros2_check = run_command(&quot;ros2 --version&quot;)
+
+    if &quot;noetic&quot; in str(ros1_check):
+        print(&quot;[✔] ROS 1 Noetic detected&quot;)
+    else:
+        print(&quot;[X] ROS 1 Noetic not found!&quot;)
+
+    if ros2_check:
+        print(f&quot;[✔] ROS 2 detected (Version: {ros2_check})&quot;)
+    else:
+        print(&quot;[X] ROS 2 not found!&quot;)
+
+def start_roscore():
+    &quot;&quot;&quot; Starts roscore if not already running &quot;&quot;&quot;
+    output = run_command(&quot;pgrep -x roscore&quot;)
+    if output:
+        print(&quot;[✔] roscore is already running&quot;)
+    else:
+        print(&quot;[✔] Starting roscore...&quot;)
+        os.system(&quot;roscore &amp;&quot;)
+        time.sleep(3)
+
+def start_roboclaw_node():
+    &quot;&quot;&quot; Launches the RoboClaw node &quot;&quot;&quot;
+    print(&quot;[✔] Launching RoboClaw node...&quot;)
+    os.system(&quot;roslaunch roboclaw_node roboclaw.launch &amp;&quot;)
+    time.sleep(3)
+
+def start_ros1_bridge():
+    &quot;&quot;&quot; Starts the ROS 1-ROS 2 bridge &quot;&quot;&quot;
+    print(&quot;[✔] Launching ROS 1-ROS 2 bridge...&quot;)
+    os.system(&quot;ros2 run ros1_bridge dynamic_bridge &amp;&quot;)
+    time.sleep(3)
+
+def check_cmd_vel_topic():
+    &quot;&quot;&quot; Checks if /cmd_vel is available in both ROS 1 and ROS 2 &quot;&quot;&quot;
+    ros1_topics = run_command(&quot;rostopic list&quot;)
+    ros2_topics = run_command(&quot;ros2 topic list&quot;)
+
+    if &quot;/cmd_vel&quot; in str(ros1_topics):
+        print(&quot;[✔] /cmd_vel is available in ROS 1&quot;)
+    else:
+        print(&quot;[X] /cmd_vel not found in ROS 1&quot;)
+
+    if &quot;/cmd_vel&quot; in str(ros2_topics):
+        print(&quot;[✔] /cmd_vel is available in ROS 2&quot;)
+    else:
+        print(&quot;[X] /cmd_vel not found in ROS 2&quot;)
+
+if <span class="gs">__name__</span> == &quot;<span class="gs">__main__</span>&quot;:
+    print(&quot;\n[✔] Setting up ROS 1-ROS 2 Bridge for RoboClaw...&quot;)
+    check_ros_version()
+
+    source_ros(&quot;ros1&quot;)
+    start_roscore()
+    start_roboclaw_node()
+
+    source_ros(&quot;ros2&quot;)
+    start_ros1_bridge()
+
+    check_cmd_vel_topic()
+
+    print(&quot;\n[✔] Setup complete! You can now control RoboClaw from ROS 2.&quot;)
+</code></pre></div>
+<hr />
+<h3 id="conclusion"><a class="toclink" href="2025/01/30/automating-the-ros-1-ros-2-bridge-for-roboclaw/#conclusion"><strong>Conclusion</strong></a></h3>
+<p>This script <strong>automates the ROS bridge setup</strong> so you can focus on developing your robot. Just run:</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>setup_ros_bridge.py
+</code></pre></div>
+<p>🚀 <strong>Now you can control your RoboClaw motor from ROS 2 effortlessly!</strong></p>
     
   </div>
 </article>
@@ -2108,137 +2394,6 @@ If no data appears, ensure the LIDAR launch file is correctly configured and the
 <li><a href="https://www.example.com/captcha-bypass-guide">CAPTCHA Bypass Strategies</a></li>
 <li><a href="https://www.cloudflare.com/">Cloudflare and Bot Detection</a></li>
 </ul>
-    
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2025-01-15 00:00:00+00:00">January 15, 2025</time></li>
-        
-          <li class="md-meta__item">
-            in
-            
-              <a href="category/programming/" class="md-meta__link">Programming</a></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              2 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="setting-up-browser-use-with-botright"><a class="toclink" href="2025/01/15/setting-up-browser-use-with-botright/">Setting Up Browser Use with Botright</a></h2>
-<p>Automating web browsing while remaining undetected is critical for various use cases like scraping, testing, or automation. This guide shows you how to set up <strong>Browser Use</strong> with <strong>Botright</strong>, a robust library for stealth browsing and captcha solving.</p>
-<h3 id="why-use-botright"><a class="toclink" href="2025/01/15/setting-up-browser-use-with-botright/#why-use-botright">Why Use Botright?</a></h3>
-<p><a href="https://github.com/Vinyzu/Botright">Botright</a> enhances stealth browsing by leveraging techniques like fingerprint masking and AI-driven captcha solving. It integrates seamlessly with Playwright, making it perfect for stealthy automation tasks.</p>
-<h3 id="prerequisites"><a class="toclink" href="2025/01/15/setting-up-browser-use-with-botright/#prerequisites">Prerequisites</a></h3>
-<p>Ensure the following tools and dependencies are installed:</p>
-<ol>
-<li><strong>Python 3.11 or Higher</strong>: Install from <a href="https://www.python.org/">python.org</a>.</li>
-<li><strong>pip</strong>: Included with Python.</li>
-<li><strong>Browser Use</strong>: The main framework.</li>
-<li><strong>Botright</strong>: For stealth features and advanced automation.</li>
-</ol>
-<h4 id="install-required-packages"><a class="toclink" href="2025/01/15/setting-up-browser-use-with-botright/#install-required-packages">Install Required Packages</a></h4>
-<p>Run the following commands to set up your environment:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Clone the repository</span>
-git<span class="w"> </span>clone<span class="w"> </span>https://github.com/browser-use/browser-use
-<span class="nb">cd</span><span class="w"> </span>browser-use
-
-<span class="c1"># Install uv for environment management</span>
-pip<span class="w"> </span>install<span class="w"> </span>uv
-
-<span class="c1"># Create a virtual environment</span>
-uv<span class="w"> </span>venv<span class="w"> </span>--python<span class="w"> </span><span class="m">3</span>.11
-
-<span class="c1"># Activate the virtual environment</span>
-<span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w"> </span><span class="c1"># For Linux/macOS</span>
-.venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate<span class="w">    </span><span class="c1"># For Windows</span>
-
-<span class="c1"># Install Browser Use with development dependencies</span>
-uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>.<span class="w"> </span>.<span class="s2">&quot;[dev]&quot;</span>
-
-<span class="c1"># Install Botright</span>
-pip<span class="w"> </span>install<span class="w"> </span>botright
-playwright<span class="w"> </span>install
-</code></pre></div>
-<h3 id="implementation"><a class="toclink" href="2025/01/15/setting-up-browser-use-with-botright/#implementation">Implementation</a></h3>
-<p>Follow these steps to integrate Botright with Browser Use:</p>
-<h4 id="1-update-mainpy"><a class="toclink" href="2025/01/15/setting-up-browser-use-with-botright/#1-update-mainpy">1. Update <code>main.py</code></a></h4>
-<p>Replace the Playwright browser initialization with Botright’s initialization. Here’s the updated <code>main.py</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">import</span> <span class="nn">botright</span>
-
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="c1"># Initialize Botright with enhanced stealth options</span>
-    <span class="n">botright_client</span> <span class="o">=</span> <span class="k">await</span> <span class="n">botright</span><span class="o">.</span><span class="n">Botright</span><span class="p">(</span><span class="n">headless</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-    <span class="c1"># Launch a browser instance</span>
-    <span class="n">browser</span> <span class="o">=</span> <span class="k">await</span> <span class="n">botright_client</span><span class="o">.</span><span class="n">new_browser</span><span class="p">()</span>
-
-    <span class="c1"># Open a new page</span>
-    <span class="n">page</span> <span class="o">=</span> <span class="k">await</span> <span class="n">browser</span><span class="o">.</span><span class="n">new_page</span><span class="p">()</span>
-
-    <span class="c1"># Navigate to a website</span>
-    <span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">goto</span><span class="p">(</span><span class="s2">&quot;https://example.com&quot;</span><span class="p">)</span>
-
-    <span class="c1"># Perform browser actions (e.g., take a screenshot)</span>
-    <span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;screenshot.png&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Screenshot saved!&quot;</span><span class="p">)</span>
-
-    <span class="c1"># Close the browser and Botright client</span>
-    <span class="k">await</span> <span class="n">browser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-    <span class="k">await</span> <span class="n">botright_client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
-</code></pre></div>
-<h4 id="2-configure-environment-variables"><a class="toclink" href="2025/01/15/setting-up-browser-use-with-botright/#2-configure-environment-variables">2. Configure Environment Variables</a></h4>
-<p>Set up required API keys by copying the example environment file:</p>
-<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>.env.example<span class="w"> </span>.env
-</code></pre></div>
-<p>Add the following to your <code>.env</code> file:</p>
-<div class="highlight"><pre><span></span><code>BOTRIGHT_API_KEY=your_botright_api_key
-</code></pre></div>
-<h4 id="3-run-the-script"><a class="toclink" href="2025/01/15/setting-up-browser-use-with-botright/#3-run-the-script">3. Run the Script</a></h4>
-<p>Run your updated <code>main.py</code> script:</p>
-<div class="highlight"><pre><span></span><code>python<span class="w"> </span>main.py
-</code></pre></div>
-<h4 id="4-what-happens"><a class="toclink" href="2025/01/15/setting-up-browser-use-with-botright/#4-what-happens">4. What Happens?</a></h4>
-<ol>
-<li><strong>Browser Initialization</strong>: Botright launches a Chromium-based browser instance with stealth enhancements.</li>
-<li><strong>Website Navigation</strong>: The browser navigates to the specified URL (<code>https://example.com</code>).</li>
-<li><strong>Screenshot Capture</strong>: A screenshot is taken and saved as <code>screenshot.png</code>.</li>
-</ol>
-<h3 id="debugging-tips"><a class="toclink" href="2025/01/15/setting-up-browser-use-with-botright/#debugging-tips">Debugging Tips</a></h3>
-<ol>
-<li><strong>Botright Logs</strong>:
-   Use <code>print</code> statements or Botright's built-in logging for debugging.</li>
-<li><strong>Browser Errors</strong>:
-   Verify the installed version of Playwright and Botright.</li>
-<li><strong>Environment Issues</strong>:
-   Ensure your <code>.env</code> file contains the correct API keys.</li>
-</ol>
-<h3 id="advanced-features"><a class="toclink" href="2025/01/15/setting-up-browser-use-with-botright/#advanced-features">Advanced Features</a></h3>
-<h4 id="captcha-solving"><a class="toclink" href="2025/01/15/setting-up-browser-use-with-botright/#captcha-solving">Captcha Solving</a></h4>
-<p>To solve captchas, use Botright's built-in methods. Example:</p>
-<div class="highlight"><pre><span></span><code><span class="k">await</span> <span class="n">page</span><span class="o">.</span><span class="n">solve_captcha</span><span class="p">()</span>
-</code></pre></div>
-<h4 id="fingerprint-masking"><a class="toclink" href="2025/01/15/setting-up-browser-use-with-botright/#fingerprint-masking">Fingerprint Masking</a></h4>
-<p>Botright automatically handles fingerprint masking. To customize this, refer to the <a href="https://botright.readthedocs.io/">Botright documentation</a>.</p>
-<h3 id="conclusion"><a class="toclink" href="2025/01/15/setting-up-browser-use-with-botright/#conclusion">Conclusion</a></h3>
-<p>By integrating Botright with Browser Use, you unlock advanced stealth browsing capabilities ideal for sensitive automation tasks. This setup provides a solid foundation for further enhancements, such as integrating AI-based analysis or multi-page navigation workflows.</p>
     
   </div>
 </article>
