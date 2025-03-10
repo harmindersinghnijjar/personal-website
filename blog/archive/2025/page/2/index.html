@@ -505,6 +505,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover" class="md-nav__link">
     <span class="md-ellipsis">
       Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover
@@ -714,6 +723,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover" class="md-nav__link">
     <span class="md-ellipsis">
       Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover
@@ -781,6 +799,159 @@
       <header class="md-typeset">
         <h1 id="2025">2025</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-01-22 00:00:00+00:00">January 22, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../../../../category/robotics/" class="md-meta__link">Robotics</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              2 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance"><a class="toclink" href="../../../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/">Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance</a></h2>
+<h3 id="setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance_1"><a class="toclink" href="../../../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance_1">Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance</a></h3>
+<p>This guide walks you through setting up and running a Roboclaw-based ROS node with obstacle avoidance functionality using LIDAR sensors. Follow these steps to configure and launch your robotics system efficiently.</p>
+<hr />
+<h3 id="prerequisites"><a class="toclink" href="../../../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#prerequisites">Prerequisites</a></h3>
+<p>Before starting, ensure the following are set up on your system:</p>
+<ol>
+<li><strong>ROS Installed</strong>: Ensure you have ROS Melodic or a compatible version installed on your system.</li>
+<li><strong>Workspace Prepared</strong>: Your ROS workspace (e.g., <code>~/armpi_pro</code>) is built and sourced.</li>
+<li><strong>Packages Installed</strong>:</li>
+<li><code>roboclaw_ros</code> for motor control.</li>
+<li><code>ldlidar_stl_ros</code> for LIDAR sensor integration.</li>
+<li><strong>Hardware Connections</strong>:</li>
+<li>Roboclaw is connected via <code>/dev/ttyACM0</code>.</li>
+<li>LIDAR sensor is operational and connected (e.g., <code>/dev/ttyUSB0</code>).</li>
+</ol>
+<hr />
+<h3 id="launching-the-required-nodes"><a class="toclink" href="../../../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#launching-the-required-nodes">Launching the Required Nodes</a></h3>
+<p>To operate the system, you need to launch three components in sequence:</p>
+<h4 id="1-start-the-ros-core"><a class="toclink" href="../../../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#1-start-the-ros-core">1. <strong>Start the ROS Core</strong></a></h4>
+<p>Open a terminal and launch the ROS core:</p>
+<div class="highlight"><pre><span></span><code>roscore
+</code></pre></div>
+<p>Keep this terminal open as it provides the foundation for all ROS nodes.</p>
+<hr />
+<h4 id="2-launch-the-roboclaw-node"><a class="toclink" href="../../../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#2-launch-the-roboclaw-node">2. <strong>Launch the Roboclaw Node</strong></a></h4>
+<p>In a new terminal, navigate to your workspace and launch the Roboclaw node:</p>
+<div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>roboclaw_node<span class="w"> </span>roboclaw.launch
+</code></pre></div>
+<p>This node handles motor control, publishing odometry, and subscribing to velocity commands (<code>/cmd_vel</code>).</p>
+<hr />
+<h4 id="3-launch-the-lidar-node"><a class="toclink" href="../../../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#3-launch-the-lidar-node">3. <strong>Launch the LIDAR Node</strong></a></h4>
+<p>In another terminal, launch the LIDAR node:</p>
+<div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>ldlidar_stl_ros<span class="w"> </span>ld19.launch
+</code></pre></div>
+<p>This node processes LIDAR data and publishes it to the <code>/scan</code> topic.</p>
+<hr />
+<h3 id="running-the-obstacle-avoidance-node"><a class="toclink" href="../../../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#running-the-obstacle-avoidance-node">Running the Obstacle Avoidance Node</a></h3>
+<p>Once the Roboclaw and LIDAR nodes are running, you can start the obstacle avoidance script. This script subscribes to <code>/scan</code> for LIDAR data and publishes velocity commands to <code>/cmd_vel</code>.</p>
+<ol>
+<li>
+<p>Ensure the script is located at:
+   <div class="highlight"><pre><span></span><code>~/armpi_pro/src/roboclaw_ros/roboclaw_node/scripts/obstacle_avoidance.py
+</code></pre></div></p>
+</li>
+<li>
+<p>Make the script executable:
+   <div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>~/armpi_pro/src/roboclaw_ros/roboclaw_node/scripts/obstacle_avoidance.py
+</code></pre></div></p>
+</li>
+<li>
+<p>Run the script using <code>rosrun</code>:
+   <div class="highlight"><pre><span></span><code>rosrun<span class="w"> </span>roboclaw_node<span class="w"> </span>obstacle_avoidance.py
+</code></pre></div></p>
+</li>
+</ol>
+<hr />
+<h3 id="how-it-works"><a class="toclink" href="../../../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#how-it-works">How It Works</a></h3>
+<ol>
+<li>
+<p><strong>LIDAR Data Processing</strong>:
+   The obstacle avoidance node processes data from <code>/scan</code>. It checks for obstacles within 6 inches (0.15 meters) in front of the robot.</p>
+</li>
+<li>
+<p><strong>Motor Commands</strong>:</p>
+</li>
+<li>If an obstacle is detected, the script sends a stop command to <code>/cmd_vel</code>.</li>
+<li>If the path is clear, the script commands the robot to move forward.</li>
+</ol>
+<hr />
+<h3 id="example-workflow"><a class="toclink" href="../../../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#example-workflow">Example Workflow</a></h3>
+<p>Here’s how you would set up and run the entire system step-by-step:</p>
+<ol>
+<li>
+<p>Open a terminal and start the ROS core:
+   <div class="highlight"><pre><span></span><code>roscore
+</code></pre></div></p>
+</li>
+<li>
+<p>In a second terminal, launch the Roboclaw node:
+   <div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>roboclaw_node<span class="w"> </span>roboclaw.launch
+</code></pre></div></p>
+</li>
+<li>
+<p>In a third terminal, launch the LIDAR node:
+   <div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>ldlidar_stl_ros<span class="w"> </span>ld19.launch
+</code></pre></div></p>
+</li>
+<li>
+<p>Finally, in a fourth terminal, run the obstacle avoidance script:
+   <div class="highlight"><pre><span></span><code>rosrun<span class="w"> </span>roboclaw_node<span class="w"> </span>obstacle_avoidance.py
+</code></pre></div></p>
+</li>
+</ol>
+<hr />
+<h3 id="troubleshooting"><a class="toclink" href="../../../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#troubleshooting">Troubleshooting</a></h3>
+<ol>
+<li>
+<p><strong>Package Not Found</strong>:
+   If you encounter errors like <code>package 'roboclaw_node' not found</code>, rebuild your workspace:
+   <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/armpi_pro
+catkin_make
+<span class="nb">source</span><span class="w"> </span>devel/setup.bash
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>LIDAR or Roboclaw Not Responding</strong>:</p>
+</li>
+<li>Verify device connections using <code>ls /dev/tty*</code> for correct port names.</li>
+<li>
+<p>Update the respective <code>.launch</code> files to reflect the correct ports.</p>
+</li>
+<li>
+<p><strong>Script Permissions</strong>:
+   Ensure all scripts are executable using:
+   <div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>~/armpi_pro/src/roboclaw_ros/roboclaw_node/scripts/*.py
+</code></pre></div></p>
+</li>
+</ol>
+<hr />
+<h3 id="conclusion"><a class="toclink" href="../../../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#conclusion">Conclusion</a></h3>
+<p>With this setup, your robot is capable of autonomously navigating forward and stopping when obstacles are detected. The modular structure allows for easy debugging and future enhancements, such as adding new sensors or navigation strategies.</p>
+<p>Mastering these steps ensures a reliable and robust robotic system ready for real-world applications.</p>
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">

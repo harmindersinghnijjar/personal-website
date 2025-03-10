@@ -507,6 +507,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#building-runelite-in-intellij-idea" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building RuneLite in IntelliJ IDEA
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#integrating-browser-use-with-undetected-chromedriver-gemini-ml-and-crypto-dice-automation" class="md-nav__link">
     <span class="md-ellipsis">
       Integrating browser-use with Undetected-Chromedriver, Gemini, ML, and Crypto Dice Automation
@@ -582,15 +591,6 @@
   <a href="#setting-up-the-roboclaw_ros-node-with-ros-noetic-in-docker" class="md-nav__link">
     <span class="md-ellipsis">
       Setting Up the roboclaw_ros Node with ROS Noetic in Docker
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance" class="md-nav__link">
-    <span class="md-ellipsis">
-      Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance
     </span>
   </a>
   
@@ -752,6 +752,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#building-runelite-in-intellij-idea" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building RuneLite in IntelliJ IDEA
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#integrating-browser-use-with-undetected-chromedriver-gemini-ml-and-crypto-dice-automation" class="md-nav__link">
     <span class="md-ellipsis">
       Integrating browser-use with Undetected-Chromedriver, Gemini, ML, and Crypto Dice Automation
@@ -832,15 +841,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance" class="md-nav__link">
-    <span class="md-ellipsis">
-      Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -855,6 +855,134 @@
       <header class="md-typeset">
         <h1 id="2025">2025</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-03-19 00:00:00+00:00">March 19, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../../category/programming/" class="md-meta__link">Programming</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              2 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="building-runelite-in-intellij-idea"><a class="toclink" href="../../2025/03/19/building-runelite-in-intellij-idea/">Building RuneLite in IntelliJ IDEA</a></h2>
+<p>Setting up a local development environment for <strong>RuneLite</strong> allows customization and plugin development. Follow this guide to build RuneLite using <strong>IntelliJ IDEA</strong>.</p>
+<h3 id="prerequisites"><a class="toclink" href="../../2025/03/19/building-runelite-in-intellij-idea/#prerequisites">Prerequisites</a></h3>
+<p>Before you begin, ensure you have the following:</p>
+<ol>
+<li><strong>JDK 11</strong> (Download from <a href="https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html">Oracle JDK 11</a>)</li>
+<li><strong>IntelliJ IDEA Community Edition</strong> (<a href="https://www.jetbrains.com/idea/download/">Download here</a>)</li>
+<li><strong>Maven</strong> (Integrated with IntelliJ)</li>
+<li><strong>Git</strong> (Optional, for cloning the repository)</li>
+</ol>
+<h3 id="step-1-install-jdk-11"><a class="toclink" href="../../2025/03/19/building-runelite-in-intellij-idea/#step-1-install-jdk-11">Step 1: Install JDK 11</a></h3>
+<ol>
+<li>Download <strong>JDK 11</strong> from Oracle.</li>
+<li>Run the installer and follow the default prompts.</li>
+<li>Verify installation by running:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>java<span class="w"> </span>-version
+</code></pre></div>
+<p>Ensure the output shows <strong>Java 11</strong>.</p>
+<h3 id="step-2-install-intellij-idea"><a class="toclink" href="../../2025/03/19/building-runelite-in-intellij-idea/#step-2-install-intellij-idea">Step 2: Install IntelliJ IDEA</a></h3>
+<ol>
+<li>Download <strong>IntelliJ IDEA Community Edition</strong> from JetBrains.</li>
+<li>Run the installer and complete the setup.</li>
+<li>Launch IntelliJ IDEA and proceed with default settings.</li>
+</ol>
+<h3 id="step-3-clone-the-runelite-repository"><a class="toclink" href="../../2025/03/19/building-runelite-in-intellij-idea/#step-3-clone-the-runelite-repository">Step 3: Clone the RuneLite Repository</a></h3>
+<ol>
+<li>Open <strong>IntelliJ IDEA</strong>.</li>
+<li>Click on <strong>“Get from Version Control”</strong>.</li>
+<li>Enter the <strong>RuneLite GitHub repository URL</strong>:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>https://github.com/runelite/runelite.git
+</code></pre></div>
+<ol>
+<li>Click <strong>Clone</strong> and wait for the process to finish.</li>
+</ol>
+<h3 id="step-4-configure-the-project-sdk"><a class="toclink" href="../../2025/03/19/building-runelite-in-intellij-idea/#step-4-configure-the-project-sdk">Step 4: Configure the Project SDK</a></h3>
+<ol>
+<li>Navigate to <strong>File</strong> → <strong>Project Structure</strong>.</li>
+<li>Set <strong>Project SDK</strong> to <strong>Java 11</strong>.</li>
+<li>Apply changes and close the settings window.</li>
+</ol>
+<h3 id="step-5-build-the-project-with-maven"><a class="toclink" href="../../2025/03/19/building-runelite-in-intellij-idea/#step-5-build-the-project-with-maven">Step 5: Build the Project with Maven</a></h3>
+<ol>
+<li>Open the <strong>Maven</strong> panel (usually on the right side of IntelliJ IDEA).</li>
+<li>Expand the RuneLite project.</li>
+<li>Locate <strong>“install”</strong> under the Lifecycle section.</li>
+<li>Right-click <strong>install</strong> and select <strong>“Run Maven Build”</strong>.</li>
+<li>Wait for <strong>BUILD SUCCESS</strong> confirmation.</li>
+</ol>
+<h3 id="step-6-run-runelite"><a class="toclink" href="../../2025/03/19/building-runelite-in-intellij-idea/#step-6-run-runelite">Step 6: Run RuneLite</a></h3>
+<ol>
+<li>Click the <strong>Build</strong> icon (green hammer) to compile the project.</li>
+<li>Locate the <strong>“runelite-client”</strong> folder:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>runelite-client → src → main → java → net.runelite.client
+</code></pre></div>
+<ol>
+<li>Right-click <strong>RuneLite.java</strong> and select <strong>Run ‘RuneLite’</strong>.</li>
+<li>RuneLite should launch successfully.</li>
+</ol>
+<h3 id="troubleshooting"><a class="toclink" href="../../2025/03/19/building-runelite-in-intellij-idea/#troubleshooting">Troubleshooting</a></h3>
+<h4 id="common-errors-fixes"><a class="toclink" href="../../2025/03/19/building-runelite-in-intellij-idea/#common-errors-fixes">Common Errors &amp; Fixes</a></h4>
+<ul>
+<li><strong>SDK Not Set to 11?</strong></li>
+<li>
+<p>Go to <strong>File → Project Structure</strong> → Ensure <strong>Java 11</strong> is selected.</p>
+</li>
+<li>
+<p><strong>Build Errors?</strong></p>
+</li>
+<li>Run <code>clean install</code> in the Maven panel.</li>
+<li>
+<p>Ensure you have a stable internet connection.</p>
+</li>
+<li>
+<p><strong>Transparent or Blank Client?</strong></p>
+</li>
+<li>Rebuild the project and update dependencies.</li>
+</ul>
+<h3 id="step-7-adding-plugins"><a class="toclink" href="../../2025/03/19/building-runelite-in-intellij-idea/#step-7-adding-plugins">Step 7: Adding Plugins</a></h3>
+<ol>
+<li>Navigate to:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>runelite-client → src → main → java → net.runelite.client.plugins
+</code></pre></div>
+<ol>
+<li>Copy custom plugins to this directory.</li>
+<li>Run <strong>Maven install</strong> to compile changes.</li>
+</ol>
+<h3 id="conclusion"><a class="toclink" href="../../2025/03/19/building-runelite-in-intellij-idea/#conclusion">Conclusion</a></h3>
+<p>Congratulations! You have successfully built <strong>RuneLite</strong> in <strong>IntelliJ IDEA</strong>. Now you can:</p>
+<ul>
+<li>Modify the client</li>
+<li>Develop custom plugins</li>
+<li>Contribute to the open-source community</li>
+</ul>
+<p>🎉 <strong>Happy coding!</strong></p>
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
@@ -2272,159 +2400,6 @@ tree
 <hr />
 <h3 id="conclusion"><a class="toclink" href="../../2025/01/23/setting-up-the-roboclaw_ros-node-with-ros-noetic-in-docker/#conclusion">Conclusion</a></h3>
 <p>This guide provides a straightforward approach to setting up and running the <code>roboclaw_ros</code> node in a ROS Noetic Docker environment. Docker ensures consistency and portability, making it an ideal choice for robotics development. By following these steps, you can integrate Roboclaw into your robotic system efficiently.</p>
-    
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2025-01-22 00:00:00+00:00">January 22, 2025</time></li>
-        
-          <li class="md-meta__item">
-            in
-            
-              <a href="../../category/robotics/" class="md-meta__link">Robotics</a></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              2 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance"><a class="toclink" href="../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/">Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance</a></h2>
-<h3 id="setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance_1"><a class="toclink" href="../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance_1">Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance</a></h3>
-<p>This guide walks you through setting up and running a Roboclaw-based ROS node with obstacle avoidance functionality using LIDAR sensors. Follow these steps to configure and launch your robotics system efficiently.</p>
-<hr />
-<h3 id="prerequisites"><a class="toclink" href="../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#prerequisites">Prerequisites</a></h3>
-<p>Before starting, ensure the following are set up on your system:</p>
-<ol>
-<li><strong>ROS Installed</strong>: Ensure you have ROS Melodic or a compatible version installed on your system.</li>
-<li><strong>Workspace Prepared</strong>: Your ROS workspace (e.g., <code>~/armpi_pro</code>) is built and sourced.</li>
-<li><strong>Packages Installed</strong>:</li>
-<li><code>roboclaw_ros</code> for motor control.</li>
-<li><code>ldlidar_stl_ros</code> for LIDAR sensor integration.</li>
-<li><strong>Hardware Connections</strong>:</li>
-<li>Roboclaw is connected via <code>/dev/ttyACM0</code>.</li>
-<li>LIDAR sensor is operational and connected (e.g., <code>/dev/ttyUSB0</code>).</li>
-</ol>
-<hr />
-<h3 id="launching-the-required-nodes"><a class="toclink" href="../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#launching-the-required-nodes">Launching the Required Nodes</a></h3>
-<p>To operate the system, you need to launch three components in sequence:</p>
-<h4 id="1-start-the-ros-core"><a class="toclink" href="../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#1-start-the-ros-core">1. <strong>Start the ROS Core</strong></a></h4>
-<p>Open a terminal and launch the ROS core:</p>
-<div class="highlight"><pre><span></span><code>roscore
-</code></pre></div>
-<p>Keep this terminal open as it provides the foundation for all ROS nodes.</p>
-<hr />
-<h4 id="2-launch-the-roboclaw-node"><a class="toclink" href="../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#2-launch-the-roboclaw-node">2. <strong>Launch the Roboclaw Node</strong></a></h4>
-<p>In a new terminal, navigate to your workspace and launch the Roboclaw node:</p>
-<div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>roboclaw_node<span class="w"> </span>roboclaw.launch
-</code></pre></div>
-<p>This node handles motor control, publishing odometry, and subscribing to velocity commands (<code>/cmd_vel</code>).</p>
-<hr />
-<h4 id="3-launch-the-lidar-node"><a class="toclink" href="../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#3-launch-the-lidar-node">3. <strong>Launch the LIDAR Node</strong></a></h4>
-<p>In another terminal, launch the LIDAR node:</p>
-<div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>ldlidar_stl_ros<span class="w"> </span>ld19.launch
-</code></pre></div>
-<p>This node processes LIDAR data and publishes it to the <code>/scan</code> topic.</p>
-<hr />
-<h3 id="running-the-obstacle-avoidance-node"><a class="toclink" href="../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#running-the-obstacle-avoidance-node">Running the Obstacle Avoidance Node</a></h3>
-<p>Once the Roboclaw and LIDAR nodes are running, you can start the obstacle avoidance script. This script subscribes to <code>/scan</code> for LIDAR data and publishes velocity commands to <code>/cmd_vel</code>.</p>
-<ol>
-<li>
-<p>Ensure the script is located at:
-   <div class="highlight"><pre><span></span><code>~/armpi_pro/src/roboclaw_ros/roboclaw_node/scripts/obstacle_avoidance.py
-</code></pre></div></p>
-</li>
-<li>
-<p>Make the script executable:
-   <div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>~/armpi_pro/src/roboclaw_ros/roboclaw_node/scripts/obstacle_avoidance.py
-</code></pre></div></p>
-</li>
-<li>
-<p>Run the script using <code>rosrun</code>:
-   <div class="highlight"><pre><span></span><code>rosrun<span class="w"> </span>roboclaw_node<span class="w"> </span>obstacle_avoidance.py
-</code></pre></div></p>
-</li>
-</ol>
-<hr />
-<h3 id="how-it-works"><a class="toclink" href="../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#how-it-works">How It Works</a></h3>
-<ol>
-<li>
-<p><strong>LIDAR Data Processing</strong>:
-   The obstacle avoidance node processes data from <code>/scan</code>. It checks for obstacles within 6 inches (0.15 meters) in front of the robot.</p>
-</li>
-<li>
-<p><strong>Motor Commands</strong>:</p>
-</li>
-<li>If an obstacle is detected, the script sends a stop command to <code>/cmd_vel</code>.</li>
-<li>If the path is clear, the script commands the robot to move forward.</li>
-</ol>
-<hr />
-<h3 id="example-workflow"><a class="toclink" href="../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#example-workflow">Example Workflow</a></h3>
-<p>Here’s how you would set up and run the entire system step-by-step:</p>
-<ol>
-<li>
-<p>Open a terminal and start the ROS core:
-   <div class="highlight"><pre><span></span><code>roscore
-</code></pre></div></p>
-</li>
-<li>
-<p>In a second terminal, launch the Roboclaw node:
-   <div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>roboclaw_node<span class="w"> </span>roboclaw.launch
-</code></pre></div></p>
-</li>
-<li>
-<p>In a third terminal, launch the LIDAR node:
-   <div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>ldlidar_stl_ros<span class="w"> </span>ld19.launch
-</code></pre></div></p>
-</li>
-<li>
-<p>Finally, in a fourth terminal, run the obstacle avoidance script:
-   <div class="highlight"><pre><span></span><code>rosrun<span class="w"> </span>roboclaw_node<span class="w"> </span>obstacle_avoidance.py
-</code></pre></div></p>
-</li>
-</ol>
-<hr />
-<h3 id="troubleshooting"><a class="toclink" href="../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#troubleshooting">Troubleshooting</a></h3>
-<ol>
-<li>
-<p><strong>Package Not Found</strong>:
-   If you encounter errors like <code>package 'roboclaw_node' not found</code>, rebuild your workspace:
-   <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/armpi_pro
-catkin_make
-<span class="nb">source</span><span class="w"> </span>devel/setup.bash
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>LIDAR or Roboclaw Not Responding</strong>:</p>
-</li>
-<li>Verify device connections using <code>ls /dev/tty*</code> for correct port names.</li>
-<li>
-<p>Update the respective <code>.launch</code> files to reflect the correct ports.</p>
-</li>
-<li>
-<p><strong>Script Permissions</strong>:
-   Ensure all scripts are executable using:
-   <div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>~/armpi_pro/src/roboclaw_ros/roboclaw_node/scripts/*.py
-</code></pre></div></p>
-</li>
-</ol>
-<hr />
-<h3 id="conclusion"><a class="toclink" href="../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#conclusion">Conclusion</a></h3>
-<p>With this setup, your robot is capable of autonomously navigating forward and stopping when obstacles are detected. The modular structure allows for easy debugging and future enhancements, such as adding new sensors or navigation strategies.</p>
-<p>Mastering these steps ensures a reliable and robust robotic system ready for real-world applications.</p>
     
   </div>
 </article>
