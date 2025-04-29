@@ -658,6 +658,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#building-runelite-in-intellij-idea" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building RuneLite in IntelliJ IDEA
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#bypassing-cloudflare-with-selenium-and-undetected-chromedriver" class="md-nav__link">
     <span class="md-ellipsis">
       Bypassing Cloudflare with Selenium and Undetected-Chromedriver
@@ -817,6 +826,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#building-runelite-in-intellij-idea" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building RuneLite in IntelliJ IDEA
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#bypassing-cloudflare-with-selenium-and-undetected-chromedriver" class="md-nav__link">
     <span class="md-ellipsis">
       Bypassing Cloudflare with Selenium and Undetected-Chromedriver
@@ -893,6 +911,134 @@
       <header class="md-typeset">
         <h1 id="programming">Programming</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-03-19 00:00:00+00:00">March 19, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="./" class="md-meta__link">Programming</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              2 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="building-runelite-in-intellij-idea"><a class="toclink" href="../../2025/03/19/building-runelite-in-intellij-idea/">Building RuneLite in IntelliJ IDEA</a></h2>
+<p>Setting up a local development environment for <strong>RuneLite</strong> allows customization and plugin development. Follow this guide to build RuneLite using <strong>IntelliJ IDEA</strong>.</p>
+<h3 id="prerequisites"><a class="toclink" href="../../2025/03/19/building-runelite-in-intellij-idea/#prerequisites">Prerequisites</a></h3>
+<p>Before you begin, ensure you have the following:</p>
+<ol>
+<li><strong>JDK 11</strong> (Download from <a href="https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html">Oracle JDK 11</a>)</li>
+<li><strong>IntelliJ IDEA Community Edition</strong> (<a href="https://www.jetbrains.com/idea/download/">Download here</a>)</li>
+<li><strong>Maven</strong> (Integrated with IntelliJ)</li>
+<li><strong>Git</strong> (Optional, for cloning the repository)</li>
+</ol>
+<h3 id="step-1-install-jdk-11"><a class="toclink" href="../../2025/03/19/building-runelite-in-intellij-idea/#step-1-install-jdk-11">Step 1: Install JDK 11</a></h3>
+<ol>
+<li>Download <strong>JDK 11</strong> from Oracle.</li>
+<li>Run the installer and follow the default prompts.</li>
+<li>Verify installation by running:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>java<span class="w"> </span>-version
+</code></pre></div>
+<p>Ensure the output shows <strong>Java 11</strong>.</p>
+<h3 id="step-2-install-intellij-idea"><a class="toclink" href="../../2025/03/19/building-runelite-in-intellij-idea/#step-2-install-intellij-idea">Step 2: Install IntelliJ IDEA</a></h3>
+<ol>
+<li>Download <strong>IntelliJ IDEA Community Edition</strong> from JetBrains.</li>
+<li>Run the installer and complete the setup.</li>
+<li>Launch IntelliJ IDEA and proceed with default settings.</li>
+</ol>
+<h3 id="step-3-clone-the-runelite-repository"><a class="toclink" href="../../2025/03/19/building-runelite-in-intellij-idea/#step-3-clone-the-runelite-repository">Step 3: Clone the RuneLite Repository</a></h3>
+<ol>
+<li>Open <strong>IntelliJ IDEA</strong>.</li>
+<li>Click on <strong>“Get from Version Control”</strong>.</li>
+<li>Enter the <strong>RuneLite GitHub repository URL</strong>:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>https://github.com/runelite/runelite.git
+</code></pre></div>
+<ol>
+<li>Click <strong>Clone</strong> and wait for the process to finish.</li>
+</ol>
+<h3 id="step-4-configure-the-project-sdk"><a class="toclink" href="../../2025/03/19/building-runelite-in-intellij-idea/#step-4-configure-the-project-sdk">Step 4: Configure the Project SDK</a></h3>
+<ol>
+<li>Navigate to <strong>File</strong> → <strong>Project Structure</strong>.</li>
+<li>Set <strong>Project SDK</strong> to <strong>Java 11</strong>.</li>
+<li>Apply changes and close the settings window.</li>
+</ol>
+<h3 id="step-5-build-the-project-with-maven"><a class="toclink" href="../../2025/03/19/building-runelite-in-intellij-idea/#step-5-build-the-project-with-maven">Step 5: Build the Project with Maven</a></h3>
+<ol>
+<li>Open the <strong>Maven</strong> panel (usually on the right side of IntelliJ IDEA).</li>
+<li>Expand the RuneLite project.</li>
+<li>Locate <strong>“install”</strong> under the Lifecycle section.</li>
+<li>Right-click <strong>install</strong> and select <strong>“Run Maven Build”</strong>.</li>
+<li>Wait for <strong>BUILD SUCCESS</strong> confirmation.</li>
+</ol>
+<h3 id="step-6-run-runelite"><a class="toclink" href="../../2025/03/19/building-runelite-in-intellij-idea/#step-6-run-runelite">Step 6: Run RuneLite</a></h3>
+<ol>
+<li>Click the <strong>Build</strong> icon (green hammer) to compile the project.</li>
+<li>Locate the <strong>“runelite-client”</strong> folder:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>runelite-client → src → main → java → net.runelite.client
+</code></pre></div>
+<ol>
+<li>Right-click <strong>RuneLite.java</strong> and select <strong>Run ‘RuneLite’</strong>.</li>
+<li>RuneLite should launch successfully.</li>
+</ol>
+<h3 id="troubleshooting"><a class="toclink" href="../../2025/03/19/building-runelite-in-intellij-idea/#troubleshooting">Troubleshooting</a></h3>
+<h4 id="common-errors-fixes"><a class="toclink" href="../../2025/03/19/building-runelite-in-intellij-idea/#common-errors-fixes">Common Errors &amp; Fixes</a></h4>
+<ul>
+<li><strong>SDK Not Set to 11?</strong></li>
+<li>
+<p>Go to <strong>File → Project Structure</strong> → Ensure <strong>Java 11</strong> is selected.</p>
+</li>
+<li>
+<p><strong>Build Errors?</strong></p>
+</li>
+<li>Run <code>clean install</code> in the Maven panel.</li>
+<li>
+<p>Ensure you have a stable internet connection.</p>
+</li>
+<li>
+<p><strong>Transparent or Blank Client?</strong></p>
+</li>
+<li>Rebuild the project and update dependencies.</li>
+</ul>
+<h3 id="step-7-adding-plugins"><a class="toclink" href="../../2025/03/19/building-runelite-in-intellij-idea/#step-7-adding-plugins">Step 7: Adding Plugins</a></h3>
+<ol>
+<li>Navigate to:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>runelite-client → src → main → java → net.runelite.client.plugins
+</code></pre></div>
+<ol>
+<li>Copy custom plugins to this directory.</li>
+<li>Run <strong>Maven install</strong> to compile changes.</li>
+</ol>
+<h3 id="conclusion"><a class="toclink" href="../../2025/03/19/building-runelite-in-intellij-idea/#conclusion">Conclusion</a></h3>
+<p>Congratulations! You have successfully built <strong>RuneLite</strong> in <strong>IntelliJ IDEA</strong>. Now you can:</p>
+<ul>
+<li>Modify the client</li>
+<li>Develop custom plugins</li>
+<li>Contribute to the open-source community</li>
+</ul>
+<p>🎉 <strong>Happy coding!</strong></p>
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">

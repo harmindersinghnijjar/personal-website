@@ -544,6 +544,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#setting-up-hector-slam-with-ros-1-for-a-roboclaw-based-rover" class="md-nav__link">
     <span class="md-ellipsis">
       Setting Up Hector SLAM with ROS 1 for a Roboclaw-Based Rover
@@ -624,15 +633,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#agentic-web-scraping-in-2024" class="md-nav__link">
-    <span class="md-ellipsis">
-      Agentic Web Scraping in 2024
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -647,6 +647,159 @@
       <header class="md-typeset">
         <h1 id="blog">Blog</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-01-22 00:00:00+00:00">January 22, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../../category/robotics/" class="md-meta__link">Robotics</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              2 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance"><a class="toclink" href="../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/">Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance</a></h2>
+<h3 id="setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance_1"><a class="toclink" href="../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance_1">Setting Up and Running a Roboclaw-Based ROS Node with Obstacle Avoidance</a></h3>
+<p>This guide walks you through setting up and running a Roboclaw-based ROS node with obstacle avoidance functionality using LIDAR sensors. Follow these steps to configure and launch your robotics system efficiently.</p>
+<hr />
+<h3 id="prerequisites"><a class="toclink" href="../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#prerequisites">Prerequisites</a></h3>
+<p>Before starting, ensure the following are set up on your system:</p>
+<ol>
+<li><strong>ROS Installed</strong>: Ensure you have ROS Melodic or a compatible version installed on your system.</li>
+<li><strong>Workspace Prepared</strong>: Your ROS workspace (e.g., <code>~/armpi_pro</code>) is built and sourced.</li>
+<li><strong>Packages Installed</strong>:</li>
+<li><code>roboclaw_ros</code> for motor control.</li>
+<li><code>ldlidar_stl_ros</code> for LIDAR sensor integration.</li>
+<li><strong>Hardware Connections</strong>:</li>
+<li>Roboclaw is connected via <code>/dev/ttyACM0</code>.</li>
+<li>LIDAR sensor is operational and connected (e.g., <code>/dev/ttyUSB0</code>).</li>
+</ol>
+<hr />
+<h3 id="launching-the-required-nodes"><a class="toclink" href="../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#launching-the-required-nodes">Launching the Required Nodes</a></h3>
+<p>To operate the system, you need to launch three components in sequence:</p>
+<h4 id="1-start-the-ros-core"><a class="toclink" href="../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#1-start-the-ros-core">1. <strong>Start the ROS Core</strong></a></h4>
+<p>Open a terminal and launch the ROS core:</p>
+<div class="highlight"><pre><span></span><code>roscore
+</code></pre></div>
+<p>Keep this terminal open as it provides the foundation for all ROS nodes.</p>
+<hr />
+<h4 id="2-launch-the-roboclaw-node"><a class="toclink" href="../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#2-launch-the-roboclaw-node">2. <strong>Launch the Roboclaw Node</strong></a></h4>
+<p>In a new terminal, navigate to your workspace and launch the Roboclaw node:</p>
+<div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>roboclaw_node<span class="w"> </span>roboclaw.launch
+</code></pre></div>
+<p>This node handles motor control, publishing odometry, and subscribing to velocity commands (<code>/cmd_vel</code>).</p>
+<hr />
+<h4 id="3-launch-the-lidar-node"><a class="toclink" href="../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#3-launch-the-lidar-node">3. <strong>Launch the LIDAR Node</strong></a></h4>
+<p>In another terminal, launch the LIDAR node:</p>
+<div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>ldlidar_stl_ros<span class="w"> </span>ld19.launch
+</code></pre></div>
+<p>This node processes LIDAR data and publishes it to the <code>/scan</code> topic.</p>
+<hr />
+<h3 id="running-the-obstacle-avoidance-node"><a class="toclink" href="../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#running-the-obstacle-avoidance-node">Running the Obstacle Avoidance Node</a></h3>
+<p>Once the Roboclaw and LIDAR nodes are running, you can start the obstacle avoidance script. This script subscribes to <code>/scan</code> for LIDAR data and publishes velocity commands to <code>/cmd_vel</code>.</p>
+<ol>
+<li>
+<p>Ensure the script is located at:
+   <div class="highlight"><pre><span></span><code>~/armpi_pro/src/roboclaw_ros/roboclaw_node/scripts/obstacle_avoidance.py
+</code></pre></div></p>
+</li>
+<li>
+<p>Make the script executable:
+   <div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>~/armpi_pro/src/roboclaw_ros/roboclaw_node/scripts/obstacle_avoidance.py
+</code></pre></div></p>
+</li>
+<li>
+<p>Run the script using <code>rosrun</code>:
+   <div class="highlight"><pre><span></span><code>rosrun<span class="w"> </span>roboclaw_node<span class="w"> </span>obstacle_avoidance.py
+</code></pre></div></p>
+</li>
+</ol>
+<hr />
+<h3 id="how-it-works"><a class="toclink" href="../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#how-it-works">How It Works</a></h3>
+<ol>
+<li>
+<p><strong>LIDAR Data Processing</strong>:
+   The obstacle avoidance node processes data from <code>/scan</code>. It checks for obstacles within 6 inches (0.15 meters) in front of the robot.</p>
+</li>
+<li>
+<p><strong>Motor Commands</strong>:</p>
+</li>
+<li>If an obstacle is detected, the script sends a stop command to <code>/cmd_vel</code>.</li>
+<li>If the path is clear, the script commands the robot to move forward.</li>
+</ol>
+<hr />
+<h3 id="example-workflow"><a class="toclink" href="../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#example-workflow">Example Workflow</a></h3>
+<p>Here’s how you would set up and run the entire system step-by-step:</p>
+<ol>
+<li>
+<p>Open a terminal and start the ROS core:
+   <div class="highlight"><pre><span></span><code>roscore
+</code></pre></div></p>
+</li>
+<li>
+<p>In a second terminal, launch the Roboclaw node:
+   <div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>roboclaw_node<span class="w"> </span>roboclaw.launch
+</code></pre></div></p>
+</li>
+<li>
+<p>In a third terminal, launch the LIDAR node:
+   <div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>ldlidar_stl_ros<span class="w"> </span>ld19.launch
+</code></pre></div></p>
+</li>
+<li>
+<p>Finally, in a fourth terminal, run the obstacle avoidance script:
+   <div class="highlight"><pre><span></span><code>rosrun<span class="w"> </span>roboclaw_node<span class="w"> </span>obstacle_avoidance.py
+</code></pre></div></p>
+</li>
+</ol>
+<hr />
+<h3 id="troubleshooting"><a class="toclink" href="../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#troubleshooting">Troubleshooting</a></h3>
+<ol>
+<li>
+<p><strong>Package Not Found</strong>:
+   If you encounter errors like <code>package 'roboclaw_node' not found</code>, rebuild your workspace:
+   <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/armpi_pro
+catkin_make
+<span class="nb">source</span><span class="w"> </span>devel/setup.bash
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>LIDAR or Roboclaw Not Responding</strong>:</p>
+</li>
+<li>Verify device connections using <code>ls /dev/tty*</code> for correct port names.</li>
+<li>
+<p>Update the respective <code>.launch</code> files to reflect the correct ports.</p>
+</li>
+<li>
+<p><strong>Script Permissions</strong>:
+   Ensure all scripts are executable using:
+   <div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>~/armpi_pro/src/roboclaw_ros/roboclaw_node/scripts/*.py
+</code></pre></div></p>
+</li>
+</ol>
+<hr />
+<h3 id="conclusion"><a class="toclink" href="../../2025/01/22/setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance/#conclusion">Conclusion</a></h3>
+<p>With this setup, your robot is capable of autonomously navigating forward and stopping when obstacles are detected. The modular structure allows for easy debugging and future enhancements, such as adding new sensors or navigation strategies.</p>
+<p>Mastering these steps ensures a reliable and robust robotic system ready for real-world applications.</p>
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
@@ -1900,87 +2053,6 @@ rosdep<span class="w"> </span>update
 <img alt="JIF + Celsius Peach Vibe" src="https://i.imgur.com/knoIoDW.jpeg"></p>
 <p>2024-11-26 20:17: Today I drew a quick sketch of two wolf pups howling at the moon.
 <img alt="Full Moon Pups" src="https://i.imgur.com/LfrytVl.png"></p>
-    
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2024-11-25 00:00:00+00:00">November 25, 2024</time></li>
-        
-          <li class="md-meta__item">
-            in
-            
-              <a href="../../category/programming/" class="md-meta__link">Programming</a></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              4 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="agentic-web-scraping-in-2024"><a class="toclink" href="../../2024/11/25/agentic-web-scraping-in-2024/">Agentic Web Scraping in 2024</a></h2>
-<p>Web scraping best practices have evolved significantly in the past couple of years, with the rise of agentic web scraping marking a new era in data collection and analysis. In this post, we'll explore the concept of agentic web scraping, its benefits, and how it is transforming the landscape of data-driven decision-making.</p>
-<h3 id="evolution-of-web-scraping"><a class="toclink" href="../../2024/11/25/agentic-web-scraping-in-2024/#evolution-of-web-scraping">Evolution of Web Scraping</a></h3>
-<p>Typically, web scraping involved extracting data from websites by mimiking browser behaviour through HTTP requests and web automation frameworks like Selenium, Puppeteer, or Playwright. This process required developers to write specific code for each website, making it time-consuming, error-prone, and susceptible to changes in website structure. So much so that 50% to 70% of engineering resources in data aggregation teams were spent on scraping stystems early on. However, with the advent of agentic web scraping, this approach has been revolutionized. LLMs are able to make sense of any data thrown at them, allowing them to understand large amounts of raw HTML and make decisions based on it.</p>
-<p>This comes with a drawback, however. The more unstructured data you throw at an LLM, the more likely it is to make mistakes and the more tokens are consumed. This is why it's important to have as close to structured, human-readable data as possible.</p>
-<h3 id="structuring-data-for-agentic-web-scraping"><a class="toclink" href="../../2024/11/25/agentic-web-scraping-in-2024/#structuring-data-for-agentic-web-scraping">Structuring Data for Agentic Web Scraping</a></h3>
-<p>In order to be able to use LLM Scraper Agents and Reasoning Agents, we need to convert raw HTML data into a more structured format. Markdown is a great choice for this, as it is human-readable and easily parsed by LLMs. After converting scraped data into structured markdown, we can feed it into LLM Scraper Agents and Reasoning Agents to make sense of it and extract insights.</p>
-<h4 id="web-scraper-agents-for-public-data"><a class="toclink" href="../../2024/11/25/agentic-web-scraping-in-2024/#web-scraper-agents-for-public-data">Web Scraper Agents for Public Data</a></h4>
-<p>Public data is data that is freely available on the web, such as news articles, blog posts, and product descriptions. This data can be scraped and used for various purposes and does not require any special permissions such as bypassing CAPTCHAs or logging in.</p>
-<p>Some APIs that can be used to convert raw HTML data into structured markdown include:</p>
-<div class="admonition note">
-<p class="admonition-title">Firecrawl</p>
-<p><a href="https://www.firecrawl.dev/">Firecrawl</a> turns entire websites into clean, LLM-ready markdown or structured data. Scrape, crawl and extract the web with a single API </p>
-<p>Output: Good quality markdown with most hyperlinks preserved</p>
-<p>Rate limit: 1000 requests per minute</p>
-<p>Cost: $0.06 per 100 pages</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Jina</p>
-<p>Turn a website into a structured data by adding <a href="https://jina.ai/">r.jina.ai</a> in front of the URL.</p>
-<p>Output: Focuses primarily on extracting content rather than preserving hyperlinks</p>
-<p>Rate limit: 1000 requests per minute</p>
-<p>Cost: Free</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Spider Cloud</p>
-<p><a href="https://spider.cloud/">Spider</a> is a leading web crawling tool designed for speed and cost-effectiveness, supporting various data formats including LLM-ready markdown.</p>
-<p>Output: Happy medium between Firecrawl and Jina with good quality markdown</p>
-<p>Rate limit: 50000 requests per minute</p>
-<p>Cost: $0.03 per 100 pages</p>
-</div>
-<h4 id="web-scraper-agents-for-private-data"><a class="toclink" href="../../2024/11/25/agentic-web-scraping-in-2024/#web-scraper-agents-for-private-data">Web Scraper Agents for Private Data</a></h4>
-<p>As mentioned earlier, web automation frameworks like Selenium, Puppeteer, or Playwright are used to scrape private data that requires interaction to access restricted areas of a website. These tools can now be used to build agentic web scraping systems that can understand and reason about the data they collect. However, the issue with these tools is determining which UI elements to interact with to access the abovementioned restricted areas of a site. This is where AgentQL comes in.</p>
-<div class="admonition note">
-<p class="admonition-title">AgentQL</p>
-<p><a href="https://agentql.com/">AgentQL</a> allows web automation frameworks to accurately navigate websites, even when the website structure changes.</p>
-<p>Rate limit: 10 API calls per minute</p>
-<p>Cost: $0.02 per API call</p>
-</div>
-<p>Using AgentQL in conjunction with web automation frameworks enables developers to build agentic web scraping systems that can access and reason about private data, making the process more efficient and reliable.</p>
-<p><img alt="How AgentQL Works" src="https://i.imgur.com/dSDZPzJ.png"></p>
-<p>Some examples of actions we're able to perform with AgentQL along with Playwright or Selenium include:</p>
-<ul>
-<li>Save and load authenticated state</li>
-<li>Wait for a page to load</li>
-<li>Close a cookie dialog</li>
-<li>Close popup windows</li>
-<li>Compare product prices across multiple websites</li>
-</ul>
-<h3 id="conclusion"><a class="toclink" href="../../2024/11/25/agentic-web-scraping-in-2024/#conclusion">Conclusion</a></h3>
-<p>Agentic web scraping is transforming the way data is collected and analyzed, enabling developers to build systems that can understand and reason about the data they collect. By structuring data in a human-readable format like markdown and using tools like LLM Scraper Agents, Reasoning Agents, and AgentQL, developers can create efficient and reliable web scraping systems that can access both public and private data. This new approach to web scraping is revolutionizing the field of data-driven decision-making and opening up new possibilities for data analysis and insights.</p>
     
   </div>
 </article>
