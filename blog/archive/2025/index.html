@@ -507,6 +507,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#installing-ubuntu-2004-on-raspberry-pi-for-ros-noetic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing Ubuntu 20.04 on Raspberry Pi for ROS Noetic
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#choosing-the-best-mounting-arm-for-your-elgato-prompter" class="md-nav__link">
     <span class="md-ellipsis">
       Choosing the Best Mounting Arm for Your Elgato Prompter
@@ -582,15 +591,6 @@
   <a href="#mastering-docker-and-ros-for-roboclaw-with-key-tips-and-workflows" class="md-nav__link">
     <span class="md-ellipsis">
       Mastering Docker and ROS for Roboclaw With Key Tips and Workflows
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy" class="md-nav__link">
-    <span class="md-ellipsis">
-      Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy
     </span>
   </a>
   
@@ -760,6 +760,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#installing-ubuntu-2004-on-raspberry-pi-for-ros-noetic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing Ubuntu 20.04 on Raspberry Pi for ROS Noetic
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#choosing-the-best-mounting-arm-for-your-elgato-prompter" class="md-nav__link">
     <span class="md-ellipsis">
       Choosing the Best Mounting Arm for Your Elgato Prompter
@@ -840,15 +849,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy" class="md-nav__link">
-    <span class="md-ellipsis">
-      Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -863,6 +863,65 @@
       <header class="md-typeset">
         <h1 id="2025">2025</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-06-03 00:00:00+00:00">June 3, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../../category/robotics/" class="md-meta__link">Robotics</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              2 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="installing-ubuntu-2004-on-raspberry-pi-for-ros-noetic"><a class="toclink" href="../../2025/06/03/installing-ubuntu-2004-on-raspberry-pi-for-ros-noetic/">Installing Ubuntu 20.04 on Raspberry Pi for ROS Noetic</a></h2>
+<h3 id="installing-ubuntu-2004-on-raspberry-pi-for-ros-noetic_1"><a class="toclink" href="../../2025/06/03/installing-ubuntu-2004-on-raspberry-pi-for-ros-noetic/#installing-ubuntu-2004-on-raspberry-pi-for-ros-noetic_1">Installing Ubuntu 20.04 on Raspberry Pi for ROS Noetic</a></h3>
+<p><img alt="Ubuntu 20.04 Raspberry Pi" src="https://assets.ubuntu.com/v1/91f43b54-Focal%20Fossa%2020.04.svg"></p>
+<p>I needed a reliable OS for a Raspberry Pi project involving <a href="http://wiki.ros.org/noetic">ROS Noetic</a>, which only runs on Ubuntu 20.04. The issue? Raspberry Pi Imager doesn’t offer Ubuntu 20.04 anymore. Here's how I solved it by flashing the official preinstalled image manually.</p>
+<h3 id="why-ubuntu-2004"><a class="toclink" href="../../2025/06/03/installing-ubuntu-2004-on-raspberry-pi-for-ros-noetic/#why-ubuntu-2004">✅ Why Ubuntu 20.04?</a></h3>
+<p>ROS Noetic is the final and most stable version of ROS 1, and it's officially supported only on <strong>Ubuntu 20.04 (Focal Fossa)</strong>. Using any other version could cause dependency headaches or compatibility issues with packages.</p>
+<h3 id="downloading-the-correct-image"><a class="toclink" href="../../2025/06/03/installing-ubuntu-2004-on-raspberry-pi-for-ros-noetic/#downloading-the-correct-image">📥 Downloading the Correct Image</a></h3>
+<p>Ubuntu provides a preinstalled server image built specifically for Raspberry Pi. I used the following:</p>
+<p>➡️ <strong>Image</strong>: <a href="https://cdimage.ubuntu.com/releases/focal/release/ubuntu-20.04.5-preinstalled-server-arm64+raspi.img.xz"><code>ubuntu-20.04.5-preinstalled-server-arm64+raspi.img.xz</code></a></p>
+<p>This image is perfect for Raspberry Pi 3, 4, and 5.</p>
+<h3 id="flashing-with-raspberry-pi-imager"><a class="toclink" href="../../2025/06/03/installing-ubuntu-2004-on-raspberry-pi-for-ros-noetic/#flashing-with-raspberry-pi-imager">🖥️ Flashing with Raspberry Pi Imager</a></h3>
+<p>Once you have the <code>.img.xz</code> file downloaded:</p>
+<ol>
+<li>Open <strong>Raspberry Pi Imager</strong></li>
+<li>Click <strong>“Choose OS”</strong> → <strong>“Use custom”</strong></li>
+<li>Select the <code>.img.xz</code> file</li>
+<li>Choose your SD card under <strong>“Storage”</strong></li>
+<li>Click <strong>“Write”</strong></li>
+</ol>
+<p>Optional: Before first boot, you can enable SSH by placing an empty file named <code>ssh</code> in the boot partition of the SD card.</p>
+<h3 id="optional-install-a-gui"><a class="toclink" href="../../2025/06/03/installing-ubuntu-2004-on-raspberry-pi-for-ros-noetic/#optional-install-a-gui">🧠 Optional: Install a GUI</a></h3>
+<p>By default, the image is command-line only. You can install a desktop if needed:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>xubuntu-desktop
+</code></pre></div>
+<p>I personally prefer XFCE via <code>xubuntu-desktop</code> for its lightweight footprint.</p>
+<h3 id="next-steps-install-ros-noetic"><a class="toclink" href="../../2025/06/03/installing-ubuntu-2004-on-raspberry-pi-for-ros-noetic/#next-steps-install-ros-noetic">🚀 Next Steps: Install ROS Noetic</a></h3>
+<p>Once Ubuntu 20.04 is running, you're ready to install ROS Noetic and start building your robot.</p>
+<p>Let me know if you want a follow-up post on the ROS Noetic install process!</p>
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
@@ -2253,166 +2312,6 @@ catkin_make
 <p>By following these practices, you can efficiently develop robotics applications using Docker and ROS. This workflow allows for robust integration of peripherals, such as Xbox controllers, and ensures smooth communication between ROS nodes. </p>
 <p>Stay innovative and focus on building your robotics vision without being bogged down by setup hurdles!</p>
 <p><strong>Happy Robotics! 🚀</strong></p>
-    
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2025-01-23 00:00:00+00:00">January 23, 2025</time></li>
-        
-          <li class="md-meta__item">
-            in
-            
-              <a href="../../category/robotics/" class="md-meta__link">Robotics</a></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              3 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy"><a class="toclink" href="../../2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/">Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy</a></h2>
-<p>This guide walks you through setting up the D500 LiDAR Kit's <strong>STL-19P</strong> sensor for <strong>ROS 2 Jazzy</strong>, using the <strong>ldrobotSensorTeam/ldlidar_ros2</strong> repository. By the end of this article, you'll be able to configure, launch, and visualize LIDAR data in ROS 2.</p>
-<hr />
-<h3 id="prerequisites"><a class="toclink" href="../../2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#prerequisites">Prerequisites</a></h3>
-<p>Before proceeding, ensure you have the following set up:</p>
-<ol>
-<li>
-<p><strong>ROS 2 Jazzy Installed</strong>:
-   Follow the <a href="https://docs.ros.org/en/jazzy/Installation.html">official instructions</a> to install ROS 2 Jazzy.</p>
-</li>
-<li>
-<p><strong>Set Up Your ROS 2 Workspace</strong>:
-   Create a workspace if you don't already have one:
-   <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/Desktop/frata_workspace/src
-<span class="nb">cd</span><span class="w"> </span>~/Desktop/frata_workspace
-colcon<span class="w"> </span>build
-<span class="nb">source</span><span class="w"> </span>install/setup.bash
-</code></pre></div></p>
-</li>
-</ol>
-<hr />
-<h3 id="cloning-and-building-the-ldlidar-package"><a class="toclink" href="../../2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#cloning-and-building-the-ldlidar-package">Cloning and Building the LDLiDAR Package</a></h3>
-<ol>
-<li>
-<p><strong>Clone the Repository</strong>:
-   <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Desktop/frata_workspace/src
-git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ldrobotSensorTeam/ldlidar_ros2.git
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>Install Dependencies</strong>:
-   Use <code>rosdep</code> to install any missing dependencies:
-   <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Desktop/frata_workspace
-rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>-r<span class="w"> </span>-y
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>Build the Workspace</strong>:
-   Compile the package:
-   <div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="o">=</span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>Source the Workspace</strong>:
-   Add the following to your <code>~/.bashrc</code> and source it:
-   <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;source ~/Desktop/frata_workspace/install/local_setup.bash&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
-<span class="nb">source</span><span class="w"> </span>~/.bashrc
-</code></pre></div></p>
-</li>
-</ol>
-<hr />
-<h3 id="running-the-ldlidar-node"><a class="toclink" href="../../2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#running-the-ldlidar-node">Running the LDLiDAR Node</a></h3>
-<ol>
-<li><strong>Connect the LIDAR to a USB Port</strong>:</li>
-<li>
-<p>Ensure the LIDAR is connected to your machine. If the device isn't detected, try using a USB extension cable.</p>
-</li>
-<li>
-<p><strong>Identify the Serial Port</strong>:
-   Check for the device's serial port:
-   <div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/dev/ttyUSB*
-</code></pre></div>
-   Example output: <code>/dev/ttyUSB0</code>.</p>
-</li>
-<li>
-<p><strong>Launch the Node</strong>:
-   Start the LDLiDAR node with the appropriate launch file:
-   <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>ldlidar_ros2<span class="w"> </span>ld19.launch.py
-</code></pre></div>
-   If required, modify the <code>port_name</code> in the <code>ld19.launch.py</code> file to match your detected port (e.g., <code>/dev/ttyUSB0</code>).</p>
-</li>
-<li>
-<p><strong>View LIDAR Data</strong>:</p>
-</li>
-<li>Open Rviz2 to visualize the LIDAR data:
-     <div class="highlight"><pre><span></span><code>rviz2
-</code></pre></div></li>
-<li>Add a "LaserScan" display and set the topic to <code>/scan</code>.</li>
-</ol>
-<hr />
-<h3 id="troubleshooting-common-errors"><a class="toclink" href="../../2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#troubleshooting-common-errors">Troubleshooting Common Errors</a></h3>
-<h4 id="1-communication-abnormal-error"><a class="toclink" href="../../2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#1-communication-abnormal-error">1. <strong>"Communication Abnormal" Error</strong></a></h4>
-<p>If you encounter this error:
-   <div class="highlight"><pre><span></span><code>[ERROR] [ldlidar_publisher_ld19]: ldlidar communication is abnormal.
-</code></pre></div></p>
-<ul>
-<li>
-<p><strong>Check Serial Port</strong>: Ensure the correct serial port (<code>/dev/ttyUSB0</code>) is specified in the launch file.</p>
-</li>
-<li>
-<p><strong>Verify Baud Rate</strong>: Confirm that the baud rate in the launch file matches the LIDAR's configuration (default is <code>230400</code>).</p>
-</li>
-<li>
-<p><strong>Reconnect the Device</strong>: Use a USB extension cable if the device isn't recognized properly.</p>
-</li>
-</ul>
-<h4 id="2-device-not-found"><a class="toclink" href="../../2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#2-device-not-found">2. <strong>Device Not Found</strong></a></h4>
-<ul>
-<li>Run:
-     <div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/dev/ttyUSB*
-</code></pre></div></li>
-<li>If no device appears, ensure the LIDAR is securely connected and powered.</li>
-</ul>
-<h4 id="3-no-data-in-rviz2"><a class="toclink" href="../../2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#3-no-data-in-rviz2">3. <strong>No Data in Rviz2</strong></a></h4>
-<ul>
-<li>Verify the <code>/scan</code> topic is being published:
-     <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>topic<span class="w"> </span>list
-ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/scan
-</code></pre></div></li>
-</ul>
-<h4 id="4-failed-init_port-fastrtps_port7000-error"><a class="toclink" href="../../2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#4-failed-init_port-fastrtps_port7000-error">4. <strong>"Failed init_port fastrtps_port7000" Error</strong></a></h4>
-<p>This is a common shared memory transport error in ROS 2.
-   - <strong>Solution</strong>: Add the following to your <code>.bashrc</code> to disable shared memory transport:
-     <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">RMW_IMPLEMENTATION</span><span class="o">=</span>rmw_cyclonedds_cpp
-</code></pre></div></p>
-<hr />
-<h3 id="example-launch-output"><a class="toclink" href="../../2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#example-launch-output">Example Launch Output</a></h3>
-<p>Once everything is set up correctly, you should see the following output:
-<div class="highlight"><pre><span></span><code>[INFO] [ldlidar_publisher_ld19]: LDLiDAR SDK Pack Version is:3.3.1
-[INFO] [ldlidar_publisher_ld19]: ROS2 param input:
-[INFO] [ldlidar_publisher_ld19]: ldlidar serial connect is success
-[INFO] [ldlidar_publisher_ld19]: ldlidar communication is normal.
-[INFO] [ldlidar_publisher_ld19]: ldlidar driver start is success.
-[INFO] [ldlidar_publisher_ld19]: start normal, pub lidar data
-</code></pre></div></p>
-<hr />
-<h3 id="conclusion"><a class="toclink" href="../../2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#conclusion">Conclusion</a></h3>
-<p>With this guide, you can successfully set up and run the D500 LiDAR Kit's STL-19P  on ROS 2 Jazzy. If you encounter the <strong>"communication abnormal"</strong> or other errors, refer to the troubleshooting section to resolve them quickly. This setup enables seamless LIDAR integration for your autonomous robotics projects.</p>
-<p>For more information, visit the <a href="https://github.com/ldrobotSensorTeam/ldlidar_ros2">ldrobotSensorTeam GitHub repository</a>.</p>
-<hr />
     
   </div>
 </article>

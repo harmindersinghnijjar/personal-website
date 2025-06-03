@@ -5,14 +5,13 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Explore which mounting arm works best for your Elgato Prompter depending on your camera setup, space constraints, and flexibility needs. From Elgato's Low Profile Arm to heavy-duty third-party options, here's everything you need to know." name="description"/>
+<meta content="Learn how to download and flash Ubuntu 20.04 onto a Raspberry Pi to run ROS Noetic. This guide covers image selection, flashing, and optional GUI installation." name="description"/>
 <meta content="harmindersinghnijjar" name="author"/>
-<link href="https://harminder.dev/blog/2025/04/29/choosing-the-best-mounting-arm-for-your-elgato-prompter/" rel="canonical">
-<link href="../../../03/19/building-runelite-in-intellij-idea/" rel="prev"/>
-<link href="../../../06/03/installing-ubuntu-2004-on-raspberry-pi-for-ros-noetic/" rel="next"/>
+<link href="https://harminder.dev/blog/2025/06/03/installing-ubuntu-2004-on-raspberry-pi-for-ros-noetic/" rel="canonical">
+<link href="../../../04/29/choosing-the-best-mounting-arm-for-your-elgato-prompter/" rel="prev"/>
 <link href="../../../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.5.45" name="generator"/>
-<title>Choosing the Best Mounting Arm for Your Elgato Prompter - Harminder Singh Nijjar</title>
+<title>Installing Ubuntu 20.04 on Raspberry Pi for ROS Noetic - Harminder Singh Nijjar</title>
 <link href="../../../../../assets/stylesheets/main.0253249f.min.css" rel="stylesheet"/>
 <link href="../../../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
@@ -24,24 +23,24 @@
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-X0B1C5DM9K"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-X0B1C5DM9K",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-X0B1C5DM9K",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
 <meta content="website" property="og:type"/>
-<meta content="Choosing the Best Mounting Arm for Your Elgato Prompter - Harminder Singh Nijjar" property="og:title"/>
-<meta content="Explore which mounting arm works best for your Elgato Prompter depending on your camera setup, space constraints, and flexibility needs. From Elgato's Low Profile Arm to heavy-duty third-party options, here's everything you need to know." property="og:description"/>
-<meta content="https://harminder.dev/assets/images/social/blog/posts/20250429120000.png" property="og:image"/>
+<meta content="Installing Ubuntu 20.04 on Raspberry Pi for ROS Noetic - Harminder Singh Nijjar" property="og:title"/>
+<meta content="Learn how to download and flash Ubuntu 20.04 onto a Raspberry Pi to run ROS Noetic. This guide covers image selection, flashing, and optional GUI installation." property="og:description"/>
+<meta content="https://assets.ubuntu.com/v1/91f43b54-Focal%20Fossa%2020.04.svg" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="https://harminder.dev/blog/2025/04/29/choosing-the-best-mounting-arm-for-your-elgato-prompter/" property="og:url"/>
+<meta content="https://harminder.dev/blog/2025/06/03/installing-ubuntu-2004-on-raspberry-pi-for-ros-noetic/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Choosing the Best Mounting Arm for Your Elgato Prompter - Harminder Singh Nijjar" name="twitter:title"/>
-<meta content="Explore which mounting arm works best for your Elgato Prompter depending on your camera setup, space constraints, and flexibility needs. From Elgato's Low Profile Arm to heavy-duty third-party options, here's everything you need to know." name="twitter:description"/>
-<meta content="https://harminder.dev/assets/images/social/blog/posts/20250429120000.png" name="twitter:image"/>
-<meta content="Choosing the Best Mounting Arm for Your Elgato Prompter" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/04/29/choosing-the-best-mounting-arm-for-your-elgato-prompter" property="og:url"/><meta content="Choosing the Best Mounting Arm for Your Elgato Prompter" property="og:title"/><meta content="Explore which mounting arm works best for your Elgato Prompter depending on your camera setup, space constraints, and flexibility needs. From Elgato's Low Profile Arm to heavy-duty third-party options, here's everything you need to know." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/04/29/choosing-the-best-mounting-arm-for-your-elgato-prompter" property="twitter:url"/><meta content="Choosing the Best Mounting Arm for Your Elgato Prompter" property="twitter:title"/><meta content="Explore which mounting arm works best for your Elgato Prompter depending on your camera setup, space constraints, and flexibility needs. From Elgato's Low Profile Arm to heavy-duty third-party options, here's everything you need to know." property="twitter:description"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Choosing the Best Mounting Arm for Your Elgato Prompter", "image": [], "datePublished": "2025-04-29 12:13:46 -0700", "dateModified": "2025-04-29 12:13:46 -0700", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore which mounting arm works best for your Elgato Prompter depending on your camera setup, space constraints, and flexibility needs. From Elgato's Low Profile Arm to heavy-duty third-party options, here's everything you need to know."}</script></head>
+<meta content="Installing Ubuntu 20.04 on Raspberry Pi for ROS Noetic - Harminder Singh Nijjar" name="twitter:title"/>
+<meta content="Learn how to download and flash Ubuntu 20.04 onto a Raspberry Pi to run ROS Noetic. This guide covers image selection, flashing, and optional GUI installation." name="twitter:description"/>
+<meta content="https://harminder.dev/assets/images/social/blog/posts/20250603113111.png" name="twitter:image"/>
+<meta content="Installing Ubuntu 20.04 on Raspberry Pi for ROS Noetic" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2025/06/03/installing-ubuntu-2004-on-raspberry-pi-for-ros-noetic" property="og:url"/><meta content="Installing Ubuntu 20.04 on Raspberry Pi for ROS Noetic" property="og:title"/><meta content="Learn how to download and flash Ubuntu 20.04 onto a Raspberry Pi to run ROS Noetic. This guide covers image selection, flashing, and optional GUI installation." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2025/06/03/installing-ubuntu-2004-on-raspberry-pi-for-ros-noetic" property="twitter:url"/><meta content="Installing Ubuntu 20.04 on Raspberry Pi for ROS Noetic" property="twitter:title"/><meta content="Learn how to download and flash Ubuntu 20.04 onto a Raspberry Pi to run ROS Noetic. This guide covers image selection, flashing, and optional GUI installation." property="twitter:description"/><meta content="https://assets.ubuntu.com/v1/91f43b54-Focal%20Fossa%2020.04.svg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Installing Ubuntu 20.04 on Raspberry Pi for ROS Noetic", "image": ["https://assets.ubuntu.com/v1/91f43b54-Focal%20Fossa%2020.04.svg"], "datePublished": "2025-06-03 11:33:22 -0700", "dateModified": "2025-06-03 11:33:22 -0700", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to download and flash Ubuntu 20.04 onto a Raspberry Pi to run ROS Noetic. This guide covers image selection, flashing, and optional GUI installation."}</script></head>
 <body data-md-color-accent="custom" data-md-color-primary="custom" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#choosing-the-best-mounting-arm-for-your-elgato-prompter">
+<a class="md-skip" href="#installing-ubuntu-2004-on-raspberry-pi-for-ros-noetic">
           Skip to content
         </a>
 </div>
@@ -65,7 +64,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Choosing the Best Mounting Arm for Your Elgato Prompter
+              Installing Ubuntu 20.04 on Raspberry Pi for ROS Noetic
             
           </span>
 </div>
@@ -217,87 +216,44 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#choosing-the-best-mounting-arm-for-your-elgato-prompter">
+<a class="md-nav__link" href="#installing-ubuntu-2004-on-raspberry-pi-for-ros-noetic">
 <span class="md-ellipsis">
-      Choosing the Best Mounting Arm for Your Elgato Prompter
+      Installing Ubuntu 20.04 on Raspberry Pi for ROS Noetic
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#native-elgato-options">
+<a class="md-nav__link" href="#why-ubuntu-2004">
 <span class="md-ellipsis">
-      Native Elgato Options
-    </span>
-</a>
-<nav aria-label="Native Elgato Options" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#1-wave-mic-arm-lp-low-profile">
-<span class="md-ellipsis">
-      1. Wave Mic Arm LP (Low Profile)
+      ✅ Why Ubuntu 20.04?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#2-wave-mic-arm-pro">
+<a class="md-nav__link" href="#downloading-the-correct-image">
 <span class="md-ellipsis">
-      2. Wave Mic Arm Pro
+      📥 Downloading the Correct Image
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#3-master-mount-l-solid-arm">
+<a class="md-nav__link" href="#flashing-with-raspberry-pi-imager">
 <span class="md-ellipsis">
-      3. Master Mount L + Solid Arm
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#community-favorite-setups">
-<span class="md-ellipsis">
-      Community Favorite Setups
-    </span>
-</a>
-<nav aria-label="Community Favorite Setups" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#elgatos-telescope-setup-unofficial">
-<span class="md-ellipsis">
-      Elgato’s Telescope Setup (Unofficial)
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#third-party-honorable-mentions">
-<span class="md-ellipsis">
-      Third-Party Honorable Mentions
+      🖥️ Flashing with Raspberry Pi Imager
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#setup-stability-tips">
+<a class="md-nav__link" href="#optional-install-a-gui">
 <span class="md-ellipsis">
-      Setup &amp; Stability Tips
+      🧠 Optional: Install a GUI
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#quick-decision-guide">
+<a class="md-nav__link" href="#next-steps-install-ros-noetic">
 <span class="md-ellipsis">
-      Quick Decision Guide
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#final-thoughts">
-<span class="md-ellipsis">
-      Final Thoughts
+      🚀 Next Steps: Install ROS Noetic
     </span>
 </a>
 </li>
@@ -333,7 +289,7 @@
 <li class="md-nav__item">
 <div class="md-nav__link">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"></path></svg>
-<time class="md-ellipsis" datetime="2025-04-29 00:00:00+00:00">April 29, 2025</time>
+<time class="md-ellipsis" datetime="2025-06-03 00:00:00+00:00">June 3, 2025</time>
 </div>
 </li>
 <li class="md-nav__item">
@@ -342,10 +298,7 @@
 <span class="md-ellipsis">
                             in
                             
-                              <a href="../../../../category/gear/">Gear</a>, 
-                              <a href="../../../../category/streaming/">Streaming</a>, 
-                              <a href="../../../../category/hardware/">Hardware</a>, 
-                              <a href="../../../../category/video-production/">Video Production</a></span>
+                              <a href="../../../../category/robotics/">Robotics</a></span>
 </div>
 </li>
 <li class="md-nav__item">
@@ -368,112 +321,43 @@
 </div>
 <article class="md-content__inner md-typeset">
 <nav class="md-tags">
-<span class="md-tag">Elgato</span>
-<span class="md-tag">Prompter</span>
-<span class="md-tag">Desk Setup</span>
-<span class="md-tag">Video Gear</span>
-<span class="md-tag">Streaming Hardware</span>
-<span class="md-tag">Camera Mount</span>
+<span class="md-tag">ROS Noetic</span>
+<span class="md-tag">Raspberry Pi</span>
+<span class="md-tag">Ubuntu</span>
+<span class="md-tag">Ubuntu 20.04</span>
+<span class="md-tag">ROS</span>
+<span class="md-tag">Embedded Linux</span>
+<span class="md-tag">Robot OS</span>
 </nav>
-<h1>Choosing the Best Mounting Arm for Your Elgato Prompter</h1>
-<h2 id="choosing-the-best-mounting-arm-for-your-elgato-prompter">Choosing the Best Mounting Arm for Your Elgato Prompter</h2>
-<p>Selecting the right arm for your Elgato Prompter can make or break your recording setup. The Prompter itself is relatively light at 580g, but once paired with a camera and accessories, stability becomes critical. This guide breaks down the best mounting arm options based on weight, flexibility, and use case.</p>
-<hr/>
-<h2 id="native-elgato-options">Native Elgato Options</h2>
-<h3 id="1-wave-mic-arm-lp-low-profile">1. <a href="https://amzn.to/42QKKLr"><strong>Wave Mic Arm LP (Low Profile)</strong></a></h3>
-<ul>
-<li><strong>Ideal for:</strong> Lightweight webcams and the Elgato Facecam Pro.</li>
-<li><strong>Load Capacity:</strong> ~1 kg  </li>
-<li><strong>Pros:</strong> Keeps sightlines clear and integrates cleanly into desk setups.  </li>
-<li><strong>Cons:</strong> Limited vertical movement and not ideal for DSLRs.</li>
-</ul>
-<h3 id="2-wave-mic-arm-pro">2. <a href="https://amzn.to/3YkzHbT"><strong>Wave Mic Arm Pro</strong></a></h3>
-<ul>
-<li><strong>Ideal for:</strong> Small DSLRs and lens-heavy mirrorless cameras.</li>
-<li><strong>Load Capacity:</strong> Up to 2 kg</li>
-<li><strong>Pros:</strong> 360° rotation, internal cable routing, quiet adjustments.</li>
-<li><strong>Cons:</strong> Takes more desk space and may block some monitor real estate.</li>
-</ul>
-<h3 id="3-master-mount-l-solid-arm">3. <a href="https://amzn.to/44LzzpF"><strong>Master Mount L + Solid Arm</strong></a></h3>
-<ul>
-<li><strong>Ideal for:</strong> Modular setups or when vertical height is needed.</li>
-<li><strong>Load Capacity:</strong> ~1.5 kg</li>
-<li><strong>Pros:</strong> Height adjustable pole, expandable with Flex Arms.</li>
-<li><strong>Cons:</strong> Needs manual tightening and occupies desk space.</li>
-</ul>
-<hr/>
-<h2 id="community-favorite-setups">Community Favorite Setups</h2>
-<h3 id="elgatos-telescope-setup-unofficial">Elgato’s Telescope Setup (Unofficial)</h3>
-<p>Combine <a href="https://amzn.to/3EDV3dJ"><strong>Master Mount L</strong></a> with <a href="https://amzn.to/449YseC"><strong>Flex Arm Kit</strong></a> to replicate the “telescope mount.” This setup gives 3-axis adjustment and higher reach, perfect for Prompter use while maintaining strong rigidity.</p>
-<hr/>
-<h2 id="third-party-honorable-mentions">Third-Party Honorable Mentions</h2>
-<p>If you're looking for more weight capacity or budget-friendly solutions, consider these Amazon-ready options:</p>
-<table>
-<thead>
-<tr>
-<th>Product</th>
-<th>Load Capacity</th>
-<th>Features</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://amzn.to/42Y88qn"><strong>SmallRig Heavy-Duty Desk Mount</strong></a></td>
-<td>~2.5 kg</td>
-<td>Height-adjustable pole, strong clamp, ball head</td>
-</tr>
-<tr>
-<td><a href="https://amzn.to/4jXMhX2"><strong>Neewer Table-Top C-Stand</strong></a></td>
-<td>~2 kg</td>
-<td>Steel frame, wide clamp, stable base</td>
-</tr>
-<tr>
-<td><a href="https://amzn.to/3YmegHz"><strong>Ergear Gas-Spring Monitor Arm</strong></a></td>
-<td>~3 kg</td>
-<td>Converts with 1/4" adapter, wide motion range</td>
-</tr>
-</tbody>
-</table>
-<hr/>
-<h2 id="setup-stability-tips">Setup &amp; Stability Tips</h2>
+<h1>Installing Ubuntu 20.04 on Raspberry Pi for ROS Noetic</h1>
+<h2 id="installing-ubuntu-2004-on-raspberry-pi-for-ros-noetic">Installing Ubuntu 20.04 on Raspberry Pi for ROS Noetic</h2>
+<p><img alt="Ubuntu 20.04 Raspberry Pi" src="https://assets.ubuntu.com/v1/91f43b54-Focal%20Fossa%2020.04.svg"></p>
+<p>I needed a reliable OS for a Raspberry Pi project involving <a href="http://wiki.ros.org/noetic">ROS Noetic</a>, which only runs on Ubuntu 20.04. The issue? Raspberry Pi Imager doesn’t offer Ubuntu 20.04 anymore. Here's how I solved it by flashing the official preinstalled image manually.</p>
+<h2 id="why-ubuntu-2004">✅ Why Ubuntu 20.04?</h2>
+<p>ROS Noetic is the final and most stable version of ROS 1, and it's officially supported only on <strong>Ubuntu 20.04 (Focal Fossa)</strong>. Using any other version could cause dependency headaches or compatibility issues with packages.</p>
+<h2 id="downloading-the-correct-image">📥 Downloading the Correct Image</h2>
+<p>Ubuntu provides a preinstalled server image built specifically for Raspberry Pi. I used the following:</p>
+<p>➡️ <strong>Image</strong>: <a href="https://cdimage.ubuntu.com/releases/focal/release/ubuntu-20.04.5-preinstalled-server-arm64+raspi.img.xz"><code>ubuntu-20.04.5-preinstalled-server-arm64+raspi.img.xz</code></a></p>
+<p>This image is perfect for Raspberry Pi 3, 4, and 5.</p>
+<h2 id="flashing-with-raspberry-pi-imager">🖥️ Flashing with Raspberry Pi Imager</h2>
+<p>Once you have the <code>.img.xz</code> file downloaded:</p>
 <ol>
-<li><strong>Clamp placement matters</strong>: Attach near desk legs for maximum rigidity.</li>
-<li><strong>Balance the center of gravity</strong>: Align the Prompter’s center over the pivot point.</li>
-<li><strong>Secure cables</strong>: Loop HDMI/USB cables to avoid accidental tugs.</li>
-<li><strong>Avoid full extension</strong>: Arms hold more weight when compressed.</li>
+<li>Open <strong>Raspberry Pi Imager</strong></li>
+<li>Click <strong>“Choose OS”</strong> → <strong>“Use custom”</strong></li>
+<li>Select the <code>.img.xz</code> file</li>
+<li>Choose your SD card under <strong>“Storage”</strong></li>
+<li>Click <strong>“Write”</strong></li>
 </ol>
-<hr/>
-<h2 id="quick-decision-guide">Quick Decision Guide</h2>
-<table>
-<thead>
-<tr>
-<th>Setup Type</th>
-<th>Recommended Arm</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Webcam / <a href="https://amzn.to/3EFEHRQ">Elgato Facecam</a></td>
-<td>Wave Mic Arm LP</td>
-</tr>
-<tr>
-<td>Mirrorless / Small DSLR</td>
-<td>Wave Mic Arm Pro / Master Mount L</td>
-</tr>
-<tr>
-<td>Heavy DSLR + Glass</td>
-<td>SmallRig Desk Mount / Tripod</td>
-</tr>
-<tr>
-<td>Standing Desk</td>
-<td>Master Mount L + Flex Arms</td>
-</tr>
-</tbody>
-</table>
-<hr/>
-<h2 id="final-thoughts">Final Thoughts</h2>
-<p>Choosing the right mounting arm ensures your Elgato Prompter stays level, your footage looks professional, and your setup remains ergonomic. Whether you're using a light webcam or a fully rigged DSLR, there’s an arm that fits your use case. Prioritize weight support, adjustability, and space when making your decision.</p>
-<p>Your content deserves a stable platform—invest in the arm that supports your creative vision.</p>
+<p>Optional: Before first boot, you can enable SSH by placing an empty file named <code>ssh</code> in the boot partition of the SD card.</p>
+<h2 id="optional-install-a-gui">🧠 Optional: Install a GUI</h2>
+<p>By default, the image is command-line only. You can install a desktop if needed:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>xubuntu-desktop
+</code></pre></div>
+<p>I personally prefer XFCE via <code>xubuntu-desktop</code> for its lightweight footprint.</p>
+<h2 id="next-steps-install-ros-noetic">🚀 Next Steps: Install ROS Noetic</h2>
+<p>Once Ubuntu 20.04 is running, you're ready to install ROS Noetic and start building your robot.</p>
+<p>Let me know if you want a follow-up post on the ROS Noetic install process!</p>
 <form class="md-feedback" hidden="" name="feedback">
 <fieldset>
 <legend class="md-feedback__title">
@@ -507,7 +391,7 @@
 </div>
 </fieldset>
 </form>
-<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-04-29, Updated 2025-04-29<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (1)</div>
+<div class="git-info" style="font-size: 0.8em; text-align: right; margin-bottom: 10px;"><br/>Created 2025-06-03, Updated 2025-06-03<br/>Authors: <a href="https://github.com/Harminder Singh Nijjar">Harminder Singh Nijjar</a> (1)</div>
 <style>
                 .share-button:hover {
                     filter: brightness(1.2);
@@ -518,10 +402,10 @@
                 }
             </style>
 <div class="share-buttons">
-<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/2025/04/29/choosing-the-best-mounting-arm-for-your-elgato-prompter', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/2025/06/03/installing-ubuntu-2004-on-raspberry-pi-for-ros-noetic', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;" style="background-color: #1da1f2; color: white; padding: 5px 10px; border-radius: 5px; margin-right: 10px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-twitter" style="margin-right: 5px;"></i> Tweet
                 </button>
-<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/2025/04/29/choosing-the-best-mounting-arm-for-your-elgato-prompter', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
+<button class="share-button" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/2025/06/03/installing-ubuntu-2004-on-raspberry-pi-for-ros-noetic', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;" style="background-color: #0077b5; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer; display: flex; align-items: center;">
 <i class="fa-brands fa-linkedin" style="margin-right: 5px;"></i> Share
                 </button>
 </div>

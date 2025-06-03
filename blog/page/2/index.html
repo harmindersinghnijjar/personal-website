@@ -552,6 +552,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#setting-up-the-roboclaw_ros-node-with-ros-noetic-in-docker" class="md-nav__link">
     <span class="md-ellipsis">
       Setting Up the roboclaw_ros Node with ROS Noetic in Docker
@@ -632,15 +641,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#installing-ros-1-on-raspberry-pi" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installing ROS 1 on Raspberry Pi
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -655,6 +655,166 @@
       <header class="md-typeset">
         <h1 id="blog">Blog</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-01-23 00:00:00+00:00">January 23, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../../category/robotics/" class="md-meta__link">Robotics</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              3 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy"><a class="toclink" href="../../2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/">Setting Up and Running D500 LiDAR Kit's STL-19P on ROS 2 Jazzy</a></h2>
+<p>This guide walks you through setting up the D500 LiDAR Kit's <strong>STL-19P</strong> sensor for <strong>ROS 2 Jazzy</strong>, using the <strong>ldrobotSensorTeam/ldlidar_ros2</strong> repository. By the end of this article, you'll be able to configure, launch, and visualize LIDAR data in ROS 2.</p>
+<hr />
+<h3 id="prerequisites"><a class="toclink" href="../../2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#prerequisites">Prerequisites</a></h3>
+<p>Before proceeding, ensure you have the following set up:</p>
+<ol>
+<li>
+<p><strong>ROS 2 Jazzy Installed</strong>:
+   Follow the <a href="https://docs.ros.org/en/jazzy/Installation.html">official instructions</a> to install ROS 2 Jazzy.</p>
+</li>
+<li>
+<p><strong>Set Up Your ROS 2 Workspace</strong>:
+   Create a workspace if you don't already have one:
+   <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/Desktop/frata_workspace/src
+<span class="nb">cd</span><span class="w"> </span>~/Desktop/frata_workspace
+colcon<span class="w"> </span>build
+<span class="nb">source</span><span class="w"> </span>install/setup.bash
+</code></pre></div></p>
+</li>
+</ol>
+<hr />
+<h3 id="cloning-and-building-the-ldlidar-package"><a class="toclink" href="../../2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#cloning-and-building-the-ldlidar-package">Cloning and Building the LDLiDAR Package</a></h3>
+<ol>
+<li>
+<p><strong>Clone the Repository</strong>:
+   <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Desktop/frata_workspace/src
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ldrobotSensorTeam/ldlidar_ros2.git
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Install Dependencies</strong>:
+   Use <code>rosdep</code> to install any missing dependencies:
+   <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Desktop/frata_workspace
+rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>-r<span class="w"> </span>-y
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Build the Workspace</strong>:
+   Compile the package:
+   <div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="o">=</span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Source the Workspace</strong>:
+   Add the following to your <code>~/.bashrc</code> and source it:
+   <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;source ~/Desktop/frata_workspace/install/local_setup.bash&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div></p>
+</li>
+</ol>
+<hr />
+<h3 id="running-the-ldlidar-node"><a class="toclink" href="../../2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#running-the-ldlidar-node">Running the LDLiDAR Node</a></h3>
+<ol>
+<li><strong>Connect the LIDAR to a USB Port</strong>:</li>
+<li>
+<p>Ensure the LIDAR is connected to your machine. If the device isn't detected, try using a USB extension cable.</p>
+</li>
+<li>
+<p><strong>Identify the Serial Port</strong>:
+   Check for the device's serial port:
+   <div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/dev/ttyUSB*
+</code></pre></div>
+   Example output: <code>/dev/ttyUSB0</code>.</p>
+</li>
+<li>
+<p><strong>Launch the Node</strong>:
+   Start the LDLiDAR node with the appropriate launch file:
+   <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>ldlidar_ros2<span class="w"> </span>ld19.launch.py
+</code></pre></div>
+   If required, modify the <code>port_name</code> in the <code>ld19.launch.py</code> file to match your detected port (e.g., <code>/dev/ttyUSB0</code>).</p>
+</li>
+<li>
+<p><strong>View LIDAR Data</strong>:</p>
+</li>
+<li>Open Rviz2 to visualize the LIDAR data:
+     <div class="highlight"><pre><span></span><code>rviz2
+</code></pre></div></li>
+<li>Add a "LaserScan" display and set the topic to <code>/scan</code>.</li>
+</ol>
+<hr />
+<h3 id="troubleshooting-common-errors"><a class="toclink" href="../../2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#troubleshooting-common-errors">Troubleshooting Common Errors</a></h3>
+<h4 id="1-communication-abnormal-error"><a class="toclink" href="../../2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#1-communication-abnormal-error">1. <strong>"Communication Abnormal" Error</strong></a></h4>
+<p>If you encounter this error:
+   <div class="highlight"><pre><span></span><code>[ERROR] [ldlidar_publisher_ld19]: ldlidar communication is abnormal.
+</code></pre></div></p>
+<ul>
+<li>
+<p><strong>Check Serial Port</strong>: Ensure the correct serial port (<code>/dev/ttyUSB0</code>) is specified in the launch file.</p>
+</li>
+<li>
+<p><strong>Verify Baud Rate</strong>: Confirm that the baud rate in the launch file matches the LIDAR's configuration (default is <code>230400</code>).</p>
+</li>
+<li>
+<p><strong>Reconnect the Device</strong>: Use a USB extension cable if the device isn't recognized properly.</p>
+</li>
+</ul>
+<h4 id="2-device-not-found"><a class="toclink" href="../../2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#2-device-not-found">2. <strong>Device Not Found</strong></a></h4>
+<ul>
+<li>Run:
+     <div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/dev/ttyUSB*
+</code></pre></div></li>
+<li>If no device appears, ensure the LIDAR is securely connected and powered.</li>
+</ul>
+<h4 id="3-no-data-in-rviz2"><a class="toclink" href="../../2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#3-no-data-in-rviz2">3. <strong>No Data in Rviz2</strong></a></h4>
+<ul>
+<li>Verify the <code>/scan</code> topic is being published:
+     <div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>topic<span class="w"> </span>list
+ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/scan
+</code></pre></div></li>
+</ul>
+<h4 id="4-failed-init_port-fastrtps_port7000-error"><a class="toclink" href="../../2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#4-failed-init_port-fastrtps_port7000-error">4. <strong>"Failed init_port fastrtps_port7000" Error</strong></a></h4>
+<p>This is a common shared memory transport error in ROS 2.
+   - <strong>Solution</strong>: Add the following to your <code>.bashrc</code> to disable shared memory transport:
+     <div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">RMW_IMPLEMENTATION</span><span class="o">=</span>rmw_cyclonedds_cpp
+</code></pre></div></p>
+<hr />
+<h3 id="example-launch-output"><a class="toclink" href="../../2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#example-launch-output">Example Launch Output</a></h3>
+<p>Once everything is set up correctly, you should see the following output:
+<div class="highlight"><pre><span></span><code>[INFO] [ldlidar_publisher_ld19]: LDLiDAR SDK Pack Version is:3.3.1
+[INFO] [ldlidar_publisher_ld19]: ROS2 param input:
+[INFO] [ldlidar_publisher_ld19]: ldlidar serial connect is success
+[INFO] [ldlidar_publisher_ld19]: ldlidar communication is normal.
+[INFO] [ldlidar_publisher_ld19]: ldlidar driver start is success.
+[INFO] [ldlidar_publisher_ld19]: start normal, pub lidar data
+</code></pre></div></p>
+<hr />
+<h3 id="conclusion"><a class="toclink" href="../../2025/01/23/setting-up-and-running-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#conclusion">Conclusion</a></h3>
+<p>With this guide, you can successfully set up and run the D500 LiDAR Kit's STL-19P  on ROS 2 Jazzy. If you encounter the <strong>"communication abnormal"</strong> or other errors, refer to the troubleshooting section to resolve them quickly. This setup enables seamless LIDAR integration for your autonomous robotics projects.</p>
+<p>For more information, visit the <a href="https://github.com/ldrobotSensorTeam/ldlidar_ros2">ldrobotSensorTeam GitHub repository</a>.</p>
+<hr />
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
@@ -1980,179 +2140,6 @@ playwright<span class="w"> </span>install
 <hr />
 <h4 id="conclusion"><a class="toclink" href="../../2024/12/15/building-an-agentic-web-scraping-pipeline-for-crypto-and-meme-coins/#conclusion"><strong>Conclusion</strong></a></h4>
 <p>By integrating structured scraping, advanced analysis, and automation, this agentic pipeline enables real-time insights into the crypto and meme coin ecosystem. Use the steps outlined above to stay ahead in the volatile world of meme coins while minimizing risks and maximizing returns. 🚀</p>
-    
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2024-12-15 00:00:00+00:00">December 15, 2024</time></li>
-        
-          <li class="md-meta__item">
-            in
-            
-              <a href="../../category/robotics/" class="md-meta__link">Robotics</a></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              2 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="installing-ros-1-on-raspberry-pi"><a class="toclink" href="../../2024/12/15/installing-ros-1-on-raspberry-pi/">Installing ROS 1 on Raspberry Pi</a></h2>
-<h3 id="installing-ros-1-on-raspberry-pi_1"><a class="toclink" href="../../2024/12/15/installing-ros-1-on-raspberry-pi/#installing-ros-1-on-raspberry-pi_1"><strong>Installing ROS 1 on Raspberry Pi</strong></a></h3>
-<p>Robot Operating System (ROS) is an open-source framework widely used for robotic applications. This guide walks you through installing ROS 1 (Noetic) on a Raspberry Pi running Ubuntu. ROS 1 Noetic is the recommended version for Raspberry Pi and supports Ubuntu 20.04.</p>
-<hr />
-<h4 id="prerequisites"><a class="toclink" href="../../2024/12/15/installing-ros-1-on-raspberry-pi/#prerequisites"><strong>Prerequisites</strong></a></h4>
-<p>Before starting, ensure you have the following:</p>
-<ul>
-<li>Raspberry Pi 4 or later with at least 4GB of RAM (8GB is recommended for larger projects).</li>
-<li>Ubuntu 20.04 installed on the Raspberry Pi (Desktop or Server version).</li>
-<li>Internet connection for downloading and installing packages.</li>
-</ul>
-<hr />
-<h4 id="step-1-set-up-your-raspberry-pi"><a class="toclink" href="../../2024/12/15/installing-ros-1-on-raspberry-pi/#step-1-set-up-your-raspberry-pi"><strong>Step 1: Set Up Your Raspberry Pi</strong></a></h4>
-<ol>
-<li><strong>Update and Upgrade System Packages</strong>:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
-</code></pre></div></li>
-<li><strong>Install Required Dependencies</strong>:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>curl<span class="w"> </span>gnupg2<span class="w"> </span>lsb-release
-</code></pre></div></li>
-</ol>
-<hr />
-<h4 id="step-2-configure-ros-repositories"><a class="toclink" href="../../2024/12/15/installing-ros-1-on-raspberry-pi/#step-2-configure-ros-repositories"><strong>Step 2: Configure ROS Repositories</strong></a></h4>
-<ol>
-<li>
-<p><strong>Add the ROS Repository Key</strong>:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>curl<span class="w"> </span>-sSL<span class="w"> </span>https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>-
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>Add the ROS Noetic Repository</strong>:
-   <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb http://packages.ros.org/ros/ubuntu </span><span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span><span class="s2"> main&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/ros-latest.list
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>Update Package List</strong>:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
-</code></pre></div></p>
-</li>
-</ol>
-<hr />
-<h4 id="step-3-install-ros-1-noetic"><a class="toclink" href="../../2024/12/15/installing-ros-1-on-raspberry-pi/#step-3-install-ros-1-noetic"><strong>Step 3: Install ROS 1 Noetic</strong></a></h4>
-<ol>
-<li>
-<p><strong>Install the Full ROS Desktop Version</strong>:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>ros-noetic-desktop-full
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>Verify the Installation</strong>:
-   Check the installed ROS version:
-   <div class="highlight"><pre><span></span><code>rosversion<span class="w"> </span>-d
-</code></pre></div>
-   This should return <code>noetic</code>.</p>
-</li>
-</ol>
-<hr />
-<h4 id="step-4-initialize-ros-environment"><a class="toclink" href="../../2024/12/15/installing-ros-1-on-raspberry-pi/#step-4-initialize-ros-environment"><strong>Step 4: Initialize ROS Environment</strong></a></h4>
-<ol>
-<li>
-<p><strong>Set Up ROS Environment Variables</strong>:
-   <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;source /opt/ros/noetic/setup.bash&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
-<span class="nb">source</span><span class="w"> </span>~/.bashrc
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>Install rosdep</strong>:
-   rosdep is a dependency management tool for ROS:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3-rosdep
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>Initialize rosdep</strong>:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>rosdep<span class="w"> </span>init
-rosdep<span class="w"> </span>update
-</code></pre></div></p>
-</li>
-</ol>
-<hr />
-<h4 id="step-5-test-the-ros-installation"><a class="toclink" href="../../2024/12/15/installing-ros-1-on-raspberry-pi/#step-5-test-the-ros-installation"><strong>Step 5: Test the ROS Installation</strong></a></h4>
-<ol>
-<li>
-<p><strong>Run roscore</strong>:
-   Start the ROS master process:
-   <div class="highlight"><pre><span></span><code>roscore
-</code></pre></div>
-   Leave this terminal open.</p>
-</li>
-<li>
-<p><strong>Open a New Terminal and Run turtlesim</strong>:
-   Launch a simple simulation:
-   <div class="highlight"><pre><span></span><code>rosrun<span class="w"> </span>turtlesim<span class="w"> </span>turtlesim_node
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>Move the Turtle</strong>:
-   Open another terminal and control the turtle using:
-   <div class="highlight"><pre><span></span><code>rosrun<span class="w"> </span>turtlesim<span class="w"> </span>turtle_teleop_key
-</code></pre></div>
-   Use the arrow keys to move the turtle in the simulation.</p>
-</li>
-</ol>
-<hr />
-<h4 id="step-6-install-additional-ros-tools"><a class="toclink" href="../../2024/12/15/installing-ros-1-on-raspberry-pi/#step-6-install-additional-ros-tools"><strong>Step 6: Install Additional ROS Tools</strong></a></h4>
-<p>To enhance your ROS setup, install the following:</p>
-<ol>
-<li>
-<p><strong>catkin Tools</strong>:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3-catkin-tools
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>Common ROS Packages</strong>:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>ros-noetic-rviz<span class="w"> </span>ros-noetic-rqt<span class="w"> </span>ros-noetic-rqt-common-plugins
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>GPIO and Hardware Libraries (for Pi-specific projects)</strong>:
-   <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>wiringpi<span class="w"> </span>pigpio
-</code></pre></div></p>
-</li>
-</ol>
-<hr />
-<h4 id="troubleshooting"><a class="toclink" href="../../2024/12/15/installing-ros-1-on-raspberry-pi/#troubleshooting"><strong>Troubleshooting</strong></a></h4>
-<ul>
-<li>
-<p><strong>Issue</strong>: <code>rosdep</code> not initializing properly.<br />
-<strong>Fix</strong>: Ensure network connectivity and retry:
-  <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>rosdep<span class="w"> </span>init
-rosdep<span class="w"> </span>update
-</code></pre></div></p>
-</li>
-<li>
-<p><strong>Issue</strong>: ROS environment variables not set.<br />
-<strong>Fix</strong>: Manually source the ROS setup file:
-  <div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/opt/ros/noetic/setup.bash
-</code></pre></div></p>
-</li>
-</ul>
-<hr />
-<h4 id="conclusion"><a class="toclink" href="../../2024/12/15/installing-ros-1-on-raspberry-pi/#conclusion"><strong>Conclusion</strong></a></h4>
-<p>Your Raspberry Pi is now configured with ROS 1 Noetic, ready for robotic projects. With this setup, you can develop and deploy various ROS packages, integrate hardware, and experiment with advanced robotic systems.</p>
-<p>Happy building!</p>
     
   </div>
 </article>
