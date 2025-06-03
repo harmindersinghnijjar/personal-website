@@ -474,6 +474,14 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -542,6 +550,15 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-the-roboclaw_ros-node-with-ros-noetic-in-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Up the roboclaw_ros Node with ROS Noetic in Docker
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#setting-up-and-running-a-roboclaw-based-ros-node-with-obstacle-avoidance" class="md-nav__link">
@@ -624,15 +641,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#harminder-singh-nijjars-digital-art-catalog" class="md-nav__link">
-    <span class="md-ellipsis">
-      Harminder Singh Nijjar's Digital Art Catalog
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -647,6 +655,133 @@
       <header class="md-typeset">
         <h1 id="blog">Blog</h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-01-23 00:00:00+00:00">January 23, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../../category/robotics/" class="md-meta__link">Robotics</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              2 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="setting-up-the-roboclaw_ros-node-with-ros-noetic-in-docker"><a class="toclink" href="../../2025/01/23/setting-up-the-roboclaw_ros-node-with-ros-noetic-in-docker/">Setting Up the <code>roboclaw_ros</code> Node with ROS Noetic in Docker</a></h2>
+<h3 id="introduction"><a class="toclink" href="../../2025/01/23/setting-up-the-roboclaw_ros-node-with-ros-noetic-in-docker/#introduction">Introduction</a></h3>
+<p>In this guide, we’ll walk through setting up the <code>roboclaw_ros</code> node in ROS Noetic using Docker. This approach ensures a clean, consistent environment for development and deployment while leveraging Docker's flexibility. We'll cover everything from creating the Docker image to running the node with the correct configurations.</p>
+<hr />
+<h3 id="prerequisites"><a class="toclink" href="../../2025/01/23/setting-up-the-roboclaw_ros-node-with-ros-noetic-in-docker/#prerequisites">Prerequisites</a></h3>
+<p>Before proceeding, ensure you have:</p>
+<ol>
+<li><strong>Docker Installed</strong>: Docker must be installed and operational on your system.  </li>
+<li><strong>Hardware Setup</strong>:</li>
+<li>A Roboclaw motor controller connected to <code>/dev/ttyACM0</code>.  </li>
+<li>Encoders configured for your robot’s specific dimensions.  </li>
+<li><strong>Dependencies Installed</strong>:</li>
+<li>The <code>roboclaw_driver</code> library for ROS.  </li>
+<li>Python libraries like <code>pyserial</code> for communication.  </li>
+</ol>
+<hr />
+<h3 id="setup-steps"><a class="toclink" href="../../2025/01/23/setting-up-the-roboclaw_ros-node-with-ros-noetic-in-docker/#setup-steps">Setup Steps</a></h3>
+<h4 id="1-pull-the-base-docker-image"><a class="toclink" href="../../2025/01/23/setting-up-the-roboclaw_ros-node-with-ros-noetic-in-docker/#1-pull-the-base-docker-image">1. Pull the Base Docker Image</a></h4>
+<p>Start by pulling the base Docker image for ROS Noetic:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>arm64v8/ros:noetic-ros-base
+</code></pre></div>
+<hr />
+<h4 id="2-run-a-container-and-install-ros-noetic-components"><a class="toclink" href="../../2025/01/23/setting-up-the-roboclaw_ros-node-with-ros-noetic-in-docker/#2-run-a-container-and-install-ros-noetic-components">2. Run a Container and Install ROS Noetic Components</a></h4>
+<p>Launch a container from the base image:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>ros_noetic_container<span class="w"> </span>--rm<span class="w"> </span>arm64v8/ros:noetic-ros-base
+</code></pre></div>
+<p>Inside the container, update and install required packages:</p>
+<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>update
+apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>ros-noetic-rosbridge-server<span class="w"> </span>ros-noetic-tf<span class="w"> </span>python3-serial<span class="w"> </span>python3-pip
+pip3<span class="w"> </span>install<span class="w"> </span>diagnostic-updater
+</code></pre></div>
+<hr />
+<h4 id="3-create-and-mount-a-workspace"><a class="toclink" href="../../2025/01/23/setting-up-the-roboclaw_ros-node-with-ros-noetic-in-docker/#3-create-and-mount-a-workspace">3. Create and Mount a Workspace</a></h4>
+<p>To persist your workspace across sessions, create a workspace on your host machine and mount it in the container:</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/ros_noetic_ws/src
+sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>ros_noetic_container<span class="w"> </span>--rm<span class="w"> </span>-v<span class="w"> </span>~/ros_noetic_ws:/root/ros_noetic_ws<span class="w"> </span>arm64v8/ros:noetic-ros-base
+</code></pre></div>
+<p>Inside the container, initialize the workspace:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/root/ros_noetic_ws
+catkin_make
+</code></pre></div>
+<hr />
+<h4 id="4-clone-the-roboclaw_ros-repository"><a class="toclink" href="../../2025/01/23/setting-up-the-roboclaw_ros-node-with-ros-noetic-in-docker/#4-clone-the-roboclaw_ros-repository">4. Clone the <code>roboclaw_ros</code> Repository</a></h4>
+<p>Clone the repository into the workspace:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/root/ros_noetic_ws/src
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/DoanNguyenTrong/roboclaw_ros.git
+</code></pre></div>
+<hr />
+<h4 id="5-build-the-workspace"><a class="toclink" href="../../2025/01/23/setting-up-the-roboclaw_ros-node-with-ros-noetic-in-docker/#5-build-the-workspace">5. Build the Workspace</a></h4>
+<p>Return to the root of the workspace and build it:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/root/ros_noetic_ws
+catkin_make
+<span class="nb">source</span><span class="w"> </span>devel/setup.bash
+</code></pre></div>
+<hr />
+<h4 id="6-save-the-docker-image"><a class="toclink" href="../../2025/01/23/setting-up-the-roboclaw_ros-node-with-ros-noetic-in-docker/#6-save-the-docker-image">6. Save the Docker Image</a></h4>
+<p>To save your container for future use, commit it as a new image:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>commit<span class="w"> </span>ros_noetic_container<span class="w"> </span>ros_noetic_saved
+</code></pre></div>
+<p>Run this saved image with automatic restart enabled:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>ros_noetic_container<span class="w"> </span>--restart<span class="w"> </span>always<span class="w"> </span>ros_noetic_saved
+</code></pre></div>
+<hr />
+<h3 id="running-the-roboclaw_ros-node"><a class="toclink" href="../../2025/01/23/setting-up-the-roboclaw_ros-node-with-ros-noetic-in-docker/#running-the-roboclaw_ros-node">Running the <code>roboclaw_ros</code> Node</a></h3>
+<p>To run the <code>roboclaw_ros</code> node, use the following steps:</p>
+<h4 id="1-start-the-container"><a class="toclink" href="../../2025/01/23/setting-up-the-roboclaw_ros-node-with-ros-noetic-in-docker/#1-start-the-container">1. Start the Container</a></h4>
+<p>Start the container with the saved image:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>start<span class="w"> </span>-ai<span class="w"> </span>ros_noetic_container
+</code></pre></div>
+<h4 id="2-launch-the-node"><a class="toclink" href="../../2025/01/23/setting-up-the-roboclaw_ros-node-with-ros-noetic-in-docker/#2-launch-the-node">2. Launch the Node</a></h4>
+<p>Inside the container, run the launch file:</p>
+<div class="highlight"><pre><span></span><code>roslaunch<span class="w"> </span>roboclaw_node<span class="w"> </span>roboclaw.launch
+</code></pre></div>
+<hr />
+<h3 id="testing-the-node"><a class="toclink" href="../../2025/01/23/setting-up-the-roboclaw_ros-node-with-ros-noetic-in-docker/#testing-the-node">Testing the Node</a></h3>
+<p>To verify the node's functionality:</p>
+<ol>
+<li><strong>Publish Commands to <code>/cmd_vel</code>:</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>rostopic<span class="w"> </span>pub<span class="w"> </span>/cmd_vel<span class="w"> </span>geometry_msgs/Twist<span class="w"> </span><span class="s1">&#39;{linear: {x: 0.5}, angular: {z: 0.1}}&#39;</span>
+</code></pre></div>
+<ol>
+<li><strong>Monitor Output:</strong></li>
+</ol>
+<p>Check odometry data on <code>/odom</code>:</p>
+<div class="highlight"><pre><span></span><code>rostopic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/odom
+</code></pre></div>
+<hr />
+<h3 id="viewing-docker-folder-structure"><a class="toclink" href="../../2025/01/23/setting-up-the-roboclaw_ros-node-with-ros-noetic-in-docker/#viewing-docker-folder-structure">Viewing Docker Folder Structure</a></h3>
+<p>To view the folder structure inside the container, use:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>ros_noetic_container<span class="w"> </span>bash
+<span class="nb">cd</span><span class="w"> </span>/root/ros_noetic_ws
+tree
+</code></pre></div>
+<hr />
+<h3 id="conclusion"><a class="toclink" href="../../2025/01/23/setting-up-the-roboclaw_ros-node-with-ros-noetic-in-docker/#conclusion">Conclusion</a></h3>
+<p>This guide provides a straightforward approach to setting up and running the <code>roboclaw_ros</code> node in a ROS Noetic Docker environment. Docker ensures consistency and portability, making it an ideal choice for robotics development. By following these steps, you can integrate Roboclaw into your robotic system efficiently.</p>
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
@@ -2018,41 +2153,6 @@ rosdep<span class="w"> </span>update
 <h4 id="conclusion"><a class="toclink" href="../../2024/12/15/installing-ros-1-on-raspberry-pi/#conclusion"><strong>Conclusion</strong></a></h4>
 <p>Your Raspberry Pi is now configured with ROS 1 Noetic, ready for robotic projects. With this setup, you can develop and deploy various ROS packages, integrate hardware, and experiment with advanced robotic systems.</p>
 <p>Happy building!</p>
-    
-  </div>
-</article>
-      
-        <article class="md-post md-post--excerpt">
-  <header class="md-post__header">
-    
-    <div class="md-post__meta md-meta">
-      <ul class="md-meta__list">
-        <li class="md-meta__item">
-          <time datetime="2024-11-25 00:00:00+00:00">November 25, 2024</time></li>
-        
-          <li class="md-meta__item">
-            in
-            
-              <a href="../../category/art/" class="md-meta__link">Art</a></li>
-        
-        
-          
-          <li class="md-meta__item">
-            
-              1 min read
-            
-          </li>
-        
-      </ul>
-      
-    </div>
-  </header>
-  <div class="md-post__content md-typeset">
-    <h2 id="harminder-singh-nijjars-digital-art-catalog"><a class="toclink" href="../../2024/11/25/harminder-singh-nijjars-digital-art-catalog/">Harminder Singh Nijjar's Digital Art Catalog</a></h2>
-<p>2024-11-25: While sitting on the dining table drinking a <a href="https://amzn.to/499IQbh">Celsius Peach Vibe</a>, I decided to create a quick digital drawing of the can next to a container of <a href="https://amzn.to/3B13TAn">JIF peanut butter</a>. The drawing was done on my <a href="https://amzn.to/3CEDYyM">MobiScribe WAVE</a> using the stylus that came with the device. The MobiScribe WAVE is a great tool for digital art, and I enjoy using it for quick sketches and drawings.
-<img alt="JIF + Celsius Peach Vibe" src="https://i.imgur.com/knoIoDW.jpeg"></p>
-<p>2024-11-26 20:17: Today I drew a quick sketch of two wolf pups howling at the moon.
-<img alt="Full Moon Pups" src="https://i.imgur.com/LfrytVl.png"></p>
     
   </div>
 </article>
