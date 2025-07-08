@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Enhance your Xbox Cloud Gaming experience with AHK to improve your aiming precision in games like Fortnite." name="description"/>
 <meta content="harmindersinghnijjar" name="author"/>
-<link href="https://harminder.dev/blog/2024/11/24/using-crosshairahk-to-assist-with-aiming-on-xbox-cloud-gaming/" rel="canonical">
+<link href="https://harminder.dev/blog/2024/11/24/using-crosshairahk-to-assist-with-aiming-on-xbox-cloud-gaming/" rel="canonical"/>
 <link href="../../../../2023/11/27/transferring-script-files-to-local-system-or-vps/" rel="prev"/>
 <link href="../my-first-blog-post/" rel="next"/>
 <link href="../../../../../assets/images/favicon.png" rel="icon"/>
@@ -15,8 +15,8 @@
 <title>Using Crosshair.AHK to Assist with Aiming on Xbox Cloud Gaming - Harminder Singh Nijjar</title>
 <link href="../../../../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
 <link href="../../../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
-
-<link href="../../../../../assets/external/fonts.googleapis.com/css.49ea35f2.css" rel="stylesheet">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
 <link href="../../../../../assets/_mkdocstrings.css" rel="stylesheet"/>
 <link href="../../../../../stylesheets/extra.css" rel="stylesheet"/>
@@ -35,7 +35,7 @@
 <meta content="Using Crosshair.AHK to Assist with Aiming on Xbox Cloud Gaming - Harminder Singh Nijjar" name="twitter:title"/>
 <meta content="Enhance your Xbox Cloud Gaming experience with AHK to improve your aiming precision in games like Fortnite." name="twitter:description"/>
 <meta content="https://harminder.dev/assets/images/social/blog/posts/20241124153952.png" name="twitter:image"/>
-<meta content="Using Crosshair.AHK to Assist with Aiming on Xbox Cloud Gaming" name="title"/><link href="../../../../../assets/external/cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2024/11/24/using-crosshairahk-to-assist-with-aiming-on-xbox-cloud-gaming" property="og:url"/><meta content="Using Crosshair.AHK to Assist with Aiming on Xbox Cloud Gaming" property="og:title"/><meta content="Enhance your Xbox Cloud Gaming experience with AHK to improve your aiming precision in games like Fortnite." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2024/11/24/using-crosshairahk-to-assist-with-aiming-on-xbox-cloud-gaming" property="twitter:url"/><meta content="Using Crosshair.AHK to Assist with Aiming on Xbox Cloud Gaming" property="twitter:title"/><meta content="Enhance your Xbox Cloud Gaming experience with AHK to improve your aiming precision in games like Fortnite." property="twitter:description"/><meta content="https://imgur.com/hSxHXl4.png" property="twitter:image"/></head>
+<meta content="Using Crosshair.AHK to Assist with Aiming on Xbox Cloud Gaming" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/2024/11/24/using-crosshairahk-to-assist-with-aiming-on-xbox-cloud-gaming" property="og:url"/><meta content="Using Crosshair.AHK to Assist with Aiming on Xbox Cloud Gaming" property="og:title"/><meta content="Enhance your Xbox Cloud Gaming experience with AHK to improve your aiming precision in games like Fortnite." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/2024/11/24/using-crosshairahk-to-assist-with-aiming-on-xbox-cloud-gaming" property="twitter:url"/><meta content="Using Crosshair.AHK to Assist with Aiming on Xbox Cloud Gaming" property="twitter:title"/><meta content="Enhance your Xbox Cloud Gaming experience with AHK to improve your aiming precision in games like Fortnite." property="twitter:description"/><meta content="https://imgur.com/hSxHXl4.png" property="twitter:image"/></head>
 <body data-md-color-accent="custom" data-md-color-primary="custom" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -335,10 +335,10 @@
 </nav>
 <h1>Using Crosshair.AHK to Assist with Aiming on Xbox Cloud Gaming</h1>
 <h2 id="using-crosshairahk-to-assist-with-aiming-on-xbox-cloud-gaming">Using Crosshair.AHK to Assist with Aiming on Xbox Cloud Gaming</h2>
-<p><img alt="Crosshair.AHK" src="../../../../../assets/external/imgur.com/hSxHXl4.png.jpg"></p>
+<p><img alt="Crosshair.AHK" src="https://imgur.com/hSxHXl4.png"/></p>
 <p>I recently started playing games on Xbox Cloud Gaming on PC, and I noticed that the aim assist with <a href="https://github.com/EugeneSunrise/reWASD">reWASD</a> wasn't as powerful as I had initially expected. I decided to use <a href="https://github.com/harmindersinghnijjar/2020-2021-ahk-dump/blob/4dc11db4c5cd3d40db562ad3690c4d2599a27e5c/crosshair.ahk#L4">Crosshair.AHK</a> to help me aim better. Crosshair.AHK is a simple script that displays a crosshair on your screen to help you aim better in games. In this post, I will show you how to use Crosshair.AHK to assist with aiming in Fortnite on Xbox Cloud Gaming.</p>
 <h2 id="features-of-crosshairahk">Features of Crosshair.AHK</h2>
-<p><img alt="10 different crosshair variations, customizable colors, and fullscreen support." src="../../../../../assets/external/imgur.com/8Eo2fvq.png"></p>
+<p><img alt="10 different crosshair variations, customizable colors, and fullscreen support." src="https://imgur.com/8Eo2fvq.png"/></p>
 <p><a href="https://github.com/harmindersinghnijjar/2020-2021-ahk-dump/blob/4dc11db4c5cd3d40db562ad3690c4d2599a27e5c/crosshair.ahk#L4">Crosshair.AHK</a> has several features that make it a great tool for improving your aim in games. Some of the key features include:</p>
 <ul>
 <li>10 different crosshair styles</li>
@@ -350,7 +350,7 @@
 <h3 id="customizable-crosshair-colors">Customizable Crosshair Colors</h3>
 <p><a href="https://github.com/harmindersinghnijjar/2020-2021-ahk-dump/blob/4dc11db4c5cd3d40db562ad3690c4d2599a27e5c/crosshair.ahk#L4">Crosshair.AHK</a> allows you to customize the color of your crosshair to suit your preferences. You can choose from a wide range of colors to find the one that stands out the most against your game's background. Crosshair colors can be easily changed by pressing the <code>F10</code> key and using the color change widget to select the desired color.</p>
 <h3 id="fullscreen-crosshair-support">Fullscreen Crosshair Support</h3>
-<p><img alt="Crosshair in fullscreen mode." src="../../../../../assets/external/i.imgur.com/drMalrp.jpeg.jpg"></p>
+<p><img alt="Crosshair in fullscreen mode." src="https://i.imgur.com/drMalrp.jpeg"/></p>
 <p><a href="https://github.com/harmindersinghnijjar/2020-2021-ahk-dump/blob/4dc11db4c5cd3d40db562ad3690c4d2599a27e5c/crosshair.ahk#L4">Crosshair.AHK</a> supports fullscreen mode, allowing you to use the crosshair in games that run in fullscreen. This feature is particularly useful for games that don't have built-in crosshairs or where the crosshair is difficult to see against the game's background. To enable fullscreen mode, simply press the <code>F11</code> key.</p>
 <form class="md-feedback" hidden="" name="feedback">
 <fieldset>
@@ -405,7 +405,7 @@
 </div>
 <br/>
 <h2 id="__comments">Comments</h2>
-<script async="" crossorigin="anonymous" data-category-id="DIC_kwDONUMZrc4Ckka7" data-emit-metadata="1" data-input-position="top" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="harmindersinghnijjar/personal-website" data-repo-id="R_kgDONUMZrQ" data-strict="0" data-theme="preferred_color_scheme" src="../../../../../assets/external/giscus.app/client.js">
+<script async="" crossorigin="anonymous" data-category-id="DIC_kwDONUMZrc4Ckka7" data-emit-metadata="1" data-input-position="top" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="harmindersinghnijjar/personal-website" data-repo-id="R_kgDONUMZrQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
 </script>
 </article>
 </div>
