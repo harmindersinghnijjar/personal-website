@@ -5,40 +5,41 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://harminder.dev/blog/" rel="canonical"/>
-<link href=".." rel="prev"/>
-<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="Learn how to use Selenium with undetected-chromedriver to bypass Cloudflare challenges for robust web automation. Includes practical workflows and tips." name="description"/>
+<meta content="harmindersinghnijjar" name="author"/>
+<link href="https://harminder.dev/blog/posts/20250115143012/" rel="canonical"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.15" name="generator"/>
-<title>Blog - Harminder Singh Nijjar</title>
-<link href="../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<title>Leveraging Selenium with Undetected-Chromedriver for Cloudflare Mitigation - Harminder Singh Nijjar</title>
+<link href="../../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="../assets/_mkdocstrings.css" rel="stylesheet"/>
-<link href="../stylesheets/extra.css" rel="stylesheet"/>
-<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../../../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-X0B1C5DM9K"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-X0B1C5DM9K",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-X0B1C5DM9K",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
 <meta content="website" property="og:type"/>
-<meta content="Blog - Harminder Singh Nijjar" property="og:title"/>
-<meta content="None" property="og:description"/>
+<meta content="Leveraging Selenium with Undetected-Chromedriver for Cloudflare Mitigation - Harminder Singh Nijjar" property="og:title"/>
+<meta content="Learn how to use Selenium with undetected-chromedriver to bypass Cloudflare challenges for robust web automation. Includes practical workflows and tips." property="og:description"/>
 <meta content="https://raw.githubusercontent.com/harmindersinghnijjar/face/main/fotor_2023-8-13_21_49_31-fotor-2023081322615.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="https://harminder.dev/blog/" property="og:url"/>
+<meta content="https://harminder.dev/blog/posts/20250115143012/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Blog - Harminder Singh Nijjar" name="twitter:title"/>
-<meta content="None" name="twitter:description"/>
-<meta content="https://harminder.dev/assets/images/social/blog/index.png" name="twitter:image"/>
-<meta content="Blog" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog" property="og:url"/><meta content="Blog" property="og:title"/><meta content="" property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog" property="twitter:url"/><meta content="Blog" property="twitter:title"/><meta content="" property="twitter:description"/><meta content="https://raw.githubusercontent.com/harmindersinghnijjar/face/main/fotor_2023-8-13_21_49_31-fotor-2023081322615.png" property="twitter:image"/></head>
+<meta content="Leveraging Selenium with Undetected-Chromedriver for Cloudflare Mitigation - Harminder Singh Nijjar" name="twitter:title"/>
+<meta content="Learn how to use Selenium with undetected-chromedriver to bypass Cloudflare challenges for robust web automation. Includes practical workflows and tips." name="twitter:description"/>
+<meta content="https://harminder.dev/assets/images/social/blog/posts/20250115143012.png" name="twitter:image"/>
+<meta content="Leveraging Selenium with Undetected-Chromedriver for Cloudflare Mitigation" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/posts/20250115143012" property="og:url"/><meta content="Leveraging Selenium with Undetected-Chromedriver for Cloudflare Mitigation" property="og:title"/><meta content="Learn how to use Selenium with undetected-chromedriver to bypass Cloudflare challenges for robust web automation. Includes practical workflows and tips." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/posts/20250115143012" property="twitter:url"/><meta content="Leveraging Selenium with Undetected-Chromedriver for Cloudflare Mitigation" property="twitter:title"/><meta content="Learn how to use Selenium with undetected-chromedriver to bypass Cloudflare challenges for robust web automation. Includes practical workflows and tips." property="twitter:description"/><meta content="https://raw.githubusercontent.com/harmindersinghnijjar/face/main/fotor_2023-8-13_21_49_31-fotor-2023081322615.png" property="twitter:image"/></head>
 <body data-md-color-accent="custom" data-md-color-primary="custom" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#blog">
+<a class="md-skip" href="#leveraging-selenium-with-undetected-chromedriver-for-captcha-and-cloudflare-mitigation">
           Skip to content
         </a>
 </div>
@@ -46,8 +47,8 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Harminder Singh Nijjar" class="md-header__button md-logo" data-md-component="logo" href=".." title="Harminder Singh Nijjar">
-<img alt="logo" src="../assets/logo.png"/>
+<a aria-label="Harminder Singh Nijjar" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Harminder Singh Nijjar">
+<img alt="logo" src="../../../assets/logo.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
@@ -62,7 +63,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Blog
+              Leveraging Selenium with Undetected-Chromedriver for Cloudflare Mitigation
             
           </span>
 </div>
@@ -120,7 +121,7 @@
 <div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="..">
+<a class="md-tabs__link" href="../../..">
         
   
   
@@ -130,8 +131,8 @@
 
       </a>
 </li>
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="./">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../">
           
   
   
@@ -151,38 +152,28 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Harminder Singh Nijjar" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Harminder Singh Nijjar">
-<img alt="logo" src="../assets/logo.png"/>
+<a aria-label="Harminder Singh Nijjar" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Harminder Singh Nijjar">
+<img alt="logo" src="../../../assets/logo.png"/>
 </a>
     Harminder Singh Nijjar
   </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="..">
+<a class="md-nav__link" href="../../..">
 <span class="md-ellipsis">
     Home
     
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
-<div class="md-nav__link md-nav__container">
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../">
 <span class="md-ellipsis">
     Blog
     
   </span>
-</a>
-</div>
-<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
-            Blog
-          </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-</ul>
-</nav>
+</a>
 </li>
 </ul>
 </nav>
@@ -193,13 +184,230 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#leveraging-selenium-with-undetected-chromedriver-for-captcha-and-cloudflare-mitigation">
+<span class="md-ellipsis">
+      Leveraging Selenium with Undetected-Chromedriver for CAPTCHA and Cloudflare Mitigation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-use-selenium-with-undetected-chromedriver">
+<span class="md-ellipsis">
+      Why Use Selenium with Undetected-Chromedriver?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#detection-challenges-in-web-automation">
+<span class="md-ellipsis">
+      Detection Challenges in Web Automation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-solution-selenium-and-undetected-chromedriver">
+<span class="md-ellipsis">
+      The Solution: Selenium and Undetected-Chromedriver
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#implementation-guide-setting-up-selenium-with-undetected-chromedriver">
+<span class="md-ellipsis">
+      Implementation Guide: Setting Up Selenium with Undetected-Chromedriver
+    </span>
+</a>
+<nav aria-label="Implementation Guide: Setting Up Selenium with Undetected-Chromedriver" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-1-install-required-libraries">
+<span class="md-ellipsis">
+      Step 1: Install Required Libraries
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-2-initialize-the-browser-driver">
+<span class="md-ellipsis">
+      Step 2: Initialize the Browser Driver
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-3-handle-captcha-and-cloudflare-challenges">
+<span class="md-ellipsis">
+      Step 3: Handle CAPTCHA and Cloudflare Challenges
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#advanced-automation-workflow-with-cookies">
+<span class="md-ellipsis">
+      Advanced Automation Workflow with Cookies
+    </span>
+</a>
+<nav aria-label="Advanced Automation Workflow with Cookies" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-1-attempt-standard-automation">
+<span class="md-ellipsis">
+      Step 1: Attempt Standard Automation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-2-use-cookies-for-session-continuity">
+<span class="md-ellipsis">
+      Step 2: Use Cookies for Session Continuity
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-3-fall-back-to-manual-assistance">
+<span class="md-ellipsis">
+      Step 3: Fall Back to Manual Assistance
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#proposed-workflow-for-automation">
+<span class="md-ellipsis">
+      Proposed Workflow for Automation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+<span class="md-ellipsis">
+      Conclusion
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#references">
+<span class="md-ellipsis">
+      References
+    </span>
+</a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="blog">Blog</h1>
+<nav class="md-tags">
+<span class="md-tag">CAPTCHA Bypass</span>
+<span class="md-tag">Cloudflare Mitigation</span>
+<span class="md-tag">Selenium</span>
+<span class="md-tag">Undetected-Chromedriver</span>
+<span class="md-tag">Web Automation</span>
+</nav>
+<h1>Leveraging Selenium with Undetected-Chromedriver for Cloudflare Mitigation</h1>
+<h2 id="leveraging-selenium-with-undetected-chromedriver-for-captcha-and-cloudflare-mitigation">Leveraging Selenium with Undetected-Chromedriver for CAPTCHA and Cloudflare Mitigation</h2>
+<p>By combining <strong>Selenium</strong> with <strong>undetected-chromedriver (UC)</strong>, you can overcome common automation challenges like Cloudflare's browser verification. This guide explores practical workflows and techniques to enhance your web automation projects.</p>
+<hr/>
+<h2 id="why-use-selenium-with-undetected-chromedriver">Why Use Selenium with Undetected-Chromedriver?</h2>
+<p>Cloudflare protections are designed to block bots, posing challenges for developers. By using undetected-chromedriver with Selenium, you can:</p>
+<ul>
+<li><strong>Bypass Browser Fingerprinting:</strong> UC modifies ChromeDriver to avoid detection.</li>
+<li><strong>Handle Cloudflare Challenges:</strong> Seamlessly bypass "wait while your browser is verified" messages.</li>
+<li><strong>Mitigate CAPTCHA Issues:</strong> Reduce interruptions caused by automated bot checks.</li>
+</ul>
+<hr/>
+<h2 id="detection-challenges-in-web-automation">Detection Challenges in Web Automation</h2>
+<p>Websites employ multiple strategies to detect and prevent automated interactions:</p>
+<ul>
+<li><strong>CAPTCHA Challenges:</strong> Validating user authenticity.</li>
+<li><strong>Cloudflare Browser Verification:</strong> Infinite loading screens or token-based checks.</li>
+<li><strong>Bot Detection Mechanisms:</strong> Browser fingerprinting, behavioral analytics, and cookie validation.</li>
+</ul>
+<p>These barriers often require advanced techniques to maintain automation workflows.</p>
+<hr/>
+<h2 id="the-solution-selenium-and-undetected-chromedriver">The Solution: Selenium and Undetected-Chromedriver</h2>
+<p>The undetected-chromedriver library modifies the default ChromeDriver to emulate human-like behavior and evade detection. When integrated with Selenium, it allows:</p>
+<ol>
+<li><strong>Seamless CAPTCHA Bypass:</strong> Minimize interruptions by automating responses or avoiding challenges.</li>
+<li><strong>Cloudflare Token Handling:</strong> Automatically manage verification processes.</li>
+<li><strong>Cookie Reuse for Session Preservation:</strong> Skip repetitive verifications by reusing authenticated cookies.</li>
+</ol>
+<hr/>
+<h2 id="implementation-guide-setting-up-selenium-with-undetected-chromedriver">Implementation Guide: Setting Up Selenium with Undetected-Chromedriver</h2>
+<h3 id="step-1-install-required-libraries">Step 1: Install Required Libraries</h3>
+<p>Install Selenium and undetected-chromedriver:
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>selenium<span class="w"> </span>undetected-chromedriver
+</code></pre></div></p>
+<h3 id="step-2-initialize-the-browser-driver">Step 2: Initialize the Browser Driver</h3>
+<p>Set up a Selenium session with UC:
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">undetected_chromedriver.v2</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">uc</span>
+
+<span class="c1"># Initialize the driver</span>
+<span class="n">driver</span> <span class="o">=</span> <span class="n">uc</span><span class="o">.</span><span class="n">Chrome</span><span class="p">()</span>
+
+<span class="c1"># Navigate to a website</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"https://example.com"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Page Title:"</span><span class="p">,</span> <span class="n">driver</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+
+<span class="c1"># Quit the driver</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+</code></pre></div></p>
+<h3 id="step-3-handle-captcha-and-cloudflare-challenges">Step 3: Handle CAPTCHA and Cloudflare Challenges</h3>
+<ul>
+<li>Use <strong>UC</strong> to bypass passive bot checks.</li>
+<li>Extract and reuse cookies to maintain session continuity:
+  <div class="highlight"><pre><span></span><code><span class="n">cookies</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">get_cookies</span><span class="p">()</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">add_cookie</span><span class="p">(</span><span class="n">cookies</span><span class="p">)</span>
+</code></pre></div></li>
+</ul>
+<hr/>
+<h2 id="advanced-automation-workflow-with-cookies">Advanced Automation Workflow with Cookies</h2>
+<h3 id="step-1-attempt-standard-automation">Step 1: Attempt Standard Automation</h3>
+<p>Use Selenium with UC to navigate and interact with the website.</p>
+<h3 id="step-2-use-cookies-for-session-continuity">Step 2: Use Cookies for Session Continuity</h3>
+<p>Manually authenticate once, extract cookies, and reuse them for automated sessions:
+<div class="highlight"><pre><span></span><code><span class="c1"># Save cookies after manual login</span>
+<span class="n">cookies</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">get_cookies</span><span class="p">()</span>
+
+<span class="c1"># Use cookies in future sessions</span>
+<span class="k">for</span> <span class="n">cookie</span> <span class="ow">in</span> <span class="n">cookies</span><span class="p">:</span>
+    <span class="n">driver</span><span class="o">.</span><span class="n">add_cookie</span><span class="p">(</span><span class="n">cookie</span><span class="p">)</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">refresh</span><span class="p">()</span>
+</code></pre></div></p>
+<h3 id="step-3-fall-back-to-manual-assistance">Step 3: Fall Back to Manual Assistance</h3>
+<p>Prompt users to resolve CAPTCHA or login challenges in a separate session and capture the cookies for automation.</p>
+<hr/>
+<h2 id="proposed-workflow-for-automation">Proposed Workflow for Automation</h2>
+<ol>
+<li><strong>Initial Attempt:</strong> Start with Selenium and UC for automation.</li>
+<li><strong>Fallback to Cookies:</strong> Reuse cookies for continuity if CAPTCHA or Cloudflare challenges arise.</li>
+<li><strong>Manual Assistance:</strong> Open a browser session for user input, capture cookies, and resume automation.</li>
+</ol>
+<p>This iterative process ensures maximum efficiency and minimizes disruptions.</p>
+<hr/>
+<h2 id="conclusion">Conclusion</h2>
+<p>Selenium and undetected-chromedriver provide a powerful toolkit for overcoming automation barriers like CAPTCHA and Cloudflare protections. By leveraging cookies and manual fallbacks, you can create robust workflows that streamline automation processes.</p>
+<p>Ready to enhance your web automation? Start integrating Selenium with UC today and unlock new possibilities!</p>
+<hr/>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www.selenium.dev/documentation/">Selenium Documentation</a></li>
+<li><a href="https://github.com/ultrafunkamsterdam/undetected-chromedriver">Undetected-Chromedriver</a></li>
+<li><a href="https://www.example.com/captcha-bypass-guide">CAPTCHA Bypass Strategies</a></li>
+<li><a href="https://www.cloudflare.com/">Cloudflare and Bot Detection</a></li>
+</ul>
 <form class="md-feedback" hidden="" name="feedback">
 <fieldset>
 <legend class="md-feedback__title">
@@ -244,14 +452,17 @@
 </fieldset>
 </form>
 <div class="share-buttons">
-<button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
+<button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/posts/20250115143012', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
 <i class="fa-brands fa-x-twitter"></i> Tweet
     </button>
-<button class="share-button hover-item linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;">
+<button class="share-button hover-item linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/posts/20250115143012', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;">
 <i class="fa-brands fa-linkedin-in"></i> Share
     </button>
 </div>
 <br/>
+<h2 id="__comments">Comments</h2>
+<script async="" crossorigin="anonymous" data-category-id="DIC_kwDONUMZrc4Ckka7" data-emit-metadata="1" data-input-position="top" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="harmindersinghnijjar/personal-website" data-repo-id="R_kgDONUMZrQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
@@ -324,8 +535,8 @@
 </aside>
 </div>
 <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
-<script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.expand", "search.suggest", "search.share"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../assets/javascripts/bundle.56ea9cef.min.js"></script>
-<script src="../js/open_in_new_tab.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.expand", "search.suggest", "search.share"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+<script src="../../../js/open_in_new_tab.js"></script>
 </body>
 </html>

@@ -5,40 +5,41 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://harminder.dev/blog/" rel="canonical"/>
-<link href=".." rel="prev"/>
-<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="Learn how to set up and run a Facebook Marketplace Scraper using Python, SQLite, Google Sheets API, and Telegram Bot API, either on a local system or VPS." name="description"/>
+<meta content="harmindersinghnijjar" name="author"/>
+<link href="https://harminder.dev/blog/posts/20231127/" rel="canonical"/>
+<link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.15" name="generator"/>
-<title>Blog - Harminder Singh Nijjar</title>
-<link href="../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
-<link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<title>Transferring Script Files to Local System or VPS - Harminder Singh Nijjar</title>
+<link href="../../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="../assets/_mkdocstrings.css" rel="stylesheet"/>
-<link href="../stylesheets/extra.css" rel="stylesheet"/>
-<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../../../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-X0B1C5DM9K"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-X0B1C5DM9K",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-X0B1C5DM9K",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
 <meta content="website" property="og:type"/>
-<meta content="Blog - Harminder Singh Nijjar" property="og:title"/>
-<meta content="None" property="og:description"/>
+<meta content="Transferring Script Files to Local System or VPS - Harminder Singh Nijjar" property="og:title"/>
+<meta content="Learn how to set up and run a Facebook Marketplace Scraper using Python, SQLite, Google Sheets API, and Telegram Bot API, either on a local system or VPS." property="og:description"/>
 <meta content="https://raw.githubusercontent.com/harmindersinghnijjar/face/main/fotor_2023-8-13_21_49_31-fotor-2023081322615.png" property="og:image"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
-<meta content="https://harminder.dev/blog/" property="og:url"/>
+<meta content="https://harminder.dev/blog/posts/20231127/" property="og:url"/>
 <meta content="summary_large_image" name="twitter:card"/>
-<meta content="Blog - Harminder Singh Nijjar" name="twitter:title"/>
-<meta content="None" name="twitter:description"/>
-<meta content="https://harminder.dev/assets/images/social/blog/index.png" name="twitter:image"/>
-<meta content="Blog" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog" property="og:url"/><meta content="Blog" property="og:title"/><meta content="" property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog" property="twitter:url"/><meta content="Blog" property="twitter:title"/><meta content="" property="twitter:description"/><meta content="https://raw.githubusercontent.com/harmindersinghnijjar/face/main/fotor_2023-8-13_21_49_31-fotor-2023081322615.png" property="twitter:image"/></head>
+<meta content="Transferring Script Files to Local System or VPS - Harminder Singh Nijjar" name="twitter:title"/>
+<meta content="Learn how to set up and run a Facebook Marketplace Scraper using Python, SQLite, Google Sheets API, and Telegram Bot API, either on a local system or VPS." name="twitter:description"/>
+<meta content="https://harminder.dev/assets/images/social/blog/posts/20231127.png" name="twitter:image"/>
+<meta content="Transferring Script Files to Local System or VPS" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/posts/20231127" property="og:url"/><meta content="Transferring Script Files to Local System or VPS" property="og:title"/><meta content="Learn how to set up and run a Facebook Marketplace Scraper using Python, SQLite, Google Sheets API, and Telegram Bot API, either on a local system or VPS." property="og:description"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/posts/20231127" property="twitter:url"/><meta content="Transferring Script Files to Local System or VPS" property="twitter:title"/><meta content="Learn how to set up and run a Facebook Marketplace Scraper using Python, SQLite, Google Sheets API, and Telegram Bot API, either on a local system or VPS." property="twitter:description"/><meta content="https://raw.githubusercontent.com/harmindersinghnijjar/face/main/fotor_2023-8-13_21_49_31-fotor-2023081322615.png" property="twitter:image"/></head>
 <body data-md-color-accent="custom" data-md-color-primary="custom" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#blog">
+<a class="md-skip" href="#transferring-script-files-to-local-system-or-vps">
           Skip to content
         </a>
 </div>
@@ -46,8 +47,8 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Harminder Singh Nijjar" class="md-header__button md-logo" data-md-component="logo" href=".." title="Harminder Singh Nijjar">
-<img alt="logo" src="../assets/logo.png"/>
+<a aria-label="Harminder Singh Nijjar" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Harminder Singh Nijjar">
+<img alt="logo" src="../../../assets/logo.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
@@ -62,7 +63,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Blog
+              Transferring Script Files to Local System or VPS
             
           </span>
 </div>
@@ -120,7 +121,7 @@
 <div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="..">
+<a class="md-tabs__link" href="../../..">
         
   
   
@@ -130,8 +131,8 @@
 
       </a>
 </li>
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="./">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../">
           
   
   
@@ -151,38 +152,28 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Harminder Singh Nijjar" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Harminder Singh Nijjar">
-<img alt="logo" src="../assets/logo.png"/>
+<a aria-label="Harminder Singh Nijjar" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Harminder Singh Nijjar">
+<img alt="logo" src="../../../assets/logo.png"/>
 </a>
     Harminder Singh Nijjar
   </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="..">
+<a class="md-nav__link" href="../../..">
 <span class="md-ellipsis">
     Home
     
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
-<div class="md-nav__link md-nav__container">
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../">
 <span class="md-ellipsis">
     Blog
     
   </span>
-</a>
-</div>
-<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_2">
 <span class="md-nav__icon md-icon"></span>
-            Blog
-          </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-</ul>
-</nav>
+</a>
 </li>
 </ul>
 </nav>
@@ -193,13 +184,303 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#transferring-script-files-to-local-system-or-vps">
+<span class="md-ellipsis">
+      Transferring Script Files to Local System or VPS
+    </span>
+</a>
+<nav aria-label="Transferring Script Files to Local System or VPS" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#features-of-the-facebook-marketplace-scraper">
+<span class="md-ellipsis">
+      Features of the Facebook Marketplace Scraper
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#local-system-setup-process-windows">
+<span class="md-ellipsis">
+      Local System Setup Process (Windows)
+    </span>
+</a>
+<nav aria-label="Local System Setup Process (Windows)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prerequisites">
+<span class="md-ellipsis">
+      Prerequisites
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setup-steps">
+<span class="md-ellipsis">
+      Setup Steps
+    </span>
+</a>
+<nav aria-label="Setup Steps" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-1-obtain-script-files">
+<span class="md-ellipsis">
+      Step 1: Obtain Script Files
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-2-install-dependencies">
+<span class="md-ellipsis">
+      Step 2: Install Dependencies
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-3-configure-google-sheets-api">
+<span class="md-ellipsis">
+      Step 3: Configure Google Sheets API
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-4-initialize-the-database">
+<span class="md-ellipsis">
+      Step 4: Initialize the Database
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-5-configure-telegram-notifications-optional">
+<span class="md-ellipsis">
+      Step 5: Configure Telegram Notifications (Optional)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-6-run-the-scraper">
+<span class="md-ellipsis">
+      Step 6: Run the Scraper
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-7-automation-optional">
+<span class="md-ellipsis">
+      Step 7: Automation (Optional)
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vps-setup-process">
+<span class="md-ellipsis">
+      VPS Setup Process
+    </span>
+</a>
+<nav aria-label="VPS Setup Process" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vps-requirements">
+<span class="md-ellipsis">
+      VPS Requirements
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#setup-steps_1">
+<span class="md-ellipsis">
+      Setup Steps
+    </span>
+</a>
+<nav aria-label="Setup Steps" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-1-log-in-to-vps">
+<span class="md-ellipsis">
+      Step 1: Log in to VPS
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-2-transfer-script-files">
+<span class="md-ellipsis">
+      Step 2: Transfer Script Files
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-3-install-python-and-dependencies">
+<span class="md-ellipsis">
+      Step 3: Install Python and Dependencies
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-4-configure-credentials">
+<span class="md-ellipsis">
+      Step 4: Configure Credentials
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-5-run-the-scraper">
+<span class="md-ellipsis">
+      Step 5: Run the Scraper
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step-6-automate-with-cron">
+<span class="md-ellipsis">
+      Step 6: Automate with Cron
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+<span class="md-ellipsis">
+      Conclusion
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#references">
+<span class="md-ellipsis">
+      References
+    </span>
+</a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="blog">Blog</h1>
+<nav class="md-tags">
+<span class="md-tag">Facebook Marketplace Scraper</span>
+<span class="md-tag">Google Sheets API</span>
+<span class="md-tag">Python</span>
+<span class="md-tag">SQLite</span>
+<span class="md-tag">Smartproxy</span>
+<span class="md-tag">Telegram Bot API</span>
+</nav>
+<h1>Transferring Script Files to Local System or VPS</h1>
+<h2 id="transferring-script-files-to-local-system-or-vps">Transferring Script Files to Local System or VPS</h2>
+<p>This guide explains the process of transferring a Python script for a Facebook Marketplace Scraper and setting it up on either a local system or a VPS. This scraper helps you collect and manage data from online listings efficiently.</p>
+<h3 id="features-of-the-facebook-marketplace-scraper">Features of the Facebook Marketplace Scraper</h3>
+<ul>
+<li><strong>Data Storage</strong>: Uses SQLite for local storage and integration with Google Sheets for cloud-based storage.</li>
+<li><strong>Notifications</strong>: Optional Telegram Bot integration for updates.</li>
+<li><strong>Proxy Support</strong>: Includes compatibility with services like Smartproxy to manage requests.</li>
+</ul>
+<hr/>
+<h2 id="local-system-setup-process-windows">Local System Setup Process (Windows)</h2>
+<p>This section outlines the steps to set up the scraper on your local machine.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>Before proceeding, ensure you have:</p>
+<ul>
+<li>Python 3.6 or higher installed.</li>
+<li>Access to Google Cloud with credentials for Google Sheets API.</li>
+<li>An SQLite-supported system.</li>
+<li>A Telegram bot token (optional).</li>
+<li>Dependencies listed in the <code>requirements.txt</code>.</li>
+</ul>
+<h3 id="setup-steps">Setup Steps</h3>
+<h4 id="step-1-obtain-script-files">Step 1: Obtain Script Files</h4>
+<ul>
+<li>Download the script files (typically a ZIP archive) and extract them.</li>
+<li>Ensure the following files are present:</li>
+<li><code>fb_parser.py</code>: The main script.</li>
+<li><code>requirements.txt</code>: Python dependencies.</li>
+</ul>
+<h4 id="step-2-install-dependencies">Step 2: Install Dependencies</h4>
+<p>Open a terminal, navigate to the script folder, and run:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div>
+<h4 id="step-3-configure-google-sheets-api">Step 3: Configure Google Sheets API</h4>
+<ol>
+<li>Create a Google Cloud project and enable the Sheets API.</li>
+<li>Download the <code>credentials.json</code> file and place it in the script folder.</li>
+</ol>
+<h4 id="step-4-initialize-the-database">Step 4: Initialize the Database</h4>
+<p>Run the following command to create the SQLite database:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>fb_parser.py<span class="w"> </span>--initdb
+</code></pre></div>
+<h4 id="step-5-configure-telegram-notifications-optional">Step 5: Configure Telegram Notifications (Optional)</h4>
+<p>Edit <code>fb_parser.py</code> and add your <code>bot_token</code> and <code>bot_chat_id</code>.</p>
+<h4 id="step-6-run-the-scraper">Step 6: Run the Scraper</h4>
+<p>Start the scraper with:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>fb_parser.py
+</code></pre></div>
+<h4 id="step-7-automation-optional">Step 7: Automation (Optional)</h4>
+<p>Use Task Scheduler to automate script execution.</p>
+<hr/>
+<h2 id="vps-setup-process">VPS Setup Process</h2>
+<h3 id="vps-requirements">VPS Requirements</h3>
+<ul>
+<li>VPS with SSH access and Python 3.6+ installed.</li>
+<li>Linux OS (Ubuntu or CentOS preferred).</li>
+<li>Necessary script files and dependencies.</li>
+</ul>
+<h3 id="setup-steps_1">Setup Steps</h3>
+<h4 id="step-1-log-in-to-vps">Step 1: Log in to VPS</h4>
+<p>Access your VPS via SSH:</p>
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>username@hostname
+</code></pre></div>
+<h4 id="step-2-transfer-script-files">Step 2: Transfer Script Files</h4>
+<p>Upload files using SCP or SFTP:</p>
+<div class="highlight"><pre><span></span><code>scp<span class="w"> </span>fb_parser.py<span class="w"> </span>requirements.txt<span class="w"> </span>username@hostname:/path/to/directory
+</code></pre></div>
+<h4 id="step-3-install-python-and-dependencies">Step 3: Install Python and Dependencies</h4>
+<p>Update your system and install Python dependencies:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-pip
+pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div>
+<h4 id="step-4-configure-credentials">Step 4: Configure Credentials</h4>
+<p>Follow the same steps as the local setup to configure Google Sheets and Telegram credentials.</p>
+<h4 id="step-5-run-the-scraper">Step 5: Run the Scraper</h4>
+<p>Navigate to the script directory and execute:</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>fb_parser.py
+</code></pre></div>
+<h4 id="step-6-automate-with-cron">Step 6: Automate with Cron</h4>
+<p>Use <code>cron</code> to schedule periodic script execution:</p>
+<div class="highlight"><pre><span></span><code>crontab<span class="w"> </span>-e
+<span class="c1"># Add the line below to run daily at midnight</span>
+<span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>python3<span class="w"> </span>/path/to/fb_parser.py
+</code></pre></div>
+<hr/>
+<h2 id="conclusion">Conclusion</h2>
+<p>By following this guide, you can effectively transfer and set up the Facebook Marketplace Scraper on your local system or VPS. This tool simplifies the process of collecting and managing online listing data.</p>
+<hr/>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://developers.google.com/sheets/api">Google Sheets API</a></li>
+<li><a href="https://www.sqlite.org/index.html">SQLite</a></li>
+<li><a href="https://core.telegram.org/bots/api">Telegram Bot API</a></li>
+<li><a href="https://dashboard.smartproxy.com">Smartproxy</a></li>
+</ul>
 <form class="md-feedback" hidden="" name="feedback">
 <fieldset>
 <legend class="md-feedback__title">
@@ -244,14 +525,17 @@
 </fieldset>
 </form>
 <div class="share-buttons">
-<button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
+<button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/posts/20231127', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
 <i class="fa-brands fa-x-twitter"></i> Tweet
     </button>
-<button class="share-button hover-item linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;">
+<button class="share-button hover-item linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/posts/20231127', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;">
 <i class="fa-brands fa-linkedin-in"></i> Share
     </button>
 </div>
 <br/>
+<h2 id="__comments">Comments</h2>
+<script async="" crossorigin="anonymous" data-category-id="DIC_kwDONUMZrc4Ckka7" data-emit-metadata="1" data-input-position="top" data-lang="en" data-mapping="pathname" data-reactions-enabled="1" data-repo="harmindersinghnijjar/personal-website" data-repo-id="R_kgDONUMZrQ" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
@@ -324,8 +608,8 @@
 </aside>
 </div>
 <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
-<script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.expand", "search.suggest", "search.share"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../assets/javascripts/bundle.56ea9cef.min.js"></script>
-<script src="../js/open_in_new_tab.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.instant.progress", "navigation.tracking", "navigation.tabs", "navigation.path", "navigation.prune", "navigation.indexes", "toc.follow", "navigation.top", "navigation.expand", "search.suggest", "search.share"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+<script src="../../../js/open_in_new_tab.js"></script>
 </body>
 </html>
