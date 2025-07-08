@@ -41,6 +41,10 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
 
+extra_css:
+  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css
+
+
 extra:
   consent:
     title: Cookie consent
@@ -88,18 +92,28 @@ plugins:
   - mkdocstrings
   - search
   - open-in-new-tab
-  - git-revision-date:
-      enabled: false
-  - privacy:
-      assets: false
+  # - privacy:
+  #     assets: true
   - social
-  - blog:
-      blog_toc: true
   - ultralytics:
-      add_share_buttons: True
-      add_authors: true
-      add_json_ld: True
+      # add_share_buttons: true
+      # add_css: true
+      # add_authors: true
+      # add_json_ld: true
+      default_author: "hello@harminder.dev"
+      default_image: "https://raw.githubusercontent.com/harmindersinghnijjar/face/main/fotor_2023-8-13_21_49_31-fotor-2023081322615.png"
   - tags
+
+  - blog
+  - git-revision-date-localized:
+      enable_creation_date: true
+      fallback_to_build_date: true
+      exclude:
+        - blog/archive/*
+        - blog/category/*
+
+  
+
 
 
 # Page tree

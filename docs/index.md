@@ -2,9 +2,9 @@
 comment: false
 title: Home
 hide: 
-    - feedback
-    - toc
-    - navigation
+  - feedback
+  - toc
+  - navigation
 permalink: /
 author: harmindersinghnijjar
 ---
@@ -28,4 +28,4 @@ Upon completion, projects will be archived for future reference, so be sure to e
 
 ## Blog  
 
-The [blog](/blog) section features a variety of posts on topics that capture my interest. These include tutorials, guides, opinion pieces, and other content that I hope will provide value and inspiration.
+The [blog](blog/index.md) section features a variety of posts on topics that capture my interest. These include tutorials, guides, opinion pieces, and other content that I hope will provide value and inspiration.
