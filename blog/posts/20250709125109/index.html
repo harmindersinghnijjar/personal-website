@@ -5,13 +5,13 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="A concise overview of Azure's global infrastructure concepts including Geographies, Regions, Region Pairs, Availability Zones, Availability Sets, Virtual Machines, Hypervisors, and key Azure services." name="description"/>
-<link href="https://harminder.dev/blog/posts/20250708104757/" rel="canonical"/>
-<link href="../20250115143012/" rel="prev"/>
-<link href="../20250709125109/" rel="next"/>
+<meta content="Step-by-step guide to setting up a Python virtual environment for MkDocs and deploying your site to GitHub Pages." name="description"/>
+<meta content="harmindersinghnijjar" name="author"/>
+<link href="https://harminder.dev/blog/posts/20250709125109/" rel="canonical"/>
+<link href="../20250708104757/" rel="prev"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.15" name="generator"/>
-<title>Understanding Azure Geographies, Regions, Availability Zones, and Core Services - Harminder Singh Nijjar</title>
+<title>Deploying MkDocs with a Virtual Environment to GitHub Pages - Harminder Singh Nijjar</title>
 <link href="../../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -23,7 +23,7 @@
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-X0B1C5DM9K"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-X0B1C5DM9K",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-X0B1C5DM9K",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
-<meta content="Understanding Azure Geographies, Regions, Availability Zones, and Core Services" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/posts/20250708104757" property="og:url"/><meta content="Understanding Azure Geographies, Regions, Availability Zones, and Core Services" property="og:title"/><meta content="A concise overview of Azure's global infrastructure concepts including Geographies, Regions, Region Pairs, Availability Zones, Availability Sets, Virtual Machines, Hypervisors, and key Azure services." property="og:description"/><meta content="https://avatars.githubusercontent.com/u/110620707?v=4" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/posts/20250708104757" property="twitter:url"/><meta content="Understanding Azure Geographies, Regions, Availability Zones, and Core Services" property="twitter:title"/><meta content="A concise overview of Azure's global infrastructure concepts including Geographies, Regions, Region Pairs, Availability Zones, Availability Sets, Virtual Machines, Hypervisors, and key Azure services." property="twitter:description"/><meta content="https://avatars.githubusercontent.com/u/110620707?v=4" property="twitter:image"/><style>
+<meta content="Deploying MkDocs with a Virtual Environment to GitHub Pages" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="website" property="og:type"/><meta content="https://harminder.dev/blog/posts/20250709125109" property="og:url"/><meta content="Deploying MkDocs with a Virtual Environment to GitHub Pages" property="og:title"/><meta content="Step-by-step guide to setting up a Python virtual environment for MkDocs and deploying your site to GitHub Pages." property="og:description"/><meta content="https://avatars.githubusercontent.com/u/110620707?v=4" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://harminder.dev/blog/posts/20250709125109" property="twitter:url"/><meta content="Deploying MkDocs with a Virtual Environment to GitHub Pages" property="twitter:title"/><meta content="Step-by-step guide to setting up a Python virtual environment for MkDocs and deploying your site to GitHub Pages." property="twitter:description"/><meta content="https://avatars.githubusercontent.com/u/110620707?v=4" property="twitter:image"/><style>
 .md-content__button[onclick*="copyMarkdownForLLM"] svg {
     width: 1.2rem;
     height: 1.2rem;
@@ -122,13 +122,13 @@
         width: 100%;
     }
 }
-</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Understanding Azure Geographies, Regions, Availability Zones, and Core Services", "image": ["https://avatars.githubusercontent.com/u/110620707?v=4"], "datePublished": "2025-07-08 11:40:29 -0700", "dateModified": "2025-07-08 11:40:29 -0700", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "A concise overview of Azure's global infrastructure concepts including Geographies, Regions, Region Pairs, Availability Zones, Availability Sets, Virtual Machines, Hypervisors, and key Azure services."}</script></head>
+</style><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Deploying MkDocs with a Virtual Environment to GitHub Pages", "image": ["https://avatars.githubusercontent.com/u/110620707?v=4"], "datePublished": "2024-07-09 14:20:40 +0000", "dateModified": "2025-05-30 14:20:40 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Step-by-step guide to setting up a Python virtual environment for MkDocs and deploying your site to GitHub Pages."}</script></head>
 <body data-md-color-accent="custom" data-md-color-primary="custom" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#understanding-azure-geographies-regions-availability-zones-and-core-services">
+<a class="md-skip" href="#why-use-a-virtual-environment">
           Skip to content
         </a>
 </div>
@@ -152,7 +152,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Understanding Azure Geographies, Regions, Availability Zones, and Core Services
+              Deploying MkDocs with a Virtual Environment to GitHub Pages
             
           </span>
 </div>
@@ -382,18 +382,26 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../20250708104757/">
+<span class="md-ellipsis">
+    Understanding Azure Geographies, Regions, Availability Zones, and Core Services
+    
+  </span>
+</a>
+</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
 <span class="md-ellipsis">
-    Understanding Azure Geographies, Regions, Availability Zones, and Core Services
+    Deploying MkDocs with a Virtual Environment to GitHub Pages
     
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
-    Understanding Azure Geographies, Regions, Availability Zones, and Core Services
+    Deploying MkDocs with a Virtual Environment to GitHub Pages
     
   </span>
 </a>
@@ -404,71 +412,70 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#1-what-are-geographies-how-many-geographies-does-azure-have-write-their-names">
+<a class="md-nav__link" href="#why-use-a-virtual-environment">
 <span class="md-ellipsis">
-      1. What are Geographies? How many Geographies does Azure have? Write their names.
+      Why Use a Virtual Environment?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#2-what-are-regions-and-region-pairs">
+<a class="md-nav__link" href="#create-a-virtual-environment">
 <span class="md-ellipsis">
-      2. What are Regions and Region Pairs?
+      Create a Virtual Environment
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#3-what-regions-are-available-in-the-us-what-region-is-the-closest-to-cbc">
+<a class="md-nav__link" href="#install-mkdocs-and-plugins">
 <span class="md-ellipsis">
-      3. What Regions are available in the US? What Region is the closest to CBC?
+      Install MkDocs and Plugins
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#4-what-are-the-availability-zones">
+<a class="md-nav__link" href="#build-and-preview-your-site-locally">
 <span class="md-ellipsis">
-      4. What are the Availability Zones?
+      Build and Preview Your Site Locally
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#5-what-are-the-availability-sets">
+<a class="md-nav__link" href="#push-your-work-to-github">
 <span class="md-ellipsis">
-      5. What are the Availability Sets?
+      Push Your Work to GitHub
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#6-what-is-a-virtual-machine">
+<a class="md-nav__link" href="#deploy-to-github-pages">
 <span class="md-ellipsis">
-      6. What is a Virtual Machine?
+      Deploy to GitHub Pages
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#7-what-is-a-hypervisor">
+<a class="md-nav__link" href="#keep-it-clean-gitignore">
 <span class="md-ellipsis">
-      7. What is a Hypervisor?
+      Keep It Clean: .gitignore
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#8-what-are-the-services-provided-by-azure">
+<a class="md-nav__link" href="#updating-your-site">
 <span class="md-ellipsis">
-      8. What are the services provided by Azure?
+      Updating Your Site
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+<span class="md-ellipsis">
+      Conclusion
     </span>
 </a>
 </li>
 </ul>
 </nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../20250709125109/">
-<span class="md-ellipsis">
-    Deploying MkDocs with a Virtual Environment to GitHub Pages
-    
-  </span>
-</a>
 </li>
 </ul>
 </nav>
@@ -491,58 +498,65 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#1-what-are-geographies-how-many-geographies-does-azure-have-write-their-names">
+<a class="md-nav__link" href="#why-use-a-virtual-environment">
 <span class="md-ellipsis">
-      1. What are Geographies? How many Geographies does Azure have? Write their names.
+      Why Use a Virtual Environment?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#2-what-are-regions-and-region-pairs">
+<a class="md-nav__link" href="#create-a-virtual-environment">
 <span class="md-ellipsis">
-      2. What are Regions and Region Pairs?
+      Create a Virtual Environment
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#3-what-regions-are-available-in-the-us-what-region-is-the-closest-to-cbc">
+<a class="md-nav__link" href="#install-mkdocs-and-plugins">
 <span class="md-ellipsis">
-      3. What Regions are available in the US? What Region is the closest to CBC?
+      Install MkDocs and Plugins
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#4-what-are-the-availability-zones">
+<a class="md-nav__link" href="#build-and-preview-your-site-locally">
 <span class="md-ellipsis">
-      4. What are the Availability Zones?
+      Build and Preview Your Site Locally
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#5-what-are-the-availability-sets">
+<a class="md-nav__link" href="#push-your-work-to-github">
 <span class="md-ellipsis">
-      5. What are the Availability Sets?
+      Push Your Work to GitHub
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#6-what-is-a-virtual-machine">
+<a class="md-nav__link" href="#deploy-to-github-pages">
 <span class="md-ellipsis">
-      6. What is a Virtual Machine?
+      Deploy to GitHub Pages
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#7-what-is-a-hypervisor">
+<a class="md-nav__link" href="#keep-it-clean-gitignore">
 <span class="md-ellipsis">
-      7. What is a Hypervisor?
+      Keep It Clean: .gitignore
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#8-what-are-the-services-provided-by-azure">
+<a class="md-nav__link" href="#updating-your-site">
 <span class="md-ellipsis">
-      8. What are the services provided by Azure?
+      Updating Your Site
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+<span class="md-ellipsis">
+      Conclusion
     </span>
 </a>
 </li>
@@ -553,38 +567,87 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="understanding-azure-geographies-regions-availability-zones-and-core-services">Understanding Azure Geographies, Regions, Availability Zones, and Core Services</h1>
-<h2 id="1-what-are-geographies-how-many-geographies-does-azure-have-write-their-names">1. What are Geographies? How many Geographies does Azure have? Write their names.</h2>
-<p>An <strong>Azure geography</strong> is an area of the world that contains at minimum one Azure region. Azure is available or coming soon in the following geographies: United States, Belgium, Brazil, Canada, Chile, Mexico, Azure Government, Asia Pacific, Australia, China, India, Indonesia, Japan, Korea, Malaysia, New Zealand, Taiwan, Austria, Denmark, Europe, Finland, France, Germany, Greece, Italy, Norway, Poland, Spain, Sweden, Switzerland, United Kingdom, Africa, Israel, Qatar, United Arab Emirates, and Saudi Arabia.</p>
-<h2 id="2-what-are-regions-and-region-pairs">2. What are Regions and Region Pairs?</h2>
-<p><strong>Azure Regions</strong> are sets of physical facilities that include datacenters and networking infrastructure. There are over 60 Azure regions worldwide.</p>
-<p><strong>Region Pairs</strong> are Azure regions linked with another region within the same geography. They support geo-replication, geo-redundancy, and disaster recovery.</p>
-<h2 id="3-what-regions-are-available-in-the-us-what-region-is-the-closest-to-cbc">3. What Regions are available in the US? What Region is the closest to CBC?</h2>
-<p>In the United States, available Azure regions include:
-- Central US
-- East US
-- East US 2
-- North Central US
-- South Central US
-- West US
-- West US 2
-- West US 3</p>
-<p>The region closest to CBC is <strong>West US 2</strong>, located in Washington.</p>
-<h2 id="4-what-are-the-availability-zones">4. What are the Availability Zones?</h2>
-<p><strong>Availability Zones</strong> are unique physical locations within a region. Each zone has its own power, cooling, and network to reduce the risk of single points of failure. They are usually within 100 km of one another to minimize outages caused by regional issues.</p>
-<h2 id="5-what-are-the-availability-sets">5. What are the Availability Sets?</h2>
-<p><strong>Availability Sets</strong> are groups of virtual machines distributed across multiple fault domains to lower the chance of simultaneous failures.</p>
-<h2 id="6-what-is-a-virtual-machine">6. What is a Virtual Machine?</h2>
-<p>A <strong>Virtual Machine</strong> is a software-based computer that emulates the functions of a physical computer.</p>
-<h2 id="7-what-is-a-hypervisor">7. What is a Hypervisor?</h2>
-<p>A <strong>Hypervisor</strong> is a software layer that helps create and manage virtual machines.</p>
-<h2 id="8-what-are-the-services-provided-by-azure">8. What are the services provided by Azure?</h2>
-<p>Azure provides services including:
-- AI &amp; Machine Learning
-- Analytics
-- Compute
-- Databases
-- Developer Tools</p>
+<h1>Deploying MkDocs with a Virtual Environment to GitHub Pages</h1>
+<p>Setting up a <strong>virtual environment</strong> for your MkDocs project is best practice for keeping your dependencies isolated and your deployment clean. This guide walks you through creating a venv, installing dependencies, and deploying your documentation site to <strong>GitHub Pages</strong>.</p>
+<hr/>
+<h2 id="why-use-a-virtual-environment">Why Use a Virtual Environment?</h2>
+<p>A virtual environment lets you keep all your Python packages and project dependencies isolated from your system Python installation. This ensures that your MkDocs build is reproducible and avoids version conflicts.</p>
+<hr/>
+<h2 id="create-a-virtual-environment">Create a Virtual Environment</h2>
+<p>First, navigate to your project folder and run:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>E:<span class="se">\B</span>log<span class="se">\p</span>ersonal-website
+python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+</code></pre></div>
+<p>This creates a <code>venv</code> folder in your project.<br/>
+Activate it with:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># On Windows</span>
+.<span class="se">\v</span>env<span class="se">\S</span>cripts<span class="se">\A</span>ctivate
+
+<span class="c1"># On macOS/Linux</span>
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate
+</code></pre></div>
+<p>You’ll see <code>(venv)</code> appear in your terminal — you’re working inside your isolated environment!</p>
+<hr/>
+<h2 id="install-mkdocs-and-plugins">Install MkDocs and Plugins</h2>
+<p>Inside the <code>venv</code>, install <strong>MkDocs</strong>, <strong>Material for MkDocs</strong>, and any plugins you need:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>mkdocs<span class="w"> </span>mkdocs-material<span class="w"> </span>mkdocs-ultralytics-plugin<span class="w"> </span>mkdocstrings<span class="w"> </span>mkdocs-open-in-new-tab
+</code></pre></div>
+<p>Optionally, freeze your exact versions:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>freeze<span class="w"> </span>&gt;<span class="w"> </span>requirements.txt
+</code></pre></div>
+<p>This lets you reinstall everything later with:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</code></pre></div>
+<hr/>
+<h2 id="build-and-preview-your-site-locally">Build and Preview Your Site Locally</h2>
+<p>Before deploying, always check that your site builds correctly:</p>
+<div class="highlight"><pre><span></span><code>mkdocs<span class="w"> </span>build
+mkdocs<span class="w"> </span>serve
+</code></pre></div>
+<p>Open <a href="http://127.0.0.1:8000">http://127.0.0.1:8000</a> and confirm your site looks as expected.</p>
+<hr/>
+<h2 id="push-your-work-to-github">Push Your Work to GitHub</h2>
+<p>Make sure your <code>mkdocs.yml</code> and <code>docs/</code> content are tracked in Git:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Initial site build with venv"</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>main
+</code></pre></div>
+<p>🔑 Tip: Never push the <code>venv</code> folder — always add <code>venv/</code> to your <code>.gitignore</code>.</p>
+<hr/>
+<h2 id="deploy-to-github-pages">Deploy to GitHub Pages</h2>
+<p>Deploy directly with:</p>
+<div class="highlight"><pre><span></span><code>mkdocs<span class="w"> </span>gh-deploy<span class="w"> </span>--clean
+</code></pre></div>
+<p>This:
+- Builds your site.
+- Pushes the <code>site/</code> output to a <code>gh-pages</code> branch.
+- Publishes to <code>https://&lt;your-username&gt;.github.io/&lt;repo&gt;</code>.</p>
+<hr/>
+<h2 id="keep-it-clean-gitignore">Keep It Clean: <code>.gitignore</code></h2>
+<p>Your <code>.gitignore</code> should always exclude:</p>
+<div class="highlight"><pre><span></span><code>venv/
+__pycache__/
+site/
+*.pyc
+</code></pre></div>
+<p>This keeps your repo clean and avoids accidentally pushing build files or Python cache files.</p>
+<hr/>
+<h2 id="updating-your-site">Updating Your Site</h2>
+<p>When you make edits:
+1. Activate the <code>venv</code>:
+   <div class="highlight"><pre><span></span><code>.<span class="se">\v</span>env<span class="se">\S</span>cripts<span class="se">\A</span>ctivate
+</code></pre></div>
+2. Rebuild:
+   <div class="highlight"><pre><span></span><code>mkdocs<span class="w"> </span>build
+</code></pre></div>
+3. Deploy:
+   <div class="highlight"><pre><span></span><code>mkdocs<span class="w"> </span>gh-deploy<span class="w"> </span>--clean
+</code></pre></div></p>
+<hr/>
+<h2 id="conclusion">Conclusion</h2>
+<p>Using a <strong>virtual environment</strong> ensures your MkDocs project remains isolated and reproducible. Combined with <strong>GitHub Pages</strong>, you have a simple, robust, and fully automated way to publish your site to the world.</p>
+<p>Happy documenting! 🚀</p>
+<hr/>
 <form class="md-feedback" hidden="" name="feedback">
 <fieldset>
 <legend class="md-feedback__title">
@@ -631,11 +694,11 @@
 <br/><br/>
 <div class="git-info">
 <div class="dates-container">
-<span class="date-item" title="This page was first created on July 08, 2025">
-<span class="hover-item">📅</span> Created 1 day ago
+<span class="date-item" title="This page was first created on July 09, 2024">
+<span class="hover-item">📅</span> Created 1 year ago
     </span>
-<span class="date-item" title="This page was last updated on July 08, 2025">
-<span class="hover-item">✏️</span> Updated 1 day ago
+<span class="date-item" title="This page was last updated on May 30, 2025">
+<span class="hover-item">✏️</span> Updated 1 month ago
     </span>
 </div>
 <div class="authors-container">
@@ -643,10 +706,10 @@
 <img alt="harmindersinghnijjar" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/110620707?v=4&amp;s=96"/>
 </a>
 </div></div><div class="share-buttons">
-<button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/posts/20250708104757', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
+<button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://harminder.dev/blog/posts/20250709125109', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
 <i class="fa-brands fa-x-twitter"></i> Tweet
     </button>
-<button class="share-button hover-item linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/posts/20250708104757', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;">
+<button class="share-button hover-item linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://harminder.dev/blog/posts/20250709125109', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;">
 <i class="fa-brands fa-linkedin-in"></i> Share
     </button>
 </div>
