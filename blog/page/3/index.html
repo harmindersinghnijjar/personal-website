@@ -2913,15 +2913,15 @@
   </header>
   <div class="md-post__content md-typeset">
     <h2 id="qidi-plus-4-bed-mesh-correction-process"><a class="toclink" href="../../2024/10/09/qidi-plus-4-bed-mesh-correction-process/">QIDI Plus 4 Bed Mesh Correction Process</a></h2>
-<p><img alt="QIDI Plus 4" src="../../resources/Images/chrome_T8LB6TSjVA.jpeg" /></p>
+<p><img alt="QIDI Plus 4" src="../../../resources/Images/chrome_T8LB6TSjVA.jpeg" /></p>
 <h3 id="introduction"><a class="toclink" href="../../2024/10/09/qidi-plus-4-bed-mesh-correction-process/#introduction">Introduction</a></h3>
 <p>Upgrading from the <a href="https://amzn.to/4esCpC9">Ender 3 Pro</a> to the <a href="https://amzn.to/4f0itGN">QIDI Plus 4</a> was an exciting step forward, but it introduced me to a new component of 3D printing technology. Having never used Fluidd or Automatic Bed Leveling (ABL) before, I knew I had to experiment. The transition from manually leveling a print bed to utilizing these advanced tools posed a change, albeit a welcomed one. After several calibration attempts, adjustments, and refinements, I achieved an acceptable variance in the range of the bed mesh. In this article, I’ll walk you through the step-by-step process that transformed my bed mesh from highly uneven to leveled.</p>
 <h3 id="the-initial-bed-mesh-reading"><a class="toclink" href="../../2024/10/09/qidi-plus-4-bed-mesh-correction-process/#the-initial-bed-mesh-reading">The Initial Bed Mesh Reading</a></h3>
 <p>Upon starting the first calibration with Fluidd, the bed mesh data was clear—the bed was far from level. The <strong>range</strong> between the highest and lowest points was <strong>4.5341</strong>, with the lower end at <strong>-2.6816</strong> and the highest at <strong>2.0525</strong>. This much variance was causing severe print issues, including poor adhesion and inconsistent first layers.</p>
-<p><img alt="Initial Bed Mesh" src="../../resources/Images/chrome_PPkIEfDjRT.png" /></p>
+<p><img alt="Initial Bed Mesh" src="../../../resources/Images/chrome_PPkIEfDjRT.png" /></p>
 <h3 id="step-1-first-adjustments-and-hex-nut-corrections"><a class="toclink" href="../../2024/10/09/qidi-plus-4-bed-mesh-correction-process/#step-1-first-adjustments-and-hex-nut-corrections">Step 1: First Adjustments and Hex Nut Corrections</a></h3>
 <p>I started by focusing on the <strong>front right</strong> and <strong>back right</strong> corners, the highest points on the bed. My first instinct was to <strong>loosen</strong> these hex nuts to bring the bed down in these areas. After running the ABL calibration, the mesh improved slightly, but the range was still significant, increasing slightly to <strong>4.6741</strong>.</p>
-<p><img alt="Slight Improvement" src="../../resources/Images/chrome_3HX2ccQ7gS.png" /></p>
+<p><img alt="Slight Improvement" src="../../../resources/Images/chrome_3HX2ccQ7gS.png" /></p>
 <p>Noticing the small improvement but the persistent issue, I realized I needed to focus on the <strong>back left</strong> corner, which was too low. I tightened this hex nut to raise that section of the bed.</p>
 <h3 id="step-2-incremental-tightening-and-loosening"><a class="toclink" href="../../2024/10/09/qidi-plus-4-bed-mesh-correction-process/#step-2-incremental-tightening-and-loosening">Step 2: Incremental Tightening and Loosening</a></h3>
 <p>With small adjustments to the hex nuts, I saw a real difference. Using a methodical approach, I turned each hex nut <strong>25 degrees</strong> at a time:</p>
@@ -2930,7 +2930,7 @@
 <li>I then <strong>loosened</strong> the back left hex nut by two 25-degree turns to raise the lower corner.</li>
 </ul>
 <p>These incremental adjustments began to close the gap, reducing the range between the high and low points and creating a more even bed. The bed mesh range was now at <strong>1.5309</strong>—a significant improvement from where I started.</p>
-<p><img alt="Improved Mesh" src="../../resources/Images/chrome_clZwZbH8sd.png" /></p>
+<p><img alt="Improved Mesh" src="../../../resources/Images/chrome_clZwZbH8sd.png" /></p>
 <h3 id="step-3-fine-tuning-the-bed-level"><a class="toclink" href="../../2024/10/09/qidi-plus-4-bed-mesh-correction-process/#step-3-fine-tuning-the-bed-level">Step 3: Fine-Tuning the Bed Level</a></h3>
 <p>After each adjustment, I recalibrated the bed using Fluidd’s automatic bed leveling tool. The mesh had become much more balanced, but there was still room for improvement. I continued making small changes:</p>
 <ul>
@@ -2940,7 +2940,7 @@
 <p>After each adjustment, I recalibrated and checked the bed mesh results to see how the bed was leveling out.</p>
 <h3 id="step-4-achieving-a-bed-mesh-range-under-05"><a class="toclink" href="../../2024/10/09/qidi-plus-4-bed-mesh-correction-process/#step-4-achieving-a-bed-mesh-range-under-05">Step 4: Achieving a Bed Mesh Range Under 0.5</a></h3>
 <p>After multiple rounds of precise tightening and loosening, the bed mesh finally reached a balanced state with a <strong>range of 0.3913</strong>. The highest point on the bed was <strong>1.1743</strong>, while the lowest was <strong>-0.5825</strong>. This marked a significant improvement from where I started, bringing the bed to an acceptable level. With a range under 0.5, the bed was now flat enough to provide a stable surface for consistent, high-quality prints.</p>
-<p><img alt="Final Bed Mesh" src="../../resources/Images/chrome_rtsUWDsbUU.png" /></p>
+<p><img alt="Final Bed Mesh" src="../../../resources/Images/chrome_rtsUWDsbUU.png" /></p>
 <h3 id="conclusion"><a class="toclink" href="../../2024/10/09/qidi-plus-4-bed-mesh-correction-process/#conclusion">Conclusion</a></h3>
 <p>By methodically tightening the hex nuts using a socket wrench with a <a href="https://amzn.to/482xnK1">15 mm hex socket</a>—<strong>R</strong> for tightening and <strong>L</strong> for loosening—and utilizing Fluidd’s automatic bed leveling tool to calibrate and check the bed mesh, I was able to greatly improve the levelness of my print bed. Achieving a balanced mesh allows for a consistent first layer, solving many of the adhesion and printing issues I had encountered earlier. Though the process requires time and attention, fine-tuning the bed level is essential for successful prints when using ABL technology. With patience and persistence, anyone can achieve a perfectly leveled bed mesh on their 3D printer.</p>
     
@@ -3460,7 +3460,7 @@
   </header>
   <div class="md-post__content md-typeset">
     <h2 id="automating-dvr-surveillance-feed-analysis-using-selenium-and-python"><a class="toclink" href="../../2023/12/04/automating-dvr-surveillance-feed-analysis-using-selenium-and-python/">Automating DVR Surveillance Feed Analysis Using Selenium and Python</a></h2>
-<p><img alt="" src="../../resources/Images/msedge_3V6uvbHXrQ.png" /></p>
+<p><img alt="" src="../../../resources/Images/msedge_3V6uvbHXrQ.png" /></p>
 <h3 id="introduction"><a class="toclink" href="../../2023/12/04/automating-dvr-surveillance-feed-analysis-using-selenium-and-python/#introduction">Introduction</a></h3>
 <p>In an era where security and monitoring are paramount, leveraging technology to enhance surveillance systems is crucial. Our mission is to automate the process of capturing surveillance feeds from a DVR system for analysis using advanced computer vision techniques. This task addresses the challenge of accessing live video feeds from DVRs that do not readily provide direct stream URLs, such as RTSP, which are essential for real-time video analysis.</p>
 <h3 id="the-challenge"><a class="toclink" href="../../2023/12/04/automating-dvr-surveillance-feed-analysis-using-selenium-and-python/#the-challenge">The Challenge</a></h3>
@@ -3530,7 +3530,7 @@ Event Documentation: Keep a record of events with timestamps for future referenc
   <div class="md-post__content md-typeset">
     <h2 id="productivity-tools-in-2024"><a class="toclink" href="../../2023/12/03/productivity-tools-in-2024/">Productivity Tools in 2024</a></h2>
 <h3 id="notetaking-and-task-management"><a class="toclink" href="../../2023/12/03/productivity-tools-in-2024/#notetaking-and-task-management">Notetaking and Task Management</a></h3>
-<p><img alt="" src="../../resources/Images/chrome_GID7tVHSxk.png" /></p>
+<p><img alt="" src="../../../resources/Images/chrome_GID7tVHSxk.png" /></p>
 <p>In my attempt to cut down on subscriptions in 2024, I'll be switching to Microsoft Visual Studio Code with GitHub Copilot as my go-to AI assistant in helping me churn out more content for my blog and YouTube channel. </p>
 <p>I'll be switching to a productivity toolset consisting of Evernote with Kanbanote, Anki, Raindrop.io, and Google Calendar. I want to be more note-focused than ever with data-hungry Large Language Models (LLMs) becoming more of a norm.</p>
 <p>I've gone through my personal Apple subscriptions and canceled all of them, these are separate from my shared family subscriptions such as Chaupal, a Punjabi, Bhojpuri, and Haryanvi video streaming service. I've also canceled my MidJourney and ChatGPT subscriptions. I intend on using fewer applications so I can utilize the most of what I have and if I do start using a new subscription service I'll be sure to buy residential Turkish proxies to get the best price whilst keeping my running total of subscriptions to a minimum.</p>
@@ -3560,7 +3560,7 @@ Event Documentation: Keep a record of events with timestamps for future referenc
 <h4 id="roboform"><a class="toclink" href="../../2023/12/03/productivity-tools-in-2024/#roboform"><a href="https://www.roboform.com/">RoboForm</a></a></h4>
 <p>RoboForm is a password manager and form filler tool that automates password entering and form filling, developed by Siber Systems, Inc. It is available for many web browsers, as a downloadable application, and as a mobile application. RoboForm stores web passwords on its servers, and offers to synchronize passwords between multiple computers and mobile devices. RoboForm offers a Family Plan for up to 5 users which I share with my family.</p>
 <h3 id="theme"><a class="toclink" href="../../2023/12/03/productivity-tools-in-2024/#theme">Theme</a></h3>
-<p><img alt="" src="../../resources/Images/chrome_Mio0J4qJeo.png" /></p>
+<p><img alt="" src="../../../resources/Images/chrome_Mio0J4qJeo.png" /></p>
 <p>Dracula Theme is a dark theme for programs Alacritty, Alfred, Atom, BetterDiscord, Emacs, Firefox, Gnome Terminal, Google Chrome, Hyper, Insomnia, iTerm, JetBrains IDEs, Notepad++, Slack, Sublime Text, Terminal.app, Vim, Visual Studio, Visual Studio Code, Windows Terminal, and Xcode. </p>
 <p>With it's easy-on-the-eyes color scheme, Dracula Theme is on my list of must-have themes for any application I use.</p>
     
