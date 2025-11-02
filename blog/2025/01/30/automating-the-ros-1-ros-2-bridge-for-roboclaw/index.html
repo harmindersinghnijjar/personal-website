@@ -6,17 +6,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="A concise overview of Azure's global infrastructure concepts including Geographies, Regions, Region Pairs, Availability Zones, Availability Sets, Virtual Machines, Hypervisors, and key Azure services.">
+        <meta name="description" content="A Python script to set up the ROS 1-ROS 2 bridge automatically for controlling a RoboClaw motor controller using ROS 2 commands.">
       
       
-      
-        <link rel="canonical" href="https://harminder.dev/blog/2025/07/08/understanding-azure-geographies-regions-availability-zones-and-core-services/">
-      
-      
-        <link rel="prev" href="../../../01/30/automating-the-ros-1-ros-2-bridge-for-roboclaw/">
+        <meta name="author" content="harmindersinghnijjar">
       
       
-        <link rel="next" href="./">
+        <link rel="canonical" href="https://harminder.dev/blog/2025/01/30/automating-the-ros-1-ros-2-bridge-for-roboclaw/">
+      
+      
+        <link rel="prev" href="../../15/leveraging-selenium-with-undetected-chromedriver-for-cloudflare-mitigation/">
+      
+      
+        <link rel="next" href="../../../07/08/understanding-azure-geographies-regions-availability-zones-and-core-services/">
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
@@ -24,7 +26,7 @@
     
     
       
-        <title>Understanding Azure Geographies, Regions, Availability Zones, and Core Services - Harminder Singh Nijjar</title>
+        <title>Automating the ROS 1-ROS 2 Bridge for RoboClaw - Harminder Singh Nijjar</title>
       
     
     
@@ -90,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#understanding-azure-geographies-regions-availability-zones-and-core-services" class="md-skip">
+        <a href="#introduction" class="md-skip">
           Skip to content
         </a>
       
@@ -123,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Understanding Azure Geographies, Regions, Availability Zones, and Core Services
+              Automating the ROS 1-ROS 2 Bridge for RoboClaw
             
           </span>
         </div>
@@ -2665,8 +2667,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -2675,72 +2675,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-what-are-geographies-how-many-geographies-does-azure-have-write-their-names" class="md-nav__link">
+  <a href="#introduction" class="md-nav__link">
     <span class="md-ellipsis">
-      1. What are Geographies? How many Geographies does Azure have? Write their names.
+      Introduction
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-what-are-regions-and-region-pairs" class="md-nav__link">
+  <a href="#why-use-a-bridge" class="md-nav__link">
     <span class="md-ellipsis">
-      2. What are Regions and Region Pairs?
+      Why Use a Bridge?
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-what-regions-are-available-in-the-us-what-region-is-the-closest-to-cbc" class="md-nav__link">
+  <a href="#steps-automated-by-the-script" class="md-nav__link">
     <span class="md-ellipsis">
-      3. What Regions are available in the US? What Region is the closest to CBC?
+      Steps Automated by the Script
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-what-are-the-availability-zones" class="md-nav__link">
+  <a href="#the-python-script" class="md-nav__link">
     <span class="md-ellipsis">
-      4. What are the Availability Zones?
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-what-are-the-availability-sets" class="md-nav__link">
-    <span class="md-ellipsis">
-      5. What are the Availability Sets?
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6-what-is-a-virtual-machine" class="md-nav__link">
-    <span class="md-ellipsis">
-      6. What is a Virtual Machine?
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7-what-is-a-hypervisor" class="md-nav__link">
-    <span class="md-ellipsis">
-      7. What is a Hypervisor?
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8-what-are-the-services-provided-by-azure" class="md-nav__link">
-    <span class="md-ellipsis">
-      8. What are the services provided by Azure?
+      The Python Script
     </span>
   </a>
   
@@ -2783,7 +2747,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2025-07-08 00:00:00+00:00" class="md-ellipsis">July 8, 2025</time>
+                        <time datetime="2025-01-30 00:00:00+00:00" class="md-ellipsis">January 30, 2025</time>
                       </div>
                     </li>
                     
@@ -2794,7 +2758,7 @@
                           <span class="md-ellipsis">
                             in
                             
-                              <a href="../../../../category/cloud-computing/">Cloud Computing</a></span>
+                              <a href="../../../../category/robotics/">Robotics</a></span>
                         </div>
                       </li>
                     
@@ -2829,38 +2793,127 @@
 
 
 
-<h1 id="understanding-azure-geographies-regions-availability-zones-and-core-services">Understanding Azure Geographies, Regions, Availability Zones, and Core Services<a class="headerlink" href="#understanding-azure-geographies-regions-availability-zones-and-core-services" title="Permanent link">&para;</a></h1>
-<h2 id="1-what-are-geographies-how-many-geographies-does-azure-have-write-their-names">1. What are Geographies? How many Geographies does Azure have? Write their names.<a class="headerlink" href="#1-what-are-geographies-how-many-geographies-does-azure-have-write-their-names" title="Permanent link">&para;</a></h2>
-<p>An <strong>Azure geography</strong> is an area of the world that contains at minimum one Azure region. Azure is available or coming soon in the following geographies: United States, Belgium, Brazil, Canada, Chile, Mexico, Azure Government, Asia Pacific, Australia, China, India, Indonesia, Japan, Korea, Malaysia, New Zealand, Taiwan, Austria, Denmark, Europe, Finland, France, Germany, Greece, Italy, Norway, Poland, Spain, Sweden, Switzerland, United Kingdom, Africa, Israel, Qatar, United Arab Emirates, and Saudi Arabia.</p>
-<h2 id="2-what-are-regions-and-region-pairs">2. What are Regions and Region Pairs?<a class="headerlink" href="#2-what-are-regions-and-region-pairs" title="Permanent link">&para;</a></h2>
-<p><strong>Azure Regions</strong> are sets of physical facilities that include datacenters and networking infrastructure. There are over 60 Azure regions worldwide.</p>
-<p><strong>Region Pairs</strong> are Azure regions linked with another region within the same geography. They support geo-replication, geo-redundancy, and disaster recovery.</p>
-<h2 id="3-what-regions-are-available-in-the-us-what-region-is-the-closest-to-cbc">3. What Regions are available in the US? What Region is the closest to CBC?<a class="headerlink" href="#3-what-regions-are-available-in-the-us-what-region-is-the-closest-to-cbc" title="Permanent link">&para;</a></h2>
-<p>In the United States, available Azure regions include:
-- Central US
-- East US
-- East US 2
-- North Central US
-- South Central US
-- West US
-- West US 2
-- West US 3</p>
-<p>The region closest to CBC is <strong>West US 2</strong>, located in Washington.</p>
-<h2 id="4-what-are-the-availability-zones">4. What are the Availability Zones?<a class="headerlink" href="#4-what-are-the-availability-zones" title="Permanent link">&para;</a></h2>
-<p><strong>Availability Zones</strong> are unique physical locations within a region. Each zone has its own power, cooling, and network to reduce the risk of single points of failure. They are usually within 100 km of one another to minimize outages caused by regional issues.</p>
-<h2 id="5-what-are-the-availability-sets">5. What are the Availability Sets?<a class="headerlink" href="#5-what-are-the-availability-sets" title="Permanent link">&para;</a></h2>
-<p><strong>Availability Sets</strong> are groups of virtual machines distributed across multiple fault domains to lower the chance of simultaneous failures.</p>
-<h2 id="6-what-is-a-virtual-machine">6. What is a Virtual Machine?<a class="headerlink" href="#6-what-is-a-virtual-machine" title="Permanent link">&para;</a></h2>
-<p>A <strong>Virtual Machine</strong> is a software-based computer that emulates the functions of a physical computer.</p>
-<h2 id="7-what-is-a-hypervisor">7. What is a Hypervisor?<a class="headerlink" href="#7-what-is-a-hypervisor" title="Permanent link">&para;</a></h2>
-<p>A <strong>Hypervisor</strong> is a software layer that helps create and manage virtual machines.</p>
-<h2 id="8-what-are-the-services-provided-by-azure">8. What are the services provided by Azure?<a class="headerlink" href="#8-what-are-the-services-provided-by-azure" title="Permanent link">&para;</a></h2>
-<p>Azure provides services including:
-- AI &amp; Machine Learning
-- Analytics
-- Compute
-- Databases
-- Developer Tools</p>
+  <h1>Automating the ROS 1-ROS 2 Bridge for RoboClaw</h1>
+
+<h2 id="introduction"><strong>Introduction</strong><a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>Setting up the <strong>ROS 1-ROS 2 bridge</strong> manually every time can be frustrating. This guide provides a <strong>Python script</strong> that automates the process, making it easier to run your <strong>RoboClaw motor controller</strong> in ROS 1 while sending commands from ROS 2.</p>
+<hr />
+<h2 id="why-use-a-bridge"><strong>Why Use a Bridge?</strong><a class="headerlink" href="#why-use-a-bridge" title="Permanent link">&para;</a></h2>
+<p>Since ROS 1 Noetic and ROS 2 Foxy use different middleware, we need the <strong>ros1_bridge</strong> to communicate between them. With this setup, you can <strong>control RoboClaw from ROS 2</strong> while it runs on <strong>ROS 1</strong>.</p>
+<hr />
+<h2 id="steps-automated-by-the-script"><strong>Steps Automated by the Script</strong><a class="headerlink" href="#steps-automated-by-the-script" title="Permanent link">&para;</a></h2>
+<ol>
+<li><strong>Detect ROS 1 and ROS 2 installations</strong>  </li>
+<li><strong>Start roscore (if not running)</strong>  </li>
+<li><strong>Launch the RoboClaw node in ROS 1</strong>  </li>
+<li><strong>Start the ROS 1-ROS 2 bridge</strong>  </li>
+<li><strong>Verify if <code>/cmd_vel</code> is bridged between ROS versions</strong>  </li>
+<li><strong>Send a velocity command from ROS 2</strong>  </li>
+</ol>
+<hr />
+<h2 id="the-python-script"><strong>The Python Script</strong><a class="headerlink" href="#the-python-script" title="Permanent link">&para;</a></h2>
+<p>Here is the script that automates the process:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">run_command</span><span class="p">(</span><span class="n">command</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Runs a shell command and returns the output &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">output</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">source_ros</span><span class="p">(</span><span class="n">version</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Sources the correct ROS environment &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">version</span> <span class="o">==</span> <span class="s2">&quot;ros1&quot;</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;source /opt/ros/noetic/setup.bash&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">version</span> <span class="o">==</span> <span class="s2">&quot;ros2&quot;</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;source /opt/ros/foxy/setup.bash&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid ROS version specified&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">check_ros_version</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Checks if ROS 1 and ROS 2 are installed &quot;&quot;&quot;</span>
+    <span class="n">ros1_check</span> <span class="o">=</span> <span class="n">run_command</span><span class="p">(</span><span class="s2">&quot;rosversion -d&quot;</span><span class="p">)</span>
+    <span class="n">ros2_check</span> <span class="o">=</span> <span class="n">run_command</span><span class="p">(</span><span class="s2">&quot;ros2 --version&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="s2">&quot;noetic&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">ros1_check</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[✔] ROS 1 Noetic detected&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[X] ROS 1 Noetic not found!&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">ros2_check</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[✔] ROS 2 detected (Version: </span><span class="si">{</span><span class="n">ros2_check</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[X] ROS 2 not found!&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">start_roscore</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Starts roscore if not already running &quot;&quot;&quot;</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">run_command</span><span class="p">(</span><span class="s2">&quot;pgrep -x roscore&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">output</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[✔] roscore is already running&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[✔] Starting roscore...&quot;</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;roscore &amp;&quot;</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">start_roboclaw_node</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Launches the RoboClaw node &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[✔] Launching RoboClaw node...&quot;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;roslaunch roboclaw_node roboclaw.launch &amp;&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">start_ros1_bridge</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Starts the ROS 1-ROS 2 bridge &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[✔] Launching ROS 1-ROS 2 bridge...&quot;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;ros2 run ros1_bridge dynamic_bridge &amp;&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">check_cmd_vel_topic</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Checks if /cmd_vel is available in both ROS 1 and ROS 2 &quot;&quot;&quot;</span>
+    <span class="n">ros1_topics</span> <span class="o">=</span> <span class="n">run_command</span><span class="p">(</span><span class="s2">&quot;rostopic list&quot;</span><span class="p">)</span>
+    <span class="n">ros2_topics</span> <span class="o">=</span> <span class="n">run_command</span><span class="p">(</span><span class="s2">&quot;ros2 topic list&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="s2">&quot;/cmd_vel&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">ros1_topics</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[✔] /cmd_vel is available in ROS 1&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[X] /cmd_vel not found in ROS 1&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="s2">&quot;/cmd_vel&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">ros2_topics</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[✔] /cmd_vel is available in ROS 2&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[X] /cmd_vel not found in ROS 2&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">[✔] Setting up ROS 1-ROS 2 Bridge for RoboClaw...&quot;</span><span class="p">)</span>
+    <span class="n">check_ros_version</span><span class="p">()</span>
+
+    <span class="n">source_ros</span><span class="p">(</span><span class="s2">&quot;ros1&quot;</span><span class="p">)</span>
+    <span class="n">start_roscore</span><span class="p">()</span>
+    <span class="n">start_roboclaw_node</span><span class="p">()</span>
+
+    <span class="n">source_ros</span><span class="p">(</span><span class="s2">&quot;ros2&quot;</span><span class="p">)</span>
+    <span class="n">start_ros1_bridge</span><span class="p">()</span>
+
+    <span class="n">check_cmd_vel_topic</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">[✔] Setup complete! You can now control RoboClaw from ROS 2.&quot;</span><span class="p">)</span>
+<span class="err">````</span>
+
+<span class="o">---</span>
+
+<span class="c1">## **Conclusion**</span>
+
+<span class="n">This</span> <span class="n">script</span> <span class="o">**</span><span class="n">automates</span> <span class="n">the</span> <span class="n">ROS</span> <span class="n">bridge</span> <span class="n">setup</span><span class="o">**</span> <span class="n">so</span> <span class="n">you</span> <span class="n">can</span> <span class="n">focus</span> <span class="n">on</span> <span class="n">developing</span> <span class="n">your</span> <span class="n">robot</span><span class="o">.</span> <span class="n">Just</span> <span class="n">run</span><span class="p">:</span>
+
+<span class="err">```</span><span class="n">bash</span>
+<span class="n">python3</span> <span class="n">setup_ros_bridge</span><span class="o">.</span><span class="n">py</span>
+</code></pre></div>
+<p>🚀 <strong>Now you can control your RoboClaw motor from ROS 2 effortlessly!</strong></p>
+<p>🎉 Now, you have a <strong>repeatable setup</strong> for ROS 1-ROS 2 bridging! 🚀</p>
 
 
 
@@ -2881,7 +2934,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="July 8, 2025 18:40:29 UTC">July 8, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 2, 2025 19:16:20 UTC">November 2, 2025</span>
   </span>
 
     
@@ -2934,7 +2987,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../../../01/30/automating-the-ros-1-ros-2-bridge-for-roboclaw/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Automating the ROS 1-ROS 2 Bridge for RoboClaw">
+          <a href="../../15/leveraging-selenium-with-undetected-chromedriver-for-cloudflare-mitigation/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Leveraging Selenium with Undetected-Chromedriver for Cloudflare Mitigation">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2944,14 +2997,14 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Automating the ROS 1-ROS 2 Bridge for RoboClaw
+                Leveraging Selenium with Undetected-Chromedriver for Cloudflare Mitigation
               </div>
             </div>
           </a>
         
         
           
-          <a href="./" class="md-footer__link md-footer__link--next" aria-label="Next: Understanding Azure Geographies, Regions, Availability Zones, and Core Services">
+          <a href="../../../07/08/understanding-azure-geographies-regions-availability-zones-and-core-services/" class="md-footer__link md-footer__link--next" aria-label="Next: Understanding Azure Geographies, Regions, Availability Zones, and Core Services">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next

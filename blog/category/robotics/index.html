@@ -2188,6 +2188,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#automating-the-ros-1-ros-2-bridge-for-roboclaw" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automating the ROS 1-ROS 2 Bridge for RoboClaw
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#installing-ros-1-on-raspberry-pi" class="md-nav__link">
     <span class="md-ellipsis">
       Installing ROS 1 on Raspberry Pi
@@ -2722,6 +2731,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#automating-the-ros-1-ros-2-bridge-for-roboclaw" class="md-nav__link">
+    <span class="md-ellipsis">
+      Automating the ROS 1-ROS 2 Bridge for RoboClaw
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#installing-ros-1-on-raspberry-pi" class="md-nav__link">
     <span class="md-ellipsis">
       Installing ROS 1 on Raspberry Pi
@@ -2744,6 +2762,156 @@
       <header class="md-typeset">
         <h1 id="robotics">Robotics<a class="headerlink" href="#robotics" title="Permanent link">&para;</a></h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-01-30 00:00:00+00:00">January 30, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="./" class="md-meta__link">Robotics</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              2 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="automating-the-ros-1-ros-2-bridge-for-roboclaw"><a class="toclink" href="../../2025/01/30/automating-the-ros-1-ros-2-bridge-for-roboclaw/">Automating the ROS 1-ROS 2 Bridge for RoboClaw</a></h2>
+<h3 id="introduction"><a class="toclink" href="../../2025/01/30/automating-the-ros-1-ros-2-bridge-for-roboclaw/#introduction"><strong>Introduction</strong></a></h3>
+<p>Setting up the <strong>ROS 1-ROS 2 bridge</strong> manually every time can be frustrating. This guide provides a <strong>Python script</strong> that automates the process, making it easier to run your <strong>RoboClaw motor controller</strong> in ROS 1 while sending commands from ROS 2.</p>
+<hr />
+<h3 id="why-use-a-bridge"><a class="toclink" href="../../2025/01/30/automating-the-ros-1-ros-2-bridge-for-roboclaw/#why-use-a-bridge"><strong>Why Use a Bridge?</strong></a></h3>
+<p>Since ROS 1 Noetic and ROS 2 Foxy use different middleware, we need the <strong>ros1_bridge</strong> to communicate between them. With this setup, you can <strong>control RoboClaw from ROS 2</strong> while it runs on <strong>ROS 1</strong>.</p>
+<hr />
+<h3 id="steps-automated-by-the-script"><a class="toclink" href="../../2025/01/30/automating-the-ros-1-ros-2-bridge-for-roboclaw/#steps-automated-by-the-script"><strong>Steps Automated by the Script</strong></a></h3>
+<ol>
+<li><strong>Detect ROS 1 and ROS 2 installations</strong>  </li>
+<li><strong>Start roscore (if not running)</strong>  </li>
+<li><strong>Launch the RoboClaw node in ROS 1</strong>  </li>
+<li><strong>Start the ROS 1-ROS 2 bridge</strong>  </li>
+<li><strong>Verify if <code>/cmd_vel</code> is bridged between ROS versions</strong>  </li>
+<li><strong>Send a velocity command from ROS 2</strong>  </li>
+</ol>
+<hr />
+<h3 id="the-python-script"><a class="toclink" href="../../2025/01/30/automating-the-ros-1-ros-2-bridge-for-roboclaw/#the-python-script"><strong>The Python Script</strong></a></h3>
+<p>Here is the script that automates the process:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">run_command</span><span class="p">(</span><span class="n">command</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Runs a shell command and returns the output &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">capture_output</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">output</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">source_ros</span><span class="p">(</span><span class="n">version</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Sources the correct ROS environment &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">version</span> <span class="o">==</span> <span class="s2">&quot;ros1&quot;</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;source /opt/ros/noetic/setup.bash&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">version</span> <span class="o">==</span> <span class="s2">&quot;ros2&quot;</span><span class="p">:</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;source /opt/ros/foxy/setup.bash&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid ROS version specified&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">check_ros_version</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Checks if ROS 1 and ROS 2 are installed &quot;&quot;&quot;</span>
+    <span class="n">ros1_check</span> <span class="o">=</span> <span class="n">run_command</span><span class="p">(</span><span class="s2">&quot;rosversion -d&quot;</span><span class="p">)</span>
+    <span class="n">ros2_check</span> <span class="o">=</span> <span class="n">run_command</span><span class="p">(</span><span class="s2">&quot;ros2 --version&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="s2">&quot;noetic&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">ros1_check</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[✔] ROS 1 Noetic detected&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[X] ROS 1 Noetic not found!&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">ros2_check</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[✔] ROS 2 detected (Version: </span><span class="si">{</span><span class="n">ros2_check</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[X] ROS 2 not found!&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">start_roscore</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Starts roscore if not already running &quot;&quot;&quot;</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">run_command</span><span class="p">(</span><span class="s2">&quot;pgrep -x roscore&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">output</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[✔] roscore is already running&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[✔] Starting roscore...&quot;</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;roscore &amp;&quot;</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">start_roboclaw_node</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Launches the RoboClaw node &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[✔] Launching RoboClaw node...&quot;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;roslaunch roboclaw_node roboclaw.launch &amp;&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">start_ros1_bridge</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Starts the ROS 1-ROS 2 bridge &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[✔] Launching ROS 1-ROS 2 bridge...&quot;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s2">&quot;ros2 run ros1_bridge dynamic_bridge &amp;&quot;</span><span class="p">)</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">check_cmd_vel_topic</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Checks if /cmd_vel is available in both ROS 1 and ROS 2 &quot;&quot;&quot;</span>
+    <span class="n">ros1_topics</span> <span class="o">=</span> <span class="n">run_command</span><span class="p">(</span><span class="s2">&quot;rostopic list&quot;</span><span class="p">)</span>
+    <span class="n">ros2_topics</span> <span class="o">=</span> <span class="n">run_command</span><span class="p">(</span><span class="s2">&quot;ros2 topic list&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="s2">&quot;/cmd_vel&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">ros1_topics</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[✔] /cmd_vel is available in ROS 1&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[X] /cmd_vel not found in ROS 1&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="s2">&quot;/cmd_vel&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">ros2_topics</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[✔] /cmd_vel is available in ROS 2&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[X] /cmd_vel not found in ROS 2&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">[✔] Setting up ROS 1-ROS 2 Bridge for RoboClaw...&quot;</span><span class="p">)</span>
+    <span class="n">check_ros_version</span><span class="p">()</span>
+
+    <span class="n">source_ros</span><span class="p">(</span><span class="s2">&quot;ros1&quot;</span><span class="p">)</span>
+    <span class="n">start_roscore</span><span class="p">()</span>
+    <span class="n">start_roboclaw_node</span><span class="p">()</span>
+
+    <span class="n">source_ros</span><span class="p">(</span><span class="s2">&quot;ros2&quot;</span><span class="p">)</span>
+    <span class="n">start_ros1_bridge</span><span class="p">()</span>
+
+    <span class="n">check_cmd_vel_topic</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">[✔] Setup complete! You can now control RoboClaw from ROS 2.&quot;</span><span class="p">)</span>
+<span class="err">````</span>
+
+<span class="o">---</span>
+
+<span class="c1">## **Conclusion**</span>
+
+<span class="n">This</span> <span class="n">script</span> <span class="o">**</span><span class="n">automates</span> <span class="n">the</span> <span class="n">ROS</span> <span class="n">bridge</span> <span class="n">setup</span><span class="o">**</span> <span class="n">so</span> <span class="n">you</span> <span class="n">can</span> <span class="n">focus</span> <span class="n">on</span> <span class="n">developing</span> <span class="n">your</span> <span class="n">robot</span><span class="o">.</span> <span class="n">Just</span> <span class="n">run</span><span class="p">:</span>
+
+<span class="err">```</span><span class="n">bash</span>
+<span class="n">python3</span> <span class="n">setup_ros_bridge</span><span class="o">.</span><span class="n">py</span>
+</code></pre></div>
+<p>🚀 <strong>Now you can control your RoboClaw motor from ROS 2 effortlessly!</strong></p>
+<p>🎉 Now, you have a <strong>repeatable setup</strong> for ROS 1-ROS 2 bridging! 🚀</p>
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">

@@ -2,506 +2,514 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://harminder.dev/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2024/11/03/week-7-discussion-on-cybercrime-policing/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2023/11/14/building-an-indexing-pipeline-for-linkedin-skill-assessments-quizzes-repository/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2024/11/10/cost-and-resources-discussion-board/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2024/11/23/setting-up-cameraui-on-docker-for-windows/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2024/01/30/how-to-write-a-simple-woodcutting-script-using-dreambot-api-in-2024/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2023/11/21/transferring-files-between-wsl-and-windows/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2023/11/27/transferring-script-files-to-local-system-or-vps/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2024/11/24/my-first-blog-post/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2024/11/24/using-crosshairahk-to-assist-with-aiming-on-xbox-cloud-gaming/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2024/11/25/harminder-singh-nijjars-digital-art-catalog/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2024/11/25/agentic-web-scraping-in-2024/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2024/12/15/building-an-agentic-web-scraping-pipeline-for-crypto-and-meme-coins/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2024/12/15/installing-ros-1-on-raspberry-pi/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2025/01/05/setting-up-venom-for-whatsapp-translation/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2025/01/07/fine-tuning-gpt-4o-mini-model-in-chat-text-completion-format/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2025/01/11/aws-lambda-and-blender---revolutionizing-3d-rendering-in-the-cloud/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2025/01/15/leveraging-selenium-with-undetected-chromedriver-for-cloudflare-mitigation/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2025/07/08/understanding-azure-geographies-regions-availability-zones-and-core-services/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2025/07/08/understanding-azure-geographies-regions-availability-zones-and-core-services/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2025/07/09/deploying-mkdocs-with-a-virtual-environment-to-github-pages/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2025/10/05/the-human-and-environmental-cost-of-fracking-in-the-united-states/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+         <loc>https://harminder.dev/blog/2025/01/30/automating-the-ros-1-ros-2-bridge-for-roboclaw/</loc>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2023/12/31/downloading-teri-meri-doriyaann-using-python-and-beautifulsoup/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2023/11/27/transferring-script-files-to-local-system-or-vps/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2023/11/07/openais-developer-conference/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2024/10/09/qidi-plus-4-bed-mesh-correction-process/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2024/11/04/qidi-plus-4-winter-redemption-arc--removing-back-panel-and-ssr-check-update/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2023/11/16/progress-log---runescapegpt/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2024/11/02/time-discussion-board/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2024/11/03/review-of-sources-for-management-investigation-report/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2024/11/03/qidi-plus-4-issues-and-request-for-replacement-or-refund/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2024/11/03/summary-and-critical-evaluation-of-obstacles-to-cybercrime-investigations/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2023/11/05/osrs-money-making-guide-2024---how-to-earn-a-free-runescape-bond/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2023/12/04/automating-dvr-surveillance-feed-analysis-using-selenium-and-python/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2023/11/27/hosting-mkdocs-documentation-on-github-pages/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2024/01/30/setting-up-your-development-environment-for-dreambot-scripting---intellij-idea/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2023/11/06/available-voices-from-elevenlabs-api-in-november-2023/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2024/02/04/setting-up-runelite-for-building-with-intellij-idea/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2023/12/03/productivity-tools-in-2024/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2023/11/15/nvidias-nemotron-3-8b-chat-steerlm---empowering-conversational-ai-with-stateful-text-generation/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/2023/11/21/transferring-files-between-wsl-and-windows/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/archive/2025/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/archive/2024/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/archive/2023/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/ethics/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/devops/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/azure/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/cloud-infrastructure/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/virtualization/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/cloud-computing/</loc>
-         <lastmod>2025-10-13</lastmod>
-    </url>
-    <url>
-         <loc>https://harminder.dev/blog/category/programming/</loc>
-         <lastmod>2025-10-13</lastmod>
-    </url>
-    <url>
-         <loc>https://harminder.dev/blog/category/machine-learning/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/robotics/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+         <loc>https://harminder.dev/blog/category/programming/</loc>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+         <loc>https://harminder.dev/blog/category/machine-learning/</loc>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/art/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/gaming/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/docker/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/camera-monitoring/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/home-automation/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/business/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/project-management/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/3d-printing/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/product-reviews/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/safety-concerns/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/community/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/criminal-justice/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/cybersecurity/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/law-enforcement/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/management/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/literature-review/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/academic-writing/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/investigative-challenges/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/time-management/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/planning/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/bed-leveling/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/calibration/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/fluidd/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/runelite/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/development/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/intellij-idea/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/maven/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/dreambot/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/java/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/woodcutting/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/scripting/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/python/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/beautifulsoup/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/automation/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/computer-vision/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/surveillance/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/selenium/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/productivity/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/tools/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/organization/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/subscriptions/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/web-scraping/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/mkdocs/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/github-pages/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/static-site-generator/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/wsl/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/windows/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/linux/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/file-management/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/runescape/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/ai/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/development-log/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/nvidia/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/language-model/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/transformer/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/whoosh/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/indexing/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/linkedin/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/skill-assessments/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/quizzes/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/openai/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/developer-conference/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/api/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/text-to-speech/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/elevenlabs/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/osrs/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/money-making/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/page/2/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/page/3/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/page/4/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+         <loc>https://harminder.dev/blog/page/5/</loc>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/archive/2024/page/2/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
     <url>
          <loc>https://harminder.dev/blog/archive/2023/page/2/</loc>
-         <lastmod>2025-10-13</lastmod>
+         <lastmod>2025-11-02</lastmod>
     </url>
 </urlset>
