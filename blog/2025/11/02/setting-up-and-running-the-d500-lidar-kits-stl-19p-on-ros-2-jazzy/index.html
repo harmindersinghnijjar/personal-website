@@ -6,19 +6,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An analysis of the social, economic, and environmental consequences of hydraulic fracturing in the United States.">
+        <meta name="description" content="A complete setup guide for integrating the D500 LiDAR Kit’s STL-19P with ROS 2 Jazzy using the ldrobotSensorTeam/ldlidar_ros2 package — from cloning and building to visualization and troubleshooting.">
       
       
         <meta name="author" content="harmindersinghnijjar">
       
       
-        <link rel="canonical" href="https://harminder.dev/blog/2025/10/05/the-human-and-environmental-cost-of-fracking-in-the-united-states/">
+        <link rel="canonical" href="https://harminder.dev/blog/2025/11/02/setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy/">
       
       
-        <link rel="prev" href="../../../07/09/deploying-mkdocs-with-a-virtual-environment-to-github-pages/">
+        <link rel="prev" href="../../../10/05/the-human-and-environmental-cost-of-fracking-in-the-united-states/">
       
       
-        <link rel="next" href="../../../11/02/setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy/">
+        <link rel="next" href="../mastering-docker-and-ros-for-roboclaw--key-tips-and-workflows/">
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>The Human and Environmental Cost of Fracking in the United States - Harminder Singh Nijjar</title>
+        <title>Setting Up and Running the D500 LiDAR Kit’s STL-19P on ROS 2 Jazzy - Harminder Singh Nijjar</title>
       
     
     
@@ -92,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#the-human-and-environmental-cost-of-fracking-in-the-united-states" class="md-skip">
+        <a href="#setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy" class="md-skip">
           Skip to content
         </a>
       
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              The Human and Environmental Cost of Fracking in the United States
+              Setting Up and Running the D500 LiDAR Kit’s STL-19P on ROS 2 Jazzy
             
           </span>
         </div>
@@ -2670,6 +2670,209 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 Prerequisites
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🧠 Prerequisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set-up-your-ros-2-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧱 Set Up Your ROS 2 Workspace
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-cloning-and-building-the-ldlidar-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      1️⃣ Cloning and Building the LDLiDAR Package
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1️⃣ Cloning and Building the LDLiDAR Package">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clone-the-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      Clone the Repository
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install Dependencies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-the-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Build the Workspace
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source-the-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      Source the Workspace
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-running-the-ldlidar-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      2️⃣ Running the LDLiDAR Node
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2️⃣ Running the LDLiDAR Node">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connect-the-lidar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connect the LiDAR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identify-the-serial-port" class="md-nav__link">
+    <span class="md-ellipsis">
+      Identify the Serial Port
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launch-the-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      Launch the Node
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-visualizing-lidar-data-in-rviz2" class="md-nav__link">
+    <span class="md-ellipsis">
+      3️⃣ Visualizing LiDAR Data in Rviz2
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-troubleshooting-common-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      4️⃣ Troubleshooting Common Errors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4️⃣ Troubleshooting Common Errors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-communication-abnormal-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      ❌ 1. “Communication Abnormal” Error
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-device-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚠️ 2. Device Not Found
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-no-data-in-rviz2" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚫 3. No Data in Rviz2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-failed-init_port-fastrtps_port7000-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧩 4. “Failed init_port fastrtps_port7000” Error
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-successful-launch-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Example Successful Launch Output
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧭 Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2705,7 +2908,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2025-10-05 00:00:00+00:00" class="md-ellipsis">October 5, 2025</time>
+                        <time datetime="2025-11-02 00:00:00+00:00" class="md-ellipsis">November 2, 2025</time>
                       </div>
                     </li>
                     
@@ -2716,7 +2919,7 @@
                           <span class="md-ellipsis">
                             in
                             
-                              <a href="../../../../category/ethics/">Ethics</a></span>
+                              <a href="../../../../category/robotics/">Robotics</a></span>
                         </div>
                       </li>
                     
@@ -2727,7 +2930,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
                           <span class="md-ellipsis">
                             
-                              2 min read
+                              3 min read
                             
                           </span>
                         </div>
@@ -2751,11 +2954,123 @@
 
 
 
-<h1 id="the-human-and-environmental-cost-of-fracking-in-the-united-states">The Human and Environmental Cost of Fracking in the United States<a class="headerlink" href="#the-human-and-environmental-cost-of-fracking-in-the-united-states" title="Permanent link">&para;</a></h1>
-<p>The extraction of natural gas by oil and gas companies using the process of hydraulic fracturing or "fracking" in at least 24 states of the United States of America has been a disaster for the human race. They may have lowered natural gas prices domestically by not having to rely on imports, but have contaminated the drinking water supplies of far too many Americans. The primary reason why groundwater has been made unfit for consumption for rural Americans has been the failure to disclose conflicts of interest by members on the committees of environmental regulatory agencies. </p>
-<p>Any God-fearing, rational, contributing member of society not driven by greed and not employed in the pursuit of surrogate activities will position themselves on the side of anti-fracking. If not for the sake of personal morals, then at the very least out of respect for our environment and the responsibility we have for preserving it. Disregarding the human cost of fracking is not only disrespectful towards rural Americans directly impacted by having carcinogens mixed in their water supplies but it is also a neglect of the issue of freshwater scarcity.</p>
-<p>The US is heavily reliant on imports. The United States' total imports in 2024 were valued at $3.36 trillion, according to the United Nations COMTRADE database on international trade. After China, the US is the largest consumer of fossil fuels. China is also the largest importer of coal and crude oil and the fifth largest importer of natural gas. Countries that have large fossil fuel consumption are typically not able to sustain energy demands through domestic production alone. Using China as an example, it's not unheard of to import fossil fuel. However, bureaucrats would much rather line their pockets by pushing pro-drilling agendas, leaving the average American unable to use their water well.</p>
-<p>This innate greed has caused irreversible damage to water wells across the country. Not to mention that the process itself requires anywhere from 1.5 million to 16 million gallons of water per well. Since 2008, the so-called “shale revolution” has helped maintain gas prices in the US—but only at the cost of lasting economic and ecological damage.</p>
+<h1 id="setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy">Setting Up and Running the D500 LiDAR Kit’s STL-19P on ROS 2 Jazzy<a class="headerlink" href="#setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy" title="Permanent link">&para;</a></h1>
+<p>The <strong>D500 LiDAR Kit’s STL-19P</strong> offers affordable and reliable 2D scanning capabilities for autonomous robots. This guide explains how to configure, launch, and visualize LiDAR data on <strong>ROS 2 Jazzy</strong> using the official <a href="https://github.com/ldrobotSensorTeam/ldlidar_ros2"><code>ldlidar_ros2</code></a> package from <strong>LD Robot Sensor Team</strong>.</p>
+<p>By the end, you’ll have a fully functional LiDAR node publishing real-time <code>/scan</code> data viewable in <strong>Rviz2</strong>.</p>
+<hr />
+<h2 id="prerequisites">🧠 Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<p>Before starting, make sure you have:</p>
+<ul>
+<li><strong>ROS 2 Jazzy</strong> installed and configured.</li>
+<li><strong>A working ROS 2 workspace</strong>, ideally located on your Desktop for convenience.</li>
+</ul>
+<h3 id="set-up-your-ros-2-workspace">🧱 Set Up Your ROS 2 Workspace<a class="headerlink" href="#set-up-your-ros-2-workspace" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/Desktop/frata_workspace/src
+<span class="nb">cd</span><span class="w"> </span>~/Desktop/frata_workspace
+colcon<span class="w"> </span>build
+<span class="nb">source</span><span class="w"> </span>install/setup.bash
+</code></pre></div>
+<p>This creates and initializes your <code>frata_workspace</code>, the home for your LiDAR package.</p>
+<hr />
+<h2 id="1-cloning-and-building-the-ldlidar-package">1️⃣ Cloning and Building the LDLiDAR Package<a class="headerlink" href="#1-cloning-and-building-the-ldlidar-package" title="Permanent link">&para;</a></h2>
+<h3 id="clone-the-repository">Clone the Repository<a class="headerlink" href="#clone-the-repository" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Desktop/frata_workspace/src
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ldrobotSensorTeam/ldlidar_ros2.git
+</code></pre></div>
+<h3 id="install-dependencies">Install Dependencies<a class="headerlink" href="#install-dependencies" title="Permanent link">&para;</a></h3>
+<p>Use <code>rosdep</code> to automatically install any missing packages:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Desktop/frata_workspace
+rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>-r<span class="w"> </span>-y
+</code></pre></div>
+<h3 id="build-the-workspace">Build the Workspace<a class="headerlink" href="#build-the-workspace" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="o">=</span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
+</code></pre></div>
+<h3 id="source-the-workspace">Source the Workspace<a class="headerlink" href="#source-the-workspace" title="Permanent link">&para;</a></h3>
+<p>To make the environment persistent:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;source ~/Desktop/frata_workspace/install/local_setup.bash&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div>
+<p>This ensures ROS 2 recognizes your newly built LiDAR package every time you open a terminal.</p>
+<hr />
+<h2 id="2-running-the-ldlidar-node">2️⃣ Running the LDLiDAR Node<a class="headerlink" href="#2-running-the-ldlidar-node" title="Permanent link">&para;</a></h2>
+<h3 id="connect-the-lidar">Connect the LiDAR<a class="headerlink" href="#connect-the-lidar" title="Permanent link">&para;</a></h3>
+<p>Plug the <strong>STL-19P</strong> sensor into a <strong>USB port</strong>. If it isn’t recognized, try a different cable or a powered USB hub.</p>
+<h3 id="identify-the-serial-port">Identify the Serial Port<a class="headerlink" href="#identify-the-serial-port" title="Permanent link">&para;</a></h3>
+<p>Run:</p>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/dev/ttyUSB*
+</code></pre></div>
+<p><strong>Example Output:</strong></p>
+<div class="highlight"><pre><span></span><code>/dev/ttyUSB0
+</code></pre></div>
+<p>Take note of this port — you’ll use it in the launch configuration.</p>
+<h3 id="launch-the-node">Launch the Node<a class="headerlink" href="#launch-the-node" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>ldlidar_ros2<span class="w"> </span>ld19.launch.py
+</code></pre></div>
+<p>If necessary, edit the file to set the correct port:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">port_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;/dev/ttyUSB0&#39;</span>
+</code></pre></div>
+<hr />
+<h2 id="3-visualizing-lidar-data-in-rviz2">3️⃣ Visualizing LiDAR Data in Rviz2<a class="headerlink" href="#3-visualizing-lidar-data-in-rviz2" title="Permanent link">&para;</a></h2>
+<p>Once the node is running, open Rviz2:</p>
+<div class="highlight"><pre><span></span><code>rviz2
+</code></pre></div>
+<ul>
+<li>Click <strong>“Add” → “By Topic”</strong></li>
+<li>Select <strong><code>/scan</code></strong> and choose <strong>LaserScan</strong> as the display type</li>
+</ul>
+<p>You should now see a real-time 360-degree laser sweep representing detected surroundings.</p>
+<hr />
+<h2 id="4-troubleshooting-common-errors">4️⃣ Troubleshooting Common Errors<a class="headerlink" href="#4-troubleshooting-common-errors" title="Permanent link">&para;</a></h2>
+<h3 id="1-communication-abnormal-error">❌ 1. “Communication Abnormal” Error<a class="headerlink" href="#1-communication-abnormal-error" title="Permanent link">&para;</a></h3>
+<p>Example log:</p>
+<div class="highlight"><pre><span></span><code>[ERROR] [ldlidar_publisher_ld19]: ldlidar communication is abnormal.
+</code></pre></div>
+<p><strong>Fixes:</strong></p>
+<ul>
+<li>Verify the correct serial port in <code>ld19.launch.py</code> (e.g., <code>/dev/ttyUSB0</code>).</li>
+<li>Confirm baud rate = <code>230400</code>.</li>
+<li>Reconnect the device or use a <strong>USB extension cable</strong> if the port is unstable.</li>
+</ul>
+<hr />
+<h3 id="2-device-not-found">⚠️ 2. Device Not Found<a class="headerlink" href="#2-device-not-found" title="Permanent link">&para;</a></h3>
+<p>If <code>ls /dev/ttyUSB*</code> returns nothing:</p>
+<ul>
+<li>Make sure the LiDAR is properly powered and connected.</li>
+<li>Try a different USB port or check <code>dmesg | grep tty</code> for detection logs.</li>
+</ul>
+<hr />
+<h3 id="3-no-data-in-rviz2">🚫 3. No Data in Rviz2<a class="headerlink" href="#3-no-data-in-rviz2" title="Permanent link">&para;</a></h3>
+<p>Check whether ROS 2 is actually publishing the <code>/scan</code> topic:</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>topic<span class="w"> </span>list
+ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/scan
+</code></pre></div>
+<p>If no data appears, restart the LiDAR node or re-check serial communication settings.</p>
+<hr />
+<h3 id="4-failed-init_port-fastrtps_port7000-error">🧩 4. “Failed init_port fastrtps_port7000” Error<a class="headerlink" href="#4-failed-init_port-fastrtps_port7000-error" title="Permanent link">&para;</a></h3>
+<p>This is a <strong>shared memory transport</strong> issue sometimes seen in ROS 2.</p>
+<p><strong>Solution:</strong> Disable shared memory by adding this line to your <code>~/.bashrc</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">RMW_IMPLEMENTATION</span><span class="o">=</span>rmw_cyclonedds_cpp
+</code></pre></div>
+<p>Then re-source it:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div>
+<hr />
+<h2 id="example-successful-launch-output">✅ Example Successful Launch Output<a class="headerlink" href="#example-successful-launch-output" title="Permanent link">&para;</a></h2>
+<p>When everything is configured correctly, your terminal should display:</p>
+<div class="highlight"><pre><span></span><code>[INFO] [ldlidar_publisher_ld19]: LDLiDAR SDK Pack Version is:3.3.1
+[INFO] [ldlidar_publisher_ld19]: ROS2 param input:
+[INFO] [ldlidar_publisher_ld19]: ldlidar serial connect is success
+[INFO] [ldlidar_publisher_ld19]: ldlidar communication is normal.
+[INFO] [ldlidar_publisher_ld19]: ldlidar driver start is success.
+[INFO] [ldlidar_publisher_ld19]: start normal, pub lidar data
+</code></pre></div>
+<p>This indicates that your <strong>LiDAR is communicating properly</strong>, and the <code>/scan</code> topic is being published.</p>
+<hr />
+<h2 id="conclusion">🧭 Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>With this setup, you can confidently run the <strong>D500 LiDAR Kit’s STL-19P</strong> on <strong>ROS 2 Jazzy</strong>, visualize live sensor data, and debug connectivity issues.</p>
+<p>If errors occur, review your serial port, baud rate, and environment variables. Once stable, this LiDAR becomes a reliable perception tool for <strong>autonomous navigation, mapping, and obstacle detection</strong>.</p>
+<p>For continuous updates and additional models, visit the <a href="https://github.com/ldrobotSensorTeam/ldlidar_ros2">LD Robot Sensor Team GitHub repository</a>.</p>
+<p><strong>Empower your robot with vision. 🚀</strong></p>
 
 
 
@@ -2776,7 +3091,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 13, 2025 04:19:38 UTC">October 13, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 2, 2025 19:30:05 UTC">November 2, 2025</span>
   </span>
 
     
@@ -2829,7 +3144,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../../../07/09/deploying-mkdocs-with-a-virtual-environment-to-github-pages/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Deploying MkDocs with a Virtual Environment to GitHub Pages">
+          <a href="../../../10/05/the-human-and-environmental-cost-of-fracking-in-the-united-states/" class="md-footer__link md-footer__link--prev" aria-label="Previous: The Human and Environmental Cost of Fracking in the United States">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2839,20 +3154,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Deploying MkDocs with a Virtual Environment to GitHub Pages
+                The Human and Environmental Cost of Fracking in the United States
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../../11/02/setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy/" class="md-footer__link md-footer__link--next" aria-label="Next: Setting Up and Running the D500 LiDAR Kit’s STL-19P on ROS 2 Jazzy">
+          <a href="../mastering-docker-and-ros-for-roboclaw--key-tips-and-workflows/" class="md-footer__link md-footer__link--next" aria-label="Next: Mastering Docker and ROS for RoboClaw — Key Tips and Workflows">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Setting Up and Running the D500 LiDAR Kit’s STL-19P on ROS 2 Jazzy
+                Mastering Docker and ROS for RoboClaw — Key Tips and Workflows
               </div>
             </div>
             <div class="md-footer__button md-icon">

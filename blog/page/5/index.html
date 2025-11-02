@@ -2669,6 +2669,42 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#nvidias-nemotron-3-8b-chat-steerlm-empowering-conversational-ai-with-stateful-text-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      NVIDIA's Nemotron-3-8B-Chat-SteerLM: Empowering Conversational AI with Stateful Text Generation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-an-indexing-pipeline-for-linkedin-skill-assessments-quizzes-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building an Indexing Pipeline for LinkedIn Skill Assessments Quizzes Repository
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openais-developer-conference-a-new-era-of-ai-innovation" class="md-nav__link">
+    <span class="md-ellipsis">
+      OpenAI's Developer Conference: A New Era of AI Innovation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#available-voices-from-elevenlabs-api-in-november-2023" class="md-nav__link">
+    <span class="md-ellipsis">
+      Available Voices from ElevenLabs API in November 2023
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#osrs-money-making-guide-2024-how-to-earn-a-free-runescape-bond" class="md-nav__link">
     <span class="md-ellipsis">
       OSRS Money Making Guide 2024 - How to Earn a Free RuneScape Bond
@@ -2691,6 +2727,643 @@
       <header class="md-typeset">
         <h1 id="blog">Blog<a class="headerlink" href="#blog" title="Permanent link">&para;</a></h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2023-11-15 00:00:00+00:00">November 15, 2023</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../../category/nvidia/" class="md-meta__link">NVIDIA</a>, 
+              <a href="../../category/ai/" class="md-meta__link">AI</a>, 
+              <a href="../../category/language-model/" class="md-meta__link">Language Model</a>, 
+              <a href="../../category/transformer/" class="md-meta__link">Transformer</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              4 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="nvidias-nemotron-3-8b-chat-steerlm-empowering-conversational-ai-with-stateful-text-generation"><a class="toclink" href="../../2023/11/15/nvidias-nemotron-3-8b-chat-steerlm---empowering-conversational-ai-with-stateful-text-generation/">NVIDIA's Nemotron-3-8B-Chat-SteerLM: Empowering Conversational AI with Stateful Text Generation</a></h2>
+<h3 id="introduction"><a class="toclink" href="../../2023/11/15/nvidias-nemotron-3-8b-chat-steerlm---empowering-conversational-ai-with-stateful-text-generation/#introduction">Introduction</a></h3>
+<p><img alt="NVIDIA's Nemotron-3-8B-Chat" src="https://catalog.ngc.nvidia.com/demos/steerllm.jpg" /></p>
+<p>In the world of AI, language models have taken center stage for their ability to generate human-like text responses to a wide range of queries. NVIDIA's Nemotron-3-8B-Chat-SteerLM is one such model, offering a powerful tool for generative AI creators working on conversational AI models. Let's dive into the details of this model and understand how it works, its intended use, potential risks, and its unique feature of remembering previous answers.</p>
+<h3 id="model-overview"><a class="toclink" href="../../2023/11/15/nvidias-nemotron-3-8b-chat-steerlm---empowering-conversational-ai-with-stateful-text-generation/#model-overview">Model Overview</a></h3>
+<p><img alt="" src="../../../resources/Images/chrome_0m9H24Pyh2.png" /></p>
+<p><img alt="" src="../../../resources/Images/chrome_DZbtPRwWaC.png" /></p>
+<p>Nemotron-3-8B-Chat-SteerLM is an 8 billion-parameter generative language model based on the Nemotron-3-8B base model. It boasts customizability through the SteerLM method, allowing users to control model outputs dynamically during inference. This model is designed to generate text responses and code, making it a versatile choice for a range of applications.</p>
+<h4 id="intended-application-domain"><a class="toclink" href="../../2023/11/15/nvidias-nemotron-3-8b-chat-steerlm---empowering-conversational-ai-with-stateful-text-generation/#intended-application-domain">Intended Application &amp; Domain</a></h4>
+<p>This model is tailored for text-to-text generation, where it takes text input and generates text output. Its primary purpose is to assist generative AI creators in the development of conversational AI models. Whether it's chatbots, virtual assistants, or customer support systems, this model excels in generating text-based responses to user queries.</p>
+<h4 id="model-type"><a class="toclink" href="../../2023/11/15/nvidias-nemotron-3-8b-chat-steerlm---empowering-conversational-ai-with-stateful-text-generation/#model-type">Model Type</a></h4>
+<p>Nemotron-3-8B-Chat-SteerLM belongs to the Transformer architecture family, renowned for its effectiveness in natural language processing tasks. Its architecture enables it to understand and generate human-like text.</p>
+<h4 id="intended-user"><a class="toclink" href="../../2023/11/15/nvidias-nemotron-3-8b-chat-steerlm---empowering-conversational-ai-with-stateful-text-generation/#intended-user">Intended User</a></h4>
+<p>Developers and data scientists are the primary users of this model. They can leverage it to create conversational AI models that generate coherent and contextually relevant text responses in a conversational context.</p>
+<h4 id="stateful-text-generation"><a class="toclink" href="../../2023/11/15/nvidias-nemotron-3-8b-chat-steerlm---empowering-conversational-ai-with-stateful-text-generation/#stateful-text-generation">Stateful Text Generation</a></h4>
+<p>One of the standout features of this model is its statefulness. It has the ability to remember previous answers in a conversation. This capability allows it to maintain context and generate responses that are not just coherent but also contextually relevant. For example, in a multi-turn conversation, it can refer back to previous responses to ensure continuity and relevancy.</p>
+<h3 id="how-the-model-works"><a class="toclink" href="../../2023/11/15/nvidias-nemotron-3-8b-chat-steerlm---empowering-conversational-ai-with-stateful-text-generation/#how-the-model-works">How the Model Works</a></h3>
+<p>Nemotron-3-8B-Chat-SteerLM is a large language model that operates by generating text and code in response to prompts. Users input a text prompt, and the model utilizes its pre-trained knowledge to craft a text-based response. The stateful nature of the model means that it can remember and consider the conversation history, enabling it to generate contextually appropriate responses. This feature enhances the conversational quality of the AI, making interactions feel more natural and meaningful.</p>
+<h3 id="performance-metrics"><a class="toclink" href="../../2023/11/15/nvidias-nemotron-3-8b-chat-steerlm---empowering-conversational-ai-with-stateful-text-generation/#performance-metrics">Performance Metrics</a></h3>
+<p>The model's performance is evaluated based on two critical metrics:</p>
+<ol>
+<li>
+<p><strong>Throughput:</strong> This metric measures how many requests the model can handle within a given time frame. It is essential for assessing the model's efficiency in real-world production environments.</p>
+</li>
+<li>
+<p><strong>Latency:</strong> Latency gauges the time taken by the model to respond to a single request. Lower latency is desirable, indicating quicker responses and smoother user experiences.</p>
+</li>
+</ol>
+<h4 id="potential-known-risks"><a class="toclink" href="../../2023/11/15/nvidias-nemotron-3-8b-chat-steerlm---empowering-conversational-ai-with-stateful-text-generation/#potential-known-risks">Potential Known Risks</a></h4>
+<p>It's crucial to be aware of potential risks when using Nemotron-3-8B-Chat-SteerLM:</p>
+<ul>
+<li>
+<p><strong>Bias and Toxicity:</strong> The model was trained on data from the internet, which may contain toxic language and societal biases. Consequently, it may generate responses that amplify these biases and return toxic or offensive content, especially when prompted with toxic inputs.</p>
+</li>
+<li>
+<p><strong>Accuracy and Relevance:</strong> The model may generate answers that are inaccurate, omit key information, or include irrelevant or redundant text. This can lead to socially unacceptable or undesirable text, even if the input prompt itself is not offensive.</p>
+</li>
+</ul>
+<h3 id="licensing"><a class="toclink" href="../../2023/11/15/nvidias-nemotron-3-8b-chat-steerlm---empowering-conversational-ai-with-stateful-text-generation/#licensing">Licensing</a></h3>
+<p>The use of this model is governed by the "NVIDIA AI Foundation Models Community License Agreement." Users must adhere to the terms and conditions outlined in the agreement when utilizing the model.</p>
+<h3 id="conclusion"><a class="toclink" href="../../2023/11/15/nvidias-nemotron-3-8b-chat-steerlm---empowering-conversational-ai-with-stateful-text-generation/#conclusion">Conclusion</a></h3>
+<p>NVIDIA's Nemotron-3-8B-Chat-SteerLM represents a significant advancement in generative AI for conversational applications. With its stateful text generation capability and Transformer architecture, it offers a versatile solution for developers and data scientists working in this domain. However, it's important to be mindful of potential biases and accuracy issues, as well as adhere to the licensing terms when utilizing this powerful AI tool.</p>
+    
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2023-11-14 00:00:00+00:00">November 14, 2023</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../../category/python/" class="md-meta__link">Python</a>, 
+              <a href="../../category/whoosh/" class="md-meta__link">Whoosh</a>, 
+              <a href="../../category/indexing/" class="md-meta__link">Indexing</a>, 
+              <a href="../../category/linkedin/" class="md-meta__link">LinkedIn</a>, 
+              <a href="../../category/skill-assessments/" class="md-meta__link">Skill Assessments</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              7 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="building-an-indexing-pipeline-for-linkedin-skill-assessments-quizzes-repository"><a class="toclink" href="../../2023/11/14/building-an-indexing-pipeline-for-linkedin-skill-assessments-quizzes-repository/">Building an Indexing Pipeline for LinkedIn Skill Assessments Quizzes Repository</a></h2>
+<p>Creating an efficient indexing pipeline for the <code>linkedin-skill-assessments-quizzes</code> repository involves systematic cloning, data processing, indexing, and query service setup. This comprehensive guide will walk you through each step with detailed code snippets, leveraging the <code>Whoosh</code> library for indexing.</p>
+<h3 id="pre-requisites"><a class="toclink" href="../../2023/11/14/building-an-indexing-pipeline-for-linkedin-skill-assessments-quizzes-repository/#pre-requisites">Pre-requisites</a></h3>
+<p>You want to create a new directory and name it <code>linkedin_skill_assessments_quizzes</code>, you need to first open the command prompt in the current working directory. To do this, you can use the following command in the command prompt.</p>
+<p><div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>path_to_your_current_working_directory
+</code></pre></div>
+Replace <code>path_to_your_current_working_directory</code> with the actual path where you want to create the new directory.  </p>
+<p>Alternatively, on Windows, you can open the command prompt in the current working directory by clicking on the address bar and typing <code>cmd</code>, and pressing enter.  </p>
+<p>Once you are in the desired working directory, create a new directory named linkedin_skill_assessments_quizzes by executing the following command:  </p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>linkedin_skill_assessments_quizzes
+</code></pre></div>
+<p>Now navigate to this new directory by executing the following command:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>linkedin_skill_assessments_quizzes
+</code></pre></div>
+<p>This is where you will be cloning the repository and creating the indexing pipeline.</p>
+<h3 id="introduction"><a class="toclink" href="../../2023/11/14/building-an-indexing-pipeline-for-linkedin-skill-assessments-quizzes-repository/#introduction">Introduction</a></h3>
+<p>LinkedIn Skill Assessments Quizzes is a repository of quizzes for various skills. It contains MD files for each quiz. The repository is available on <a href="https://github.com/Ebazhanov/linkedin-skill-assessments-quizzes" target="_blank" rel="noopener noreferrer">GitHub</a>. The repository has over 27,400 stars and 13,600 forks. It is a popular repository that is used by many people to prepare for interviews and improve their skills.</p>
+<h3 id="step-1-cloning-the-repository"><a class="toclink" href="../../2023/11/14/building-an-indexing-pipeline-for-linkedin-skill-assessments-quizzes-repository/#step-1-cloning-the-repository">Step 1: Cloning the Repository</a></h3>
+<p>Start by cloning the repository to your local environment. This makes the content available for processing.</p>
+<p><div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Ebazhanov/linkedin-skill-assessments-quizzes.git
+</code></pre></div>
+<img src="../../resources/Images/cmd_G8ccMvc9ce.png" alt="Cloning the repository" style="display: block; margin-top: 20px; margin-bottom: 20px;"></p>
+<h3 id="step-2-converting-the-md-files-to-json"><a class="toclink" href="../../2023/11/14/building-an-indexing-pipeline-for-linkedin-skill-assessments-quizzes-repository/#step-2-converting-the-md-files-to-json">Step 2: Converting the MD Files to JSON</a></h3>
+<p>Processing the data involves parsing the MD files converting them to JSON format to extract the relevant information. The following code snippet demonstrates how to extract the question, answer, image, and options from the MD files and save them in a JSON file. This is required for indexing the data which we will cover in the next step.</p>
+<p>Add the following code to a file named <code>process_data.py</code> in the same directory where you cloned the repository.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">markdown2</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+
+<span class="c1"># Get the markdown files directory</span>
+
+<span class="n">cloned_repository_directory</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Users\Harminder Nijjar\Desktop\blog\kb-blog-portfolio-mkdocs-master\scripts\linkedin-skill-assessments-quizzes&quot;</span>
+
+<span class="c1"># Create a folder to store the JSON files</span>
+
+<span class="n">output_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cloned_repository_directory</span><span class="p">,</span> <span class="s2">&quot;json_output&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create the output folder if it doesn&#39;t exist</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_folder</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Create a list to store data for each MD file</span>
+
+<span class="n">data_for_each_md</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Iterate through the Markdown files (\*.md) in the current directory and its subdirectories</span>
+
+<span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">cloned_repository_directory</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.md&quot;</span><span class="p">):</span> <span class="c1"># Construct the full path to the Markdown file</span>
+            <span class="n">md_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+            <span class="c1"># Read the Markdown file</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">md_file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">md_file</span><span class="p">:</span>
+                <span class="n">md_content</span> <span class="o">=</span> <span class="n">md_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+            <span class="c1"># Split the content into sections for each question and answer</span>
+            <span class="n">sections</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;####\s+Q\d+\.&quot;</span><span class="p">,</span> <span class="n">md_content</span><span class="p">)</span>
+
+            <span class="c1"># Remove the first empty section</span>
+            <span class="n">sections</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+            <span class="c1"># Create a list to store questions and answers for this MD file</span>
+            <span class="n">questions_and_answers</span> <span class="o">=</span> <span class="p">[]</span>
+
+            <span class="c1"># Iterate through sections and extract questions and answers</span>
+            <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">sections</span><span class="p">:</span>
+                <span class="c1"># Split the section into lines</span>
+                <span class="n">lines</span> <span class="o">=</span> <span class="n">section</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+                <span class="c1"># Extract the question</span>
+                <span class="n">question</span> <span class="o">=</span> <span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+                <span class="c1"># Extract the answers</span>
+                <span class="n">answers</span> <span class="o">=</span> <span class="p">[</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()]</span>
+
+                <span class="c1"># Create a dictionary for this question and answers</span>
+                <span class="n">qa_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="n">question</span><span class="p">,</span> <span class="s2">&quot;answers&quot;</span><span class="p">:</span> <span class="n">answers</span><span class="p">}</span>
+
+                <span class="c1"># Append to the list of questions and answers</span>
+                <span class="n">questions_and_answers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">qa_dict</span><span class="p">)</span>
+
+            <span class="c1"># Create a dictionary for this MD file</span>
+            <span class="n">md_data</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;markdown_file&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
+                <span class="s2">&quot;questions_and_answers&quot;</span><span class="p">:</span> <span class="n">questions_and_answers</span><span class="p">,</span>
+            <span class="p">}</span>
+
+            <span class="c1"># Append to the list of data for each MD file</span>
+            <span class="n">data_for_each_md</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">md_data</span><span class="p">)</span>
+
+<span class="c1"># Save JSON files in the output folder</span>
+
+<span class="k">for</span> <span class="n">md_data</span> <span class="ow">in</span> <span class="n">data_for_each_md</span><span class="p">:</span>
+    <span class="n">json_file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">md_data</span><span class="p">[</span><span class="s2">&quot;markdown_file&quot;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;.json&quot;</span>
+    <span class="n">json_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_folder</span><span class="p">,</span> <span class="n">json_file_name</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">json_file_path</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_file</span><span class="p">:</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">md_data</span><span class="p">,</span> <span class="n">json_file</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;JSON files created for each MD file in the &#39;</span><span class="si">{</span><span class="n">output_folder</span><span class="si">}</span><span class="s2">&#39; folder.&quot;</span><span class="p">)</span><span class="n">w</span>
+</code></pre></div>
+<p><img alt="" src="/docs/resources/Images/cmd_yMKIdojeL3.png" /></p>
+<h3 id="step-3-indexing-the-data"><a class="toclink" href="../../2023/11/14/building-an-indexing-pipeline-for-linkedin-skill-assessments-quizzes-repository/#step-3-indexing-the-data">Step 3: Indexing the Data</a></h3>
+<p>After processing the data, you can index it to make it searchable. Indexing refers to the process of creating an index for the data. The following code snippet demonstrates how to index the data using the <code>Whoosh</code> library. This is how the indexing pipeline will work.</p>
+<p>Add the following code to a file named <code>indexing_pipeline.py</code> in the same directory where you cloned the repository.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">whoosh</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">whoosh.fields</span><span class="w"> </span><span class="kn">import</span> <span class="n">TEXT</span><span class="p">,</span> <span class="n">ID</span><span class="p">,</span> <span class="n">Schema</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">whoosh.index</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_in</span>
+
+<span class="c1"># Define the directory where your processed JSON files are located</span>
+
+<span class="n">json_files_directory</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Users\Harminder Nijjar\Desktop\blog\kb-blog-portfolio-mkdocs-master\scripts\linkedin-skill-assessments-quizzes\json_output&quot;</span>
+
+<span class="c1"># Define the directory where you want to create the Whoosh index</span>
+
+<span class="n">index_directory</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Users\Harminder Nijjar\Desktop\blog\kb-blog-portfolio-mkdocs-master\scripts\linkedin-skill-assessments-quizzes\index&quot;</span>
+
+<span class="c1"># Create the schema for the Whoosh index</span>
+
+<span class="n">schema</span> <span class="o">=</span> <span class="n">Schema</span><span class="p">(</span>
+<span class="n">markdown_file</span><span class="o">=</span><span class="n">ID</span><span class="p">(</span><span class="n">stored</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+<span class="n">question</span><span class="o">=</span><span class="n">TEXT</span><span class="p">(</span><span class="n">stored</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+<span class="n">answers</span><span class="o">=</span><span class="n">TEXT</span><span class="p">(</span><span class="n">stored</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="c1"># Create the index directory if it doesn&#39;t exist</span>
+
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">index_directory</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Create the Whoosh index</span>
+
+<span class="n">index</span> <span class="o">=</span> <span class="n">create_in</span><span class="p">(</span><span class="n">index_directory</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
+
+<span class="c1"># Open the index writer</span>
+
+<span class="n">writer</span> <span class="o">=</span> <span class="n">index</span><span class="o">.</span><span class="n">writer</span><span class="p">()</span>
+
+<span class="c1"># Iterate through JSON files and add documents to the index</span>
+
+<span class="k">for</span> <span class="n">json_file_name</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">json_files_directory</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">json_file_name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.json&quot;</span><span class="p">):</span>
+        <span class="n">json_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">json_files_directory</span><span class="p">,</span> <span class="n">json_file_name</span><span class="p">)</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">json_file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">json_file</span><span class="p">:</span>
+            <span class="n">json_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">json_file</span><span class="p">)</span> <span class="c1"># Extract &#39;question&#39; and &#39;answers&#39; from the JSON file</span>
+            <span class="n">question</span> <span class="o">=</span> <span class="n">json_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;question&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="n">answers</span> <span class="o">=</span> <span class="n">json_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;answers&quot;</span><span class="p">,</span> <span class="p">[])</span> <span class="c1"># Combine &#39;question&#39; and &#39;answers&#39; into a single field for searching</span>
+            <span class="n">content</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">question</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">answers</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">writer</span><span class="o">.</span><span class="n">add_document</span><span class="p">(</span>
+                <span class="n">markdown_file</span><span class="o">=</span><span class="n">json_file_name</span><span class="p">,</span>
+                <span class="n">question</span><span class="o">=</span><span class="n">content</span><span class="p">,</span>
+                <span class="n">answers</span><span class="o">=</span><span class="n">answers</span><span class="p">,</span> <span class="c1"># Use the extracted &#39;answers&#39; or an empty list if not present</span>
+            <span class="p">)</span>
+
+<span class="c1"># Commit changes to the index</span>
+
+<span class="n">writer</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Indexing completed.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><img alt="" src="/docs/resources/Images/cmd_LrggXREfsw.png" /></p>
+<h3 id="step-4-setting-up-the-query-service"><a class="toclink" href="../../2023/11/14/building-an-indexing-pipeline-for-linkedin-skill-assessments-quizzes-repository/#step-4-setting-up-the-query-service">Step 4: Setting Up the Query Service</a></h3>
+<p>After indexing the data, you can set up a query service to search the index for a given search term. The following code snippet demonstrates how to set up a query service using the <code>Whoosh</code> library. This is how the query service will work.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">whoosh.index</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_in</span><span class="p">,</span> <span class="n">open_dir</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">whoosh.fields</span><span class="w"> </span><span class="kn">import</span> <span class="n">Schema</span><span class="p">,</span> <span class="n">TEXT</span><span class="p">,</span> <span class="n">ID</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">whoosh.qparser</span><span class="w"> </span><span class="kn">import</span> <span class="n">MultifieldParser</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">whoosh.analysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">StemmingAnalyzer</span>
+
+<span class="c1"># Define the schema for the index</span>
+
+<span class="n">schema</span> <span class="o">=</span> <span class="n">Schema</span><span class="p">(</span>
+<span class="n">question</span><span class="o">=</span><span class="n">TEXT</span><span class="p">(</span><span class="n">stored</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">analyzer</span><span class="o">=</span><span class="n">StemmingAnalyzer</span><span class="p">()),</span>
+<span class="n">answer</span><span class="o">=</span><span class="n">TEXT</span><span class="p">(</span><span class="n">stored</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+<span class="n">image</span><span class="o">=</span><span class="n">ID</span><span class="p">(</span><span class="n">stored</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+<span class="n">options</span><span class="o">=</span><span class="n">TEXT</span><span class="p">(</span><span class="n">stored</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">create_search_index</span><span class="p">(</span><span class="n">json_files_directory</span><span class="p">,</span> <span class="n">index_dir</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">index_dir</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">index_dir</span><span class="p">)</span>
+
+    <span class="n">index</span> <span class="o">=</span> <span class="n">create_in</span><span class="p">(</span><span class="n">index_dir</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
+    <span class="n">writer</span> <span class="o">=</span> <span class="n">index</span><span class="o">.</span><span class="n">writer</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">json_filename</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">json_files_directory</span><span class="p">):</span>
+        <span class="n">json_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">json_files_directory</span><span class="p">,</span> <span class="n">json_filename</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">json_file_path</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.json&quot;</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">json_file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+                    <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">question_data</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;questions_and_answers&quot;</span><span class="p">]:</span>
+                        <span class="n">question_text</span> <span class="o">=</span> <span class="n">question_data</span><span class="p">[</span><span class="s2">&quot;question&quot;</span><span class="p">]</span>
+                        <span class="n">answer_text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">question_data</span><span class="p">[</span><span class="s2">&quot;answers&quot;</span><span class="p">])</span>
+                        <span class="n">image_id</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;image_id&quot;</span><span class="p">)</span>
+                        <span class="n">options</span> <span class="o">=</span> <span class="n">question_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;options&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+                        <span class="n">writer</span><span class="o">.</span><span class="n">add_document</span><span class="p">(</span>
+                            <span class="n">question</span><span class="o">=</span><span class="n">question_text</span><span class="p">,</span>
+                            <span class="n">answer</span><span class="o">=</span><span class="n">answer_text</span><span class="p">,</span>
+                            <span class="n">image</span><span class="o">=</span><span class="n">image_id</span><span class="p">,</span>
+                            <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">,</span>
+                        <span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to process file </span><span class="si">{</span><span class="n">json_file_path</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">writer</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Indexing completed successfully.&quot;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">extract_correct_answer</span><span class="p">(</span><span class="n">answer_text</span><span class="p">):</span>
+    <span class="c1"># Use regular expression to find the portion with &quot;- [x]&quot;</span>
+    <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;- \[x\].\*&quot;</span><span class="p">,</span> <span class="n">answer_text</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
+    <span class="k">return</span> <span class="kc">None</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">search_index</span><span class="p">(</span><span class="n">query_str</span><span class="p">,</span> <span class="n">index_dir</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">ix</span> <span class="o">=</span> <span class="n">open_dir</span><span class="p">(</span><span class="n">index_dir</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">ix</span><span class="o">.</span><span class="n">searcher</span><span class="p">()</span> <span class="k">as</span> <span class="n">searcher</span><span class="p">:</span>
+            <span class="n">parser</span> <span class="o">=</span> <span class="n">MultifieldParser</span><span class="p">([</span><span class="s2">&quot;question&quot;</span><span class="p">,</span> <span class="s2">&quot;options&quot;</span><span class="p">],</span> <span class="n">schema</span><span class="o">=</span><span class="n">ix</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">query_str</span><span class="p">)</span>
+            <span class="n">results</span> <span class="o">=</span> <span class="n">searcher</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Search for &#39;</span><span class="si">{</span><span class="n">query_str</span><span class="si">}</span><span class="s2">&#39; returned </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="si">}</span><span class="s2"> results.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;question&quot;</span><span class="p">:</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;question&quot;</span><span class="p">],</span>
+                    <span class="s2">&quot;correct_answer&quot;</span><span class="p">:</span> <span class="n">extract_correct_answer</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;answer&quot;</span><span class="p">]),</span>
+                    <span class="s2">&quot;image&quot;</span><span class="p">:</span> <span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;image&quot;</span><span class="p">),</span>
+                <span class="p">}</span>
+                <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span>
+            <span class="p">]</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;An error occurred during the search.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">json_files_directory</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Users\Harminder Nijjar\Desktop\blog\kb-blog-portfolio-mkdocs-master\scripts\linkedin-skill-assessments-quizzes\json_output&quot;</span> <span class="c1"># Replace with your JSON files directory path</span>
+    <span class="n">index_dir</span> <span class="o">=</span> <span class="s2">&quot;index&quot;</span> <span class="c1"># Replace with your index directory path</span>
+
+    <span class="n">create_search_index</span><span class="p">(</span><span class="n">json_files_directory</span><span class="p">,</span> <span class="n">index_dir</span><span class="p">)</span>
+
+    <span class="n">original_string</span> <span class="o">=</span> <span class="s2">&quot;Why would you use a virtual environment?&quot;</span>  <span class="c1"># Replace with your actual search term</span>
+    <span class="c1"># Remove the special characters from the original string</span>
+    <span class="n">query_string</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[^a-zA-Z0-9\s]&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">original_string</span><span class="p">)</span>
+    <span class="n">query_string</span> <span class="o">=</span> <span class="n">query_string</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">query_string</span> <span class="o">=</span> <span class="n">query_string</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">search_results</span> <span class="o">=</span> <span class="n">search_index</span><span class="p">(</span><span class="n">query_string</span><span class="p">,</span> <span class="n">index_dir</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">search_results</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">search_results</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Question: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;question&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="c1"># Remove the &quot;- [x]&quot; portion from the answer</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Correct answer: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;correct_answer&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;- [x] &#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;image&quot;</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Image: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;image&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Search for &#39;</span><span class="si">{</span><span class="n">original_string</span><span class="si">}</span><span class="s2">&#39; completed successfully.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">search_results</span><span class="p">)</span><span class="si">}</span><span class="s2"> results.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No results found.&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p><img alt="" src="/docs/resources/Images/cmd_NFJKOMMqPw.png" /></p>
+<h3 id="conclusion"><a class="toclink" href="../../2023/11/14/building-an-indexing-pipeline-for-linkedin-skill-assessments-quizzes-repository/#conclusion">Conclusion</a></h3>
+<p>Creating an efficient indexing pipeline for the 'linkedin-skill-assessments-quizzes' repository involves systematic cloning, data processing, indexing, and query service setup. This comprehensive guide has walked you through each step with detailed code snippets, leveraging the <code>Whoosh</code> library for indexing. You should now be able to query the index and get the results. The script will print the question, answer, and image (if available) for each result. </p>
+<p>Since the data is indexed, you can easily search for a given term and get the results. This can be useful for finding the answers to specific questions or searching for a particular topic. You can also use the query service to create a web application that allows users to search the index and get the results.</p>
+<h3 id="references"><a class="toclink" href="../../2023/11/14/building-an-indexing-pipeline-for-linkedin-skill-assessments-quizzes-repository/#references">References</a></h3>
+<ul>
+<li><a href = "https://whoosh.readthedocs.io/en/latest/intro.html" target = "_blank" rel = "noopener noreferrer">Whoosh Documentation</a></li>
+</ul>
+    
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2023-11-07 00:00:00+00:00">November 7, 2023</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../../category/ai/" class="md-meta__link">AI</a>, 
+              <a href="../../category/openai/" class="md-meta__link">OpenAI</a>, 
+              <a href="../../category/developer-conference/" class="md-meta__link">Developer Conference</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              5 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="openais-developer-conference-a-new-era-of-ai-innovation"><a class="toclink" href="../../2023/11/07/openais-developer-conference/">OpenAI's Developer Conference: A New Era of AI Innovation</a></h2>
+<p><img alt="OpenAI DevDay" src="https://images.openai.com/blob/a2e49de2-ba5b-4869-9c2d-db3b4b5dcc19/new-models-and-developer-products-announced-at-devday.jpg?width=2000" /></p>
+<h3 id="gpt-4-turbo-with-128k-context-breaking-boundaries-in-language-modeling"><a class="toclink" href="../../2023/11/07/openais-developer-conference/#gpt-4-turbo-with-128k-context-breaking-boundaries-in-language-modeling">GPT-4 Turbo with 128K context: Breaking Boundaries in Language Modeling</a></h3>
+<p>OpenAI announced GPT4-Turbo at its November Developer Conference, a new language model that builds on the success of GPT-3. This model is designed to break boundaries in language modeling, offering increased context length, more control, better knowledge, new modalities, customization, and higher rate limits. As shown, GPT-4 Turbo offers a significant increase in the number of tokens it can handle in its context length, going from 8,000 tokens to 128,000 tokens. This represents a substantial enhancement in the model's ability to maintain context over longer conversations or documents. Compared to the standard GPT-4, this is a huge leap forward in terms of the amount of information that can be processed by the model.</p>
+<iframe src="https://www.youtube.com/embed/U9mJuUkhUzk" title="OpenAI DevDay, Opening Keynote" width="100%" height="500px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<p>The new model also offers more control, specifically in terms of model inputs and outputs, and better knowledge, which includes updating the cut-off date for knowledge about the world to April 2023 and providing the ability for developers to easily add their own knowledge base. New modalities, such as DALL-E 3, Vision, and TTS (text-to-speech) will all be included in the API, with a new version of Whisper speech recognition coming. Customization, including fine-tuning and custom models (which, Altman warned, won’t be cheap), and higher rate limits are also included in the new model, making it a comprehensive upgrade over its predecessors.</p>
+<p><br>
+<br></p>
+<iframe src="https://daigr.am/fef7b734.svg" title="Token Count Improvement from GPT-4 to GPT-4 Turbo" width="100%" height="500px" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<h3 id="multimodal-capabilities-expanding-ais-horizon"><a class="toclink" href="../../2023/11/07/openais-developer-conference/#multimodal-capabilities-expanding-ais-horizon">Multimodal Capabilities: Expanding AI's Horizon</a></h3>
+<h5 id="gpt-4-turbo-with-vision"><a class="toclink" href="../../2023/11/07/openais-developer-conference/#gpt-4-turbo-with-vision">GPT-4 Turbo with vision</a></h5>
+<p>GPT-4 now integrates vision, allowing it to understand and analyze images, enhancing its capabilities beyond text. Developers can utilize this feature through the gpt-4-vision-preview model. It supports a range of applications, including caption generation and detailed image analysis, beneficial for services like BeMyEyes, which aids visually impaired individuals. The vision feature will soon be included in GPT-4's stable release. Costs vary by image size; for example, a 1080×1080 image analysis costs approximately $0.00765. For more details, OpenAI provides a comprehensive vision guide and DALL·E 3 remains the tool for image generation.</p>
+<details>
+  <summary>GPT-4 Turbo with vision analyzing Old School RuneScape through the RuneLite interface</summary>
+    <img src="../../../../../resources/Images/RuneLite_moFvZGAOuE.png" alt="GPT-4V(ision) analyzing Old School RuneScape through the RuneLite interface">
+
+
+  <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">ImageGrab</span><span class="p">,</span> <span class="n">Image</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyautogui</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gui</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pygetwindow</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gw</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="c1"># Set up logging to capture events when script runs and any possible errors.</span>
+
+<span class="n">log_filename</span> <span class="o">=</span> <span class="s1">&#39;rune_capture.log&#39;</span> <span class="c1"># Replace with your desired log file name</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+<span class="n">filename</span><span class="o">=</span><span class="n">log_filename</span><span class="p">,</span>
+<span class="n">filemode</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">,</span>
+<span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
+<span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(name)s</span><span class="s1"> - [</span><span class="si">%(levelname)s</span><span class="s1">] [</span><span class="si">%(pathname)s</span><span class="s1">:</span><span class="si">%(lineno)d</span><span class="s1">] - </span><span class="si">%(message)s</span><span class="s1"> - [</span><span class="si">%(process)d</span><span class="s1">:</span><span class="si">%(thread)d</span><span class="s1">]&#39;</span>
+<span class="p">)</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="o">**</span><span class="n">name</span><span class="o">**</span><span class="p">)</span>
+
+<span class="c1"># Set the client window title.</span>
+
+<span class="n">client_window_title</span> <span class="o">=</span> <span class="s2">&quot;RuneLite&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">capture_screenshot</span><span class="p">():</span>
+<span class="k">try</span><span class="p">:</span> <span class="c1"># Get the title of the client window.</span>
+<span class="n">win</span> <span class="o">=</span> <span class="n">gw</span><span class="o">.</span><span class="n">getWindowsWithTitle</span><span class="p">(</span><span class="n">client_window_title</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">win</span><span class="o">.</span><span class="n">activate</span><span class="p">()</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># Get the client window&#39;s position.</span>
+        <span class="n">clientWindow</span> <span class="o">=</span> <span class="n">gw</span><span class="o">.</span><span class="n">getWindowsWithTitle</span><span class="p">(</span><span class="n">client_window_title</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">clientWindow</span><span class="o">.</span><span class="n">topleft</span>
+        <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">clientWindow</span><span class="o">.</span><span class="n">bottomright</span>
+
+        <span class="c1"># Define the screenshot path and crop area.</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;gameWindow.png&quot;</span>
+        <span class="n">gui</span><span class="o">.</span><span class="n">screenshot</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">crop</span><span class="p">((</span><span class="n">x1</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">+</span> <span class="mi">40</span><span class="p">,</span> <span class="n">x2</span> <span class="o">-</span> <span class="mi">250</span><span class="p">,</span> <span class="n">y2</span> <span class="o">-</span> <span class="mi">165</span><span class="p">))</span>
+        <span class="n">img</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">path</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred while capturing screenshot: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">raise</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">encode_image</span><span class="p">(</span><span class="n">image_path</span><span class="p">):</span>
+<span class="k">try</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">image_path</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">image_file</span><span class="p">:</span>
+<span class="k">return</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span><span class="n">image_file</span><span class="o">.</span><span class="n">read</span><span class="p">())</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred while encoding image: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">raise</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">send_image_to_api</span><span class="p">(</span><span class="n">base64_image</span><span class="p">):</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;OPENAI_API_KEY&quot;</span><span class="p">)</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span> <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
+
+    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="s2">&quot;gpt-4-vision-preview&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;What’s in this image?&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;image_url&quot;</span><span class="p">,</span> <span class="s2">&quot;image_url&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;data:image/jpeg;base64,</span><span class="si">{</span><span class="n">base64_image</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}}]},</span>
+        <span class="p">],</span>
+        <span class="s2">&quot;max_tokens&quot;</span><span class="p">:</span> <span class="mi">300</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;https://api.openai.com/v1/chat/completions&quot;</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+        <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>  <span class="c1"># Will raise an exception for HTTP errors.</span>
+        <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred while sending image to API: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">raise</span>
+
+<span class="k">if</span> <span class="o">**</span><span class="n">name</span><span class="o">**</span> <span class="o">==</span> <span class="s2">&quot;**main**&quot;</span><span class="p">:</span>
+  <span class="k">try</span><span class="p">:</span> <span class="c1"># Perform the main operations.</span>
+      <span class="n">screenshot_path</span> <span class="o">=</span> <span class="n">capture_screenshot</span><span class="p">()</span>
+      <span class="n">base64_image</span> <span class="o">=</span> <span class="n">encode_image</span><span class="p">(</span><span class="n">screenshot_path</span><span class="p">)</span>
+      <span class="n">api_response</span> <span class="o">=</span> <span class="n">send_image_to_api</span><span class="p">(</span><span class="n">base64_image</span><span class="p">)</span>
+      <span class="nb">print</span><span class="p">(</span><span class="n">api_response</span><span class="p">)</span>
+  <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+      <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred in the main function: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+</details>
+
+<h5 id="dalle-3"><a class="toclink" href="../../2023/11/07/openais-developer-conference/#dalle-3">DALL·E 3</a></h5>
+<p>Developers can now access DALL·E 3, a multimodal model that generates images from text directly through the API by specifying <code>dall-e-3</code> as the model. </p>
+<h5 id="tts-text-to-speech"><a class="toclink" href="../../2023/11/07/openais-developer-conference/#tts-text-to-speech">TTS (Text-to-Speech)</a></h5>
+<p>OpenAI's newest model is available to generate human-quality speech from text via their text-to-speech API. </p>
+<h3 id="revenue-sharing-gpt-store-empowering-creators"><a class="toclink" href="../../2023/11/07/openais-developer-conference/#revenue-sharing-gpt-store-empowering-creators">Revenue-Sharing GPT Store: Empowering Creators</a></h3>
+<p>The DevDay also cast a spotlight on the newly announced revenue-sharing GPT Store. This platform represents a strategic move towards a more inclusive creator economy within AI, offering compensation to creators of AI applications based on user engagement and usage. This initiative is a nod to the growing importance of content creators in the AI ecosystem and reflects a broader trend of recognizing and rewarding the contributions of individual developers and innovators.</p>
+<h3 id="microsoft-partnership-and-azures-role"><a class="toclink" href="../../2023/11/07/openais-developer-conference/#microsoft-partnership-and-azures-role">Microsoft Partnership and Azure's Role</a></h3>
+<p>The ongoing collaboration with Microsoft was highlighted, with a focus on how Azure's infrastructure is being optimized to support OpenAI's sophisticated AI models. This partnership is a testament to the shared goal of accelerating AI innovation and enhancing integration across various services and platforms as well as Microsoft's heavy investment in AI.</p>
+<h3 id="safe-and-gradual-ai-integration"><a class="toclink" href="../../2023/11/07/openais-developer-conference/#safe-and-gradual-ai-integration">Safe and Gradual AI Integration</a></h3>
+<p>OpenAI emphasized a strategic approach to AI integration, advocating for a balance between innovation and safety. The organization invites developers to engage with the new tools thoughtfully, ensuring a responsible progression of AI within different sectors. This measured approach is a reflection of OpenAI's commitment to the safe and ethical development of AI technologies. </p>
+<h3 id="conclusion"><a class="toclink" href="../../2023/11/07/openais-developer-conference/#conclusion">Conclusion</a></h3>
+<p>The Developer Conference marked a notable milestone for OpenAI and the broader AI community. The launch of GPT4-Turbo and the introduction of new multimodal capabilities, combined with the support of Microsoft's Azure and the innovative revenue-sharing model of the GPT Store, heralds a new phase of growth and experimentation in AI applications.</p>
+    
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2023-11-06 00:00:00+00:00">November 6, 2023</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="../../category/api/" class="md-meta__link">API</a>, 
+              <a href="../../category/text-to-speech/" class="md-meta__link">Text-to-Speech</a>, 
+              <a href="../../category/elevenlabs/" class="md-meta__link">ElevenLabs</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              1 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="available-voices-from-elevenlabs-api-in-november-2023"><a class="toclink" href="../../2023/11/06/available-voices-from-elevenlabs-api-in-november-2023/">Available Voices from ElevenLabs API in November 2023</a></h2>
+<h3 id="voice-profiles"><a class="toclink" href="../../2023/11/06/available-voices-from-elevenlabs-api-in-november-2023/#voice-profiles">Voice Profiles</a></h3>
+<p><a href = "https://try.elevenlabs.io/c3516gvcplb3" target = "_blank" rel = "noopener noreferrer">ElevenLabs</a> API offers a diverse range of voices, perfect for various use cases like narration and video game character voices. The following voice profiles are available as of November 2023:</p>
+<h4 id="rachel-the-articulate-narrator"><a class="toclink" href="../../2023/11/06/available-voices-from-elevenlabs-api-in-november-2023/#rachel-the-articulate-narrator">Rachel: The Articulate Narrator</a></h4>
+<p>Rachel's voice carries a balance of clarity and tranquility, ideal for narration and audiobook projects.</p>
+<ul>
+<li><strong>Voice ID:</strong>
+  <div class="highlight"><pre><span></span><code>21m00Tcm4TlvDq8ikWAM
+</code></pre></div></li>
+<li><strong>Accent:</strong> American</li>
+<li><strong>Description:</strong> Calm</li>
+<li><strong>Age:</strong> Young</li>
+<li><strong>Gender:</strong> Female</li>
+<li><strong>Use Case:</strong> Narration</li>
+<li><a href= "https://storage.googleapis.com/eleven-public-prod/premade/voices/21m00Tcm4TlvDq8ikWAM/df6788f9-5c96-470d-8312-aab3b3d8f50a.mp3" target = "_blank" rel = "noopener noreferrer">Preview Voice</a></li>
+</ul>
+<hr />
+<h4 id="clyde-the-veteran-storyteller"><a class="toclink" href="../../2023/11/06/available-voices-from-elevenlabs-api-in-november-2023/#clyde-the-veteran-storyteller">Clyde: The Veteran Storyteller</a></h4>
+<p>Clyde offers a voice rich with experience, perfect for gritty narratives or character roles that demand a seasoned tone.</p>
+<ul>
+<li><strong>Voice ID:</strong>
+  <div class="highlight"><pre><span></span><code>2EiwWnXFnvU5JabPnv8n
+</code></pre></div></li>
+<li><strong>Accent:</strong> American</li>
+<li><strong>Description:</strong> War veteran</li>
+<li><strong>Age:</strong> Middle-aged</li>
+<li><strong>Gender:</strong> Male</li>
+<li><strong>Use Case:</strong> Video games</li>
+<li><a href="https://storage.googleapis.com/eleven-public-prod/premade/voices/2EiwWnXFnvU5JabPnv8n/65d80f52-703f-4cae-a91d-75d4e200ed02.mp3" target = "_blank" rel = "noopener noreferrer">Preview Voice</a></li>
+</ul>
+<hr />
+<h4 id="domi-the-confident-influencer"><a class="toclink" href="../../2023/11/06/available-voices-from-elevenlabs-api-in-november-2023/#domi-the-confident-influencer">Domi: The Confident Influencer</a></h4>
+<p>Domi's commanding voice is filled with confidence, suited for strong narrative leads or powerful corporate presentations.</p>
+<ul>
+<li><strong>Voice ID:</strong>
+  <div class="highlight"><pre><span></span><code>AZnzlk1XvdvUeBnXmlld
+</code></pre></div></li>
+<li><strong>Accent:</strong> American</li>
+<li><strong>Description:</strong> Strong</li>
+<li><strong>Age:</strong> Young</li>
+<li><strong>Gender:</strong> Female</li>
+<li><strong>Use Case:</strong> Narration</li>
+<li><a href="https://storage.googleapis.com/eleven-public-prod/premade/voices/AZnzlk1XvdvUeBnXmlld/508e12d0-a7f7-4d86-a0d3-f3884ff353ed.mp3" target = "_blank" rel = "noopener noreferrer">Preview Voice</a></li>
+</ul>
+<hr />
+<h4 id="dave-the-engaging-entertainer"><a class="toclink" href="../../2023/11/06/available-voices-from-elevenlabs-api-in-november-2023/#dave-the-engaging-entertainer">Dave: The Engaging Entertainer</a></h4>
+<p>Dave's British-Essex accent adds a unique and engaging flavor, ideal for interactive content and characters with a touch of humor.</p>
+<ul>
+<li><strong>Voice ID:</strong>
+  <div class="highlight"><pre><span></span><code>CYw3kZ02Hs0563khs1Fj
+</code></pre></div></li>
+<li><strong>Accent:</strong> British-Essex</li>
+<li><strong>Description:</strong> Conversational</li>
+<li><strong>Age:</strong> Young</li>
+<li><strong>Gender:</strong> Male</li>
+<li><strong>Use Case:</strong> Video games</li>
+<li><a href="https://storage.googleapis.com/eleven-public-prod/premade/voices/CYw3kZ02Hs0563khs1Fj/872cb056-45d3-419e-b5c6-de2b387a93a0.mp3" target = "_blank" rel = "noopener noreferrer">Preview Voice</a></li>
+</ul>
+<hr />
+<h4 id="fin-the-rugged-sea-captain"><a class="toclink" href="../../2023/11/06/available-voices-from-elevenlabs-api-in-november-2023/#fin-the-rugged-sea-captain">Fin: The Rugged Sea Captain</a></h4>
+<p>Fin's voice, with its Irish accent and seasoned timbre, is perfectly suited for characters with depth and a storied past.</p>
+<ul>
+<li><strong>Voice ID:</strong>
+  <div class="highlight"><pre><span></span><code>D38z5RcWu1voky8WS1ja
+</code></pre></div></li>
+<li><strong>Accent:</strong> Irish</li>
+<li><strong>Description:</strong> Sailor</li>
+<li><strong>Age:</strong> Old</li>
+<li><strong>Gender:</strong> Male</li>
+<li><strong>Use Case:</strong> Video games</li>
+<li><a href="https://storage.googleapis.com/eleven-public-prod/premade/voices/D38z5RcWu1voky8WS1ja/a470ba64-1e72-46d9-ba9d-030c4155e2d2.mp3" target = "_blank" rel = "noopener noreferrer">Preview Voice</a></li>
+</ul>
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">

@@ -6,19 +6,19 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An analysis of the social, economic, and environmental consequences of hydraulic fracturing in the United States.">
+        <meta name="description" content="A practical guide to managing Docker containers for robotics projects, including GUI support, Bluetooth access, ROS workspace setup, and image maintenance.">
       
       
         <meta name="author" content="harmindersinghnijjar">
       
       
-        <link rel="canonical" href="https://harminder.dev/blog/2025/10/05/the-human-and-environmental-cost-of-fracking-in-the-united-states/">
+        <link rel="canonical" href="https://harminder.dev/blog/2025/11/02/efficient-docker-management-for-robotics/">
       
       
-        <link rel="prev" href="../../../07/09/deploying-mkdocs-with-a-virtual-environment-to-github-pages/">
+        <link rel="prev" href="../mastering-docker-and-ros-for-roboclaw--key-tips-and-workflows/">
       
       
-        <link rel="next" href="../../../11/02/setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy/">
+        <link rel="next" href="../running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/">
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>The Human and Environmental Cost of Fracking in the United States - Harminder Singh Nijjar</title>
+        <title>Efficient Docker Management for Robotics - Harminder Singh Nijjar</title>
       
     
     
@@ -92,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#the-human-and-environmental-cost-of-fracking-in-the-united-states" class="md-skip">
+        <a href="#efficient-docker-management-for-robotics" class="md-skip">
           Skip to content
         </a>
       
@@ -125,7 +125,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              The Human and Environmental Cost of Fracking in the United States
+              Efficient Docker Management for Robotics
             
           </span>
         </div>
@@ -2670,6 +2670,248 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#key-topics-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 Key Topics Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-saving-docker-containers-as-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Saving Docker Containers as Images
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Saving Docker Containers as Images">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-save-docker-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧩 Why Save Docker Containers?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#steps-to-save-a-container-as-an-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      💾 Steps to Save a Container as an Image
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-removing-unused-images-and-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Removing Unused Images and Containers
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Removing Unused Images and Containers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-clean-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧹 Why Clean Up?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Commands
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-running-containers-with-gui-and-peripheral-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Running Containers with GUI and Peripheral Support
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Running Containers with GUI and Peripheral Support">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-enable-gui-and-peripherals" class="md-nav__link">
+    <span class="md-ellipsis">
+      🖥️ Why Enable GUI and Peripherals?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Example Command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation-of-flags" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Explanation of Flags
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-setting-up-a-ros-workspace-in-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Setting Up a ROS Workspace in Docker
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Setting Up a ROS Workspace in Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-use-a-mounted-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 Why Use a Mounted Workspace?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Steps
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-running-ros-nodes-and-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Running ROS Nodes and Debugging
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Running ROS Nodes and Debugging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#starting-roscore" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔧 Starting roscore
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-ros-nodes" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Running ROS Nodes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-debugging-common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Debugging Common Issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Debugging Common Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-master-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      ❗ Issue: “Master Not Found”
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-device-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚠️ Issue: “Device Not Found”
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-ros_package_path-missing" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔍 Issue: “ROS_PACKAGE_PATH Missing”
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧭 Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2705,7 +2947,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2025-10-05 00:00:00+00:00" class="md-ellipsis">October 5, 2025</time>
+                        <time datetime="2025-11-02 00:00:00+00:00" class="md-ellipsis">November 2, 2025</time>
                       </div>
                     </li>
                     
@@ -2716,7 +2958,7 @@
                           <span class="md-ellipsis">
                             in
                             
-                              <a href="../../../../category/ethics/">Ethics</a></span>
+                              <a href="../../../../category/robotics/">Robotics</a></span>
                         </div>
                       </li>
                     
@@ -2727,7 +2969,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
                           <span class="md-ellipsis">
                             
-                              2 min read
+                              3 min read
                             
                           </span>
                         </div>
@@ -2751,11 +2993,146 @@
 
 
 
-<h1 id="the-human-and-environmental-cost-of-fracking-in-the-united-states">The Human and Environmental Cost of Fracking in the United States<a class="headerlink" href="#the-human-and-environmental-cost-of-fracking-in-the-united-states" title="Permanent link">&para;</a></h1>
-<p>The extraction of natural gas by oil and gas companies using the process of hydraulic fracturing or "fracking" in at least 24 states of the United States of America has been a disaster for the human race. They may have lowered natural gas prices domestically by not having to rely on imports, but have contaminated the drinking water supplies of far too many Americans. The primary reason why groundwater has been made unfit for consumption for rural Americans has been the failure to disclose conflicts of interest by members on the committees of environmental regulatory agencies. </p>
-<p>Any God-fearing, rational, contributing member of society not driven by greed and not employed in the pursuit of surrogate activities will position themselves on the side of anti-fracking. If not for the sake of personal morals, then at the very least out of respect for our environment and the responsibility we have for preserving it. Disregarding the human cost of fracking is not only disrespectful towards rural Americans directly impacted by having carcinogens mixed in their water supplies but it is also a neglect of the issue of freshwater scarcity.</p>
-<p>The US is heavily reliant on imports. The United States' total imports in 2024 were valued at $3.36 trillion, according to the United Nations COMTRADE database on international trade. After China, the US is the largest consumer of fossil fuels. China is also the largest importer of coal and crude oil and the fifth largest importer of natural gas. Countries that have large fossil fuel consumption are typically not able to sustain energy demands through domestic production alone. Using China as an example, it's not unheard of to import fossil fuel. However, bureaucrats would much rather line their pockets by pushing pro-drilling agendas, leaving the average American unable to use their water well.</p>
-<p>This innate greed has caused irreversible damage to water wells across the country. Not to mention that the process itself requires anywhere from 1.5 million to 16 million gallons of water per well. Since 2008, the so-called “shale revolution” has helped maintain gas prices in the US—but only at the cost of lasting economic and ecological damage.</p>
+<h1 id="efficient-docker-management-for-robotics">Efficient Docker Management for Robotics<a class="headerlink" href="#efficient-docker-management-for-robotics" title="Permanent link">&para;</a></h1>
+<p>Docker has become an indispensable tool in robotics development—enabling <strong>rapid prototyping</strong>, <strong>environment isolation</strong>, and <strong>seamless deployment</strong>. Yet, working with complex environments like <strong>ROS (Robot Operating System)</strong> requires more than just containerization; it demands efficient management of images, devices, and GUIs.</p>
+<p>This guide walks through the essentials of managing Docker for robotics—covering image saving, cleanup, peripheral access, GUI integration, and workspace setup for ROS-based development.</p>
+<hr />
+<h2 id="key-topics-covered">🧠 Key Topics Covered<a class="headerlink" href="#key-topics-covered" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Saving and tagging Docker images for reproducibility</li>
+<li>Cleaning up unused images and containers</li>
+<li>Running Docker containers with GUI and peripheral (Bluetooth, joystick) support</li>
+<li>Setting up persistent ROS workspaces</li>
+<li>Debugging common container and ROS issues</li>
+</ul>
+<hr />
+<h2 id="1-saving-docker-containers-as-images">1. Saving Docker Containers as Images<a class="headerlink" href="#1-saving-docker-containers-as-images" title="Permanent link">&para;</a></h2>
+<h3 id="why-save-docker-containers">🧩 Why Save Docker Containers?<a class="headerlink" href="#why-save-docker-containers" title="Permanent link">&para;</a></h3>
+<p>Saving containers allows you to:</p>
+<ul>
+<li>Preserve your work after making modifications inside a running container.</li>
+<li>Replicate your development setup quickly for testing or deployment.</li>
+</ul>
+<h3 id="steps-to-save-a-container-as-an-image">💾 Steps to Save a Container as an Image<a class="headerlink" href="#steps-to-save-a-container-as-an-image" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Stop the container:</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>stop<span class="w"> </span>&lt;container_name&gt;
+</code></pre></div>
+<ol>
+<li><strong>Commit the container to a new image:</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>commit<span class="w"> </span>&lt;container_id&gt;<span class="w"> </span>&lt;new_image_name&gt;
+</code></pre></div>
+<ol>
+<li><strong>Verify the saved image:</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>images
+</code></pre></div>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>commit<span class="w"> </span>96a9ad78d1e6<span class="w"> </span>roboclaw_v02
+</code></pre></div>
+<p>This saves the container <code>96a9ad78d1e6</code> as an image named <code>roboclaw_v02</code>, preserving your setup for future use.</p>
+<hr />
+<h2 id="2-removing-unused-images-and-containers">2. Removing Unused Images and Containers<a class="headerlink" href="#2-removing-unused-images-and-containers" title="Permanent link">&para;</a></h2>
+<h3 id="why-clean-up">🧹 Why Clean Up?<a class="headerlink" href="#why-clean-up" title="Permanent link">&para;</a></h3>
+<p>Over time, unused or "dangling" Docker resources consume disk space. Cleaning them helps maintain efficiency and prevent clutter.</p>
+<h3 id="commands">⚙️ Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h3>
+<p>List dangling images:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>images<span class="w"> </span>-f<span class="w"> </span><span class="nv">dangling</span><span class="o">=</span><span class="nb">true</span>
+</code></pre></div>
+<p>Remove dangling images:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>image<span class="w"> </span>prune<span class="w"> </span>-f
+</code></pre></div>
+<p>Remove specific images:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>rmi<span class="w"> </span>&lt;image_id&gt;
+</code></pre></div>
+<p>Remove all stopped containers:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>container<span class="w"> </span>prune
+</code></pre></div>
+<p>Regular cleanup keeps your system lean and your builds fast.</p>
+<hr />
+<h2 id="3-running-containers-with-gui-and-peripheral-support">3. Running Containers with GUI and Peripheral Support<a class="headerlink" href="#3-running-containers-with-gui-and-peripheral-support" title="Permanent link">&para;</a></h2>
+<h3 id="why-enable-gui-and-peripherals">🖥️ Why Enable GUI and Peripherals?<a class="headerlink" href="#why-enable-gui-and-peripherals" title="Permanent link">&para;</a></h3>
+<p>Robotics developers frequently rely on visualization tools like <strong>RViz</strong> and <strong>Gazebo</strong>, along with input devices such as <strong>Xbox controllers</strong>, <strong>Bluetooth modules</strong>, or <strong>LIDAR sensors</strong>. Proper Docker flags ensure these devices and interfaces are accessible from within the container.</p>
+<h3 id="example-command">🚀 Example Command<a class="headerlink" href="#example-command" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>roboclaw_v02<span class="w"> </span><span class="se">\</span>
+--net<span class="o">=</span>host<span class="w"> </span><span class="se">\</span>
+--privileged<span class="w"> </span><span class="se">\</span>
+--device<span class="o">=</span>/dev/input/js0:/dev/input/js0<span class="w"> </span><span class="se">\</span>
+--device<span class="o">=</span>/dev/input/event0:/dev/input/event0<span class="w"> </span><span class="se">\</span>
+-v<span class="w"> </span>/var/run/dbus:/var/run/dbus<span class="w"> </span><span class="se">\</span>
+-v<span class="w"> </span>/tmp/.X11-unix:/tmp/.X11-unix<span class="w"> </span><span class="se">\</span>
+-e<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span><span class="w"> </span><span class="se">\</span>
+roboclaw_v02
+</code></pre></div>
+<h3 id="explanation-of-flags">🔍 Explanation of Flags<a class="headerlink" href="#explanation-of-flags" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong><code>--net=host</code></strong> → Shares the host’s network stack for direct ROS communication.</li>
+<li><strong><code>--privileged</code></strong> → Grants the container access to host hardware (e.g., Bluetooth, serial devices).</li>
+<li><strong><code>--device</code></strong> → Maps input devices like joysticks or sensors to the container.</li>
+<li><strong><code>-v</code></strong> → Mounts host directories for GUI access and inter-process communication.</li>
+<li><strong><code>-e DISPLAY=$DISPLAY</code></strong> → Enables X11 display forwarding for GUIs.</li>
+</ul>
+<hr />
+<h2 id="4-setting-up-a-ros-workspace-in-docker">4. Setting Up a ROS Workspace in Docker<a class="headerlink" href="#4-setting-up-a-ros-workspace-in-docker" title="Permanent link">&para;</a></h2>
+<h3 id="why-use-a-mounted-workspace">🧠 Why Use a Mounted Workspace?<a class="headerlink" href="#why-use-a-mounted-workspace" title="Permanent link">&para;</a></h3>
+<p>A mounted workspace lets you:</p>
+<ul>
+<li>Edit files from the host while executing ROS commands inside the container.</li>
+<li>Persist code and logs across container restarts.</li>
+</ul>
+<h3 id="steps">⚙️ Steps<a class="headerlink" href="#steps" title="Permanent link">&para;</a></h3>
+<p>Run the container with a mounted directory:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>&lt;container_name&gt;<span class="w"> </span><span class="se">\</span>
+-v<span class="w"> </span>~/ros_ws:/root/ros_ws<span class="w"> </span><span class="se">\</span>
+&lt;base_image&gt;
+</code></pre></div>
+<p>Inside the container:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros_ws
+catkin_make
+<span class="nb">source</span><span class="w"> </span>devel/setup.bash
+</code></pre></div>
+<p>This setup keeps your ROS workspace synchronized between host and container.</p>
+<hr />
+<h2 id="5-running-ros-nodes-and-debugging">5. Running ROS Nodes and Debugging<a class="headerlink" href="#5-running-ros-nodes-and-debugging" title="Permanent link">&para;</a></h2>
+<h3 id="starting-roscore">🔧 Starting <code>roscore</code><a class="headerlink" href="#starting-roscore" title="Permanent link">&para;</a></h3>
+<p>Attach to the running container:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;container_name&gt;<span class="w"> </span>/bin/bash
+</code></pre></div>
+<p>Start ROS master:</p>
+<div class="highlight"><pre><span></span><code>roscore
+</code></pre></div>
+<h3 id="running-ros-nodes">🚀 Running ROS Nodes<a class="headerlink" href="#running-ros-nodes" title="Permanent link">&para;</a></h3>
+<p>Source your workspace:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/ros_ws/devel/setup.bash
+</code></pre></div>
+<p>Run a node:</p>
+<div class="highlight"><pre><span></span><code>rosrun<span class="w"> </span>roboclaw_node<span class="w"> </span>xbox_teleop_odom.py
+</code></pre></div>
+<hr />
+<h2 id="6-debugging-common-issues">6. Debugging Common Issues<a class="headerlink" href="#6-debugging-common-issues" title="Permanent link">&para;</a></h2>
+<h3 id="issue-master-not-found">❗ Issue: “Master Not Found”<a class="headerlink" href="#issue-master-not-found" title="Permanent link">&para;</a></h3>
+<p><strong>Solution:</strong>
+Ensure <code>roscore</code> is running <strong>inside the same container</strong> before launching nodes.</p>
+<hr />
+<h3 id="issue-device-not-found">⚠️ Issue: “Device Not Found”<a class="headerlink" href="#issue-device-not-found" title="Permanent link">&para;</a></h3>
+<p><strong>Solution:</strong>
+Verify that your input device is correctly mapped:</p>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/dev/input/js0
+</code></pre></div>
+<p>If not present, ensure your <code>--device</code> flag matches your hardware.</p>
+<hr />
+<h3 id="issue-ros_package_path-missing">🔍 Issue: “ROS_PACKAGE_PATH Missing”<a class="headerlink" href="#issue-ros_package_path-missing" title="Permanent link">&para;</a></h3>
+<p><strong>Solution:</strong>
+Set the workspace path manually:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">ROS_PACKAGE_PATH</span><span class="o">=</span>/root/ros_ws/src:<span class="nv">$ROS_PACKAGE_PATH</span>
+</code></pre></div>
+<hr />
+<h2 id="conclusion">🧭 Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>By adopting these Docker management strategies, robotics developers can create <strong>reproducible</strong>, <strong>portable</strong>, and <strong>hardware-accessible</strong> environments with minimal overhead. From saving customized containers to enabling GUI and device integration, Docker empowers you to focus on building smarter, faster, and more reliable robots.</p>
+<p>Whether you’re debugging teleop nodes or deploying SLAM algorithms, mastering Docker workflow ensures that your development environment is as <strong>modular and scalable</strong> as your robotics vision.</p>
+<p><strong>Build efficiently. Innovate fearlessly. 🚀</strong></p>
 
 
 
@@ -2776,7 +3153,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 13, 2025 04:19:38 UTC">October 13, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 2, 2025 19:30:05 UTC">November 2, 2025</span>
   </span>
 
     
@@ -2829,7 +3206,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../../../07/09/deploying-mkdocs-with-a-virtual-environment-to-github-pages/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Deploying MkDocs with a Virtual Environment to GitHub Pages">
+          <a href="../mastering-docker-and-ros-for-roboclaw--key-tips-and-workflows/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Mastering Docker and ROS for RoboClaw — Key Tips and Workflows">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2839,20 +3216,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Deploying MkDocs with a Virtual Environment to GitHub Pages
+                Mastering Docker and ROS for RoboClaw — Key Tips and Workflows
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../../11/02/setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy/" class="md-footer__link md-footer__link--next" aria-label="Next: Setting Up and Running the D500 LiDAR Kit’s STL-19P on ROS 2 Jazzy">
+          <a href="../running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/" class="md-footer__link md-footer__link--next" aria-label="Next: Running ROS 1 Noetic and ROS 2 Foxy From Source on Ubuntu 20.04">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Setting Up and Running the D500 LiDAR Kit’s STL-19P on ROS 2 Jazzy
+                Running ROS 1 Noetic and ROS 2 Foxy From Source on Ubuntu 20.04
               </div>
             </div>
             <div class="md-footer__button md-icon">

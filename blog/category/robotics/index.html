@@ -2188,6 +2188,42 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running ROS 1 Noetic and ROS 2 Foxy From Source on Ubuntu 20.04
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#efficient-docker-management-for-robotics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Efficient Docker Management for Robotics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mastering-docker-and-ros-for-roboclaw-key-tips-and-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mastering Docker and ROS for RoboClaw — Key Tips and Workflows
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Up and Running the D500 LiDAR Kit’s STL-19P on ROS 2 Jazzy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#automating-the-ros-1-ros-2-bridge-for-roboclaw" class="md-nav__link">
     <span class="md-ellipsis">
       Automating the ROS 1-ROS 2 Bridge for RoboClaw
@@ -2731,6 +2767,42 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running ROS 1 Noetic and ROS 2 Foxy From Source on Ubuntu 20.04
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#efficient-docker-management-for-robotics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Efficient Docker Management for Robotics
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mastering-docker-and-ros-for-roboclaw-key-tips-and-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mastering Docker and ROS for RoboClaw — Key Tips and Workflows
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Up and Running the D500 LiDAR Kit’s STL-19P on ROS 2 Jazzy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#automating-the-ros-1-ros-2-bridge-for-roboclaw" class="md-nav__link">
     <span class="md-ellipsis">
       Automating the ROS 1-ROS 2 Bridge for RoboClaw
@@ -2762,6 +2834,656 @@
       <header class="md-typeset">
         <h1 id="robotics">Robotics<a class="headerlink" href="#robotics" title="Permanent link">&para;</a></h1>
       </header>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-11-02 00:00:00+00:00">November 2, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="./" class="md-meta__link">Robotics</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              3 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004"><a class="toclink" href="../../2025/11/02/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/">Running ROS 1 Noetic and ROS 2 Foxy From Source on Ubuntu 20.04</a></h2>
+<p>Running both <strong>ROS 1 (Noetic)</strong> and <strong>ROS 2 (Foxy)</strong> on the same machine can be a rewarding yet challenging experience. The differences in dependencies, environment variables, and message-passing architectures make dual installations tricky to manage. However, <strong>Ubuntu 20.04</strong> remains the ideal operating system for this setup — it is the <strong>native LTS release</strong> for both distributions: ROS 1 Noetic (the final ROS 1 release) and ROS 2 Foxy (an LTS version supported until 2025).</p>
+<p>This guide will walk you through the process of building both distributions <strong>from source</strong>, managing your environments cleanly, and establishing a <strong>ROS 1–ROS 2 bridge</strong> for interoperability between the two ecosystems.</p>
+<hr />
+<h3 id="key-topics-covered"><a class="toclink" href="../../2025/11/02/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#key-topics-covered">🧠 Key Topics Covered</a></h3>
+<ul>
+<li>Installing <strong>ROS 1 Noetic</strong> from source</li>
+<li>Installing <strong>ROS 2 Foxy</strong> from source</li>
+<li>Managing environment variables and avoiding conflicts</li>
+<li>Running a <strong>ROS 1–ROS 2 bridge</strong> for hybrid communication</li>
+</ul>
+<hr />
+<h3 id="1-installing-ros-1-noetic-from-source"><a class="toclink" href="../../2025/11/02/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#1-installing-ros-1-noetic-from-source">1. Installing ROS 1 Noetic From Source</a></h3>
+<h4 id="step-1-install-dependencies"><a class="toclink" href="../../2025/11/02/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-1-install-dependencies">Step 1: Install Dependencies</a></h4>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3-rosdep<span class="w"> </span>python3-rosinstall-generator<span class="w"> </span><span class="se">\</span>
+python3-vcstool<span class="w"> </span>build-essential
+</code></pre></div>
+<p>Initialize <code>rosdep</code>:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>rosdep<span class="w"> </span>init
+rosdep<span class="w"> </span>update
+</code></pre></div>
+<h4 id="step-2-create-a-workspace-and-clone-ros-1"><a class="toclink" href="../../2025/11/02/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-2-create-a-workspace-and-clone-ros-1">Step 2: Create a Workspace and Clone ROS 1</a></h4>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/ros1_noetic/src
+<span class="nb">cd</span><span class="w"> </span>~/ros1_noetic
+rosinstall_generator<span class="w"> </span>desktop<span class="w"> </span>--rosdistro<span class="w"> </span>noetic<span class="w"> </span>--deps<span class="w"> </span>--tar<span class="w"> </span>&gt;<span class="w"> </span>noetic.rosinstall
+vcs<span class="w"> </span>import<span class="w"> </span>--input<span class="w"> </span>noetic.rosinstall<span class="w"> </span>src
+rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>-r<span class="w"> </span>-y
+</code></pre></div>
+<h4 id="step-3-build-ros-1"><a class="toclink" href="../../2025/11/02/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-3-build-ros-1">Step 3: Build ROS 1</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros1_noetic
+colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
+</code></pre></div>
+<h4 id="step-4-source-ros-1"><a class="toclink" href="../../2025/11/02/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-4-source-ros-1">Step 4: Source ROS 1</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;source ~/ros1_noetic/install/setup.bash&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div>
+<p>Verify:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$ROS_DISTRO</span>
+<span class="c1"># Output: noetic</span>
+</code></pre></div>
+<hr />
+<h3 id="2-installing-ros-2-foxy-from-source"><a class="toclink" href="../../2025/11/02/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#2-installing-ros-2-foxy-from-source">2. Installing ROS 2 Foxy From Source</a></h3>
+<p>ROS 2 uses a completely different middleware (DDS), so we install it in a separate workspace.</p>
+<h4 id="step-1-install-dependencies_1"><a class="toclink" href="../../2025/11/02/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-1-install-dependencies_1">Step 1: Install Dependencies</a></h4>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3-colcon-common-extensions<span class="w"> </span><span class="se">\</span>
+python3-vcstool<span class="w"> </span>git<span class="w"> </span>wget
+</code></pre></div>
+<h4 id="step-2-create-a-workspace-and-clone-ros-2"><a class="toclink" href="../../2025/11/02/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-2-create-a-workspace-and-clone-ros-2">Step 2: Create a Workspace and Clone ROS 2</a></h4>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/ros2_foxy/src
+<span class="nb">cd</span><span class="w"> </span>~/ros2_foxy
+vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos
+rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>-r<span class="w"> </span>-y
+</code></pre></div>
+<h4 id="step-3-build-ros-2"><a class="toclink" href="../../2025/11/02/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-3-build-ros-2">Step 3: Build ROS 2</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros2_foxy
+colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
+</code></pre></div>
+<h4 id="step-4-source-ros-2"><a class="toclink" href="../../2025/11/02/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-4-source-ros-2">Step 4: Source ROS 2</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;source ~/ros2_foxy/install/setup.bash&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div>
+<p>Verify:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$ROS_DISTRO</span>
+<span class="c1"># Output: foxy</span>
+</code></pre></div>
+<hr />
+<h3 id="3-managing-ros-1-and-ros-2-environments"><a class="toclink" href="../../2025/11/02/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#3-managing-ros-1-and-ros-2-environments">3. Managing ROS 1 and ROS 2 Environments</a></h3>
+<p>Since both ROS versions define overlapping environment variables, sourcing them simultaneously will cause conflicts. There are two main ways to handle this.</p>
+<h4 id="option-1-use-aliases"><a class="toclink" href="../../2025/11/02/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#option-1-use-aliases"><strong>Option 1: Use Aliases</strong></a></h4>
+<p>Add the following to your <code>~/.bashrc</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">source_ros1</span><span class="o">=</span><span class="s2">&quot;source ~/ros1_noetic/install/setup.bash&quot;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">source_ros2</span><span class="o">=</span><span class="s2">&quot;source ~/ros2_foxy/install/setup.bash&quot;</span>
+</code></pre></div>
+<p>Then simply switch between versions:</p>
+<div class="highlight"><pre><span></span><code>source_ros1<span class="w">  </span><span class="c1"># Activates ROS Noetic</span>
+source_ros2<span class="w">  </span><span class="c1"># Activates ROS 2 Foxy</span>
+</code></pre></div>
+<h4 id="option-2-use-separate-terminals"><a class="toclink" href="../../2025/11/02/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#option-2-use-separate-terminals"><strong>Option 2: Use Separate Terminals</strong></a></h4>
+<p>For simultaneous development:</p>
+<ul>
+<li><strong>Terminal 1 (ROS 1 Noetic):</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/ros1_noetic/install/setup.bash
+roscore
+</code></pre></div>
+<ul>
+<li><strong>Terminal 2 (ROS 2 Foxy):</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/ros2_foxy/install/setup.bash
+ros2<span class="w"> </span>run<span class="w"> </span>demo_nodes_cpp<span class="w"> </span>talker
+</code></pre></div>
+<p>This method keeps each ROS environment isolated and prevents variable overlap.</p>
+<hr />
+<h3 id="4-running-the-ros-1ros-2-bridge"><a class="toclink" href="../../2025/11/02/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#4-running-the-ros-1ros-2-bridge">4. Running the ROS 1–ROS 2 Bridge</a></h3>
+<p>The <code>ros1_bridge</code> package allows ROS 1 and ROS 2 nodes to communicate seamlessly.</p>
+<h4 id="step-1-install-the-bridge"><a class="toclink" href="../../2025/11/02/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-1-install-the-bridge">Step 1: Install the Bridge</a></h4>
+<div class="highlight"><pre><span></span><code>source_ros1
+source_ros2
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>ros-foxy-ros1-bridge
+</code></pre></div>
+<h4 id="step-2-run-the-dynamic-bridge"><a class="toclink" href="../../2025/11/02/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#step-2-run-the-dynamic-bridge">Step 2: Run the Dynamic Bridge</a></h4>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>ros1_bridge<span class="w"> </span>dynamic_bridge
+</code></pre></div>
+<p>Now, any topic published in <strong>ROS 1</strong> will be visible in <strong>ROS 2</strong>, and vice versa. You can verify this using:</p>
+<div class="highlight"><pre><span></span><code>rostopic<span class="w"> </span>list<span class="w">   </span><span class="c1"># In ROS 1 terminal</span>
+ros2<span class="w"> </span>topic<span class="w"> </span>list<span class="w"> </span><span class="c1"># In ROS 2 terminal</span>
+</code></pre></div>
+<hr />
+<h3 id="5-debugging-common-issues"><a class="toclink" href="../../2025/11/02/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#5-debugging-common-issues">5. Debugging Common Issues</a></h3>
+<h4 id="problem-ros-1-and-ros-2-variables-overlapping"><a class="toclink" href="../../2025/11/02/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#problem-ros-1-and-ros-2-variables-overlapping">❌ Problem: ROS 1 and ROS 2 Variables Overlapping</a></h4>
+<p><strong>Fix:</strong> Only source one at a time, or use separate terminals.</p>
+<h4 id="problem-colcon-build-fails"><a class="toclink" href="../../2025/11/02/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#problem-colcon-build-fails">⚙️ Problem: <code>colcon build</code> Fails</a></h4>
+<p><strong>Fix:</strong>
+Ensure all dependencies are installed:</p>
+<div class="highlight"><pre><span></span><code>rosdep<span class="w"> </span>update
+rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>-r<span class="w"> </span>-y
+</code></pre></div>
+<h4 id="problem-ros-1ros-2-bridge-fails-to-start"><a class="toclink" href="../../2025/11/02/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#problem-ros-1ros-2-bridge-fails-to-start">🔄 Problem: ROS 1–ROS 2 Bridge Fails to Start</a></h4>
+<p><strong>Fix:</strong></p>
+<ul>
+<li>Confirm both <code>source_ros1</code> and <code>source_ros2</code> have been sourced.</li>
+<li>Restart the bridge with:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>ros1_bridge<span class="w"> </span>dynamic_bridge
+</code></pre></div>
+<hr />
+<h3 id="conclusion"><a class="toclink" href="../../2025/11/02/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/#conclusion">🚀 Conclusion</a></h3>
+<p>By carefully isolating environments and using <strong>aliases</strong> or <strong>separate terminals</strong>, you can run <strong>ROS 1 Noetic</strong> and <strong>ROS 2 Foxy</strong> side-by-side without conflicts.
+Building both distributions from source ensures full control over your workspace, and the <strong>ros1_bridge</strong> enables cross-version communication for hybrid development.</p>
+<p>Whether you’re maintaining legacy ROS 1 systems or transitioning to ROS 2, this dual setup keeps your workflow future-proof and flexible.</p>
+<p><strong>Happy Coding and Exploring ROS! 🤖</strong></p>
+    
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-11-02 00:00:00+00:00">November 2, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="./" class="md-meta__link">Robotics</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              3 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="efficient-docker-management-for-robotics"><a class="toclink" href="../../2025/11/02/efficient-docker-management-for-robotics/">Efficient Docker Management for Robotics</a></h2>
+<p>Docker has become an indispensable tool in robotics development—enabling <strong>rapid prototyping</strong>, <strong>environment isolation</strong>, and <strong>seamless deployment</strong>. Yet, working with complex environments like <strong>ROS (Robot Operating System)</strong> requires more than just containerization; it demands efficient management of images, devices, and GUIs.</p>
+<p>This guide walks through the essentials of managing Docker for robotics—covering image saving, cleanup, peripheral access, GUI integration, and workspace setup for ROS-based development.</p>
+<hr />
+<h3 id="key-topics-covered"><a class="toclink" href="../../2025/11/02/efficient-docker-management-for-robotics/#key-topics-covered">🧠 Key Topics Covered</a></h3>
+<ul>
+<li>Saving and tagging Docker images for reproducibility</li>
+<li>Cleaning up unused images and containers</li>
+<li>Running Docker containers with GUI and peripheral (Bluetooth, joystick) support</li>
+<li>Setting up persistent ROS workspaces</li>
+<li>Debugging common container and ROS issues</li>
+</ul>
+<hr />
+<h3 id="1-saving-docker-containers-as-images"><a class="toclink" href="../../2025/11/02/efficient-docker-management-for-robotics/#1-saving-docker-containers-as-images">1. Saving Docker Containers as Images</a></h3>
+<h4 id="why-save-docker-containers"><a class="toclink" href="../../2025/11/02/efficient-docker-management-for-robotics/#why-save-docker-containers">🧩 Why Save Docker Containers?</a></h4>
+<p>Saving containers allows you to:</p>
+<ul>
+<li>Preserve your work after making modifications inside a running container.</li>
+<li>Replicate your development setup quickly for testing or deployment.</li>
+</ul>
+<h4 id="steps-to-save-a-container-as-an-image"><a class="toclink" href="../../2025/11/02/efficient-docker-management-for-robotics/#steps-to-save-a-container-as-an-image">💾 Steps to Save a Container as an Image</a></h4>
+<ol>
+<li><strong>Stop the container:</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>stop<span class="w"> </span>&lt;container_name&gt;
+</code></pre></div>
+<ol>
+<li><strong>Commit the container to a new image:</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>commit<span class="w"> </span>&lt;container_id&gt;<span class="w"> </span>&lt;new_image_name&gt;
+</code></pre></div>
+<ol>
+<li><strong>Verify the saved image:</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>images
+</code></pre></div>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>commit<span class="w"> </span>96a9ad78d1e6<span class="w"> </span>roboclaw_v02
+</code></pre></div>
+<p>This saves the container <code>96a9ad78d1e6</code> as an image named <code>roboclaw_v02</code>, preserving your setup for future use.</p>
+<hr />
+<h3 id="2-removing-unused-images-and-containers"><a class="toclink" href="../../2025/11/02/efficient-docker-management-for-robotics/#2-removing-unused-images-and-containers">2. Removing Unused Images and Containers</a></h3>
+<h4 id="why-clean-up"><a class="toclink" href="../../2025/11/02/efficient-docker-management-for-robotics/#why-clean-up">🧹 Why Clean Up?</a></h4>
+<p>Over time, unused or "dangling" Docker resources consume disk space. Cleaning them helps maintain efficiency and prevent clutter.</p>
+<h4 id="commands"><a class="toclink" href="../../2025/11/02/efficient-docker-management-for-robotics/#commands">⚙️ Commands</a></h4>
+<p>List dangling images:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>images<span class="w"> </span>-f<span class="w"> </span><span class="nv">dangling</span><span class="o">=</span><span class="nb">true</span>
+</code></pre></div>
+<p>Remove dangling images:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>image<span class="w"> </span>prune<span class="w"> </span>-f
+</code></pre></div>
+<p>Remove specific images:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>rmi<span class="w"> </span>&lt;image_id&gt;
+</code></pre></div>
+<p>Remove all stopped containers:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>container<span class="w"> </span>prune
+</code></pre></div>
+<p>Regular cleanup keeps your system lean and your builds fast.</p>
+<hr />
+<h3 id="3-running-containers-with-gui-and-peripheral-support"><a class="toclink" href="../../2025/11/02/efficient-docker-management-for-robotics/#3-running-containers-with-gui-and-peripheral-support">3. Running Containers with GUI and Peripheral Support</a></h3>
+<h4 id="why-enable-gui-and-peripherals"><a class="toclink" href="../../2025/11/02/efficient-docker-management-for-robotics/#why-enable-gui-and-peripherals">🖥️ Why Enable GUI and Peripherals?</a></h4>
+<p>Robotics developers frequently rely on visualization tools like <strong>RViz</strong> and <strong>Gazebo</strong>, along with input devices such as <strong>Xbox controllers</strong>, <strong>Bluetooth modules</strong>, or <strong>LIDAR sensors</strong>. Proper Docker flags ensure these devices and interfaces are accessible from within the container.</p>
+<h4 id="example-command"><a class="toclink" href="../../2025/11/02/efficient-docker-management-for-robotics/#example-command">🚀 Example Command</a></h4>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>roboclaw_v02<span class="w"> </span><span class="se">\</span>
+--net<span class="o">=</span>host<span class="w"> </span><span class="se">\</span>
+--privileged<span class="w"> </span><span class="se">\</span>
+--device<span class="o">=</span>/dev/input/js0:/dev/input/js0<span class="w"> </span><span class="se">\</span>
+--device<span class="o">=</span>/dev/input/event0:/dev/input/event0<span class="w"> </span><span class="se">\</span>
+-v<span class="w"> </span>/var/run/dbus:/var/run/dbus<span class="w"> </span><span class="se">\</span>
+-v<span class="w"> </span>/tmp/.X11-unix:/tmp/.X11-unix<span class="w"> </span><span class="se">\</span>
+-e<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span><span class="w"> </span><span class="se">\</span>
+roboclaw_v02
+</code></pre></div>
+<h4 id="explanation-of-flags"><a class="toclink" href="../../2025/11/02/efficient-docker-management-for-robotics/#explanation-of-flags">🔍 Explanation of Flags</a></h4>
+<ul>
+<li><strong><code>--net=host</code></strong> → Shares the host’s network stack for direct ROS communication.</li>
+<li><strong><code>--privileged</code></strong> → Grants the container access to host hardware (e.g., Bluetooth, serial devices).</li>
+<li><strong><code>--device</code></strong> → Maps input devices like joysticks or sensors to the container.</li>
+<li><strong><code>-v</code></strong> → Mounts host directories for GUI access and inter-process communication.</li>
+<li><strong><code>-e DISPLAY=$DISPLAY</code></strong> → Enables X11 display forwarding for GUIs.</li>
+</ul>
+<hr />
+<h3 id="4-setting-up-a-ros-workspace-in-docker"><a class="toclink" href="../../2025/11/02/efficient-docker-management-for-robotics/#4-setting-up-a-ros-workspace-in-docker">4. Setting Up a ROS Workspace in Docker</a></h3>
+<h4 id="why-use-a-mounted-workspace"><a class="toclink" href="../../2025/11/02/efficient-docker-management-for-robotics/#why-use-a-mounted-workspace">🧠 Why Use a Mounted Workspace?</a></h4>
+<p>A mounted workspace lets you:</p>
+<ul>
+<li>Edit files from the host while executing ROS commands inside the container.</li>
+<li>Persist code and logs across container restarts.</li>
+</ul>
+<h4 id="steps"><a class="toclink" href="../../2025/11/02/efficient-docker-management-for-robotics/#steps">⚙️ Steps</a></h4>
+<p>Run the container with a mounted directory:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>&lt;container_name&gt;<span class="w"> </span><span class="se">\</span>
+-v<span class="w"> </span>~/ros_ws:/root/ros_ws<span class="w"> </span><span class="se">\</span>
+&lt;base_image&gt;
+</code></pre></div>
+<p>Inside the container:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros_ws
+catkin_make
+<span class="nb">source</span><span class="w"> </span>devel/setup.bash
+</code></pre></div>
+<p>This setup keeps your ROS workspace synchronized between host and container.</p>
+<hr />
+<h3 id="5-running-ros-nodes-and-debugging"><a class="toclink" href="../../2025/11/02/efficient-docker-management-for-robotics/#5-running-ros-nodes-and-debugging">5. Running ROS Nodes and Debugging</a></h3>
+<h4 id="starting-roscore"><a class="toclink" href="../../2025/11/02/efficient-docker-management-for-robotics/#starting-roscore">🔧 Starting <code>roscore</code></a></h4>
+<p>Attach to the running container:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;container_name&gt;<span class="w"> </span>/bin/bash
+</code></pre></div>
+<p>Start ROS master:</p>
+<div class="highlight"><pre><span></span><code>roscore
+</code></pre></div>
+<h4 id="running-ros-nodes"><a class="toclink" href="../../2025/11/02/efficient-docker-management-for-robotics/#running-ros-nodes">🚀 Running ROS Nodes</a></h4>
+<p>Source your workspace:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/ros_ws/devel/setup.bash
+</code></pre></div>
+<p>Run a node:</p>
+<div class="highlight"><pre><span></span><code>rosrun<span class="w"> </span>roboclaw_node<span class="w"> </span>xbox_teleop_odom.py
+</code></pre></div>
+<hr />
+<h3 id="6-debugging-common-issues"><a class="toclink" href="../../2025/11/02/efficient-docker-management-for-robotics/#6-debugging-common-issues">6. Debugging Common Issues</a></h3>
+<h4 id="issue-master-not-found"><a class="toclink" href="../../2025/11/02/efficient-docker-management-for-robotics/#issue-master-not-found">❗ Issue: “Master Not Found”</a></h4>
+<p><strong>Solution:</strong>
+Ensure <code>roscore</code> is running <strong>inside the same container</strong> before launching nodes.</p>
+<hr />
+<h4 id="issue-device-not-found"><a class="toclink" href="../../2025/11/02/efficient-docker-management-for-robotics/#issue-device-not-found">⚠️ Issue: “Device Not Found”</a></h4>
+<p><strong>Solution:</strong>
+Verify that your input device is correctly mapped:</p>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/dev/input/js0
+</code></pre></div>
+<p>If not present, ensure your <code>--device</code> flag matches your hardware.</p>
+<hr />
+<h4 id="issue-ros_package_path-missing"><a class="toclink" href="../../2025/11/02/efficient-docker-management-for-robotics/#issue-ros_package_path-missing">🔍 Issue: “ROS_PACKAGE_PATH Missing”</a></h4>
+<p><strong>Solution:</strong>
+Set the workspace path manually:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">ROS_PACKAGE_PATH</span><span class="o">=</span>/root/ros_ws/src:<span class="nv">$ROS_PACKAGE_PATH</span>
+</code></pre></div>
+<hr />
+<h3 id="conclusion"><a class="toclink" href="../../2025/11/02/efficient-docker-management-for-robotics/#conclusion">🧭 Conclusion</a></h3>
+<p>By adopting these Docker management strategies, robotics developers can create <strong>reproducible</strong>, <strong>portable</strong>, and <strong>hardware-accessible</strong> environments with minimal overhead. From saving customized containers to enabling GUI and device integration, Docker empowers you to focus on building smarter, faster, and more reliable robots.</p>
+<p>Whether you’re debugging teleop nodes or deploying SLAM algorithms, mastering Docker workflow ensures that your development environment is as <strong>modular and scalable</strong> as your robotics vision.</p>
+<p><strong>Build efficiently. Innovate fearlessly. 🚀</strong></p>
+    
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-11-02 00:00:00+00:00">November 2, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="./" class="md-meta__link">Robotics</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              3 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="mastering-docker-and-ros-for-roboclaw-key-tips-and-workflows"><a class="toclink" href="../../2025/11/02/mastering-docker-and-ros-for-roboclaw--key-tips-and-workflows/">Mastering Docker and ROS for RoboClaw — Key Tips and Workflows</a></h2>
+<p>Integrating <strong>Docker</strong> and <strong>ROS</strong> for robotics projects—especially when using <strong>RoboClaw motor controllers</strong>—can feel complex at first. However, mastering a few key workflows will make your setup efficient, reproducible, and portable. This post provides a clean, step-by-step approach to saving your Docker environments, managing terminals, enabling Bluetooth and port access, and running ROS nodes for teleoperation with an Xbox controller.</p>
+<hr />
+<h3 id="key-topics-covered"><a class="toclink" href="../../2025/11/02/mastering-docker-and-ros-for-roboclaw--key-tips-and-workflows/#key-topics-covered">🧠 Key Topics Covered</a></h3>
+<ul>
+<li>Saving Docker containers for future use</li>
+<li>Opening multiple terminals in a running container</li>
+<li>Running containers with Bluetooth and port access</li>
+<li>Setting up and using a ROS workspace inside Docker</li>
+<li>Debugging common integration and device issues</li>
+</ul>
+<hr />
+<h3 id="1-saving-docker-containers"><a class="toclink" href="../../2025/11/02/mastering-docker-and-ros-for-roboclaw--key-tips-and-workflows/#1-saving-docker-containers">1. Saving Docker Containers</a></h3>
+<h4 id="why-save-containers"><a class="toclink" href="../../2025/11/02/mastering-docker-and-ros-for-roboclaw--key-tips-and-workflows/#why-save-containers">🧩 Why Save Containers?</a></h4>
+<ul>
+<li>Prevents loss of your setup when a container is stopped or removed.</li>
+<li>Makes it easy to recreate environments or share them with teammates.</li>
+</ul>
+<h4 id="steps-to-save-a-container"><a class="toclink" href="../../2025/11/02/mastering-docker-and-ros-for-roboclaw--key-tips-and-workflows/#steps-to-save-a-container">💾 Steps to Save a Container</a></h4>
+<ol>
+<li><strong>Stop the container:</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>stop<span class="w"> </span>&lt;container_name&gt;
+</code></pre></div>
+<ol>
+<li><strong>Commit the container to an image:</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>commit<span class="w"> </span>&lt;container_id&gt;<span class="w"> </span>&lt;new_image_name&gt;
+</code></pre></div>
+<ol>
+<li><strong>Verify that the image was saved:</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>images
+</code></pre></div>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>commit<span class="w"> </span>96a9ad78d1e6<span class="w"> </span>ros_noetic_with_rviz
+</code></pre></div>
+<p>This captures your current container as a reusable image named <code>ros_noetic_with_rviz</code>.</p>
+<hr />
+<h3 id="2-opening-a-new-terminal-in-a-running-container"><a class="toclink" href="../../2025/11/02/mastering-docker-and-ros-for-roboclaw--key-tips-and-workflows/#2-opening-a-new-terminal-in-a-running-container">2. Opening a New Terminal in a Running Container</a></h3>
+<h4 id="why-do-this"><a class="toclink" href="../../2025/11/02/mastering-docker-and-ros-for-roboclaw--key-tips-and-workflows/#why-do-this">💡 Why Do This?</a></h4>
+<p>Opening additional terminals inside a running container allows you to:</p>
+<ul>
+<li>Manage multiple ROS nodes simultaneously.</li>
+<li>Debug or monitor processes without interrupting running nodes.</li>
+</ul>
+<h4 id="steps"><a class="toclink" href="../../2025/11/02/mastering-docker-and-ros-for-roboclaw--key-tips-and-workflows/#steps">⚙️ Steps</a></h4>
+<ol>
+<li><strong>List running containers:</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>ps
+</code></pre></div>
+<ol>
+<li><strong>Attach a new terminal:</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;container_name&gt;<span class="w"> </span>/bin/bash
+</code></pre></div>
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>ros_rviz_container<span class="w"> </span>/bin/bash
+</code></pre></div>
+<p>Now you can run additional commands like <code>roscore</code> or launch nodes from this new terminal.</p>
+<hr />
+<h3 id="3-running-containers-with-bluetooth-and-port-access"><a class="toclink" href="../../2025/11/02/mastering-docker-and-ros-for-roboclaw--key-tips-and-workflows/#3-running-containers-with-bluetooth-and-port-access">3. Running Containers with Bluetooth and Port Access</a></h3>
+<h4 id="why-use-these-flags"><a class="toclink" href="../../2025/11/02/mastering-docker-and-ros-for-roboclaw--key-tips-and-workflows/#why-use-these-flags">🔌 Why Use These Flags?</a></h4>
+<p>Robotics often requires direct hardware access—Bluetooth modules, Xbox controllers, or serial ports. These flags grant the necessary privileges and connections.</p>
+<h4 id="example-command"><a class="toclink" href="../../2025/11/02/mastering-docker-and-ros-for-roboclaw--key-tips-and-workflows/#example-command">🧭 Example Command</a></h4>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>roboclaw_v02<span class="w"> </span><span class="se">\</span>
+--net<span class="o">=</span>host<span class="w"> </span><span class="se">\</span>
+--privileged<span class="w"> </span><span class="se">\</span>
+--device<span class="o">=</span>/dev/input/js0:/dev/input/js0<span class="w"> </span><span class="se">\</span>
+--device<span class="o">=</span>/dev/input/event0:/dev/input/event0<span class="w"> </span><span class="se">\</span>
+-v<span class="w"> </span>/var/run/dbus:/var/run/dbus<span class="w"> </span><span class="se">\</span>
+-v<span class="w"> </span>/tmp/.X11-unix:/tmp/.X11-unix<span class="w"> </span><span class="se">\</span>
+-e<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span><span class="w"> </span><span class="se">\</span>
+roboclaw_v02
+</code></pre></div>
+<h4 id="explanation-of-flags"><a class="toclink" href="../../2025/11/02/mastering-docker-and-ros-for-roboclaw--key-tips-and-workflows/#explanation-of-flags">🛠️ Explanation of Flags</a></h4>
+<ul>
+<li><strong><code>--net=host</code></strong> — Enables communication with the host’s network stack (important for ROS topics).</li>
+<li><strong><code>--privileged</code></strong> — Grants full access to host devices (e.g., serial ports, Bluetooth).</li>
+<li><strong><code>--device</code></strong> — Maps physical devices (joysticks, controllers, etc.) into the container.</li>
+<li><strong><code>-v</code></strong> — Mounts host directories required for GUI or device communication.</li>
+<li><strong><code>-e DISPLAY=$DISPLAY</code></strong> — Enables X11 display forwarding for GUI tools like RViz.</li>
+</ul>
+<hr />
+<h3 id="4-setting-up-a-ros-workspace-in-docker"><a class="toclink" href="../../2025/11/02/mastering-docker-and-ros-for-roboclaw--key-tips-and-workflows/#4-setting-up-a-ros-workspace-in-docker">4. Setting Up a ROS Workspace in Docker</a></h3>
+<h4 id="why-mount-a-workspace"><a class="toclink" href="../../2025/11/02/mastering-docker-and-ros-for-roboclaw--key-tips-and-workflows/#why-mount-a-workspace">🧠 Why Mount a Workspace?</a></h4>
+<p>A mounted workspace keeps your ROS source code synchronized between your host and container. You can edit code locally while executing ROS commands in Docker.</p>
+<h4 id="steps_1"><a class="toclink" href="../../2025/11/02/mastering-docker-and-ros-for-roboclaw--key-tips-and-workflows/#steps_1">⚙️ Steps</a></h4>
+<p>Run your container with a mounted workspace:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--name<span class="w"> </span>&lt;container_name&gt;<span class="w"> </span><span class="se">\</span>
+-v<span class="w"> </span>~/ros_noetic_ws:/root/ros_noetic_ws<span class="w"> </span><span class="se">\</span>
+&lt;base_image&gt;
+</code></pre></div>
+<p>Inside the container:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros_noetic_ws
+catkin_make
+<span class="nb">source</span><span class="w"> </span>devel/setup.bash
+</code></pre></div>
+<p>Your workspace is now active and ready for ROS development.</p>
+<hr />
+<h3 id="5-running-ros-nodes-and-debugging"><a class="toclink" href="../../2025/11/02/mastering-docker-and-ros-for-roboclaw--key-tips-and-workflows/#5-running-ros-nodes-and-debugging">5. Running ROS Nodes and Debugging</a></h3>
+<h4 id="starting-roscore"><a class="toclink" href="../../2025/11/02/mastering-docker-and-ros-for-roboclaw--key-tips-and-workflows/#starting-roscore">🧩 Starting <code>roscore</code></a></h4>
+<p>Attach to the container:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>&lt;container_name&gt;<span class="w"> </span>/bin/bash
+</code></pre></div>
+<p>Start ROS master:</p>
+<div class="highlight"><pre><span></span><code>roscore
+</code></pre></div>
+<h4 id="running-a-ros-node"><a class="toclink" href="../../2025/11/02/mastering-docker-and-ros-for-roboclaw--key-tips-and-workflows/#running-a-ros-node">🚀 Running a ROS Node</a></h4>
+<p>Source the workspace:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/ros_noetic_ws/devel/setup.bash
+</code></pre></div>
+<p>Run your node:</p>
+<div class="highlight"><pre><span></span><code>rosrun<span class="w"> </span>roboclaw_node<span class="w"> </span>xbox_teleop_odom.py
+</code></pre></div>
+<p>This setup enables Xbox controller input for teleoperation or differential drive testing with RoboClaw motor controllers.</p>
+<hr />
+<h3 id="6-debugging-common-issues"><a class="toclink" href="../../2025/11/02/mastering-docker-and-ros-for-roboclaw--key-tips-and-workflows/#6-debugging-common-issues">6. Debugging Common Issues</a></h3>
+<h4 id="problem-master-not-found"><a class="toclink" href="../../2025/11/02/mastering-docker-and-ros-for-roboclaw--key-tips-and-workflows/#problem-master-not-found">❌ Problem: “Master Not Found”</a></h4>
+<p><strong>Solution:</strong>
+Ensure <code>roscore</code> is running inside the same container as your nodes.</p>
+<hr />
+<h4 id="problem-device-not-found"><a class="toclink" href="../../2025/11/02/mastering-docker-and-ros-for-roboclaw--key-tips-and-workflows/#problem-device-not-found">⚠️ Problem: “Device Not Found”</a></h4>
+<p><strong>Solution:</strong>
+Verify the input device mapping:</p>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/dev/input/js0
+</code></pre></div>
+<p>If missing, double-check your <code>--device</code> flag during container startup.</p>
+<hr />
+<h4 id="problem-ros_package_path-missing"><a class="toclink" href="../../2025/11/02/mastering-docker-and-ros-for-roboclaw--key-tips-and-workflows/#problem-ros_package_path-missing">🔍 Problem: “ROS_PACKAGE_PATH Missing”</a></h4>
+<p><strong>Solution:</strong>
+Add your workspace path manually:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">ROS_PACKAGE_PATH</span><span class="o">=</span>/root/ros_noetic_ws/src:<span class="nv">$ROS_PACKAGE_PATH</span>
+</code></pre></div>
+<hr />
+<h3 id="conclusion"><a class="toclink" href="../../2025/11/02/mastering-docker-and-ros-for-roboclaw--key-tips-and-workflows/#conclusion">🚀 Conclusion</a></h3>
+<p>By mastering these Docker and ROS workflows, you can streamline <strong>RoboClaw-based robotics development</strong>—from running teleoperation scripts to debugging complex ROS nodes.
+Saving your containers, enabling peripheral access, and maintaining synchronized workspaces ensures a clean, reproducible environment for your robotics stack.</p>
+<p>Whether you’re testing on a prototype rover or deploying on a production robot, this workflow minimizes setup friction so you can <strong>focus on innovation, not configuration</strong>.</p>
+<p><strong>Happy Robotics! 🤖</strong></p>
+    
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2025-11-02 00:00:00+00:00">November 2, 2025</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="./" class="md-meta__link">Robotics</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              3 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy"><a class="toclink" href="../../2025/11/02/setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy/">Setting Up and Running the D500 LiDAR Kit’s STL-19P on ROS 2 Jazzy</a></h2>
+<p>The <strong>D500 LiDAR Kit’s STL-19P</strong> offers affordable and reliable 2D scanning capabilities for autonomous robots. This guide explains how to configure, launch, and visualize LiDAR data on <strong>ROS 2 Jazzy</strong> using the official <a href="https://github.com/ldrobotSensorTeam/ldlidar_ros2"><code>ldlidar_ros2</code></a> package from <strong>LD Robot Sensor Team</strong>.</p>
+<p>By the end, you’ll have a fully functional LiDAR node publishing real-time <code>/scan</code> data viewable in <strong>Rviz2</strong>.</p>
+<hr />
+<h3 id="prerequisites"><a class="toclink" href="../../2025/11/02/setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#prerequisites">🧠 Prerequisites</a></h3>
+<p>Before starting, make sure you have:</p>
+<ul>
+<li><strong>ROS 2 Jazzy</strong> installed and configured.</li>
+<li><strong>A working ROS 2 workspace</strong>, ideally located on your Desktop for convenience.</li>
+</ul>
+<h4 id="set-up-your-ros-2-workspace"><a class="toclink" href="../../2025/11/02/setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#set-up-your-ros-2-workspace">🧱 Set Up Your ROS 2 Workspace</a></h4>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/Desktop/frata_workspace/src
+<span class="nb">cd</span><span class="w"> </span>~/Desktop/frata_workspace
+colcon<span class="w"> </span>build
+<span class="nb">source</span><span class="w"> </span>install/setup.bash
+</code></pre></div>
+<p>This creates and initializes your <code>frata_workspace</code>, the home for your LiDAR package.</p>
+<hr />
+<h3 id="1-cloning-and-building-the-ldlidar-package"><a class="toclink" href="../../2025/11/02/setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#1-cloning-and-building-the-ldlidar-package">1️⃣ Cloning and Building the LDLiDAR Package</a></h3>
+<h4 id="clone-the-repository"><a class="toclink" href="../../2025/11/02/setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#clone-the-repository">Clone the Repository</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Desktop/frata_workspace/src
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ldrobotSensorTeam/ldlidar_ros2.git
+</code></pre></div>
+<h4 id="install-dependencies"><a class="toclink" href="../../2025/11/02/setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#install-dependencies">Install Dependencies</a></h4>
+<p>Use <code>rosdep</code> to automatically install any missing packages:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/Desktop/frata_workspace
+rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>-r<span class="w"> </span>-y
+</code></pre></div>
+<h4 id="build-the-workspace"><a class="toclink" href="../../2025/11/02/setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#build-the-workspace">Build the Workspace</a></h4>
+<div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="o">=</span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
+</code></pre></div>
+<h4 id="source-the-workspace"><a class="toclink" href="../../2025/11/02/setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#source-the-workspace">Source the Workspace</a></h4>
+<p>To make the environment persistent:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;source ~/Desktop/frata_workspace/install/local_setup.bash&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div>
+<p>This ensures ROS 2 recognizes your newly built LiDAR package every time you open a terminal.</p>
+<hr />
+<h3 id="2-running-the-ldlidar-node"><a class="toclink" href="../../2025/11/02/setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#2-running-the-ldlidar-node">2️⃣ Running the LDLiDAR Node</a></h3>
+<h4 id="connect-the-lidar"><a class="toclink" href="../../2025/11/02/setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#connect-the-lidar">Connect the LiDAR</a></h4>
+<p>Plug the <strong>STL-19P</strong> sensor into a <strong>USB port</strong>. If it isn’t recognized, try a different cable or a powered USB hub.</p>
+<h4 id="identify-the-serial-port"><a class="toclink" href="../../2025/11/02/setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#identify-the-serial-port">Identify the Serial Port</a></h4>
+<p>Run:</p>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>/dev/ttyUSB*
+</code></pre></div>
+<p><strong>Example Output:</strong></p>
+<div class="highlight"><pre><span></span><code>/dev/ttyUSB0
+</code></pre></div>
+<p>Take note of this port — you’ll use it in the launch configuration.</p>
+<h4 id="launch-the-node"><a class="toclink" href="../../2025/11/02/setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#launch-the-node">Launch the Node</a></h4>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>launch<span class="w"> </span>ldlidar_ros2<span class="w"> </span>ld19.launch.py
+</code></pre></div>
+<p>If necessary, edit the file to set the correct port:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">port_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;/dev/ttyUSB0&#39;</span>
+</code></pre></div>
+<hr />
+<h3 id="3-visualizing-lidar-data-in-rviz2"><a class="toclink" href="../../2025/11/02/setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#3-visualizing-lidar-data-in-rviz2">3️⃣ Visualizing LiDAR Data in Rviz2</a></h3>
+<p>Once the node is running, open Rviz2:</p>
+<div class="highlight"><pre><span></span><code>rviz2
+</code></pre></div>
+<ul>
+<li>Click <strong>“Add” → “By Topic”</strong></li>
+<li>Select <strong><code>/scan</code></strong> and choose <strong>LaserScan</strong> as the display type</li>
+</ul>
+<p>You should now see a real-time 360-degree laser sweep representing detected surroundings.</p>
+<hr />
+<h3 id="4-troubleshooting-common-errors"><a class="toclink" href="../../2025/11/02/setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#4-troubleshooting-common-errors">4️⃣ Troubleshooting Common Errors</a></h3>
+<h4 id="1-communication-abnormal-error"><a class="toclink" href="../../2025/11/02/setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#1-communication-abnormal-error">❌ 1. “Communication Abnormal” Error</a></h4>
+<p>Example log:</p>
+<div class="highlight"><pre><span></span><code>[ERROR] [ldlidar_publisher_ld19]: ldlidar communication is abnormal.
+</code></pre></div>
+<p><strong>Fixes:</strong></p>
+<ul>
+<li>Verify the correct serial port in <code>ld19.launch.py</code> (e.g., <code>/dev/ttyUSB0</code>).</li>
+<li>Confirm baud rate = <code>230400</code>.</li>
+<li>Reconnect the device or use a <strong>USB extension cable</strong> if the port is unstable.</li>
+</ul>
+<hr />
+<h4 id="2-device-not-found"><a class="toclink" href="../../2025/11/02/setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#2-device-not-found">⚠️ 2. Device Not Found</a></h4>
+<p>If <code>ls /dev/ttyUSB*</code> returns nothing:</p>
+<ul>
+<li>Make sure the LiDAR is properly powered and connected.</li>
+<li>Try a different USB port or check <code>dmesg | grep tty</code> for detection logs.</li>
+</ul>
+<hr />
+<h4 id="3-no-data-in-rviz2"><a class="toclink" href="../../2025/11/02/setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#3-no-data-in-rviz2">🚫 3. No Data in Rviz2</a></h4>
+<p>Check whether ROS 2 is actually publishing the <code>/scan</code> topic:</p>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>topic<span class="w"> </span>list
+ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/scan
+</code></pre></div>
+<p>If no data appears, restart the LiDAR node or re-check serial communication settings.</p>
+<hr />
+<h4 id="4-failed-init_port-fastrtps_port7000-error"><a class="toclink" href="../../2025/11/02/setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#4-failed-init_port-fastrtps_port7000-error">🧩 4. “Failed init_port fastrtps_port7000” Error</a></h4>
+<p>This is a <strong>shared memory transport</strong> issue sometimes seen in ROS 2.</p>
+<p><strong>Solution:</strong> Disable shared memory by adding this line to your <code>~/.bashrc</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">RMW_IMPLEMENTATION</span><span class="o">=</span>rmw_cyclonedds_cpp
+</code></pre></div>
+<p>Then re-source it:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div>
+<hr />
+<h3 id="example-successful-launch-output"><a class="toclink" href="../../2025/11/02/setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#example-successful-launch-output">✅ Example Successful Launch Output</a></h3>
+<p>When everything is configured correctly, your terminal should display:</p>
+<div class="highlight"><pre><span></span><code>[INFO] [ldlidar_publisher_ld19]: LDLiDAR SDK Pack Version is:3.3.1
+[INFO] [ldlidar_publisher_ld19]: ROS2 param input:
+[INFO] [ldlidar_publisher_ld19]: ldlidar serial connect is success
+[INFO] [ldlidar_publisher_ld19]: ldlidar communication is normal.
+[INFO] [ldlidar_publisher_ld19]: ldlidar driver start is success.
+[INFO] [ldlidar_publisher_ld19]: start normal, pub lidar data
+</code></pre></div>
+<p>This indicates that your <strong>LiDAR is communicating properly</strong>, and the <code>/scan</code> topic is being published.</p>
+<hr />
+<h3 id="conclusion"><a class="toclink" href="../../2025/11/02/setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy/#conclusion">🧭 Conclusion</a></h3>
+<p>With this setup, you can confidently run the <strong>D500 LiDAR Kit’s STL-19P</strong> on <strong>ROS 2 Jazzy</strong>, visualize live sensor data, and debug connectivity issues.</p>
+<p>If errors occur, review your serial port, baud rate, and environment variables. Once stable, this LiDAR becomes a reliable perception tool for <strong>autonomous navigation, mapping, and obstacle detection</strong>.</p>
+<p>For continuous updates and additional models, visit the <a href="https://github.com/ldrobotSensorTeam/ldlidar_ros2">LD Robot Sensor Team GitHub repository</a>.</p>
+<p><strong>Empower your robot with vision. 🚀</strong></p>
+    
+  </div>
+</article>
       
         <article class="md-post md-post--excerpt">
   <header class="md-post__header">
@@ -2896,16 +3618,10 @@
     <span class="n">check_cmd_vel_topic</span><span class="p">()</span>
 
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">[✔] Setup complete! You can now control RoboClaw from ROS 2.&quot;</span><span class="p">)</span>
-<span class="err">````</span>
-
-<span class="o">---</span>
-
-<span class="c1">## **Conclusion**</span>
-
-<span class="n">This</span> <span class="n">script</span> <span class="o">**</span><span class="n">automates</span> <span class="n">the</span> <span class="n">ROS</span> <span class="n">bridge</span> <span class="n">setup</span><span class="o">**</span> <span class="n">so</span> <span class="n">you</span> <span class="n">can</span> <span class="n">focus</span> <span class="n">on</span> <span class="n">developing</span> <span class="n">your</span> <span class="n">robot</span><span class="o">.</span> <span class="n">Just</span> <span class="n">run</span><span class="p">:</span>
-
-<span class="err">```</span><span class="n">bash</span>
-<span class="n">python3</span> <span class="n">setup_ros_bridge</span><span class="o">.</span><span class="n">py</span>
+</code></pre></div>
+<h3 id="conclusion"><a class="toclink" href="../../2025/01/30/automating-the-ros-1-ros-2-bridge-for-roboclaw/#conclusion"><strong>Conclusion</strong></a></h3>
+<p>This script <strong>automates the ROS bridge setup</strong> so you can focus on developing your robot. Just run:</p>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>setup_ros_bridge.py
 </code></pre></div>
 <p>🚀 <strong>Now you can control your RoboClaw motor from ROS 2 effortlessly!</strong></p>
 <p>🎉 Now, you have a <strong>repeatable setup</strong> for ROS 1-ROS 2 bridging! 🚀</p>

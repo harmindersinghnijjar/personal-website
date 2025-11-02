@@ -6,19 +6,17 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="An analysis of the social, economic, and environmental consequences of hydraulic fracturing in the United States.">
+        <meta name="description" content="A comprehensive guide to installing, sourcing, and managing ROS 1 Noetic and ROS 2 Foxy side-by-side on Ubuntu 20.04, including setup for the ROS 1–ROS 2 bridge.">
       
       
         <meta name="author" content="harmindersinghnijjar">
       
       
-        <link rel="canonical" href="https://harminder.dev/blog/2025/10/05/the-human-and-environmental-cost-of-fracking-in-the-united-states/">
+        <link rel="canonical" href="https://harminder.dev/blog/2025/11/02/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/">
       
       
-        <link rel="prev" href="../../../07/09/deploying-mkdocs-with-a-virtual-environment-to-github-pages/">
+        <link rel="prev" href="../efficient-docker-management-for-robotics/">
       
-      
-        <link rel="next" href="../../../11/02/setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy/">
       
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
@@ -26,7 +24,7 @@
     
     
       
-        <title>The Human and Environmental Cost of Fracking in the United States - Harminder Singh Nijjar</title>
+        <title>Running ROS 1 Noetic and ROS 2 Foxy From Source on Ubuntu 20.04 - Harminder Singh Nijjar</title>
       
     
     
@@ -92,7 +90,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#the-human-and-environmental-cost-of-fracking-in-the-united-states" class="md-skip">
+        <a href="#running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004" class="md-skip">
           Skip to content
         </a>
       
@@ -125,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              The Human and Environmental Cost of Fracking in the United States
+              Running ROS 1 Noetic and ROS 2 Foxy From Source on Ubuntu 20.04
             
           </span>
         </div>
@@ -2670,6 +2668,242 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#key-topics-covered" class="md-nav__link">
+    <span class="md-ellipsis">
+      🧠 Key Topics Covered
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-installing-ros-1-noetic-from-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Installing ROS 1 Noetic From Source
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Installing ROS 1 Noetic From Source">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Install Dependencies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-a-workspace-and-clone-ros-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Create a Workspace and Clone ROS 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-build-ros-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Build ROS 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-source-ros-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Source ROS 1
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-installing-ros-2-foxy-from-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Installing ROS 2 Foxy From Source
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Installing ROS 2 Foxy From Source">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install-dependencies_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Install Dependencies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-create-a-workspace-and-clone-ros-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Create a Workspace and Clone ROS 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-build-ros-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 3: Build ROS 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-source-ros-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 4: Source ROS 2
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-managing-ros-1-and-ros-2-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Managing ROS 1 and ROS 2 Environments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Managing ROS 1 and ROS 2 Environments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-use-aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 1: Use Aliases
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-use-separate-terminals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 2: Use Separate Terminals
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-running-the-ros-1ros-2-bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Running the ROS 1–ROS 2 Bridge
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Running the ROS 1–ROS 2 Bridge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-install-the-bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 1: Install the Bridge
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-run-the-dynamic-bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step 2: Run the Dynamic Bridge
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-debugging-common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Debugging Common Issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Debugging Common Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problem-ros-1-and-ros-2-variables-overlapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      ❌ Problem: ROS 1 and ROS 2 Variables Overlapping
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-colcon-build-fails" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚙️ Problem: colcon build Fails
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problem-ros-1ros-2-bridge-fails-to-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Problem: ROS 1–ROS 2 Bridge Fails to Start
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      🚀 Conclusion
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -2705,7 +2939,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2025-10-05 00:00:00+00:00" class="md-ellipsis">October 5, 2025</time>
+                        <time datetime="2025-11-02 00:00:00+00:00" class="md-ellipsis">November 2, 2025</time>
                       </div>
                     </li>
                     
@@ -2716,7 +2950,7 @@
                           <span class="md-ellipsis">
                             in
                             
-                              <a href="../../../../category/ethics/">Ethics</a></span>
+                              <a href="../../../../category/robotics/">Robotics</a></span>
                         </div>
                       </li>
                     
@@ -2727,7 +2961,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
                           <span class="md-ellipsis">
                             
-                              2 min read
+                              3 min read
                             
                           </span>
                         </div>
@@ -2751,11 +2985,138 @@
 
 
 
-<h1 id="the-human-and-environmental-cost-of-fracking-in-the-united-states">The Human and Environmental Cost of Fracking in the United States<a class="headerlink" href="#the-human-and-environmental-cost-of-fracking-in-the-united-states" title="Permanent link">&para;</a></h1>
-<p>The extraction of natural gas by oil and gas companies using the process of hydraulic fracturing or "fracking" in at least 24 states of the United States of America has been a disaster for the human race. They may have lowered natural gas prices domestically by not having to rely on imports, but have contaminated the drinking water supplies of far too many Americans. The primary reason why groundwater has been made unfit for consumption for rural Americans has been the failure to disclose conflicts of interest by members on the committees of environmental regulatory agencies. </p>
-<p>Any God-fearing, rational, contributing member of society not driven by greed and not employed in the pursuit of surrogate activities will position themselves on the side of anti-fracking. If not for the sake of personal morals, then at the very least out of respect for our environment and the responsibility we have for preserving it. Disregarding the human cost of fracking is not only disrespectful towards rural Americans directly impacted by having carcinogens mixed in their water supplies but it is also a neglect of the issue of freshwater scarcity.</p>
-<p>The US is heavily reliant on imports. The United States' total imports in 2024 were valued at $3.36 trillion, according to the United Nations COMTRADE database on international trade. After China, the US is the largest consumer of fossil fuels. China is also the largest importer of coal and crude oil and the fifth largest importer of natural gas. Countries that have large fossil fuel consumption are typically not able to sustain energy demands through domestic production alone. Using China as an example, it's not unheard of to import fossil fuel. However, bureaucrats would much rather line their pockets by pushing pro-drilling agendas, leaving the average American unable to use their water well.</p>
-<p>This innate greed has caused irreversible damage to water wells across the country. Not to mention that the process itself requires anywhere from 1.5 million to 16 million gallons of water per well. Since 2008, the so-called “shale revolution” has helped maintain gas prices in the US—but only at the cost of lasting economic and ecological damage.</p>
+<h1 id="running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004">Running ROS 1 Noetic and ROS 2 Foxy From Source on Ubuntu 20.04<a class="headerlink" href="#running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004" title="Permanent link">&para;</a></h1>
+<p>Running both <strong>ROS 1 (Noetic)</strong> and <strong>ROS 2 (Foxy)</strong> on the same machine can be a rewarding yet challenging experience. The differences in dependencies, environment variables, and message-passing architectures make dual installations tricky to manage. However, <strong>Ubuntu 20.04</strong> remains the ideal operating system for this setup — it is the <strong>native LTS release</strong> for both distributions: ROS 1 Noetic (the final ROS 1 release) and ROS 2 Foxy (an LTS version supported until 2025).</p>
+<p>This guide will walk you through the process of building both distributions <strong>from source</strong>, managing your environments cleanly, and establishing a <strong>ROS 1–ROS 2 bridge</strong> for interoperability between the two ecosystems.</p>
+<hr />
+<h2 id="key-topics-covered">🧠 Key Topics Covered<a class="headerlink" href="#key-topics-covered" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Installing <strong>ROS 1 Noetic</strong> from source</li>
+<li>Installing <strong>ROS 2 Foxy</strong> from source</li>
+<li>Managing environment variables and avoiding conflicts</li>
+<li>Running a <strong>ROS 1–ROS 2 bridge</strong> for hybrid communication</li>
+</ul>
+<hr />
+<h2 id="1-installing-ros-1-noetic-from-source">1. Installing ROS 1 Noetic From Source<a class="headerlink" href="#1-installing-ros-1-noetic-from-source" title="Permanent link">&para;</a></h2>
+<h3 id="step-1-install-dependencies">Step 1: Install Dependencies<a class="headerlink" href="#step-1-install-dependencies" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>upgrade<span class="w"> </span>-y
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3-rosdep<span class="w"> </span>python3-rosinstall-generator<span class="w"> </span><span class="se">\</span>
+python3-vcstool<span class="w"> </span>build-essential
+</code></pre></div>
+<p>Initialize <code>rosdep</code>:</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>rosdep<span class="w"> </span>init
+rosdep<span class="w"> </span>update
+</code></pre></div>
+<h3 id="step-2-create-a-workspace-and-clone-ros-1">Step 2: Create a Workspace and Clone ROS 1<a class="headerlink" href="#step-2-create-a-workspace-and-clone-ros-1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/ros1_noetic/src
+<span class="nb">cd</span><span class="w"> </span>~/ros1_noetic
+rosinstall_generator<span class="w"> </span>desktop<span class="w"> </span>--rosdistro<span class="w"> </span>noetic<span class="w"> </span>--deps<span class="w"> </span>--tar<span class="w"> </span>&gt;<span class="w"> </span>noetic.rosinstall
+vcs<span class="w"> </span>import<span class="w"> </span>--input<span class="w"> </span>noetic.rosinstall<span class="w"> </span>src
+rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>-r<span class="w"> </span>-y
+</code></pre></div>
+<h3 id="step-3-build-ros-1">Step 3: Build ROS 1<a class="headerlink" href="#step-3-build-ros-1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros1_noetic
+colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
+</code></pre></div>
+<h3 id="step-4-source-ros-1">Step 4: Source ROS 1<a class="headerlink" href="#step-4-source-ros-1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;source ~/ros1_noetic/install/setup.bash&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div>
+<p>Verify:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$ROS_DISTRO</span>
+<span class="c1"># Output: noetic</span>
+</code></pre></div>
+<hr />
+<h2 id="2-installing-ros-2-foxy-from-source">2. Installing ROS 2 Foxy From Source<a class="headerlink" href="#2-installing-ros-2-foxy-from-source" title="Permanent link">&para;</a></h2>
+<p>ROS 2 uses a completely different middleware (DDS), so we install it in a separate workspace.</p>
+<h3 id="step-1-install-dependencies_1">Step 1: Install Dependencies<a class="headerlink" href="#step-1-install-dependencies_1" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3-colcon-common-extensions<span class="w"> </span><span class="se">\</span>
+python3-vcstool<span class="w"> </span>git<span class="w"> </span>wget
+</code></pre></div>
+<h3 id="step-2-create-a-workspace-and-clone-ros-2">Step 2: Create a Workspace and Clone ROS 2<a class="headerlink" href="#step-2-create-a-workspace-and-clone-ros-2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/ros2_foxy/src
+<span class="nb">cd</span><span class="w"> </span>~/ros2_foxy
+vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos
+rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>-r<span class="w"> </span>-y
+</code></pre></div>
+<h3 id="step-3-build-ros-2">Step 3: Build ROS 2<a class="headerlink" href="#step-3-build-ros-2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>~/ros2_foxy
+colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
+</code></pre></div>
+<h3 id="step-4-source-ros-2">Step 4: Source ROS 2<a class="headerlink" href="#step-4-source-ros-2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;source ~/ros2_foxy/install/setup.bash&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<span class="nb">source</span><span class="w"> </span>~/.bashrc
+</code></pre></div>
+<p>Verify:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="nv">$ROS_DISTRO</span>
+<span class="c1"># Output: foxy</span>
+</code></pre></div>
+<hr />
+<h2 id="3-managing-ros-1-and-ros-2-environments">3. Managing ROS 1 and ROS 2 Environments<a class="headerlink" href="#3-managing-ros-1-and-ros-2-environments" title="Permanent link">&para;</a></h2>
+<p>Since both ROS versions define overlapping environment variables, sourcing them simultaneously will cause conflicts. There are two main ways to handle this.</p>
+<h3 id="option-1-use-aliases"><strong>Option 1: Use Aliases</strong><a class="headerlink" href="#option-1-use-aliases" title="Permanent link">&para;</a></h3>
+<p>Add the following to your <code>~/.bashrc</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">alias</span><span class="w"> </span><span class="nv">source_ros1</span><span class="o">=</span><span class="s2">&quot;source ~/ros1_noetic/install/setup.bash&quot;</span>
+<span class="nb">alias</span><span class="w"> </span><span class="nv">source_ros2</span><span class="o">=</span><span class="s2">&quot;source ~/ros2_foxy/install/setup.bash&quot;</span>
+</code></pre></div>
+<p>Then simply switch between versions:</p>
+<div class="highlight"><pre><span></span><code>source_ros1<span class="w">  </span><span class="c1"># Activates ROS Noetic</span>
+source_ros2<span class="w">  </span><span class="c1"># Activates ROS 2 Foxy</span>
+</code></pre></div>
+<h3 id="option-2-use-separate-terminals"><strong>Option 2: Use Separate Terminals</strong><a class="headerlink" href="#option-2-use-separate-terminals" title="Permanent link">&para;</a></h3>
+<p>For simultaneous development:</p>
+<ul>
+<li><strong>Terminal 1 (ROS 1 Noetic):</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/ros1_noetic/install/setup.bash
+roscore
+</code></pre></div>
+<ul>
+<li><strong>Terminal 2 (ROS 2 Foxy):</strong></li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>~/ros2_foxy/install/setup.bash
+ros2<span class="w"> </span>run<span class="w"> </span>demo_nodes_cpp<span class="w"> </span>talker
+</code></pre></div>
+<p>This method keeps each ROS environment isolated and prevents variable overlap.</p>
+<hr />
+<h2 id="4-running-the-ros-1ros-2-bridge">4. Running the ROS 1–ROS 2 Bridge<a class="headerlink" href="#4-running-the-ros-1ros-2-bridge" title="Permanent link">&para;</a></h2>
+<p>The <code>ros1_bridge</code> package allows ROS 1 and ROS 2 nodes to communicate seamlessly.</p>
+<h3 id="step-1-install-the-bridge">Step 1: Install the Bridge<a class="headerlink" href="#step-1-install-the-bridge" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>source_ros1
+source_ros2
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>ros-foxy-ros1-bridge
+</code></pre></div>
+<h3 id="step-2-run-the-dynamic-bridge">Step 2: Run the Dynamic Bridge<a class="headerlink" href="#step-2-run-the-dynamic-bridge" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>ros1_bridge<span class="w"> </span>dynamic_bridge
+</code></pre></div>
+<p>Now, any topic published in <strong>ROS 1</strong> will be visible in <strong>ROS 2</strong>, and vice versa. You can verify this using:</p>
+<div class="highlight"><pre><span></span><code>rostopic<span class="w"> </span>list<span class="w">   </span><span class="c1"># In ROS 1 terminal</span>
+ros2<span class="w"> </span>topic<span class="w"> </span>list<span class="w"> </span><span class="c1"># In ROS 2 terminal</span>
+</code></pre></div>
+<hr />
+<h2 id="5-debugging-common-issues">5. Debugging Common Issues<a class="headerlink" href="#5-debugging-common-issues" title="Permanent link">&para;</a></h2>
+<h3 id="problem-ros-1-and-ros-2-variables-overlapping">❌ Problem: ROS 1 and ROS 2 Variables Overlapping<a class="headerlink" href="#problem-ros-1-and-ros-2-variables-overlapping" title="Permanent link">&para;</a></h3>
+<p><strong>Fix:</strong> Only source one at a time, or use separate terminals.</p>
+<h3 id="problem-colcon-build-fails">⚙️ Problem: <code>colcon build</code> Fails<a class="headerlink" href="#problem-colcon-build-fails" title="Permanent link">&para;</a></h3>
+<p><strong>Fix:</strong>
+Ensure all dependencies are installed:</p>
+<div class="highlight"><pre><span></span><code>rosdep<span class="w"> </span>update
+rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span class="w"> </span>src<span class="w"> </span>--ignore-src<span class="w"> </span>-r<span class="w"> </span>-y
+</code></pre></div>
+<h3 id="problem-ros-1ros-2-bridge-fails-to-start">🔄 Problem: ROS 1–ROS 2 Bridge Fails to Start<a class="headerlink" href="#problem-ros-1ros-2-bridge-fails-to-start" title="Permanent link">&para;</a></h3>
+<p><strong>Fix:</strong></p>
+<ul>
+<li>Confirm both <code>source_ros1</code> and <code>source_ros2</code> have been sourced.</li>
+<li>Restart the bridge with:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>run<span class="w"> </span>ros1_bridge<span class="w"> </span>dynamic_bridge
+</code></pre></div>
+<hr />
+<h2 id="conclusion">🚀 Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>By carefully isolating environments and using <strong>aliases</strong> or <strong>separate terminals</strong>, you can run <strong>ROS 1 Noetic</strong> and <strong>ROS 2 Foxy</strong> side-by-side without conflicts.
+Building both distributions from source ensures full control over your workspace, and the <strong>ros1_bridge</strong> enables cross-version communication for hybrid development.</p>
+<p>Whether you’re maintaining legacy ROS 1 systems or transitioning to ROS 2, this dual setup keeps your workflow future-proof and flexible.</p>
+<p><strong>Happy Coding and Exploring ROS! 🤖</strong></p>
 
 
 
@@ -2776,7 +3137,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="October 13, 2025 04:19:38 UTC">October 13, 2025</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="November 2, 2025 19:30:05 UTC">November 2, 2025</span>
   </span>
 
     
@@ -2829,7 +3190,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../../../07/09/deploying-mkdocs-with-a-virtual-environment-to-github-pages/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Deploying MkDocs with a Virtual Environment to GitHub Pages">
+          <a href="../efficient-docker-management-for-robotics/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Efficient Docker Management for Robotics">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -2839,27 +3200,11 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Deploying MkDocs with a Virtual Environment to GitHub Pages
+                Efficient Docker Management for Robotics
               </div>
             </div>
           </a>
         
-        
-          
-          <a href="../../../11/02/setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy/" class="md-footer__link md-footer__link--next" aria-label="Next: Setting Up and Running the D500 LiDAR Kit’s STL-19P on ROS 2 Jazzy">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                Setting Up and Running the D500 LiDAR Kit’s STL-19P on ROS 2 Jazzy
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
         
       </nav>
     

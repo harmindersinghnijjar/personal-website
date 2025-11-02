@@ -97,6 +97,22 @@
          <lastmod>2025-11-02</lastmod>
     </url>
     <url>
+         <loc>https://harminder.dev/blog/2025/11/02/running-ros-1-noetic-and-ros-2-foxy-from-source-on-ubuntu-2004/</loc>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+         <loc>https://harminder.dev/blog/2025/11/02/efficient-docker-management-for-robotics/</loc>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+         <loc>https://harminder.dev/blog/2025/11/02/mastering-docker-and-ros-for-roboclaw--key-tips-and-workflows/</loc>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+         <loc>https://harminder.dev/blog/2025/11/02/setting-up-and-running-the-d500-lidar-kits-stl-19p-on-ros-2-jazzy/</loc>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
          <loc>https://harminder.dev/blog/2023/12/31/downloading-teri-meri-doriyaann-using-python-and-beautifulsoup/</loc>
          <lastmod>2025-11-02</lastmod>
     </url>
@@ -185,6 +201,10 @@
          <lastmod>2025-11-02</lastmod>
     </url>
     <url>
+         <loc>https://harminder.dev/blog/category/robotics/</loc>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
          <loc>https://harminder.dev/blog/category/ethics/</loc>
          <lastmod>2025-11-02</lastmod>
     </url>
@@ -206,10 +226,6 @@
     </url>
     <url>
          <loc>https://harminder.dev/blog/category/cloud-computing/</loc>
-         <lastmod>2025-11-02</lastmod>
-    </url>
-    <url>
-         <loc>https://harminder.dev/blog/category/robotics/</loc>
          <lastmod>2025-11-02</lastmod>
     </url>
     <url>
@@ -502,6 +518,10 @@
     </url>
     <url>
          <loc>https://harminder.dev/blog/page/5/</loc>
+         <lastmod>2025-11-02</lastmod>
+    </url>
+    <url>
+         <loc>https://harminder.dev/blog/archive/2025/page/2/</loc>
          <lastmod>2025-11-02</lastmod>
     </url>
     <url>
